@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Prototype I</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="jumbotron text-center">
+		<h1>Prototype 1</h1>
+		<p>Find the last position of your car</p>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-8">
+			<h1>Map</h1>
+			<div id="map" style="width: 100%;height: 550px;round:yellow; margin: 5px;"></div>
+			<script>
+
+			  function initMap() {
+				var myLatLng = {lat: -25.363, lng: 131.044};
+
+				var map = new google.maps.Map(document.getElementById('map'), {
+				  zoom: 4,
+				  center: myLatLng
+				});
+
+				var marker = new google.maps.Marker({
+				  position: myLatLng,
+				  map: map,
+				  title: 'Hello World!'
+				});
+			  }
+			</script>
+			<script async defer
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvFKFLNyeslv9r5VdA86Vnu1-e-E_-HQ4&callback=initMap">
+			</script>
+		</div>
+
+		<div class="col-sm-4">
+			<h1>Insert</h1>
+			<form class="form-horizontal" action="/action_page.php">
+    			<div class="form-group">
+      				<label class="control-label col-sm-2" for="email">Latitude:</label>
+      					<div class="col-sm-8">
+        					<input class="form-control" id="latitude" placeholder="Enter latitude" name="latitude">
+      					</div>
+    			</div>
+			<div class="form-group">
+			  <label class="control-label col-sm-2" for="pwd">Longitude:</label>
+			  <div class="col-sm-8">          
+				<input class="form-control" id="longitude" placeholder="Enter longitude" name="longitude">
+			  </div>
+			</div>
+			<div class="form-group">        
+			  <div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default">Submit</button>
+			  </div>
+			</div>
+		  </form>
+		</div>
+
+	</div> 
+</body>
+</html>
