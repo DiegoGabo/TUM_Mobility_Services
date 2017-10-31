@@ -14,14 +14,16 @@
 		<p>Find the last position of your car</p>
 	</div>
 
-	<div class="row">
+	<div class="row" style="margin: 5px">
 		<div class="col-sm-8">
 			<h1>Map</h1>
 			<div id="map" style="width: 100%;height: 550px;round:yellow; margin: 5px;"></div>
 			<script>
 
 			  function initMap() {
-				var myLatLng = {lat: -25.363, lng: 131.044};
+				var latitude = -25.363;
+				var longitude = 131.044;
+				var myLatLng = {lat: latitude, lng: longitude};
 
 				var map = new google.maps.Map(document.getElementById('map'), {
 				  zoom: 4,
@@ -44,17 +46,11 @@
 			<h1>Insert</h1>
 			<form class="form-horizontal" action="/action_page.php">
     			<div class="form-group">
-      				<label class="control-label col-sm-2" for="email">Latitude:</label>
+      				<label class="control-label col-sm-2" for="vid">Vehicle ID:</label>
       					<div class="col-sm-8">
-        					<input class="form-control" id="latitude" placeholder="Enter latitude" name="latitude">
+        					<input class="form-control" id="latitude" placeholder="Enter VID" name="VID">
       					</div>
     			</div>
-			<div class="form-group">
-			  <label class="control-label col-sm-2" for="pwd">Longitude:</label>
-			  <div class="col-sm-8">          
-				<input class="form-control" id="longitude" placeholder="Enter longitude" name="longitude">
-			  </div>
-			</div>
 			<div class="form-group">        
 			  <div class="col-sm-offset-2 col-sm-10">
 				<button type="submit" class="btn btn-default">Submit</button>
