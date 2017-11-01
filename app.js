@@ -85,7 +85,7 @@ setInterval(function(){request.get(options, (error, response, body) => {
 	console.log(postConfig)
 	request.post(postConfig, postSuccessHandler);
 
-})}, 3000)
+})}, 300)
 
 
 //Lets visualize the data
