@@ -91,7 +91,7 @@ request.get(options, (error, response, body) => {
 
 //Lets visualize the data
 app.get('/', (req, res) => {
-	res.send(json)
+	res.send("fetching data from bmw server every 10minutes \n\n" + json)
 
 })
 
