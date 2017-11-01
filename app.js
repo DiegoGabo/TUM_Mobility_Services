@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 var mongoose = require('mongoose')
 
 //Connect to Mongoose
-mongoose.connect('mongodb://heroku_w5z3d9qq:977j9v5ee163bc59p3l1l96a3f@ds243335.mlab.com:43335/heroku_w5z3d9qq')
+mongoose.connect('mongodb://localhost/bmwcardata')
 var db = mongoose.connection
 
 //model import
@@ -80,7 +80,7 @@ request.get(options, (error, response, body) => {
 
 	console.log(gpsLat, gpsLng)
 	postConfig = {
-		url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
+		url: 'localhost:3000/api/bmwdata',
 		form: data 
 	}
 	console.log(postConfig)
@@ -91,7 +91,7 @@ request.get(options, (error, response, body) => {
 
 //Lets visualize the data
 app.get('/', (req, res) => {
-	res.send("fetching data from bmw server every 10minutes. Check the database from  /api/bmwdata \n\n")
+	//res.send("fetching data from bmw server every 10minutes. Check the database from  /api/bmwdata \n\n")
 	res.send(json)
 
 
