@@ -44,7 +44,7 @@ const options = {
 
 //Request the data from bmw server and console log it
 //setInterval to fetch the data every 10min = 60000ms
-//setInterval(function(){
+setInterval(function(){
 request.get(options, (error, response, body) => {
 	json = JSON.parse(body)
 	//console.log(json.telematicKeyValues.length)
@@ -86,8 +86,7 @@ request.get(options, (error, response, body) => {
 	console.log(postConfig)
 	request.post(postConfig, postSuccessHandler);
 
-})
-//}, 300)
+})}, 3000)
 
 
 //Lets visualize the data
@@ -128,7 +127,7 @@ postConfig = {
 
 
 
-var server = app.listen(3000, function(){
+var server = app.listen(process.env.PORT || 3000, function(){
 	var port = server.address().port
 	console.log('Express server listening on port %s', port)
 })
