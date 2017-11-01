@@ -3,10 +3,10 @@ var express = require('express'),
 	app = express()
 const request = require("request")
 
-//better than request maybe try
-const rp = require("request-promise")
+
 //Learn what this is for
 const bodyParser = require('body-parser');
+
 
 app.use(bodyParser.json())
 
@@ -14,15 +14,24 @@ app.use(bodyParser.json())
 var mongoose = require('mongoose')
 
 //Connect to Mongoose
-mongoose.connect('mongodb://localhost/bmwdata')
+mongoose.connect('mongodb://localhost/b2data')
 var db = mongoose.connection
 
 //model import
 var Bmwdata = require('./models/bmwdata')
 
-//Access the BMW telematics data
-var json, gpsLat, gpsLng, req
+//var html = require('./HTML/main.html')
 
+//Access the BMW telematics data
+var json, gpsLat, gpsLng, data
+var postConfig = {}
+var postSuccessHandler = function(err, httpResponse, body){
+	console.log('JSON response from the server: ' + body)
+}
+
+//For json post requests
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 const options = {
 	url: 'https://api.bmwgroup.com/otpdatadelivery/api/thirdparty/v1/clearances/08ff2224-8afc-41bb-b33e-0ca3b2207102/telematicdata',
@@ -45,48 +54,58 @@ request.get(options, (error, response, body) => {
 			gpsLng = json.telematicKeyValues[index].value
 		}
 	}
-	req = {
+	data = {
 		'gpsLat': gpsLat,
 		'gpsLng': gpsLng
 	}
-	console.log(req)
+
 	console.log(gpsLat, gpsLng)
+	postConfig = {
+	url: 'http://localhost:3000/api/bmwdata',
+	form: data 
+	}
+	console.log(postConfig)
+	request.post(postConfig, postSuccessHandler);
 
 })
-
-request.post({url:"localhost:3000"}, (error, res, body)=> {
-
-})
-
-
-
-
-//post request to add the data to database
-app.post('/api/bmwdata', (req, res) => {
-	var bmwdata = req.body;
-	Bmwdata.addBmwdata(bmwdata, (err, bmwdata) => {
-		if(err){
-			throw err;
-		}
-		res.json(bmwdata);
-	});
-});
-
-app.get('/api/bmwdata', (req, res) => {
-	Genre.getBmwdata((err, genres) => {
-		if(err){
-			throw err;
-		}
-		res.json(genres);
-	});
-});
 
 
 //Lets visualize the data
 app.get('/', (req, res) => {
-	res.send(json)
+	res.send(data)
 
 })
+
+//get bmwData from database
+app.get('/api/bmwdata', (req, res) => {
+	Bmwdata.getbmwData((err, bmwData) => {
+		if(err){
+			throw err;
+		}
+		res.json(bmwData);
+	});
+});
+
+
+//post request to add the data to database
+app.post('/api/bmwdata', (req, res) => {
+	console.log('Post method!!!!')
+	var bmwdata = req.body;
+	Bmwdata.addbmwData(bmwdata, (err, bmwdata) => {
+		if(err){
+			throw err;
+		}
+		res.json(bmwdata);
+	})
+})
+
+
+postConfig = {
+	url: 'http://localhost:3000/api/bmwdata',
+	form: data 
+}
+
+
 
 
 var server = app.listen(3000, function(){

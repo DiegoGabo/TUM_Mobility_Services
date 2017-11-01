@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const bmwdataSchema = mongoose.Schema({
+const bmwDataSchema = mongoose.Schema({
 	SegmentLastTripElectricEnergyConsumptionOverall:{
 		type: String,
 		required: false
@@ -41,16 +41,16 @@ const bmwdataSchema = mongoose.Schema({
 
 });
 
-const Bmwdata = module.exports = mongoose.model('bmwdata', bmwdataSchema);
+const bmwData = module.exports = mongoose.model('bmwData', bmwDataSchema);
 
 // Get bmwdata
-module.exports.getBmwdata = (callback, limit) => {
-	Genre.find(callback).limit(limit);
+module.exports.getbmwData = (callback, limit) => {
+	bmwData.find(callback).limit(limit);
 }
 
 
 // Add Bmwdata
-module.exports.addBmwdata = (bmwdata, callback) => {
-	bmwdata.create(bmwdata, callback);
+module.exports.addbmwData = (bmwdata, callback) => {
+	bmwData.create(bmwdata, callback);
 }
 
