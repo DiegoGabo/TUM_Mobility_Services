@@ -22,7 +22,7 @@
     "request-promise": "*"
   },
     "engines": {
-    "node": "8.2he.1"
+    "node": "8.2.1"
   },
   "author": "Baris Yazici",
   "license": "ISC"
