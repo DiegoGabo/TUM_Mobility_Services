@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 var mongoose = require('mongoose')
 
 //Connect to Mongoose
-mongoose.connect('mongodb://localhost/b2data')
+mongoose.connect('mongodb://localhost/bmwcardata')
 var db = mongoose.connection
 
 //model import
@@ -53,16 +53,33 @@ request.get(options, (error, response, body) => {
 		if(json.telematicKeyValues[index].name === "bmwcardata_gpsLng"){
 			gpsLng = json.telematicKeyValues[index].value
 		}
+		if(json.telematicKeyValues[index].name === "bmwcardata_remainingFuel"){
+			remainingFuel = json.telematicKeyValues[index].value
+		}
+		if(json.telematicKeyValues[index].name === "bmwcardata_airTemperature"){
+			airTemperature = json.telematicKeyValues[index].value
+		}
+		if(json.telematicKeyValues[index].name === "bmwcardata_kombiCurrentRemainingRangeFuel"){
+			remainingRange = json.telematicKeyValues[index].value
+		}
+		if(json.telematicKeyValues[index].name === "bmwcardata_mileage"){
+			mileage = json.telematicKeyValues[index].value
+		}
+
 	}
 	data = {
 		'gpsLat': gpsLat,
-		'gpsLng': gpsLng
+		'gpsLng': gpsLng,
+		'remainingFuel': remainingFuel,
+		'airTemperature': airTemperature,
+		'remainingRange': remainingRange,
+		'mileage': mileage
 	}
 
 	console.log(gpsLat, gpsLng)
 	postConfig = {
-	url: 'http://localhost:3000/api/bmwdata',
-	form: data 
+		url: 'http://localhost:3000/api/bmwdata',
+		form: data 
 	}
 	console.log(postConfig)
 	request.post(postConfig, postSuccessHandler);
@@ -72,7 +89,7 @@ request.get(options, (error, response, body) => {
 
 //Lets visualize the data
 app.get('/', (req, res) => {
-	res.send(data)
+	res.send(json)
 
 })
 

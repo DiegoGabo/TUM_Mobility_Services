@@ -22,10 +22,18 @@ const bmwDataSchema = mongoose.Schema({
 		type: String,
 		required: false
 	},	
-	gpsLng:{
+	remainingFuel:{
 		type: String,
 		required: false
 	},	
+	remainingRange:{
+		type: String,
+		required: false
+	},
+	mileage:{
+		type: String,
+		required: false
+	},
 	heading:{
 		type: String,
 		required: false
@@ -34,10 +42,15 @@ const bmwDataSchema = mongoose.Schema({
 		type: String,
 		required: false
 	},	
+	airTemperature:{
+		type: String,
+		required: false
+	},
 	create_date:{
 		type: Date,
 		default: Date.now
 	}
+
 
 });
 
