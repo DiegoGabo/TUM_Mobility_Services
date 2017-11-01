@@ -43,7 +43,8 @@ const options = {
 
 
 //Request the data from bmw server and console log it
-request.get(options, (error, response, body) => {
+//setInterval to fetch the data every 10min = 60000ms
+setInterval(function(){request.get(options, (error, response, body) => {
 	json = JSON.parse(body)
 	//console.log(json.telematicKeyValues.length)
 	for (index = 0; index < json.telematicKeyValues.length; index++){
@@ -84,7 +85,7 @@ request.get(options, (error, response, body) => {
 	console.log(postConfig)
 	request.post(postConfig, postSuccessHandler);
 
-})
+})}, 60000)
 
 
 //Lets visualize the data
