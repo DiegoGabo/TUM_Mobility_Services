@@ -6,6 +6,10 @@ const bmwDataSchema = mongoose.Schema({
 		type: String,
 		required: false
 	},
+	vin:{
+		type: String,
+		requred: false
+	},
 	averageDistanceLongterm:{
 		type: String,
 		required: false
@@ -54,7 +58,7 @@ const bmwDataSchema = mongoose.Schema({
 
 });
 
-const bmwData = module.exports = mongoose.model('bmwData', bmwDataSchema);
+const bmwData = module.exports = mongoose.model('bmwdatas', bmwDataSchema);
 
 // Get bmwdata
 module.exports.getbmwData = (callback, limit) => {

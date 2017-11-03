@@ -34,6 +34,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const options = {
+	vin: 'WBA1S510805J88762',
 	url: 'https://api.bmwgroup.com/otpdatadelivery/api/thirdparty/v1/clearances/08ff2224-8afc-41bb-b33e-0ca3b2207102/telematicdata',
 	method: 'GET',
 	headers: {
@@ -43,10 +44,10 @@ const options = {
 
 
 //Request the data from bmw server and console log it
-//setInterval to fetch the data every 10min = 600000ms
-setInterval(function(){
-request.get(options, (error, response, body) => {
+//setInterval to fetch the data every 10min = 60000ms
+setInterval(function(){request.get(options, (error, response, body) => {
 	json = JSON.parse(body)
+	vin = options.vin
 	//console.log(json.telematicKeyValues.length)
 	for (index = 0; index < json.telematicKeyValues.length; index++){
 		if(json.telematicKeyValues[index].name === "bmwcardata_gpsLat"){
@@ -70,6 +71,7 @@ request.get(options, (error, response, body) => {
 
 	}
 	data = {
+		'vin': vin,
 		'gpsLat': gpsLat,
 		'gpsLng': gpsLng,
 		'remainingFuel': remainingFuel,
@@ -80,20 +82,18 @@ request.get(options, (error, response, body) => {
 
 	console.log(gpsLat, gpsLng)
 	postConfig = {
-		url: 'localhost:3000/api/bmwdata',
+		url: 'http://localhost:3000/api/bmwdata',
 		form: data 
 	}
 	console.log(postConfig)
 	request.post(postConfig, postSuccessHandler);
 
-})}, 600000)
+})}, 500)
 
 
 //Lets visualize the data
 app.get('/', (req, res) => {
-	//res.send("fetching data from bmw server every 10minutes. Check the database from  /api/bmwdata \n\n")
 	res.send(json)
-
 
 })
 
@@ -129,7 +129,7 @@ postConfig = {
 
 
 
-var server = app.listen(process.env.PORT || 3000, function(){
+var server = app.listen(3000, function(){
 	var port = server.address().port
 	console.log('Express server listening on port %s', port)
 })
