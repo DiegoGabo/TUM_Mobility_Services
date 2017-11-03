@@ -51,42 +51,29 @@
 </head>
 <body>
 	<!-- Navbar -->
-	<nav class="navbar navbar-default">
-	  <div class="container">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>                        
-		  </button>
-		  <a class="navbar-brand" href="#">Home</a>
-		</div>
-		<div class="collapse navbar-collapse" id="myNavbar">
-		  <ul class="nav navbar-nav navbar-right">
-		    <li><a href="#">LINK1</a></li>
-		    <li><a href="#">LINK2</a></li>
-		    <li><a href="#">LINK3</a></li>
-		  </ul>
-		</div>
-	  </div>
+	<nav class="navbar navbar-default" style="height: 80px">
+        <div class="col-sm-4">
+            <a href="#" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-user"></span> Logged in as Steven Blind
+            </a>  
+        </div>
 	</nav>
 
 	<!-- First Container -->
-	<div class="container-fluid bg-1 text-center">
-	  <div class="row" style="margin: 20px"></div>
-	  <h1 class="margin">Prototype I</h1>
-	<div class="row" style="margin: 50px"></div>
-	  <img src="mapicon.png" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
-	  <div class="row" style="margin: 60px"></div>
-	  <h3>Find the last position of your car</h3>
-	  <div class="row" style="margin: 40px"></div>
-	  <a class="btn btn-primary btn-lg btn-block" style="background-color:#00695C" href="#map">Find Out More</a>
+	<div class="container bg-1" style="width: 100%; height: 100px">
+        <div class="col-sm-10">
+             <h2>Prototype I</h2>
+             <p>Find the last position of your car</p>
+        </div>
+        <div class="col-sm-2" style="">
+            <img src="mapicon.png" alt="map" style="height: 70px; margin: 5px">
+        </div>
 	</div>
 
 	<div class="row" style="margin: 5px">
 		<div class="col-sm-8">
 			<h1>Map</h1>
-			<div id="map" style="width: 100%;height: 880px;round:yellow; margin: 5px;"></div>
+			<div id="map" style="width: 100%;height: 600px;round:yellow; margin: 5px;"></div>
 			<script>
 
 			  function initMap() {
