@@ -54,7 +54,7 @@ fetchBMWdata(options2)
 
 
 //Request the data from bmw server and console log it
-//setInterval to fetch the data every 10min = 60000ms
+//setInterval to fetch the data every 10min = 600000ms
 
 function fetchBMWdata(options){
 
@@ -102,7 +102,7 @@ setInterval(function(){request.get(options, (error, response, body) => {
 	console.log(postConfig)
 	request.post(postConfig, postSuccessHandler);
 
-})}, 60000)
+})}, 600000)
 }
 
 //Lets visualize the data
