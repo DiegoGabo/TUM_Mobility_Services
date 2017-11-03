@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 var mongoose = require('mongoose')
 
 //Connect to Mongoose
-mongoose.connect('mongodb://localhost/bmwcardata')
+mongoose.connect('mongodb://localhost/bmw3data')
 var db = mongoose.connection
 
 //model import
@@ -33,21 +33,34 @@ var postSuccessHandler = function(err, httpResponse, body){
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const options = {
+const options1 = {
 	vin: 'WBA1S510805J88762',
 	url: 'https://api.bmwgroup.com/otpdatadelivery/api/thirdparty/v1/clearances/08ff2224-8afc-41bb-b33e-0ca3b2207102/telematicdata',
 	method: 'GET',
 	headers: {
 	KeyId: 'c4157993-3fd8-4cbe-95bf-643a73fcb788'
 }}
+const options2 = {
+	vin: 'WBY1Z21000V308999',
+	url: "https://api.bmwgroup.com/otpdatadelivery/api/thirdparty/v1/clearances/6e396d66-71de-4a53-9a08-2f577e7f2a6b/telematicdata",
+	method: 'GET',
+	headers: {
+	KeyId: 'c4157993-3fd8-4cbe-95bf-643a73fcb788'
+}}
+
+fetchBMWdata(options1)
+fetchBMWdata(options2)
 
 
 
 //Request the data from bmw server and console log it
 //setInterval to fetch the data every 10min = 60000ms
+
+function fetchBMWdata(options){
+
 setInterval(function(){request.get(options, (error, response, body) => {
 	json = JSON.parse(body)
-	vin = options.vin
+	vinOld = options.vin
 	//console.log(json.telematicKeyValues.length)
 	for (index = 0; index < json.telematicKeyValues.length; index++){
 		if(json.telematicKeyValues[index].name === "bmwcardata_gpsLat"){
@@ -70,8 +83,9 @@ setInterval(function(){request.get(options, (error, response, body) => {
 		}
 
 	}
+
 	data = {
-		'vin': vin,
+		'vinBmw': vinOld,
 		'gpsLat': gpsLat,
 		'gpsLng': gpsLng,
 		'remainingFuel': remainingFuel,
@@ -88,8 +102,8 @@ setInterval(function(){request.get(options, (error, response, body) => {
 	console.log(postConfig)
 	request.post(postConfig, postSuccessHandler);
 
-})}, 500)
-
+})}, 60000)
+}
 
 //Lets visualize the data
 app.get('/', (req, res) => {

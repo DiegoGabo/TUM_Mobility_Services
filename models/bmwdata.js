@@ -6,7 +6,7 @@ const bmwDataSchema = mongoose.Schema({
 		type: String,
 		required: false
 	},
-	vin:{
+	vinBmw:{
 		type: String,
 		requred: false
 	},
