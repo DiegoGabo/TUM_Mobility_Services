@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
@@ -52,8 +53,8 @@
 <body>
 	<!-- Navbar -->
 	<nav class="navbar navbar-default" style="height: 80px">
-        <div class="col-sm-4">
-            <a href="#" class="btn btn-info btn-lg">
+        <div class="col-sm-4" >
+            <a href="#" class="btn btn-info btn-lg" style="margin: 5px">
             <span class="glyphicon glyphicon-user"></span> Logged in as Steven Blind
             </a>  
         </div>
@@ -73,7 +74,7 @@
 	<div class="row" style="margin: 5px">
 		<div class="col-sm-8">
 			<h1>Map</h1>
-			<div id="map" style="width: 100%;height: 600px;round:yellow; margin: 5px;"></div>
+			<div id="map" style="width: 100%;height: 630px;round:yellow; margin: 5px;"></div>
 			<script>
 
 			  function initMap() {
@@ -88,8 +89,7 @@
 
 				var marker = new google.maps.Marker({
 				  position: myLatLng,
-				  map: map,
-				  title: 'Hello World!'
+				  map: map
 				});
 			  }
 			</script>
@@ -102,9 +102,9 @@
 			<h1>Insert</h1>
 			<form class="form-horizontal" action="/action_page.php">
     			<div class="form-group">
-      				<label class="control-label col-sm-2" for="vid">VID:</label>
+      				<label class="control-label col-sm-2" for="vin">VIN:</label>
       					<div class="col-sm-8">
-        					<input class="form-control" id="latitude" placeholder="Enter VID" name="VID">
+        					<input class="form-control" id="latitude" placeholder="Enter VIN" name="VIN">
       					</div>
     			</div>
 			<div class="form-group">        
@@ -113,8 +113,36 @@
 			  </div>
 			</div>
 		  </form>
-		</div>
-
+            
+          <div class="form-group">
+                <label class="control-label col-sm-2" for="vin">Mileage;</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" id="latitude" placeholder="1296" name="VIN">
+                    </div>
+          </div>
+          <br>
+          <div class="progress">s
+               <div class="progress-bar progress-bar-striped active" role="progressbar"
+                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                40%
+               </div>
+          </div> 
+          </div>
 	</div> 
+    <footer>
+        <div class="container" style="background-color: #004D40; width: 100%">
+            <div class="col-sm-10" style="margin-bottom: 5px; margin-top: 5px"> 
+                <p style="color: white">© Copyright 2017 Team 2 Mobility Services - All Rights Reserved</p>
+            </div>
+            <div class="col-sm-2" style="margin-bottom: 5px; margin-top: 10px">
+             <i class="fa fa-facebook-square" style="font-size:30px; color: white; margin-left: 5px" ></i>
+             <i class="fa fa-google-plus-official" style="font-size:30px; color: white; margin-left: 5px"></i>
+             <i class="fa fa-linkedin-square" style="font-size:30px; color: white; margin-left: 5px"></i>
+             <i class="fa fa-pinterest" style="font-size:30px; color: white; margin-left: 5px"></i>
+             <i class="fa fa-twitter-square" style="font-size:30px; color: white; margin-left: 5px"></i>
+            </div>
+        </div>
+    </footer>
+    
 </body>
 </html>
