@@ -12,7 +12,6 @@
 	body {
 	  font: 20px Montserrat, sans-serif;
 	  line-height: 1.8;
-	 
 	}
 	p {font-size: 16px;}
 	.margin {margin-bottom: 45px;}
@@ -74,8 +73,76 @@
 	<div class="row" style="margin: 5px">
 		<div class="col-sm-8">
 			<h1>Map</h1>
+            
 			<div id="map" style="width: 100%;height: 630px;round:yellow; margin: 5px;"></div>
-			<script>
+			
+			
+		</div>
+
+		<div class="col-sm-4">
+            <div class="col-xs-12" style="height:70px;"></div>
+			<h1>Insert</h1>
+			<form class="form-horizontal" action="/action_page.php">
+    			<div class="form-group">
+      				<label class="control-label col-sm-2" for="vin">VIN:</label>
+      					<div class="col-sm-10">
+        					<input class="form-control" id="latitude" placeholder="Enter VIN" name="VIN">
+      					</div>
+    			</div>
+		  </form>
+          <button type="button" class="btn btn-default btn-block">Submit</button>
+          <div class="col-xs-12" style="height:50px;"></div>
+          <h1>Result</h1>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>Mileage</td>
+                <td>
+                    <div class="alert alert-danger">
+                        <strong id="mileage"></strong> Too many km!!
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td>KPI</td>
+                <td>
+                    <div class="alert alert-success">
+                        <strong id="kpi"></strong> You are driving properly
+                    </div>
+
+                </td>
+              </tr>
+              <tr>
+                <td>Battery</td>
+                <td>
+                    <div class="progress" style="height: 50px" >
+                        <div  class="progress-bar progress-bar-striped active" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                        <h3 style="margin: 10px" id="battery"></h3>
+                        </div>
+                    </div> 
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          
+          </div>
+	</div> 
+    <footer>
+        <div class="container" style="background-color: #004D40; width: 100%">
+            <div class="col-sm-10" style="margin-bottom: 5px; margin-top: 5px"> 
+                <p style="color: white">© Copyright 2017 Team 2 Mobility Services - All Rights Reserved</p>
+            </div>
+            <div class="col-sm-2" style="margin-bottom: 5px; margin-top: 10px">
+             <i class="fa fa-facebook-square" style="font-size:30px; color: white; margin-left: 5px" ></i>
+             <i class="fa fa-google-plus-official" style="font-size:30px; color: white; margin-left: 5px"></i>
+             <i class="fa fa-linkedin-square" style="font-size:30px; color: white; margin-left: 5px"></i>
+             <i class="fa fa-pinterest" style="font-size:30px; color: white; margin-left: 5px"></i>
+             <i class="fa fa-twitter-square" style="font-size:30px; color: white; margin-left: 5px"></i>
+            </div>
+        </div>
+    </footer>
+    <script>
 
 			  function initMap() {
 				var latitude = -25.363;
@@ -93,56 +160,17 @@
 				});
 			  }
 			</script>
-			<script async defer
-				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvFKFLNyeslv9r5VdA86Vnu1-e-E_-HQ4&callback=initMap">
-			</script>
-		</div>
-
-		<div class="col-sm-4">
-			<h1>Insert</h1>
-			<form class="form-horizontal" action="/action_page.php">
-    			<div class="form-group">
-      				<label class="control-label col-sm-2" for="vin">VIN:</label>
-      					<div class="col-sm-8">
-        					<input class="form-control" id="latitude" placeholder="Enter VIN" name="VIN">
-      					</div>
-    			</div>
-			<div class="form-group">        
-			  <div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-default">Submit</button>
-			  </div>
-			</div>
-		  </form>
-            
-          <div class="form-group">
-                <label class="control-label col-sm-2" for="vin">Mileage;</label>
-                    <div class="col-sm-8">
-                        <input class="form-control" id="latitude" placeholder="1296" name="VIN">
-                    </div>
-          </div>
-          <br>
-          <div class="progress">s
-               <div class="progress-bar progress-bar-striped active" role="progressbar"
-                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-                40%
-               </div>
-          </div> 
-          </div>
-	</div> 
-    <footer>
-        <div class="container" style="background-color: #004D40; width: 100%">
-            <div class="col-sm-10" style="margin-bottom: 5px; margin-top: 5px"> 
-                <p style="color: white">© Copyright 2017 Team 2 Mobility Services - All Rights Reserved</p>
-            </div>
-            <div class="col-sm-2" style="margin-bottom: 5px; margin-top: 10px">
-             <i class="fa fa-facebook-square" style="font-size:30px; color: white; margin-left: 5px" ></i>
-             <i class="fa fa-google-plus-official" style="font-size:30px; color: white; margin-left: 5px"></i>
-             <i class="fa fa-linkedin-square" style="font-size:30px; color: white; margin-left: 5px"></i>
-             <i class="fa fa-pinterest" style="font-size:30px; color: white; margin-left: 5px"></i>
-             <i class="fa fa-twitter-square" style="font-size:30px; color: white; margin-left: 5px"></i>
-            </div>
-        </div>
-    </footer>
-    
+    <script async defer		
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvFKFLNyeslv9r5VdA86Vnu1-e-E_-HQ4&callback=initMap">;
+    </script>script>
+    <script>
+        var mileage = 129786;
+        var kpi="good";
+        var battery=60;
+        document.getElementById("mileage").innerHTML = mileage;
+        document.getElementById("battery").innerHTML = battery + "%";
+        document.querySelector(".progress-bar").style.width = battery + "%";
+        document.getElementById("kpi").innerHTML = kpi;       
+    </script>
 </body>
 </html>
