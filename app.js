@@ -57,7 +57,8 @@ fetchBMWdata(options2)
 //setInterval to fetch the data every 10min = 60000ms 1s = 1000ms 1min = 60000 10min = 600000ms
 function fetchBMWdata(options){
 
-setInterval(function(){request.get(options, (error, response, body) => {
+//setInterval(function(){
+request.get(options, (error, response, body) => {
 	json = JSON.parse(body)
 	vinOld = options.vin
 	//console.log(json.telematicKeyValues.length)
@@ -101,13 +102,29 @@ setInterval(function(){request.get(options, (error, response, body) => {
 	console.log(postConfig)
 	request.post(postConfig, postSuccessHandler);
 
-})}, 5000)
+})
+//}, 5000)
 }
 
 //Lets visualize the data
 app.get('/', (req, res) => {
-	res.send(json)
+	res.sendFile(__dirname + '/views/main.html')
 
+})
+
+//Getting the data from the form in main.html
+//reach the query of the form by req.query function
+//fetching the results from db
+//Turning the results in to an array
+//result data is rendered as query variable in main.ejs.
+//Access the last latitude data of the car in main.ejs by <%= query[query.length].gpsLat %>
+//You can access every data by using the same notation
+app.get('/api', (req,res)=>{
+	db.collection('bmwdatas').find(req.query).toArray((err,result) =>{
+		if(err) return console.log(err)
+		res.render('main.ejs', { query :result })
+
+	})
 })
 
 //get bmwData from database

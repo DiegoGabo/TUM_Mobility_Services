@@ -19,7 +19,7 @@
   	"mongoose": "*",
   	"request": "*",
   	"mongodb": "*",
-    "request-promise": "*"
+    "ejs": "*"
   },
   "engines": {
     "node": "8.2.1"
