@@ -54,8 +54,7 @@ fetchBMWdata(options2)
 
 
 //Request the data from bmw server and console log it
-//setInterval to fetch the data every 10min = 600000ms
-
+//setInterval to fetch the data every 10min = 60000ms 1s = 1000ms 1min = 60000 10min = 600000ms
 function fetchBMWdata(options){
 
 setInterval(function(){request.get(options, (error, response, body) => {
@@ -102,7 +101,7 @@ setInterval(function(){request.get(options, (error, response, body) => {
 	console.log(postConfig)
 	request.post(postConfig, postSuccessHandler);
 
-})}, 600000)
+})}, 5000)
 }
 
 //Lets visualize the data
@@ -133,14 +132,6 @@ app.post('/api/bmwdata', (req, res) => {
 		res.json(bmwdata);
 	})
 })
-
-
-postConfig = {
-	url: 'http://localhost:3000/api/bmwdata',
-	form: data 
-}
-
-
 
 
 var server = app.listen(3000, function(){
