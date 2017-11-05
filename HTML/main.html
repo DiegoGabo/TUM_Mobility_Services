@@ -5,13 +5,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
 	body {
 	  font: 20px Montserrat, sans-serif;
 	  line-height: 1.8;
-	 
 	}
 	p {font-size: 16px;}
 	.margin {margin-bottom: 45px;}
@@ -51,43 +51,98 @@
 </head>
 <body>
 	<!-- Navbar -->
-	<nav class="navbar navbar-default">
-	  <div class="container">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>                        
-		  </button>
-		  <a class="navbar-brand" href="#">Home</a>
-		</div>
-		<div class="collapse navbar-collapse" id="myNavbar">
-		  <ul class="nav navbar-nav navbar-right">
-		    <li><a href="#">LINK1</a></li>
-		    <li><a href="#">LINK2</a></li>
-		    <li><a href="#">LINK3</a></li>
-		  </ul>
-		</div>
-	  </div>
+	<nav class="navbar navbar-default" style="height: 80px">
+        <div class="col-sm-4" >
+            <a href="#" class="btn btn-info btn-lg" style="margin: 5px">
+            <span class="glyphicon glyphicon-user"></span> Logged in as Steven Blind
+            </a>  
+        </div>
 	</nav>
 
 	<!-- First Container -->
-	<div class="container-fluid bg-1 text-center">
-	  <div class="row" style="margin: 20px"></div>
-	  <h1 class="margin">Prototype I</h1>
-	<div class="row" style="margin: 50px"></div>
-	  <img src="mapicon.png" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
-	  <div class="row" style="margin: 60px"></div>
-	  <h3>Find the last position of your car</h3>
-	  <div class="row" style="margin: 40px"></div>
-	  <a class="btn btn-primary btn-lg btn-block" style="background-color:#00695C" href="#map">Find Out More</a>
+	<div class="container bg-1" style="width: 100%; height: 100px">
+        <div class="col-sm-10">
+             <h2>Prototype I</h2>
+             <p>Find the last position of your car</p>
+        </div>
+        <div class="col-sm-2" style="">
+            <img src="mapicon.png" alt="map" style="height: 70px; margin: 5px">
+        </div>
 	</div>
 
 	<div class="row" style="margin: 5px">
 		<div class="col-sm-8">
 			<h1>Map</h1>
-			<div id="map" style="width: 100%;height: 880px;round:yellow; margin: 5px;"></div>
-			<script>
+            
+			<div id="map" style="width: 100%;height: 630px;round:yellow; margin: 5px;"></div>
+			
+			
+		</div>
+
+		<div class="col-sm-4">
+            <div class="col-xs-12" style="height:70px;"></div>
+			<h1>Insert</h1>
+			<form class="form-horizontal" action="/action_page.php">
+    			<div class="form-group">
+      				<label class="control-label col-sm-2" for="vin">VIN:</label>
+      					<div class="col-sm-10">
+        					<input class="form-control" id="latitude" placeholder="Enter VIN" name="VIN">
+      					</div>
+    			</div>
+		  </form>
+          <button type="button" class="btn btn-default btn-block">Submit</button>
+          <div class="col-xs-12" style="height:50px;"></div>
+          <h1>Result</h1>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>Mileage</td>
+                <td>
+                    <div class="alert alert-danger">
+                        <strong id="mileage"></strong> Too many km!!
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td>KPI</td>
+                <td>
+                    <div class="alert alert-success">
+                        <strong id="kpi"></strong> You are driving properly
+                    </div>
+
+                </td>
+              </tr>
+              <tr>
+                <td>Battery</td>
+                <td>
+                    <div class="progress" style="height: 50px" >
+                        <div  class="progress-bar progress-bar-striped active" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                        <h3 style="margin: 10px" id="battery"></h3>
+                        </div>
+                    </div> 
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          
+          </div>
+	</div> 
+    <footer>
+        <div class="container" style="background-color: #004D40; width: 100%">
+            <div class="col-sm-10" style="margin-bottom: 5px; margin-top: 5px"> 
+                <p style="color: white">© Copyright 2017 Team 2 Mobility Services - All Rights Reserved</p>
+            </div>
+            <div class="col-sm-2" style="margin-bottom: 5px; margin-top: 10px">
+             <i class="fa fa-facebook-square" style="font-size:30px; color: white; margin-left: 5px" ></i>
+             <i class="fa fa-google-plus-official" style="font-size:30px; color: white; margin-left: 5px"></i>
+             <i class="fa fa-linkedin-square" style="font-size:30px; color: white; margin-left: 5px"></i>
+             <i class="fa fa-pinterest" style="font-size:30px; color: white; margin-left: 5px"></i>
+             <i class="fa fa-twitter-square" style="font-size:30px; color: white; margin-left: 5px"></i>
+            </div>
+        </div>
+    </footer>
+    <script>
 
 			  function initMap() {
 				var latitude = -25.363;
@@ -101,33 +156,21 @@
 
 				var marker = new google.maps.Marker({
 				  position: myLatLng,
-				  map: map,
-				  title: 'Hello World!'
+				  map: map
 				});
 			  }
 			</script>
-			<script async defer
-				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvFKFLNyeslv9r5VdA86Vnu1-e-E_-HQ4&callback=initMap">
-			</script>
-		</div>
-
-		<div class="col-sm-4">
-			<h1>Insert</h1>
-			<form class="form-horizontal" action="/action_page.php">
-    			<div class="form-group">
-      				<label class="control-label col-sm-2" for="vid">VID:</label>
-      					<div class="col-sm-8">
-        					<input class="form-control" id="latitude" placeholder="Enter VID" name="VID">
-      					</div>
-    			</div>
-			<div class="form-group">        
-			  <div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-default">Submit</button>
-			  </div>
-			</div>
-		  </form>
-		</div>
-
-	</div> 
+    <script async defer		
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvFKFLNyeslv9r5VdA86Vnu1-e-E_-HQ4&callback=initMap">;
+    </script>script>
+    <script>
+        var mileage = 129786;
+        var kpi="good";
+        var battery=60;
+        document.getElementById("mileage").innerHTML = mileage;
+        document.getElementById("battery").innerHTML = battery + "%";
+        document.querySelector(".progress-bar").style.width = battery + "%";
+        document.getElementById("kpi").innerHTML = kpi;       
+    </script>
 </body>
 </html>
