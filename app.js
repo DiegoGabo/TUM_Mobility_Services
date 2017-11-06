@@ -113,7 +113,7 @@ request.get(options, (error, response, body) => {
 	request.post(postConfig, postSuccessHandler);
 
 })
-}, 600000)
+}, 5000)
 }
 
 //Lets visualize the data
