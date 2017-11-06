@@ -20,7 +20,6 @@ var db = mongoose.connection
 //model import
 var Bmwdata = require('./models/bmwdata')
 
-//var html = require('./HTML/main.html')
 
 //Access the BMW telematics data
 var json, gpsLat, gpsLng, data
@@ -57,7 +56,7 @@ fetchBMWdata(options2)
 //setInterval to fetch the data every 10min = 60000ms 1s = 1000ms 1min = 60000 10min = 600000ms
 function fetchBMWdata(options){
 
-//setInterval(function(){
+setInterval(function(){
 request.get(options, (error, response, body) => {
 	json = JSON.parse(body)
 	vinOld = options.vin
@@ -103,7 +102,7 @@ request.get(options, (error, response, body) => {
 	request.post(postConfig, postSuccessHandler);
 
 })
-//}, 5000)
+}, 5000)
 }
 
 //Lets visualize the data
@@ -123,7 +122,6 @@ app.get('/api', (req,res)=>{
 	db.collection('bmwdatas').find(req.query).toArray((err,result) =>{
 		if(err) return console.log(err)
 		res.render('main.ejs', { query :result })
-
 	})
 })
 
