@@ -27,6 +27,7 @@ var Bmwdata = require('./models/bmwdata')
 var json, gpsLat, gpsLng, data
 var postConfig = {}
 var postSuccessHandler = function(err, httpResponse, body){
+	console.log(err)
 	console.log('JSON response from the server: ' + body)
 }
 
@@ -106,7 +107,7 @@ request.get(options, (error, response, body) => {
 		//production settings
 		//url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
 		//development setting
-		url: 'localhost:3000/api/bmwdata',
+		url: 'http://localhost:3000/api/bmwdata',
 		form: data 
 	}
 	console.log(postConfig)
