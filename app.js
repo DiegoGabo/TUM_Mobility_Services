@@ -48,10 +48,16 @@ const options2 = {
 	headers: {
 	KeyId: 'c4157993-3fd8-4cbe-95bf-643a73fcb788'
 }}
-
+const options3 = {
+	vin: 'WBAUD91090P381103',
+	url: "https://api.bmwgroup.com/otpdatadelivery/api/thirdparty/v1/clearances/6e396d66-71de-4a53-9a08-2f577e7f2a6b/telematicdata",
+	method: 'GET',
+	headers: {
+	KeyId: 'c4157993-3fd8-4cbe-95bf-643a73fcb788'
+}}
 fetchBMWdata(options1)
 fetchBMWdata(options2)
-
+fetchBMWdata(options3)
 
 
 //Request the data from bmw server and console log it
