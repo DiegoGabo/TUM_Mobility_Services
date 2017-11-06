@@ -123,6 +123,7 @@ app.get('/', (req, res) => {
 app.get('/api', (req,res)=>{
 	db.collection('bmwdatas').find(req.query).toArray((err,result) =>{
 		if(err) return console.log(err)
+		console.log(result)
 		res.render('main.ejs', { query :result })
 	})
 })
