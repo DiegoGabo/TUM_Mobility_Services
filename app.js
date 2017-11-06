@@ -13,8 +13,10 @@ app.use(bodyParser.json())
 //Database mongodb connection
 var mongoose = require('mongoose')
 
-//Connect to Mongoose
-mongoose.connect('mongodb://localhost/bmw3data')
+//Local Server for database Connect to Mongoose
+//mongoose.connect('mongodb://localhost/bmw3data')
+//production database server
+mongoose.connect('mongodb://heroku_w5z3d9qq:977j9v5ee163bc59p3l1l96a3f@ds243335.mlab.com:43335/heroku_w5z3d9qq')
 var db = mongoose.connection
 
 //model import
