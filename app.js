@@ -97,7 +97,7 @@ request.get(options, (error, response, body) => {
 
 	console.log(gpsLat, gpsLng)
 	postConfig = {
-		url: 'http://localhost:3000/api/bmwdata',
+		url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
 		form: data 
 	}
 	console.log(postConfig)
