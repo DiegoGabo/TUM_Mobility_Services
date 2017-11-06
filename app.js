@@ -14,9 +14,9 @@ app.use(bodyParser.json())
 var mongoose = require('mongoose')
 
 //Local Server for database Connect to Mongoose
-//mongoose.connect('mongodb://localhost/bmw3data')
+mongoose.connect('mongodb://localhost/bmw3data')
 //production database server
-mongoose.connect('mongodb://heroku_w5z3d9qq:977j9v5ee163bc59p3l1l96a3f@ds243335.mlab.com:43335/heroku_w5z3d9qq')
+//mongoose.connect('mongodb://heroku_w5z3d9qq:977j9v5ee163bc59p3l1l96a3f@ds243335.mlab.com:43335/heroku_w5z3d9qq')
 var db = mongoose.connection
 
 //model import
@@ -103,7 +103,10 @@ request.get(options, (error, response, body) => {
 
 	console.log(gpsLat, gpsLng)
 	postConfig = {
-		url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
+		//production settings
+		//url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
+		//development setting
+		url: '/api/bmwdata',
 		form: data 
 	}
 	console.log(postConfig)
