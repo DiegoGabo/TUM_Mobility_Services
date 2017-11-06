@@ -67,7 +67,7 @@ function fetchBMWdata(options){
 setInterval(function(){
 request.get(options, (error, response, body) => {
 	json = JSON.parse(body)
-	vinOld = options.vin
+	vin = options.vin
 	//console.log(json.telematicKeyValues.length)
 	for (index = 0; index < json.telematicKeyValues.length; index++){
 		if(json.telematicKeyValues[index].name === "bmwcardata_gpsLat"){
@@ -92,7 +92,7 @@ request.get(options, (error, response, body) => {
 	}
 
 	data = {
-		'vinBmw': vinOld,
+		'vinBmw': vin,
 		'gpsLat': gpsLat,
 		'gpsLng': gpsLng,
 		'remainingFuel': remainingFuel,
@@ -106,7 +106,7 @@ request.get(options, (error, response, body) => {
 		//production settings
 		//url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
 		//development setting
-		url: '/api/bmwdata',
+		url: 'localhost:3000/api/bmwdata',
 		form: data 
 	}
 	console.log(postConfig)
