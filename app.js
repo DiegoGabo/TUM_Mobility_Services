@@ -3,10 +3,8 @@ var express = require('express'),
 	app = express()
 const request = require("request")
 
-
 //Learn what this is for
 const bodyParser = require('body-parser');
-
 
 app.use(bodyParser.json())
 
@@ -65,7 +63,7 @@ fetchBMWdata(options3)
 //setInterval to fetch the data every 10min = 60000ms 1s = 1000ms 1min = 60000 10min = 600000ms
 function fetchBMWdata(options){
 
-setInterval(function(){
+//setInterval(function(){
 request.get(options, (error, response, body) => {
 	json = JSON.parse(body)
 	vin = options.vin
@@ -114,7 +112,7 @@ request.get(options, (error, response, body) => {
 	request.post(postConfig, postSuccessHandler);
 
 })
-}, 5000)
+//}, 5000)
 }
 
 //Lets visualize the data
@@ -160,6 +158,12 @@ app.post('/api/bmwdata', (req, res) => {
 		res.json(bmwdata);
 	})
 })
+
+//Route File
+let users = require('./routes/users') 
+app.use('/users',users)
+
+
 
 
 var server = app.listen(process.env.PORT || 3000, function(){
