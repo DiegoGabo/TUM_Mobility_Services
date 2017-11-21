@@ -2,7 +2,7 @@
 var express = require('express'),
 	app = express()
 const request = require("request")
-const config = require('./cofig/database')
+const config = require('./config/database')
 
 //Learn what this is for
 const bodyParser = require('body-parser');
