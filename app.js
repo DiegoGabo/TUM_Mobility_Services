@@ -2,6 +2,7 @@
 var express = require('express'),
 	app = express()
 const request = require("request")
+const config = require('./cofig/database')
 
 //Learn what this is for
 const bodyParser = require('body-parser');
@@ -12,7 +13,7 @@ app.use(bodyParser.json())
 var mongoose = require('mongoose')
 
 //Local Server for database Connect to Mongoose
-mongoose.connect('mongodb://localhost/bmw3data')
+mongoose.connect(config.database)
 //production database server
 //mongoose.connect('mongodb://heroku_w5z3d9qq:977j9v5ee163bc59p3l1l96a3f@ds243335.mlab.com:43335/heroku_w5z3d9qq')
 var db = mongoose.connection
