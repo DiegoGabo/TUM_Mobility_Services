@@ -3,6 +3,7 @@ const router = express.Router() //Kind of the same this as app = express() in ap
 const expressValidator = require('express-validator');
 const path = require('path')
 const bcrypt = require('bcryptjs')
+const passport = require('passport');
 
 //User model
 let User = require('../models/user')
@@ -52,7 +53,7 @@ router.post('/register', (req,res)=>{ //using this cool arrow function comes new
 						console.log(err)
 						return
 					} else {
-						//req.flash('success', 'you are now registered and can log in')
+						req.flash('success', 'you are now registered and can log in')
 						res.redirect('/users/login')
 					}
 				})
@@ -61,9 +62,20 @@ router.post('/register', (req,res)=>{ //using this cool arrow function comes new
 	}
 })
 
+//login form
 router.get('/login', (req,res)=>{
 	res.render('login.ejs') 
 })
+
+// Login Process
+router.post('/login', function(req, res, next){
+  passport.authenticate('local', {
+    successRedirect:'/',
+    failureRedirect:'/users/login',
+    failureFlash: true
+  })(req, res, next);
+});
+
 
 
 module.exports = router

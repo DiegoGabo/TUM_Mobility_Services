@@ -3,6 +3,10 @@ var express = require('express'),
 	app = express()
 const request = require("request")
 const config = require('./config/database')
+const flash = require('connect-flash')
+const session = require('express-session')
+const passport = require('passport')
+
 
 //Learn what this is for
 const bodyParser = require('body-parser');
@@ -20,7 +24,6 @@ var db = mongoose.connection
 
 //model import
 var Bmwdata = require('./models/bmwdata')
-
 
 //Access the BMW telematics data
 var json, gpsLat, gpsLng, data
@@ -160,12 +163,30 @@ app.post('/api/bmwdata', (req, res) => {
 	})
 })
 
+// Express Session Middleware
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+}));
+
+// Express Messages Middleware
+app.use(require('connect-flash')());
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
+
 //Route File
 let users = require('./routes/users') 
 app.use('/users',users)
 
 
-
+// Passport Config
+require('./config/passport')(passport)
+// Passport Middleware
+app.use(passport.initialize())
+app.use(passport.session())
 
 var server = app.listen(process.env.PORT || 3000, function(){
 	var port = server.address().port
