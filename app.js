@@ -1,20 +1,14 @@
-//Express will be used for routing
-var express = require('express'),
+const express = require('express'),  //Express will be used for routing
 	app = express()
+const mongoose = require('mongoose') //Database mongodb connection
 const request = require("request")
 const config = require('./config/database')
 const flash = require('connect-flash')
 const session = require('express-session')
 const passport = require('passport')
-
-
-//Learn what this is for
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')  //Learn what this is for
 
 app.use(bodyParser.json())
-
-//Database mongodb connection
-var mongoose = require('mongoose')
 
 //Local Server for database Connect to Mongoose
 mongoose.connect(config.database)
@@ -125,43 +119,10 @@ app.get('/', (req, res) => {
 
 })
 
-//Getting the data from the form in main.html
-//reach the query of the form by req.query function
-//fetching the results from db
-//Turning the results in to an array
-//result data is rendered as query variable in main.ejs.
-//Access the last latitude data of the car in main.ejs by <%= query[query.length].gpsLat %>
-//You can access every data by using the same notation
-app.get('/api', (req,res)=>{
-	db.collection('bmwdatas').find(req.query).toArray((err,result) =>{
-		if(err) return console.log(err)
-		console.log(result)
-		res.render('main.ejs', { query :result })
-	})
-})
+//Route File for api
+let api = require('./routes/api') 
+app.use('/api',api)
 
-//get bmwData from database
-app.get('/api/bmwdata', (req, res) => {
-	Bmwdata.getbmwData((err, bmwData) => {
-		if(err){
-			throw err;
-		}
-		res.json(bmwData);
-	});
-});
-
-
-//post request to add the data to database
-app.post('/api/bmwdata', (req, res) => {
-	console.log('Post method!!!!')
-	var bmwdata = req.body;
-	Bmwdata.addbmwData(bmwdata, (err, bmwdata) => {
-		if(err){
-			throw err;
-		}
-		res.json(bmwdata);
-	})
-})
 
 // Express Session Middleware
 app.use(session({
@@ -177,7 +138,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-//Route File
+//Route File for users
 let users = require('./routes/users') 
 app.use('/users',users)
 
