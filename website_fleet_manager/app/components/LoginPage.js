@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import  {Overview} from './Overview';
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../css/login_page_style.css';
@@ -6,6 +8,21 @@ import '../../node_modules/font-awesome/css/font-awesome.min.css';
 
 
 export class LoginPage extends React.Component {
+
+  constructor(props) {
+	super(props);
+	this.changePage = this.changePage.bind(this);
+  }
+  
+  changePage() {
+   console.log("sono stato chiamato"); 
+   ReactDOM.render(
+        <Overview />,
+ 		document.getElementById('loginpage')
+    );
+	//window.location.replace("../app/overview.html");
+  }
+
   render() {
     return (
       <div>
@@ -32,7 +49,7 @@ export class LoginPage extends React.Component {
                 <label>Password</label>
                 <input type="password" className="form-control" placeholder="Password" />
               </div>
-              <button type="submit" className="btn btn-default loginButton">Login</button>
+              <button type="submit" className="btn btn-default loginButton" onClick={this.changePage}>Login</button>
             </form>
          </div>
          <div className="container footer">
