@@ -943,21 +943,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_App__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_LoginPage__ = __webpack_require__(27);
 
 
 
 
-__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-  'div',
-  null,
-  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'h1',
-    null,
-    'Hello world!'
-  ),
-  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_App__["a" /* App */], null)
-), document.getElementById('app'));
+__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_LoginPage__["a" /* LoginPage */], null), document.getElementById('loginpage'));
 
 /***/ }),
 /* 15 */
@@ -18267,16 +18258,96 @@ module.exports = camelize;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 
 
-class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
-   render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-         'div',
-         null,
-         'Hello Word!'
-      );
-   }
+//import '../css/login_page_style.css';
+
+class LoginPage extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+  render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "div",
+      null,
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "header",
+        { className: "v-header container" },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { className: "fullscreen-video-wrap" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("video", { muted: true, src: "videos/login_page_video.mp4", autoplay: "", loop: "" })
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "header-overlay" }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { className: "header-content text-md-center" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { className: "container" },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "h1",
+              null,
+              "FleetMe ",
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "span",
+                { className: "badge badge-primary" },
+                "LogIn"
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("hr", { className: "side" }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "p",
+            null,
+            "Please log in with your credentials to the Fleet Management System:"
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { className: "container login" },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "form",
+              null,
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "div",
+                { className: "form-group" },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  "label",
+                  null,
+                  "Account name (email address)"
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "email", className: "form-control", placeholder: "Email" })
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "div",
+                { className: "form-group" },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  "label",
+                  null,
+                  "Password"
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "password", className: "form-control", placeholder: "Password" })
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "button",
+                { type: "submit", className: "btn btn-default loginButton" },
+                "Login"
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { className: "container footer" },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "footer",
+              null,
+              "Created by Be Most Wanted (Prototype Version)"
+            )
+          )
+        )
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("script", { src: "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("script", { src: "js/bootstrap.min.js" })
+    );
+  }
 }
-/* harmony export (immutable) */ __webpack_exports__["a"] = App;
+/* harmony export (immutable) */ __webpack_exports__["a"] = LoginPage;
 
 
 /***/ })

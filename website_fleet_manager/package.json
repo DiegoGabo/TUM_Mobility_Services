@@ -6,11 +6,12 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server"
- },
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "react": "^16.1.1",
+    "react-bootstrap": "^0.31.5",
     "react-dom": "^16.1.1"
   },
   "devDependencies": {
