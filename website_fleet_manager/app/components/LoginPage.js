@@ -1,6 +1,9 @@
 import React from 'react';
 
-//import '../css/login_page_style.css';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../css/login_page_style.css';
+import '../../node_modules/font-awesome/css/font-awesome.min.css'; 
+
 
 export class LoginPage extends React.Component {
   render() {
@@ -8,7 +11,7 @@ export class LoginPage extends React.Component {
       <div>
         <header className="v-header container">
         <div className="fullscreen-video-wrap">
-          <video muted src="videos/login_page_video.mp4" autoplay="" loop="">
+          <video muted src="app/videos/login_page_video.mp4" autoPlay loop>
           </video>
         </div>
         <div className="header-overlay"></div>
