@@ -3,10 +3,10 @@ const express = require('express'),  //Express will be used for routing
 const mongoose = require('mongoose') //Database mongodb connection
 const request = require("request")
 const config = require('./config/database')
-const flash = require('connect-flash')
 const session = require('express-session')
-const passport = require('passport')
 const bodyParser = require('body-parser')  //Learn what this is for
+const passport = require('passport')
+const flash = require('connect-flash')
 
 app.use(bodyParser.json())
 
@@ -18,6 +18,20 @@ var db = mongoose.connection
 
 //model import
 var Bmwdata = require('./models/bmwdata')
+
+// Passport Config
+require('./config/passport')(passport)
+
+// Express Session Middleware
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+}));
+
+// Passport Middleware
+app.use(passport.initialize())
+app.use(passport.session())
 
 //Access the BMW telematics data
 var json, gpsLat, gpsLng, data
@@ -124,12 +138,6 @@ let api = require('./routes/api')
 app.use('/api',api)
 
 
-// Express Session Middleware
-app.use(session({
-  secret: 'keyboard cat',
-  resave: true,
-  saveUninitialized: true
-}));
 
 // Express Messages Middleware
 app.use(require('connect-flash')());
@@ -143,11 +151,7 @@ let users = require('./routes/users')
 app.use('/users',users)
 
 
-// Passport Config
-require('./config/passport')(passport)
-// Passport Middleware
-app.use(passport.initialize())
-app.use(passport.session())
+
 
 var server = app.listen(process.env.PORT || 3000, function(){
 	var port = server.address().port
