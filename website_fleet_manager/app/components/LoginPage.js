@@ -15,7 +15,6 @@ export class LoginPage extends React.Component {
   }
   
   changePage() {
-   console.log("sono stato chiamato"); 
    ReactDOM.render(
         <Overview />,
  		document.getElementById('app')
