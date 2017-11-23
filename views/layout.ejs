@@ -10,7 +10,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<div class= "container">
 		<%- messages() %>
-		<% if (typeof errors == 'object' && erros) {%>
+		<% if (typeof errors == 'object' && errors) {%>
 			<% errors.forEach((error)=>{ %>
 				<div class="aler alert-danger">
 					<p> <%= error.msg %> </p>

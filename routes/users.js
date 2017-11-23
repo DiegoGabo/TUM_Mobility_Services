@@ -33,8 +33,7 @@ router.post('/register', (req,res)=>{ //using this cool arrow function comes new
 
 	let errors = req.validationErrors();
 	if(errors){
-		console.log(errors)
-		res.render('register.ejs')
+	    res.render('register.ejs', { errors:errors })
 	} else {
 		let newUser = new User({
 			name: name,

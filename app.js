@@ -150,6 +150,10 @@ app.use(function (req, res, next) {
 let users = require('./routes/users') 
 app.use('/users',users)
 
+app.get('*', (req,res,next)=>{
+	res.locals.user = req.user || null
+	next()
+})
 
 
 
