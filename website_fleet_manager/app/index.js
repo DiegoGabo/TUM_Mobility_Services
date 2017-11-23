@@ -5,6 +5,6 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
     <LoginPage />,
-  document.getElementById('loginpage')
+  document.getElementById('app')
 );
 
