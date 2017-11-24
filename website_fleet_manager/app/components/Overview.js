@@ -15,7 +15,6 @@ export class Overview extends React.Component {
     return (
       <div>
         <OverviewHeader />
-        <AppList />
         <MapPosition />
         <Panels />
         <Footer />

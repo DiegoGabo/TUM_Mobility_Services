@@ -1,6 +1,8 @@
 import React from 'react';
 import Time from 'react-time'
 
+import  {AppList} from './AppList';
+
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'w3-css/w3.css';
@@ -40,11 +42,11 @@ export class OverviewHeader extends React.Component {
     return ( 
         
       <nav className="navbar">
-        <div className="col-sm-3 w3-display-left">
+        <div className="col-sm-3 w3-display-left nav_icon">
           <i className="fa fa-clock-o" aria-hidden="true">   <Time value={this.state.now} format="DD/MM/YYYY" /> <Time value={this.state.now} format="HH:mm:ss" /></i>
         </div>
           
-        <div className="col-sm-6 w3-display-middle">
+        <div className="col-sm-6 w3-display-middle nav_icon">
           <i className="fa fa-money w3-display-middle" aria-hidden="true">   Consulting Company</i>
         </div>
           
@@ -62,9 +64,7 @@ export class OverviewHeader extends React.Component {
             </ul>
           </div> 
         </div>
-        
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
+        <AppList />
       </nav>
     );
   }
