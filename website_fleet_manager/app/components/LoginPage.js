@@ -15,6 +15,7 @@ export class LoginPage extends React.Component {
   }
   
   changePage() {
+   //check login and password
    ReactDOM.render(
         <Overview />,
  		document.getElementById('app')
@@ -24,7 +25,7 @@ export class LoginPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login_div">
         <header className="v-header container">
         <div className="fullscreen-video-wrap">
           <video muted src="app/videos/login_page_video.mp4" autoPlay loop>
@@ -33,7 +34,7 @@ export class LoginPage extends React.Component {
         <div className="header-overlay"></div>
         <div className="header-content text-md-center">
           <div className="container">
-            <h1>FleetMe <span className="badge badge-primary">LogIn</span></h1>
+            <h1>FleetMe <span className="badge badge-default login_badge">LogIn</span></h1>
           </div>
           <hr className="side" />
           <br />
@@ -57,7 +58,7 @@ export class LoginPage extends React.Component {
         </div>
       </header>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
+      <script src="../script/bootstrap.min.js"></script>
     </div>
     );
   }

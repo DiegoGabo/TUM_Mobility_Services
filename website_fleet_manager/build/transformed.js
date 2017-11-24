@@ -18803,6 +18803,7 @@ class LoginPage extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
   }
 
   changePage() {
+    //check login and password
     __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Overview__["a" /* Overview */], null), document.getElementById('app'));
     //window.location.replace("../app/overview.html");
   }
@@ -18810,7 +18811,7 @@ class LoginPage extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
   render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
-      null,
+      { className: 'login_div' },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'header',
         { className: 'v-header container' },
@@ -18889,7 +18890,7 @@ class LoginPage extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
         )
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: 'js/bootstrap.min.js' })
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '../script/bootstrap.min.js' })
     );
   }
 }
@@ -18904,7 +18905,6 @@ class LoginPage extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__OverviewHeader__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__OverviewHeader___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__OverviewHeader__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__AppList__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MapPosition__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Panels__ = __webpack_require__(37);
@@ -18932,7 +18932,7 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       null,
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__OverviewHeader__["OverviewHeader"], null),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__OverviewHeader__["a" /* OverviewHeader */], null),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__AppList__["a" /* AppList */], null),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__MapPosition__["a" /* MapPosition */], null),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Panels__["a" /* Panels */], null),
@@ -18945,9 +18945,101 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
 /***/ }),
 /* 34 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token, expected , (13:81)\n\n\u001b[0m \u001b[90m 11 | \u001b[39m    \u001b[36mreturn\u001b[39m ( \n \u001b[90m 12 | \u001b[39m      \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 13 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33mnav\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"navbar navbar-default\"\u001b[39m style\u001b[33m=\u001b[39m{{backgroundColor\u001b[33m:\u001b[39m {styleNav\u001b[33m.\u001b[39mbackgroundColor}}}\u001b[33m>\u001b[39m\n \u001b[90m    | \u001b[39m                                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 14 | \u001b[39m        \u001b[90m/*\u001b[39m\n \u001b[90m 15 | \u001b[39m\u001b[90m        //date and hour\u001b[39m\n \u001b[90m 16 | \u001b[39m\u001b[90m        <div className=\"col-sm-3 w3-display-left\">\u001b[39m\u001b[0m\n");
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+class OverviewHeader extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+
+  render() {
+
+    var styleNav = {
+      height: "70px",
+      backgroundColor: "#009688"
+    };
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "div",
+      null,
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "nav",
+        { className: "navbar navbar-default", style: styleNav },
+        "/* //date and hour",
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { className: "col-sm-3 w3-display-left" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "i",
+            { className: "fa fa-clock-o", "aria-hidden": "true", style: "font-size: 36px; margin-right: 15px; color: whitesmoke" },
+            "   april 2017"
+          )
+        ),
+        "//company name",
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { className: "col-sm-6 w3-display-middle" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "i",
+            { className: "fa fa-money w3-display-middle", "aria-hidden": "true", style: "font-size: 36px;  margin-right: 15px; color: whitesmoke" },
+            "   Consulting Company"
+          )
+        ),
+        "//user panel",
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { className: "col-sm-3 w3-display-right" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { className: "dropdown w3-display-right", style: "margin-right: 10px" },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "button",
+              { className: "btn btn-primary btn-lg dropdown-toggle", type: "button", "data-toggle": "dropdown", style: "background-color: #B2DFDB" },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", { className: "glyphicon glyphicon-user" }),
+              "Logged in as Steven Blind",
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", { className: "caret" })
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "ul",
+              { className: "dropdown-menu" },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "li",
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  "a",
+                  { href: "#" },
+                  "Settings"
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "li",
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  "a",
+                  { href: "#" },
+                  "Profile"
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "li",
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  "a",
+                  { href: "#" },
+                  "Logout"
+                )
+              )
+            )
+          )
+        ),
+        "*/"
+      )
+    );
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = OverviewHeader;
+
 
 /***/ }),
 /* 35 */
@@ -19305,7 +19397,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, "*{\n  box-sizing: border-box;\n}\n\nbody{\n  margin:0;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  font-size:1rem;\n  font-weight:normal;\n  line-height:1.5;\n  color:#333;\n  overflow-x:hidden;\n}\n\n.v-header{\n  height:100vh;\n  display:flex;\n  align-items:center;\n  color:#fff;\n}\n\n.container{\n  max-width:960px;\n  padding-left:1rem;\n  padding-right:1rem;\n  margin:auto;\n  text-align:center;\n}\n\n.fullscreen-video-wrap{\n  position:absolute;\n  top:0;\n  left:0;\n  width:100%;\n  height:100vh;\n  overflow:hidden;\n}\n\n.fullscreen-video-wrap video{\n  min-height:100%;\n  min-width:100%;\n}\n\n.header-overlay{\n  height:100vh;\n  position: absolute;\n  top:0;\n  left:0;\n  width:100vw;\n  z-index:1;\n  background:#225470;\n  opacity:0.85;\n}\n\n.header-content{\n  margin: auto;\n  z-index:2;\n}\n\n.header-content h1{\n  font-size:50px;\n  margin-bottom:0;\n}\n\n.header-content p{\n  font-size:1.5rem;\n  display:block;\n  padding-bottom:2rem;\n}\n\n.btn{\n  background: #34b3a0;\n  color:#fff;\n  font-size:1.2rem;\n  padding: 1rem 2rem;\n  text-decoration: none;\n}\n\n.login {\n  max-width: 400px;\n}\n\nhr.side {\n  border-color: #ffffff;\n  opacity: 0.5;\n  border-width: thin;\n}\n\n.loginButton {\n  min-width: 200px;\n  min-height: 40px;\n  margin-top: 10px;\n  text-align: center;\n  padding: 0px;\n  background-color: #428bca;\n}\n\n.loginButton:hover {\n  background-color: #41BEFF;\n  cursor: pointer;\n}\n\n.loginButton:active {\n  background-color: #41BEFF;\n}\n\n.footer {\n  margin-top: 100px;\n  font-size: 0.1rem;\n}\n\n.badge {\n  background-color: #428bca !important;\n}\n\n.form-control:focus {\n  border-color: #ffffff !important;\n  box-shadow: inset 0 0px 0px rgba(255, 255, 255, 1), 0 0 0px rgba(255, 255, 255, 1) !important;\n}\n\n\n@media(max-width:960px){\n  .container{\n    padding-right:3rem;\n    padding-left:3rem;\n  }\n}\n", ""]);
+exports.push([module.i, "*{\n  box-sizing: border-box;\n}\n\n.login_div{\n  margin:0;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  font-size:1rem;\n  font-weight:normal;\n  line-height:1.5;\n  color:#333;\n  overflow-x:hidden;\n}\n\n.v-header{\n  height:100vh;\n  display:flex;\n  align-items:center;\n  color:#fff;\n}\n\n.container{\n  max-width:960px;\n  padding-left:1rem;\n  padding-right:1rem;\n  margin:auto;\n  text-align:center;\n}\n\n.fullscreen-video-wrap{\n  position:absolute;\n  top:0;\n  left:0;\n  width:100%;\n  height:100vh;\n  overflow:hidden;\n}\n\n.fullscreen-video-wrap video{\n  min-height:100%;\n  min-width:100%;\n}\n\n.header-overlay{\n  height:100vh;\n  position: absolute;\n  top:0;\n  left:0;\n  width:100vw;\n  z-index:1;\n  background:#225470;\n  opacity:0.85;\n}\n\n.header-content{\n  margin: auto;\n  z-index:2;\n}\n\n.header-content h1{\n  font-size:50px;\n  margin-bottom:0;\n}\n\n.header-content p{\n  font-size:1.5rem;\n  display:block;\n  padding-bottom:2rem;\n}\n\n.btn{\n  background: #34b3a0;\n  color:#fff;\n  font-size:1.2rem;\n  padding: 1rem 2rem;\n  text-decoration: none;\n}\n\n.login {\n  max-width: 400px;\n}\n\nhr.side {\n  border-color: #ffffff;\n  opacity: 0.5;\n  border-width: thin;\n}\n\n.loginButton {\n  min-width: 200px;\n  min-height: 40px;\n  margin-top: 10px;\n  text-align: center;\n  padding: 0px;\n  background-color: #428bca;\n}\n\n.loginButton:hover {\n  background-color: #41BEFF;\n  cursor: pointer;\n}\n\n.loginButton:active {\n  background-color: #41BEFF;\n}\n\n.footer {\n  margin-top: 100px;\n  font-size: 0.1rem;\n}\n\n.badge {\n  background-color: #428bca !important;\n}\n\n.form-control:focus {\n  border-color: #ffffff !important;\n  box-shadow: inset 0 0px 0px rgba(255, 255, 255, 1), 0 0 0px rgba(255, 255, 255, 1) !important;\n}\n\n\n@media(max-width:960px){\n  .container{\n    padding-right:3rem;\n    padding-left:3rem;\n  }\n}\n", ""]);
 
 // exports
 
