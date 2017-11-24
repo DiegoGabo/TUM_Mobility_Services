@@ -9,6 +9,10 @@ import '../../node_modules/font-awesome/css/font-awesome.min.css';
 
 export class LoginPage extends React.Component {
 
+  /*
+  Constructor that initialize the class.
+  changePage.bind allow the class to use this.changePage
+  */
   constructor(props) {
 	super(props);
 	this.changePage = this.changePage.bind(this);
