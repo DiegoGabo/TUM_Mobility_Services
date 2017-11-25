@@ -1,9 +1,11 @@
 import React from 'react';
+
 import  {OverviewHeader} from './OverviewHeader';
 import  {AppList} from './AppList';
 import  {MapPosition} from './MapPosition';
 import  {Panels} from './Panels';
 import  {Footer} from './Footer';
+import  {AppHeader} from './AppHeader';
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../node_modules/font-awesome/css/font-awesome.min.css';
@@ -15,6 +17,7 @@ export class Overview extends React.Component {
     return (
       <div>
         <OverviewHeader />
+        <AppHeader />
         <MapPosition />
         <Panels />
         <Footer />
