@@ -2,6 +2,10 @@ import React from 'react';
 
 import '../css/starPanel.css';
 
+const full_star = <span class="fa fa-star" style={{fontSize: '2em', color: 'orange'}}></span>;
+const half_star = <span class="fa fa-star-half-o " style={{fontSize: '2em', color: 'orange'}}></span>;
+const empty_star = <span class="fa fa-star-o" style={{fontSize: '2em'}}></span>;
+
 export class StarPanel extends React.Component {
   
   render() {
@@ -14,6 +18,13 @@ export class StarPanel extends React.Component {
           <tr>
             <td width="30%">
               <h3>Acceleration Assessment</h3>
+            </td>
+            <td width="70%">
+              {full_star}
+              {full_star}
+              {full_star}
+              {half_star}
+              {empty_star}
             </td>
           </tr>
         </div>
