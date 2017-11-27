@@ -1,0 +1,13 @@
+li .fa {
+    font-size: 7em; 
+    color: #00796B;
+}
+
+.col-sm-5 h4 {
+    padding-top: 10px; 
+    display: inline;
+}
+
+td .progress{
+    height: 20px;
+}

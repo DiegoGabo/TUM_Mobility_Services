@@ -1,10 +1,6 @@
 import React from 'react';
 import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
 
-const coords = {
-  lat:  48.161502,
-  lng: 11.524362
-};
 
 const params = {v: '3.exp', key: 'AIzaSyCvFKFLNyeslv9r5VdA86Vnu1-e-E_-HQ4'};
 
@@ -29,6 +25,13 @@ export class MapPosition extends React.Component {
   }
 
   render() {
+    
+    const coords = {
+      lat: this.props.latitude,
+      lng: this.props.longitude
+    };
+
+      
     return (
       <Gmaps
         width={'100%'}

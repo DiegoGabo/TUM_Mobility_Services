@@ -1,0 +1,10 @@
+.panel i {
+    font-size: 7em; 
+    color: #00796B;
+}
+
+td h3 {
+    padding-top: 10px; 
+    display: inline; 
+    margin-right: 30px;
+}
