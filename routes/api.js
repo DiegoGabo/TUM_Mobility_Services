@@ -50,7 +50,7 @@ router.get('/', (req,res)=>{
 	db.collection('bmwdatas').find(req.query).toArray((err,result) =>{
 		console.log(req.query)
 		if(err) return console.log(err)
-		//res.render('main.ejs', { query :result })
+		//res.render('main.ejs', { query : result })
 		res.send(result)
 	})
 })

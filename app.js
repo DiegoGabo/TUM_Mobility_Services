@@ -163,7 +163,7 @@ app.get('*', (req,res,next)=>{
 //data4react example usage
 var react = require("./data4react.js")
 react.data4react("WBY1Z21000V308999", function(react){
-	//console.log(react)
+	console.log(react)
 })
 
 
