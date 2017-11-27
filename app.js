@@ -38,7 +38,7 @@ var json, gpsLat, gpsLng, data
 var postConfig = {}
 var postSuccessHandler = function(err, httpResponse, body){
 	console.log(err)
-	console.log('JSON response from the server: ' + body)
+	//console.log('JSON response from the server: ' + body)
 }
 
 //For json post requests
@@ -99,6 +99,9 @@ request.get(options, (error, response, body) => {
 		if(json.telematicKeyValues[index].name === "bmwcardata_mileage"){
 			mileage = json.telematicKeyValues[index].value
 		}
+		if(json.telematicKeyValues[index].name === "bmwcardata_SegmentLastTripAccelerationStars"){
+			SegmentLastTripAccelerationStars = json.telematicKeyValues[index].value
+		}
 
 	}
 
@@ -109,10 +112,11 @@ request.get(options, (error, response, body) => {
 		'remainingFuel': remainingFuel,
 		'airTemperature': airTemperature,
 		'remainingRange': remainingRange,
-		'mileage': mileage
+		'mileage': mileage,
+		"segmentLastTripAccelerationStars": SegmentLastTripAccelerationStars
 	}
 
-	console.log(gpsLat, gpsLng)
+	//console.log(gpsLat, gpsLng)
 	postConfig = {
 		//production settings
 		//url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
@@ -120,7 +124,7 @@ request.get(options, (error, response, body) => {
 		url: 'http://localhost:3000/api/bmwdata',
 		form: data 
 	}
-	console.log(postConfig)
+	//console.log(postConfig)
 	request.post(postConfig, postSuccessHandler);
 
 })
@@ -150,9 +154,16 @@ app.use(function (req, res, next) {
 let users = require('./routes/users') 
 app.use('/users',users)
 
+//session thing work on that later
 app.get('*', (req,res,next)=>{
 	res.locals.user = req.user || null
 	next()
+})
+
+//data4react example usage
+var react = require("./data4react.js")
+react.data4react("WBY1Z21000V308999", function(react){
+	console.log(react)
 })
 
 
@@ -161,3 +172,4 @@ var server = app.listen(process.env.PORT || 3000, function(){
 	var port = server.address().port
 	console.log('Express server listening on port %s', port)
 })
+

@@ -29,7 +29,8 @@ router.get('/bmwdata', (req, res) => {
 
 //post request to add the data to database
 router.post('/bmwdata', (req, res) => {
-	var bmwdata = req.body;
+	var bmwdata = req.body
+	//console.log(bmwdata)
 	Bmwdata.addbmwData(bmwdata, (err, bmwdata) => {
 		if(err){
 			throw err;
@@ -43,12 +44,14 @@ router.post('/bmwdata', (req, res) => {
 //fetching the results from db
 //Turning the results in to an array
 //result data is rendered as query variable in main.ejs.
-//Access the last latitude data of the car in main.ejs by <%= query[query.length].gpsLat %>
+//Access the last latitude data of the car in main.ejs by <%= query[query.length-1].gpsLat %>
 //You can access every data by using the same notation
 router.get('/', (req,res)=>{
 	db.collection('bmwdatas').find(req.query).toArray((err,result) =>{
+		console.log(req.query)
 		if(err) return console.log(err)
-		res.render('main.ejs', { query :result })
+		//res.render('main.ejs', { query :result })
+		res.send(result)
 	})
 })
 

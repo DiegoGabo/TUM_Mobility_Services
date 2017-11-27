@@ -50,12 +50,14 @@ const bmwDataSchema = mongoose.Schema({
 		type: String,
 		required: false
 	},
+	segmentLastTripAccelerationStars:{
+		type: String,
+		required:false
+	},
 	create_date:{
 		type: Date,
 		default: Date.now
 	}
-
-
 });
 
 const bmwData = module.exports = mongoose.model('bmwdatas', bmwDataSchema);
