@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../css/panels.css';
+//import '../css/panels.css';
 
 import  {StarPanel} from './StarPanel';
 import  {FuelPanel} from './FuelPanel';
