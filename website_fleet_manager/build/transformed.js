@@ -42621,12 +42621,15 @@ class LoginPage extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
 class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
   render() {
+
+    let latitude = 48.161502;
+    let longitude = 11.524362;
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       null,
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__OverviewHeader__["a" /* OverviewHeader */], null),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__AppHeader__["a" /* AppHeader */], null),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__MapPosition__["a" /* MapPosition */], null),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__MapPosition__["a" /* MapPosition */], { latitude: latitude, longitude: longitude }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Panels__["a" /* Panels */], null),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Footer__["a" /* Footer */], null)
     );
@@ -55794,11 +55797,6 @@ exports.push([module.i, "nav {\n    height: 70px; \n    background-color:  #428b
 
 
 
-const coords = {
-  lat: 48.161502,
-  lng: 11.524362
-};
-
 const params = { v: '3.exp', key: 'AIzaSyCvFKFLNyeslv9r5VdA86Vnu1-e-E_-HQ4' };
 
 class MapPosition extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
@@ -55822,6 +55820,12 @@ class MapPosition extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
   }
 
   render() {
+
+    const coords = {
+      lat: this.props.latitude,
+      lng: this.props.longitude
+    };
+
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       __WEBPACK_IMPORTED_MODULE_1_react_gmaps__["Gmaps"],
       {
@@ -57371,6 +57375,12 @@ module.exports = exports['default'];
 class Panels extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
   render() {
+
+    let acceleration = 3;
+    let generalRisk = 2;
+    let energy = 50;
+    let fuel = 70;
+
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       null,
@@ -57380,9 +57390,19 @@ class Panels extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'ul',
           { className: 'w3-ul w3-card-4' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__StarPanel__["a" /* StarPanel */], null),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__StarPanel__["a" /* StarPanel */], null),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FuelPanel__["a" /* FuelPanel */], null)
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__StarPanel__["a" /* StarPanel */], {
+            image: 'fa fa-tachometer w3-bar-item w3-circle w3-hide-small',
+            title: 'Acceleration',
+            subtitle: 'Acceleration assessment',
+            value: acceleration
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__StarPanel__["a" /* StarPanel */], {
+            image: 'fa fa-exclamation-triangle w3-bar-item w3-circle w3-hide-small',
+            title: 'General risk level',
+            subtitle: 'Pre-emptive driving',
+            value: generalRisk
+          }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FuelPanel__["a" /* FuelPanel */], { energy: energy, fuel: fuel })
         )
       )
     );
@@ -57411,40 +57431,42 @@ const empty_star = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('
 class StarPanel extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
   render() {
+
+    let star0 = this.props.value > 0 ? full_star : empty_star;
+    let star1 = this.props.value > 1 ? full_star : empty_star;
+    let star2 = this.props.value > 2 ? full_star : empty_star;
+    let star3 = this.props.value > 3 ? full_star : empty_star;
+    let star4 = this.props.value > 4 ? full_star : empty_star;
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'li',
       { className: 'w3-bar panel' },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-tachometer w3-bar-item w3-circle w3-hide-small', 'aria-hidden': 'true' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: this.props.image, 'aria-hidden': 'true' }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { className: 'w3-bar-item' },
+        { className: 'col-sm-10' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'h2',
           null,
-          'Acceleration'
+          this.props.title
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', { className: 'divider' }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'tr',
-          null,
+          'div',
+          { className: 'col-sm-4' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'td',
-            { width: '30%' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'h3',
-              null,
-              'Acceleration Assessment'
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'td',
-            { width: '70%' },
-            full_star,
-            full_star,
-            full_star,
-            half_star,
-            empty_star
+            'h3',
+            null,
+            this.props.subtitle
           )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'col-sm-8' },
+          star0,
+          star1,
+          star2,
+          star3,
+          star4
         )
       )
     );
@@ -57514,6 +57536,9 @@ exports.push([module.i, ".panel i {\n    font-size: 7em; \n    color: #00796B;\n
 class FuelPanel extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
   render() {
+
+    let energy = this.props.energy + '%';
+    let fuel = this.props.fuel + '%';
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'li',
       { className: 'w3-bar' },
@@ -57545,7 +57570,7 @@ class FuelPanel extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
               { className: 'progress' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'progress-bar', role: 'progress-bar progress-bar-warning progress-bar-striped', 'aria-valuemin': '0', 'aria-valuemax': '100', style: { width: '40%', display: 'inline' } })
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'progress-bar', role: 'progress-bar progress-bar-warning progress-bar-striped', 'aria-valuemin': '0', 'aria-valuemax': '100', style: { width: energy, display: 'inline' } })
             )
           )
         ),
@@ -57567,7 +57592,7 @@ class FuelPanel extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
               { className: 'progress' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'progress-bar progress-bar-success progress-bar-striped', role: 'progressbar', 'aria-valuemin': '0', 'aria-valuemax': '100', style: { width: '40%' } })
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'progress-bar progress-bar-success progress-bar-striped', role: 'progressbar', 'aria-valuemin': '0', 'aria-valuemax': '100', style: { width: fuel } })
             )
           )
         )
@@ -57742,10 +57767,10 @@ class AppHeader extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
         null,
         'KPI Management'
       ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], null),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], null),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], null),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], null)
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], { title: 'Vehicles', v1: 'BMW i3', v2: 'BMW i8', v3: 'BMW i8', v4: 'BMW i8' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], { title: 'Trips', v1: '1', v2: '2', v3: '3', v4: '4' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], { title: 'Employees', v1: '1', v2: '2', v3: '3', v4: '4' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], { title: 'KPI', v1: '1', v2: '2', v3: '3', v4: '4' })
     );
   }
 }
@@ -57817,11 +57842,12 @@ class FilterMenu extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
         { className: "form-group col-sm-3" },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           "div",
-          { className: "col-sm-3" },
+          { className: "col-sm-3", style: { display: 'inline' } },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             "label",
             null,
-            "Vehicle:"
+            this.props.title,
+            ":"
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -57833,22 +57859,22 @@ class FilterMenu extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               "option",
               null,
-              "BMW i3"
+              this.props.v1
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               "option",
               null,
-              "BMW i8"
+              this.props.v2
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               "option",
               null,
-              "BMW m5"
+              this.props.v3
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               "option",
               null,
-              "BMW x6"
+              this.props.v4
             )
           )
         )

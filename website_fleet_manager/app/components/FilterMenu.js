@@ -6,13 +6,13 @@ export class FilterMenu extends React.Component {
     return (
       <div>
         <div className="form-group col-sm-3">
-          <div className="col-sm-3"><label>Vehicle:</label></div>
+          <div className="col-sm-3" style={{display: 'inline'}}><label>{this.props.title}:</label></div>
           <div className="col-sm-9">
             <select className="form-control">
-            <option>BMW i3</option>
-            <option>BMW i8</option>
-            <option>BMW m5</option>
-            <option>BMW x6</option>
+            <option>{this.props.v1}</option>
+            <option>{this.props.v2}</option>
+            <option>{this.props.v3}</option>
+            <option>{this.props.v4}</option>
           </select>
           </div>
         </div>

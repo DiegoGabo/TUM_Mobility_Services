@@ -5,6 +5,9 @@ import '../css/fuelPanel.css';
 export class FuelPanel extends React.Component {
 
   render() {
+    
+    let energy = this.props.energy +'%';
+    let fuel = this.props.fuel + '%';
     return (
       <li className="w3-bar">
       <i className="fa fa-plug w3-bar-item w3-circle w3-hide-small" aria-hidden="true"></i>
@@ -18,7 +21,7 @@ export class FuelPanel extends React.Component {
           </div>
           <div className="col-sm-8">
             <div className="progress">
-              <div  className="progress-bar" role="progress-bar progress-bar-warning progress-bar-striped"  aria-valuemin="0" aria-valuemax="100" style={{width: '40%', display: 'inline'}}>
+              <div  className="progress-bar" role="progress-bar progress-bar-warning progress-bar-striped"  aria-valuemin="0" aria-valuemax="100" style={{width: energy, display: 'inline'}}>
               </div>
             </div>
           </div>
@@ -30,7 +33,7 @@ export class FuelPanel extends React.Component {
           </div>
           <div className="col-sm-8">
             <div className="progress">
-              <div  className="progress-bar progress-bar-success progress-bar-striped" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style={{width: '40%'}}>
+              <div  className="progress-bar progress-bar-success progress-bar-striped" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style={{width: fuel}}>
             </div>
           </div>
           </div>
