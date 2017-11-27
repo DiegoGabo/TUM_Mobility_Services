@@ -1,6 +1,6 @@
 import React from 'react';
 
-//import '../css/starPanel.css';
+import '../css/starPanel.css';
 
 const full_star = <span class="fa fa-star" style={{fontSize: '2em', color: 'orange'}}></span>;
 const half_star = <span class="fa fa-star-half-o " style={{fontSize: '2em', color: 'orange'}}></span>;

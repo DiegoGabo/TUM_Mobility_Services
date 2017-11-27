@@ -1,6 +1,6 @@
 import React from 'react';
 
-//import '../css/appHeader.css';
+import '../css/appHeader.css';
 
 import  {FilterMenu} from './FilterMenu';
 

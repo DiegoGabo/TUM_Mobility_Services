@@ -3,7 +3,7 @@ import React from 'react';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'w3-css/w3.css';
-//import '../css/appElement.css';
+import '../css/appElement.css';
 
 export class AppElement extends React.Component {
 

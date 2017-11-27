@@ -6,7 +6,7 @@ import  {AppList} from './AppList';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'w3-css/w3.css';
-//import '../css/overviewHeader.css';
+import '../css/overviewHeader.css';
 
 
 export class OverviewHeader extends React.Component {

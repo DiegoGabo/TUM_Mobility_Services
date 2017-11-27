@@ -1,6 +1,6 @@
 import React from 'react';
 
-//import '../css/fuelPanel.css';
+import '../css/fuelPanel.css';
 
 export class FuelPanel extends React.Component {
 

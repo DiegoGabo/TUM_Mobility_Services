@@ -6,7 +6,7 @@ import {Collapse} from 'react-bootstrap';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'w3-css/w3.css';
-//import '../css/appList.css'; 
+import '../css/appList.css'; 
 
 export class AppList extends React.Component {
 
