@@ -1,5 +1,5 @@
 import React from 'react';
-import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
+//import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
 
 const coords = {
   lat:  48.161502,

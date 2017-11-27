@@ -1,7 +1,7 @@
 import React from 'react';
 
 export class FilterMenu extends React.Component {
-  
+
   render() {
     return (
       <div>
@@ -14,7 +14,7 @@ export class FilterMenu extends React.Component {
             <option>BMW m5</option>
             <option>BMW x6</option>
           </select>
-          </div> 
+          </div>
         </div>
       </div>
     );
