@@ -1,11 +1,11 @@
-div appElement {
+div .appElement {
     background-color: #E0F2F1;
 }
 
 .card i {
     font-size: 10rem; 
     margin-left: 150px; 
-    margin-top: 5px; 
+    margin-top: 0px; 
     color: #00796B;
 }
 

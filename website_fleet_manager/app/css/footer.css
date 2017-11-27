@@ -1,0 +1,29 @@
+.foot {
+    margin-top: 5px !important;
+    background-color: #428bca !important;
+    width: 100% !important;
+    height: 40px !important;
+}
+
+.foot p {
+    color:  white;
+    display: inline
+}
+
+div .col-sm-9 {
+    margin-bottom: 5px; 
+    margin-top: 5px;
+    display: inline;
+}
+
+.foot .col-sm-2 {
+    margin-bottom: 5px; 
+    margin-top: 5px;
+    display: inline;
+}
+
+.foot .fa {
+    font-size:30px; 
+    color: white; 
+    margin-left: 5px;
+}
