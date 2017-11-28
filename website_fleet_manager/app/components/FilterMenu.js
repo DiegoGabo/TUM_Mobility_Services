@@ -8,7 +8,7 @@ export class FilterMenu extends React.Component {
         <div className="form-group col-sm-3">
           <div className="col-sm-3" style={{display: 'inline'}}><label>{this.props.title}:</label></div>
           <div className="col-sm-9">
-            <select className="form-control">
+            <select className="form-control" onChange={this.props.handleChange}>
             <option>{this.props.v1}</option>
             <option>{this.props.v2}</option>
             <option>{this.props.v3}</option>

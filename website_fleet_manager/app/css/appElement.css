@@ -6,13 +6,14 @@ div .appElement {
     font-size: 10rem; 
     margin-left: 150px; 
     margin-top: 0px; 
-    color: #00796B;
+    color: #8BC34A;
 }
 
 .card h4 {
     text-align: center; 
-    background-color: #B2DFDB;
+    background-color: #428bca;
     padding: 0; width: inherit;
+    color: whitesmoke;
 }
 
 .card p {

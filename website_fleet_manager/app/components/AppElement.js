@@ -11,9 +11,9 @@ export class AppElement extends React.Component {
     return (
         <div className="col-sm-3 appElement">
           <div className="card">
-            <i className="fa fa-car" aria-hidden="true"></i>
-            <h4 className="card-title">Vehicle Management</h4>
-            <p className="card-text">Manage all vehicles of your company</p>
+            <i className={this.props.image} aria-hidden="true"></i>
+            <h4 className="card-title">{this.props.title}</h4>
+            <p className="card-text">{this.props.subtitle}}</p>
           </div>
         </div>
     );

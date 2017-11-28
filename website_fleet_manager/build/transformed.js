@@ -21375,10 +21375,10 @@ class AppList extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'card card-block' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AppElement__["a" /* AppElement */], null),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AppElement__["a" /* AppElement */], null),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AppElement__["a" /* AppElement */], null),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AppElement__["a" /* AppElement */], null)
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AppElement__["a" /* AppElement */], { image: 'fa fa-car', title: 'Vehicle Management', subtitle: 'Manage all vehicles of your company' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AppElement__["a" /* AppElement */], { image: 'fa fa-user-circle', title: 'Employees Management', subtitle: 'Manage all employees of your company' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AppElement__["a" /* AppElement */], { image: 'fa fa-bar-chart', title: 'KPI Management', subtitle: 'Manage KPI' }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__AppElement__["a" /* AppElement */], { image: 'fa fa-map', title: 'Trips Management', subtitle: 'Manage all trips of your company' })
         )
       )
     );
@@ -42620,15 +42620,25 @@ class LoginPage extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
 
 class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = { vehicle: "WBY1Z21000V308999" };
+    this.changeCar = this.changeCar.bind(this);
+  }
+
   render() {
+
+    changeCar();
+    {}
 
     let latitude = 48.161502;
     let longitude = 11.524362;
+
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       null,
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__OverviewHeader__["a" /* OverviewHeader */], null),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__AppHeader__["a" /* AppHeader */], null),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__AppHeader__["a" /* AppHeader */], { hancleChange: this.changeCar }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__MapPosition__["a" /* MapPosition */], { latitude: latitude, longitude: longitude }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Panels__["a" /* Panels */], null),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Footer__["a" /* Footer */], null)
@@ -43886,16 +43896,17 @@ class AppElement extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'card' },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-car', 'aria-hidden': 'true' }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: this.props.image, 'aria-hidden': 'true' }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'h4',
           { className: 'card-title' },
-          'Vehicle Management'
+          this.props.title
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'p',
           { className: 'card-text' },
-          'Manage all vehicles of your company'
+          this.props.subtitle,
+          '}'
         )
       )
     );
@@ -44141,7 +44152,7 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, "div .appElement {\n    background-color: #E0F2F1;\n}\n\n.card i {\n    font-size: 10rem; \n    margin-left: 150px; \n    margin-top: 0px; \n    color: #00796B;\n}\n\n.card h4 {\n    text-align: center; \n    background-color: #B2DFDB;\n    padding: 0; width: inherit;\n}\n\n.card p {\n    text-align: center;\n}", ""]);
+exports.push([module.i, "div .appElement {\n    background-color: #E0F2F1;\n}\n\n.card i {\n    font-size: 10rem; \n    margin-left: 150px; \n    margin-top: 0px; \n    color: #8BC34A;\n}\n\n.card h4 {\n    text-align: center; \n    background-color: #428bca;\n    padding: 0; width: inherit;\n    color: whitesmoke;\n}\n\n.card p {\n    text-align: center;\n}", ""]);
 
 // exports
 
@@ -55830,7 +55841,7 @@ class MapPosition extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
       __WEBPACK_IMPORTED_MODULE_1_react_gmaps__["Gmaps"],
       {
         width: '100%',
-        height: '250px',
+        height: '350px',
         lat: coords.lat,
         lng: coords.lng,
         zoom: 15,
@@ -57376,10 +57387,19 @@ class Panels extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
   render() {
 
+    //var carData = require("../../../data4react.js");
+    //let vehicleId = "WBY1Z21000V308999";
+    //carData4react(vehicleId, function(react){console.log(react)});
+
     let acceleration = 3;
     let generalRisk = 2;
     let energy = 50;
     let fuel = 70;
+
+    //let acceleration = carData[react.lenght-1].segmentLastTripAccelerationStars;
+    //let generalRisk=carData[react.lenght-1].;
+    //let energy=carData[react.lenght-1].;
+    //let fuel=carData[react.lenght-1].;
 
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
@@ -57424,9 +57444,9 @@ class Panels extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
 
 
-const full_star = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { 'class': 'fa fa-star', style: { fontSize: '2em', color: 'orange' } });
-const half_star = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { 'class': 'fa fa-star-half-o ', style: { fontSize: '2em', color: 'orange' } });
-const empty_star = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { 'class': 'fa fa-star-o', style: { fontSize: '2em' } });
+const full_star = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'fa fa-star', style: { fontSize: '2em', color: 'orange' } });
+const half_star = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'fa fa-star-half-o ', style: { fontSize: '2em', color: 'orange' } });
+const empty_star = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'fa fa-star-o', style: { fontSize: '2em' } });
 
 class StarPanel extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
@@ -57515,7 +57535,7 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, ".panel i {\n    font-size: 7em; \n    color: #00796B;\n}\n\ntd h3 {\n    padding-top: 10px; \n    display: inline; \n    margin-right: 30px;\n}\n", ""]);
+exports.push([module.i, ".panel i {\n    font-size: 7em; \n    color: #8BC34A;\n}\n\ntd h3 {\n    padding-top: 10px; \n    display: inline; \n    margin-right: 30px;\n}\n", ""]);
 
 // exports
 
@@ -57643,7 +57663,7 @@ exports = module.exports = __webpack_require__(17)(undefined);
 
 
 // module
-exports.push([module.i, "li .fa {\n    font-size: 7em; \n    color: #00796B;\n}\n\n.col-sm-5 h4 {\n    padding-top: 10px; \n    display: inline;\n}\n\ntd .progress{\n    height: 20px;\n}", ""]);
+exports.push([module.i, "li .fa {\n    font-size: 7em; \n    color: #8BC34A;\n}\n\n.col-sm-5 h4 {\n    padding-top: 10px; \n    display: inline;\n}\n\ntd .progress{\n    height: 20px;\n}", ""]);
 
 // exports
 
@@ -57759,6 +57779,7 @@ exports.push([module.i, ".foot {\n    margin-top: 5px !important;\n    backgroun
 class AppHeader extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
   render() {
+
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       { className: 'appHeader' },
@@ -57767,7 +57788,7 @@ class AppHeader extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
         null,
         'KPI Management'
       ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], { title: 'Vehicles', v1: 'BMW i3', v2: 'BMW i8', v3: 'BMW i8', v4: 'BMW i8' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], { title: 'Vehicles', v1: 'BMW i3', v2: 'BMW i8', v3: 'BMW i8', v4: 'BMW i8', hancleChange: this.props.handleChange }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], { title: 'Trips', v1: '1', v2: '2', v3: '3', v4: '4' }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], { title: 'Employees', v1: '1', v2: '2', v3: '3', v4: '4' }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], { title: 'KPI', v1: '1', v2: '2', v3: '3', v4: '4' })
@@ -57855,7 +57876,7 @@ class FilterMenu extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
           { className: "col-sm-9" },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             "select",
-            { className: "form-control" },
+            { className: "form-control", onChange: this.props.handleChange() },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               "option",
               null,

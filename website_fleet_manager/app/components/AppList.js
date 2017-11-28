@@ -32,10 +32,10 @@ export class AppList extends React.Component {
 
         <Collapse in={this.state.detailed}>
           <div className="card card-block">
-            <AppElement />
-            <AppElement />
-            <AppElement />
-            <AppElement />
+            <AppElement image="fa fa-car" title="Vehicle Management" subtitle="Manage all vehicles of your company"/>
+            <AppElement image="fa fa-user-circle" title="Employees Management" subtitle="Manage all employees of your company"/>
+            <AppElement image="fa fa-bar-chart" title="KPI Management" subtitle="Manage KPI"/>
+            <AppElement image="fa fa-map" title="Trips Management" subtitle="Manage all trips of your company"/>
           </div>
         </Collapse>
 
