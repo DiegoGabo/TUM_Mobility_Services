@@ -42626,10 +42626,9 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     this.changeCar = this.changeCar.bind(this);
   }
 
-  render() {
+  changeCar() {}
 
-    changeCar();
-    {}
+  render() {
 
     let latitude = 48.161502;
     let longitude = 11.524362;
@@ -57788,7 +57787,7 @@ class AppHeader extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
         null,
         'KPI Management'
       ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], { title: 'Vehicles', v1: 'BMW i3', v2: 'BMW i8', v3: 'BMW i8', v4: 'BMW i8', hancleChange: this.props.handleChange }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], { title: 'Vehicles', v1: 'BMW i3', v2: 'BMW i8', v3: 'BMW i8', v4: 'BMW i8', handleChange: this.props.handleChange }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], { title: 'Trips', v1: '1', v2: '2', v3: '3', v4: '4' }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], { title: 'Employees', v1: '1', v2: '2', v3: '3', v4: '4' }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FilterMenu__["a" /* FilterMenu */], { title: 'KPI', v1: '1', v2: '2', v3: '3', v4: '4' })
@@ -57876,7 +57875,7 @@ class FilterMenu extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
           { className: "col-sm-9" },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             "select",
-            { className: "form-control", onChange: this.props.handleChange() },
+            { className: "form-control", onChange: this.props.handleChange },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               "option",
               null,

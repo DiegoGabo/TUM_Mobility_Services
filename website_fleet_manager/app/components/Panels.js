@@ -9,16 +9,16 @@ export class Panels extends React.Component {
 
   render() {
 	
-	//var carData = require("../../../data4react.js");
-	//let vehicleId = "WBY1Z21000V308999";
-	//carData4react(vehicleId, function(react){console.log(react)});
+	var carData = require("../../../data4react.js");
+	let vehicleId = "WBY1Z21000V308999";
+	carData4react(vehicleId, function(react){console.log(react)});
      
-    let acceleration = 3;
+    //let acceleration = 3;
     let generalRisk=2;
     let energy=50;
     let fuel=70;
 
-	//let acceleration = carData[react.lenght-1].segmentLastTripAccelerationStars;
+	let acceleration = carData[react.lenght-1].segmentLastTripAccelerationStars;
     //let generalRisk=carData[react.lenght-1].;
     //let energy=carData[react.lenght-1].;
     //let fuel=carData[react.lenght-1].;
