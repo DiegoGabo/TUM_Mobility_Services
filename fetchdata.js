@@ -69,9 +69,9 @@ request.get(options, (error, response, body) => {
 	//Making a post request with the given data above to production server or the developmemnt server
 	postConfig = {
 		//production settings
-		//url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
+		url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
 		//development setting
-		url: 'http://localhost:3000/api/bmwdata',
+		//url: 'http://localhost:3000/api/bmwdata',
 		form: data 
 	}
 	console.log(postConfig)
