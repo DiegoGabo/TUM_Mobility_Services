@@ -11,9 +11,9 @@ const flash = require('connect-flash')
 app.use(bodyParser.json())
 
 //Local Server for database Connect to Mongoose
-//mongoose.connect(config.database)
+mongoose.connect(config.database)
 //production database server
-mongoose.connect('mongodb://heroku_w5z3d9qq:977j9v5ee163bc59p3l1l96a3f@ds243335.mlab.com:43335/heroku_w5z3d9qq')
+//mongoose.connect('mongodb://heroku_w5z3d9qq:977j9v5ee163bc59p3l1l96a3f@ds243335.mlab.com:43335/heroku_w5z3d9qq')
 var db = mongoose.connection
 
 //model import
@@ -32,14 +32,6 @@ app.use(session({
 // Passport Middleware
 app.use(passport.initialize())
 app.use(passport.session())
-
-//Access the BMW telematics data
-var json, gpsLat, gpsLng, data
-var postConfig = {}
-var postSuccessHandler = function(err, httpResponse, body){
-	console.log(err)
-	//console.log('JSON response from the server: ' + body)
-}
 
 //For json post requests
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -66,83 +58,11 @@ const options3 = {
 	headers: {
 	KeyId: 'c4157993-3fd8-4cbe-95bf-643a73fcb788'
 }}
-fetchBMWdata(options1)
-fetchBMWdata(options2)
-fetchBMWdata(options3)
+fetch = require("./fetchdata")
+fetch.fetchBMWdata(options1)
+fetch.fetchBMWdata(options2)
+fetch.fetchBMWdata(options3)
 
-
-//Request the data from bmw server and console log it
-//setInterval to fetch the data every 10min = 60000ms 1s = 1000ms 1min = 60000 10min = 600000ms
-function fetchBMWdata(options){
-
-//setInterval(function(){
-request.get(options, (error, response, body) => {
-	json = JSON.parse(body)
-	vin = options.vin
-	//console.log(json.telematicKeyValues.length)
-	for (index = 0; index < json.telematicKeyValues.length; index++){
-		if(json.telematicKeyValues[index].name === "bmwcardata_gpsLat"){
-			gpsLat = json.telematicKeyValues[index].value
-		}
-		if(json.telematicKeyValues[index].name === "bmwcardata_gpsLng"){
-			gpsLng = json.telematicKeyValues[index].value
-		}
-		if(json.telematicKeyValues[index].name === "bmwcardata_remainingFuel"){
-			remainingFuel = json.telematicKeyValues[index].value
-		}
-		if(json.telematicKeyValues[index].name === "bmwcardata_airTemperature"){
-			airTemperature = json.telematicKeyValues[index].value
-		}
-		if(json.telematicKeyValues[index].name === "bmwcardata_kombiCurrentRemainingRangeFuel"){
-			remainingRange = json.telematicKeyValues[index].value
-		}
-		if(json.telematicKeyValues[index].name === "bmwcardata_mileage"){
-			mileage = json.telematicKeyValues[index].value
-		}
-		if(json.telematicKeyValues[index].name === "bmwcardata_SegmentLastTripAccelerationStars"){
-			SegmentLastTripAccelerationStars = json.telematicKeyValues[index].value
-		}
-		if(json.telematicKeyValues[index].name === "bmwcardata_SegmentLastTripBrakingStars"){
-			lastTripBrakingStars = json.telematicKeyValues[index].value
-		}
-		if(json.telematicKeyValues[index].name === "bmwcardata_SegmentLastTripElectricEnergyConsumptionOverall"){
-			lastTripElectricEnergyConsumptionOverall = json.telematicKeyValues[index].value
-		}
-		if(json.telematicKeyValues[index].name === "bmwcardata_SegmentLastTripRecuperationOverall"){
-			lastTripRecuperationOverall = json.telematicKeyValues[index].value
-		}
-
-	}
-
-	data = {
-		'vinBmw': vin,
-		'gpsLat': gpsLat,
-		'gpsLng': gpsLng,
-		'remainingFuel': remainingFuel,
-		'airTemperature': airTemperature,
-		'remainingRange': remainingRange,
-		'mileage': mileage,
-		"segmentLastTripAccelerationStars": SegmentLastTripAccelerationStars,
-		"lastTripBrakingStars": lastTripBrakingStars,
-		"lastTripElectricEnergyConsumptionOverall": lastTripElectricEnergyConsumptionOverall,
-		"lastTripRecuperationOverall": lastTripRecuperationOverall
-	}
-
-	//console.log(gpsLat, gpsLng)
-	//Making a post request with the given data above to production server or the developmemnt server
-	postConfig = {
-		//production settings
-		url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
-		//development setting
-		//url: 'http://localhost:3000/api/bmwdata',
-		form: data 
-	}
-	//console.log(postConfig)
-	request.post(postConfig, postSuccessHandler);
-
-})
-//}, 5000)
-}
 
 //Lets visualize the data
 app.get('/', (req, res) => {
