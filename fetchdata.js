@@ -85,5 +85,5 @@ request.get(options, (error, response, body) => {
 	request.post(postConfig, postSuccessHandler);
 
 })
-},  120000)
+},  60000)
 }
