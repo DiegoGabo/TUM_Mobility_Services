@@ -1,12 +1,19 @@
 const request = require("request")
 const bodyParser = require('body-parser')  //Learn what this is for
+const express = require('express'),  //Express will be used for routing
+	app = express()
 
+
+//For json post requests
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 
 var postConfig = {}
 var postSuccessHandler = function(err, httpResponse, body){
 	console.log(err)
 	console.log('JSON response from the server: ' + body)
 }
+
 
 //Request the data from bmw server and console log it
 //setInterval to fetch the data every 10min = 60000ms 1s = 1000ms 1min = 60000 10min = 600000ms
@@ -78,5 +85,5 @@ request.get(options, (error, response, body) => {
 	request.post(postConfig, postSuccessHandler);
 
 })
-}, 1000)
+}, 6000)
 }
