@@ -102,6 +102,15 @@ request.get(options, (error, response, body) => {
 		if(json.telematicKeyValues[index].name === "bmwcardata_SegmentLastTripAccelerationStars"){
 			SegmentLastTripAccelerationStars = json.telematicKeyValues[index].value
 		}
+		if(json.telematicKeyValues[index].name === "bmwcardata_SegmentLastTripBrakingStars"){
+			lastTripBrakingStars = json.telematicKeyValues[index].value
+		}
+		if(json.telematicKeyValues[index].name === "bmwcardata_SegmentLastTripElectricEnergyConsumptionOverall"){
+			lastTripElectricEnergyConsumptionOverall = json.telematicKeyValues[index].value
+		}
+		if(json.telematicKeyValues[index].name === "bmwcardata_SegmentLastTripRecuperationOverall"){
+			lastTripRecuperationOverall = json.telematicKeyValues[index].value
+		}
 
 	}
 
@@ -113,15 +122,18 @@ request.get(options, (error, response, body) => {
 		'airTemperature': airTemperature,
 		'remainingRange': remainingRange,
 		'mileage': mileage,
-		"segmentLastTripAccelerationStars": SegmentLastTripAccelerationStars
+		"segmentLastTripAccelerationStars": SegmentLastTripAccelerationStars,
+		"lastTripBrakingStars": lastTripBrakingStars,
+		"lastTripElectricEnergyConsumptionOverall": lastTripElectricEnergyConsumptionOverall,
+		"lastTripRecuperationOverall": lastTripRecuperationOverall
 	}
 
 	//console.log(gpsLat, gpsLng)
 	postConfig = {
 		//production settings
-		//url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
+		url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
 		//development setting
-		url: 'http://localhost:3000/api/bmwdata',
+		//url: 'http://localhost:3000/api/bmwdata',
 		form: data 
 	}
 	//console.log(postConfig)
@@ -147,8 +159,8 @@ app.use('/api',api)
 app.use(require('connect-flash')());
 app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
-  next();
-});
+  next()
+})
 
 //Route File for users
 let users = require('./routes/users') 
@@ -161,10 +173,10 @@ app.get('*', (req,res,next)=>{
 })
 
 //data4react example usage
-var react = require("./data4react.js")
-react.data4react("WBY1Z21000V308999", function(react){
-	console.log(react)
-})
+// var react = require("./data4react.js")
+// react.data4react("WBY1Z21000V308999", function(react){
+// 	console.log(react)
+// })
 
 
 

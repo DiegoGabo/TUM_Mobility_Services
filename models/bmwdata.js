@@ -2,13 +2,21 @@ const mongoose = require('mongoose');
 
 
 const bmwDataSchema = mongoose.Schema({
-	SegmentLastTripElectricEnergyConsumptionOverall:{
-		type: String,
-		required: false
-	},
 	vinBmw:{
 		type: String,
 		requred: false
+	},
+	lastTripBrakingStars:{
+		type: String,
+		requred:false
+	},
+	lastTripElectricEnergyConsumptionOverall:{
+		type: String,
+		required: false
+	},
+	lastTripRecuperationOverall:{
+		type: String,
+		required: false
 	},
 	averageDistanceLongterm:{
 		type: String,
