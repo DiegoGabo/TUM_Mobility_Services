@@ -21,9 +21,9 @@ const Bmwdata = require('../models/bmwdata')
 router.get('/bmwdata', (req, res) => {
 	Bmwdata.getbmwData((err, bmwData) => {
 		if(err){
-			throw err;
+			throw err
 		}
-		res.json(bmwData);
+		res.json(bmwData)
 	});
 });
 
@@ -33,9 +33,9 @@ router.post('/bmwdata', (req, res) => {
 	//console.log(bmwdata)
 	Bmwdata.addbmwData(bmwdata, (err, bmwdata) => {
 		if(err){
-			throw err;
+			throw err
 		}
-		res.json(bmwdata);
+		res.json(bmwdata)
 	})
 })
 
