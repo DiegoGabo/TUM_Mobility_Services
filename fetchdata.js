@@ -1,5 +1,5 @@
 const request = require("request")
-
+const bodyParser = require('body-parser')  //Learn what this is for
 
 
 var postConfig = {}
