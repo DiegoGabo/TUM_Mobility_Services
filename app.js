@@ -11,9 +11,9 @@ const flash = require('connect-flash')
 app.use(bodyParser.json())
 
 //Local Server for database Connect to Mongoose
-mongoose.connect(config.database)
+//mongoose.connect(config.database)
 //production database server
-//mongoose.connect('mongodb://heroku_w5z3d9qq:977j9v5ee163bc59p3l1l96a3f@ds243335.mlab.com:43335/heroku_w5z3d9qq')
+mongoose.connect('mongodb://heroku_w5z3d9qq:977j9v5ee163bc59p3l1l96a3f@ds243335.mlab.com:43335/heroku_w5z3d9qq')
 var db = mongoose.connection
 
 //model import
@@ -129,6 +129,7 @@ request.get(options, (error, response, body) => {
 	}
 
 	//console.log(gpsLat, gpsLng)
+	//Making a post request with the given data above to production server or the developmemnt server
 	postConfig = {
 		//production settings
 		url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
