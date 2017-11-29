@@ -47,7 +47,7 @@ router.post('/bmwdata', (req, res) => {
 //Access the last latitude data of the car in main.ejs by <%= query[query.length-1].gpsLat %>
 //You can access every data by using the same notation
 router.get('/', (req,res)=>{
-	db.collection('bmwdatas').find(req.query).sort({"created_at": -1}).toArray((err,result) =>{
+	db.collection('bmwdatas').find(req.query).sort({"create_date": -1}).toArray((err,result) =>{
 		console.log(req.query)
 		if(err) return console.log(err)
 		//res.render('main.ejs', { query : result })
