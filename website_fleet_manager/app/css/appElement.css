@@ -1,0 +1,21 @@
+div .appElement {
+    background-color: #E0F2F1;
+}
+
+.card i {
+    font-size: 10rem; 
+    margin-left: 150px; 
+    margin-top: 0px; 
+    color: #8BC34A;
+}
+
+.card h4 {
+    text-align: center; 
+    background-color: #428bca;
+    padding: 0; width: inherit;
+    color: whitesmoke;
+}
+
+.card p {
+    text-align: center;
+}
