@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import  {Overview} from './Overview';
+import  {RegistrationPage} from './RegistrationPage.js';
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../css/login_page_style.css';
@@ -17,10 +18,11 @@ export class LoginPage extends React.Component {
   */
   constructor(props) {
 	super(props);
-	this.changePage = this.changePage.bind(this);
+	this.changePageToOverview = this.changePageToOverview.bind(this);
+    this.changePageToRegistration= this.changePageToRegistration.bind(this);
   }
   
-  changePage() {
+  changePageToOverview() {
    //check login and password
    ReactDOM.render(
         <Overview />,
@@ -29,6 +31,16 @@ export class LoginPage extends React.Component {
 	//window.location.replace("../app/overview.html");
   }
 
+  changePageToRegistration() {
+   //go to registration page
+   ReactDOM.render(
+        <RegistrationPage />,
+ 		document.getElementById('app')
+    );
+	
+  }
+   
+ 
   render() {
     return (
       <div className="login_div">
@@ -55,7 +67,10 @@ export class LoginPage extends React.Component {
                 <label>Password</label>
                 <input type="password" className="form-control" placeholder="Password" />
               </div>
-              <button type="submit" className="btn btn-default loginButton" onClick={this.changePage}>Login</button>
+              <div className="button_list">
+                <div className="col-sm-6"><button type="submit" className="btn btn-default loginButton" onClick={this.changePageToOverview}>Login</button></div>
+                <div className="col-sm-6"><button type="submit" className="btn btn-default loginButton" onClick={this.changePageToRegistration}>Register</button></div>
+              </div>
             </form>
          </div>
          <div className="container footer">
