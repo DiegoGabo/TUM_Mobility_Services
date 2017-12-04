@@ -19,7 +19,7 @@ var postSuccessHandler = function(err, httpResponse, body){
 //setInterval to fetch the data every 10min = 60000ms 1s = 1000ms 1min = 60000 10min = 600000ms
 exports.fetchBMWdata = function (options){
 
-setInterval(function(){
+//setInterval(function(){
 request.get(options, (error, response, body) => {
 	json = JSON.parse(body)
 	vin = options.vin
@@ -85,5 +85,5 @@ request.get(options, (error, response, body) => {
 	request.post(postConfig, postSuccessHandler);
 
 })
-},  60000)
+//},  60000)
 }
