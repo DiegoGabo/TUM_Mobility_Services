@@ -42528,7 +42528,7 @@ class LoginPage extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'fullscreen-video-wrap' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('video', { muted: true, src: 'app/videos/login_page_video.mp4', autoPlay: true, loop: true })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('video', { muted: true, src: './app/videos/login_page_video.mp4', autoPlay: true, loop: true })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'header-overlay' }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
