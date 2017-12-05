@@ -21,7 +21,8 @@ export class Panels extends React.Component {
 
   render() {
     console.log(this.state.carData)
-     
+    const {data} = this.state;
+    console.log(data);
     let acceleration = 3;
     let generalRisk=2;
     let energy=50;
