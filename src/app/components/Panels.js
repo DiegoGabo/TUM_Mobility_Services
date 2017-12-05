@@ -8,22 +8,29 @@ import  {StarPanel} from './StarPanel';
 import  {FuelPanel} from './FuelPanel';
 
 export class Panels extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {carData: []};
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/api?vinBmw=WBY1Z21000V308999')
+      .then(res => res.json())
+      .then(carData => this.setState({ carData }));
+  }
 
   render() {
-	
-	//var carData = require("../../../data4react.js");
-	//let vehicleId = "WBY1Z21000V308999";
-	//carData4react(vehicleId, function(react){console.log(react)});
+    console.log(this.state.carData)
      
     let acceleration = 3;
     let generalRisk=2;
     let energy=50;
     let fuel=70;
 
-	//let acceleration = carData[react.lenght-1].segmentLastTripAccelerationStars;
-    //let generalRisk=carData[react.lenght-1].;
-    //let energy=carData[react.lenght-1].;
-    //let fuel=carData[react.lenght-1].;
+	// let acceleration = this.state.carData[0].segmentLastTripAccelerationStars;
+ //    let generalRisk=this.state.carData[0].lastTripRecuperationOverall;
+ //    let energy=this.state.carData[0].remainingRange;
+ //    let fuel=this.state.carData[0].remainingFuel;
       
     return (
       <div>
