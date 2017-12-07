@@ -27,7 +27,7 @@ export class Panels extends React.Component {
     let energy=50;
     let fuel=70;
 
-	  //let acceleration = this.state.carData[0].segmentLastTripAccelerationStars;
+ //    let acceleration = this.state.carData[0].segmentLastTripAccelerationStars;
  //    let generalRisk=this.state.carData[0].lastTripRecuperationOverall;
  //    let energy=this.state.carData[0].remainingRange;
  //    let fuel=this.state.carData[0].remainingFuel;
