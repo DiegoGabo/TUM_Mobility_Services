@@ -1,13 +1,15 @@
-li .fa {
-    font-size: 7em; 
-    color: #8BC34A;
+div .panel_bar {
+    background-color: deepskyblue;
+    text-align: center;
+    vertical-align: middle;
 }
 
-.col-sm-5 h4 {
-    padding-top: 10px; 
-    display: inline;
+div .panel {
+    background-color: ghostwhite;
 }
 
-td .progress{
-    height: 20px;
+div .kpi_title {
+    margin-left: 45px;
 }
+
+.progress {height: 30px !important;}

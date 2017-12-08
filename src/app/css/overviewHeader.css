@@ -1,20 +1,30 @@
-nav {
-    height: 70px; 
-    background-color:  #428bca;
+.col-sm-5 .date {
+    vertical-align: middle;
 }
 
-.nav_icon i {
-    font-size: 2em; 
-    margin-right: 15px; 
-    margin-left: 50px; 
-    color: whitesmoke
+.col-sm-5 .user_name {
+    vertical-align: middle;
+    text-align: right;
 }
 
-.col-sm-3 .dropdowm {
-    margin-right: 10px;
+.col-sm-2 .app_name {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    text-align: center;
+    color: white;
+    background-color: dimgrey;
 }
 
-.dropdown .dropdown-toggle {
-    background-color: #B2DFDB;
-    margin: 5px;
+div .extend_app {
+    background-color: dimgrey;
+}
+
+.extend_app .arrow {
+    text-align: center;
+    color: white;
+}
+
+.extend_app fa-chevron-down {
+    margin: 0;
+    font-size: 2em;
 }

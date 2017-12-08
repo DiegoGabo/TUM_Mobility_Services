@@ -1,0 +1,21 @@
+div .filter_title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-color: gainsboro;
+    height: 45px;
+    
+}
+
+div .icon {
+    font-size: 3em;
+    margin: 5px;
+}
+
+div .select_text {
+    vertical-align: middle;
+}
+
+.col-sm-12 .filter_text {
+    color: deepskyblue;
+}

@@ -47,38 +47,33 @@ export class OverviewHeader extends React.Component {
 
     return (
 
-      <nav className="navbar">
+    <div>
         
-        {/*data-time*/}
-        <div className="col-sm-3 w3-display-left nav_icon">
-          <i className="fa fa-clock-o" aria-hidden="true">   <Time value={this.state.now} format="DD/MM/YYYY" /> <Time value={this.state.now} format="HH:mm:ss" /></i>
+      <div style={{height: '25px'}}>
+        
+        <div className="col-sm-5">
+          <p className="date"> <Time value={this.state.now} format="DD/MM/YYYY" /> <Time value={this.state.now} format="HH:mm" /> </p>
         </div>
 
-        {/*company name*/}
-        <div className="col-sm-6 w3-display-middle nav_icon">
-          <i className="fa fa-money w3-display-middle" aria-hidden="true">   Consulting Company</i>
+        <div className="col-sm-2">
+          <div className="app_name">KPI Management</div>
         </div>
 
-        {/*profile information*/}
-        <div className="col-sm-3 w3-display-right">
-          <div className="dropdown w3-display-right">
-            <button className="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
-              <span className="glyphicon glyphicon-user"></span>
-                 Logged in as Steven Blind
-              <span className="caret"></span>
-            </button>
-            <ul className="dropdown-menu">
-              <li><a href="#">Settings</a></li>
-              <li><a href="#">Profile</a></li>
-              <li><a href="#">Logout</a></li>
-            </ul>
-          </div>
+       
+        <div className="col-sm-5">
+          <p className="user_name">
+          <span className="glyphicon glyphicon-user"></span>
+             Logged in as Steven Blind
+          <span className="caret"></span>
+          </p>
         </div>
+      </div>
         
-        {/*list of application*/}
-        <AppList />
+      <div className="extend_app" style={{height: '25px'}}>
+        <p className="arrow"><i className="fa fa-chevron-down"></i></p>
+      </div>
         
-      </nav>
+    </div>
     );
   }
 }

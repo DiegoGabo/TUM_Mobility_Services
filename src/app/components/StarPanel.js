@@ -5,9 +5,9 @@ import React from 'react';
 import '../css/starPanel.css';
 
 //full_star, half_star and empty_star jsx
-const full_star = <span className="fa fa-star" style={{fontSize: '2em', color: 'orange'}}></span>;
-const half_star = <span className="fa fa-star-half-o " style={{fontSize: '2em', color: 'orange'}}></span>;
-const empty_star = <span className="fa fa-star-o" style={{fontSize: '2em'}}></span>;
+const full_star = <span className="fa fa-star full_star icon"></span>;
+const half_star = <span className="fa fa-star-half-o half_star icon"></span>;
+const empty_star = <span className="fa fa-star-o empty_star icon"></span>;
 
 export class StarPanel extends React.Component {
 
@@ -21,23 +21,31 @@ export class StarPanel extends React.Component {
     let star4 = this.props.value > 4 ? full_star : empty_star;
       
     return (
+      <div>
       <li className="w3-bar panel">
-        <i className={this.props.image} aria-hidden="true"></i>
-        <div className="col-sm-10">
-          <h2>{this.props.title}</h2>
-          <hr className="divider" />
-          <div className="col-sm-4">
-              <h3>{this.props.subtitle}</h3>
-          </div>
-          <div className="col-sm-8">
-              {star0}
-              {star1}
-              {star2}
-              {star3}
-              {star4}
-          </div>
+        
+        <div className="row">
+          <h3 className="kpi_title">{this.props.title}</h3>
         </div>
+        
+        <div className="row">
+        
+          <div className="col-sm-5">
+            {star0}{star1}{star2}{star3}{star4}
+          </div>
+        
+          <div className="col-sm-5">
+            <h3>{this.props.value}/5 stars - Good driving behaviour</h3>
+          </div>
+          
+          <div className="col-sm-2">
+            <i className="fa fa-thumbs-o-up icon" aria-hidden="true"></i>
+          </div>
+        
+        </div>
+        
       </li>
+      </div>
     );
   }
 }

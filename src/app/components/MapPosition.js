@@ -28,7 +28,7 @@ export class MapPosition extends React.Component {
     return (
       <Gmaps
         width={'100%'}
-        height={'350px'}
+        height={'240px'}
         lat={coords.lat}
         lng={coords.lng}
         zoom={15}
