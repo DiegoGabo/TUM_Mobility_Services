@@ -49,10 +49,10 @@ export class OverviewHeader extends React.Component {
 
     <div>
         
-      <div style={{height: '25px'}}>
+      <div className="overviewHeader" style={{height: '25px'}}>
         
         <div className="col-sm-5">
-          <p className="date"> <Time value={this.state.now} format="DD/MM/YYYY" /> <Time value={this.state.now} format="HH:mm" /> </p>
+          <p className="date"> <Time value={this.state.now} format="DD/MM/YYYY" /> - <Time value={this.state.now} format="HH:mm" /> </p>
         </div>
 
         <div className="col-sm-2">
@@ -62,7 +62,7 @@ export class OverviewHeader extends React.Component {
        
         <div className="col-sm-5">
           <p className="user_name">
-          <span className="glyphicon glyphicon-user"></span>
+          <span className="glyphicon glyphicon-user fleetManager-user"></span>
              Logged in as Steven Blind
           <span className="caret"></span>
           </p>

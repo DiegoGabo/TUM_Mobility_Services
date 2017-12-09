@@ -2,13 +2,22 @@ div .filter_title {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 30px;
-    background-color: gainsboro;
-    height: 45px;
-    
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+    border-width: 0px;
+    border-color: #3B3838;
+    background-color: #3B3838;
+    height: 40px;
+}
+
+.filter_title-text{
+   font-size: 12pt !important;
+   padding: 12px;
+   color: white;
 }
 
 div .icon {
-    font-size: 3em;
+    font-size: 1.8em;
     margin: 5px;
 }
 
@@ -17,5 +26,9 @@ div .select_text {
 }
 
 .col-sm-12 .filter_text {
-    color: deepskyblue;
+    color: #00B0F0;
+}
+
+h4{
+  font-size: 12pt;
 }

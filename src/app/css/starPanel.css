@@ -1,13 +1,20 @@
 .col-sm-5 .icon {
-    font-size: 3em;
+    font-size: 2em;
+    margin-top: 10px;
     margin-left: 30px;
-    color: deepskyblue;
+    color: #00B0F0;
 }
 
+
 div .panel {
-    background-color: ghostwhite;
+    background-color: #FCFCFC;
 }
 
 div .kpi_title {
     margin-left: 45px;
+}
+
+.kpi_title {
+    font-size: 12pt;
+    font-weight: 800;
 }

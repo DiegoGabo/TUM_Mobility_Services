@@ -11,7 +11,7 @@ export class Filter extends React.Component {
       <div>
         
         <div className="filter_title">
-            <div className="filter_title"><h2>Selection options</h2></div>
+            <h2 className="filter_title-text">Selection options</h2>
         </div>
         
         <div className="row">

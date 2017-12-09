@@ -30,7 +30,7 @@ export class FuelPanel extends React.Component {
           </div>
         
           <div className="col-sm-5">
-            <h3>4/5 stars - Good driving behaviour</h3>
+            <h3>70l/100km - High fuel consumption</h3>
           </div>
           
           <div className="col-sm-2">
@@ -52,7 +52,7 @@ export class FuelPanel extends React.Component {
           </div>
         
           <div className="col-sm-5">
-            <h3>2/5 stars - Good driving behaviour</h3>
+            <h3>30kwH - Low energy consumption</h3>
           </div>
         
         </div>
