@@ -18,14 +18,14 @@ export class Panels extends React.Component {
             <StarPanel 
                 title="Acceleration"
                 subtitle="General Driving Behaviour"
-                value="4"
+                value={this.props.acceleration}
             />
         
-            <FuelPanel energy="40" fuel="0"/>
+            <FuelPanel energy={this.props.energy} fuel={this.props.fuel}/>
         
             <StarPanel 
                 title="Pre-emptive Driving Style"
-                value="2"
+                value={this.props.generalRisk}
             />
             
           </ul>

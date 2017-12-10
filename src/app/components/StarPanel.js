@@ -19,6 +19,16 @@ export class StarPanel extends React.Component {
     let star2 = this.props.value > 2 ? full_star : empty_star;
     let star3 = this.props.value > 3 ? full_star : empty_star;
     let star4 = this.props.value > 4 ? full_star : empty_star;
+    
+    let thumb = ""
+    if (this.props.value > 3)
+    {
+        thumb = <i className="fa fa-thumbs-o-up icon" aria-hidden="true"></i>
+    }
+    else
+    {
+        thumb = <i className="fa fa-thumbs-o-down icon" aria-hidden="true"></i>
+    }
       
     return (
       <div>
@@ -39,7 +49,7 @@ export class StarPanel extends React.Component {
           </div>
           
           <div className="col-sm-2">
-            <i className="fa fa-thumbs-o-up icon" aria-hidden="true"></i>
+            {thumb}
           </div>
         
         </div>

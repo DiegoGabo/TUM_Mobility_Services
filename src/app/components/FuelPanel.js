@@ -8,6 +8,9 @@ export class FuelPanel extends React.Component {
 
   render() {
       
+    let energyPercentage = this.props.energy + '%'
+    let fuelPercentage = this.props.fuel + '%'
+      
     return ( 
         
       <div>
@@ -23,14 +26,14 @@ export class FuelPanel extends React.Component {
         
             <div className="col-sm-5">
               <div className="progress">
-                <div className="progress-bar panel_bar" role="progressbar" aria-valuenow="70"aria-valuemin="0" aria-valuemax="100" style={{width: '70%'}}><h5>70 l/100km</h5></div>
+                <div className="progress-bar panel_bar" role="progressbar" aria-valuenow="70"aria-valuemin="0" aria-valuemax="100" style={{width: fuelPercentage}}><h5>{this.props.fuel} l/100km</h5></div>
               </div>
             </div>
         
           </div>
         
           <div className="col-sm-5">
-            <h3>70l/100km - High fuel consumption</h3>
+            <h3>{this.props.fuel}l/100km - High fuel consumption</h3>
           </div>
           
           <div className="col-sm-2">
@@ -45,14 +48,14 @@ export class FuelPanel extends React.Component {
         
             <div className="col-sm-5">
               <div className="progress">
-                <div className="progress-bar panel_bar" role="progressbar" aria-valuenow="30"aria-valuemin="0" aria-valuemax="100" style={{width: '30%'}}><h5>30 kwH</h5></div>
+                <div className="progress-bar panel_bar" role="progressbar" aria-valuenow="30"aria-valuemin="0" aria-valuemax="100" style={{width: energyPercentage}}><h5>{this.props.energy} kwH</h5></div>
               </div>
             </div>
         
           </div>
         
           <div className="col-sm-5">
-            <h3>30kwH - Low energy consumption</h3>
+            <h3>{this.props.energy}kwH - Low energy consumption</h3>
           </div>
         
         </div>

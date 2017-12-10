@@ -22,6 +22,10 @@ export class Overview extends React.Component {
   
     let latitude = 48.19284
     let longitude = 11.568518
+    let acceleration = 4
+    let generalRisk = 2
+    let energy = 30
+    let fuel = 70
       
     return (
       <div>
@@ -34,7 +38,12 @@ export class Overview extends React.Component {
         
         <div className="col-sm-9">
           <PanelHeader />
-          <Panels />
+          <Panels 
+            acceleration={acceleration}
+            generalRisk={generalRisk}
+            energy={energy}
+            fuel={fuel}
+        />
         </div>
         
       </div>
