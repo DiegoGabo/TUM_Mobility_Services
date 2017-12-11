@@ -30,8 +30,8 @@ export class Overview extends React.Component {
   changeEmployee(newEmployee)
   {
       this.setState({
-			employee: newEmployee
-		});
+      employee: newEmployee
+    });
        console.log(newEmployee)
   }
    
@@ -39,40 +39,19 @@ export class Overview extends React.Component {
   changeTrip(newTrip)
   {
       this.setState({
-			trip: newTrip
-		});
+      trip: newTrip
+    });
        console.log(newTrip)
   }
 
   render() {
-<<<<<<< HEAD
-    
-    //value taken by database are here initialized
-    let acceleration = 5;
-	let generalRisk=5;
-	let energy=20;
-	let fuel=0;
-    let latitude = 10;
-    let longitude = 10;
-    
-    console.log(this.state.carData)
-    
-    //block in which data from localhost are fetched
-	try {
-        const last = this.state.carData.length-1
-        acceleration = this.state.carData[last].segmentLastTripAccelerationStars;
-        generalRisk=this.state.carData[last].lastTripBrakingStars;
-        energy=this.state.carData[last].remainingRange;
-        fuel=this.state.carData[last].remainingFuel;
-        latitude=this.state.carData[last].gpsLat;
-        longitude=this.state.carData[last].gpsLng
-		console.log(acceleration)
-		console.log(generalRisk)
-		console.log(fuel)
-		console.log(energy)
-    } catch(e) {
-        
-    }
+  
+    let latitude = 48.19284
+    let longitude = 11.568518
+    let acceleration = 4
+    let generalRisk = 2
+    let energy = 30
+    let fuel = 70
       
     return (
       <div>
