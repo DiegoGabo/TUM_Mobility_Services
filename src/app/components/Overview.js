@@ -53,7 +53,7 @@ export class Overview extends React.Component {
     
     console.log(this.state.carData)
     
-    //block in which data from heroku are fetched
+    //block in which data from localhost are fetched
 	try {
         const last = this.state.carData.length-1
         acceleration = this.state.carData[last].segmentLastTripAccelerationStars;
