@@ -29,7 +29,7 @@ div .select_text {
     vertical-align: middle;
 }
 
-.col-sm-12 .filter_text {
+.row .filter_text {
     color: #00B0F0;
 }
 

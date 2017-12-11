@@ -11,9 +11,15 @@ export class Filter extends React.Component {
   {
       super(props);
       this.state = {employee: "Overall",
-                    trip: "Overall"}
+                    trip: "Overall",
+                    employeeCaret: false,
+                    overviewCaret: false,
+                    costCaret: false
+                   }
       this.handleChangeEmploee = this.handleChangeEmploee.bind(this)
       this.handleChangeTrip = this.handleChangeTrip.bind(this)
+      this.changeEmployeeCaret = this.changeEmployeeCaret.bind(this)
+      this.changeCostCaret = this.changeCostCaret.bind(this)
   }
 
    //function executed when you change the value of select employee menu
@@ -25,11 +31,27 @@ export class Filter extends React.Component {
   }
 
    //function executed when you change the value of select trip menu
-    handleChangeTrip(e) {
+   handleChangeTrip(e) {
 		this.setState({
 			trip: e.target.value
 		});
        this.props.changeTrip(e.target.value)
+  }
+
+  //function used to expand the employee panel
+  changeEmployeeCaret() {
+      if(this.state.employeeCaret == false)
+        {this.setState({employeeCaret: true})}
+      else
+        {this.setState({employeeCaret: false})}  
+  }
+
+  //function used to expand the cost panel
+  changeCostCaret() {
+      if(this.state.costCaret == false)
+        {this.setState({costCaret: true})}
+      else
+        {this.setState({costCaret: false})}  
   }
 
   render() {
@@ -48,10 +70,12 @@ export class Filter extends React.Component {
                             <option value={employee.value}>{employee.label}</option>)
 
     let menuTrip
+    let employeeCost
     //if employee is overall there isn't the trip list
     if (this.state.employee == "Overall")
     {
         menuTrip = <div></div>
+        employeeCost = <div></div>
     }
     else
     {
@@ -76,6 +100,121 @@ export class Filter extends React.Component {
                         </select>
                     </h4>
                  </div>
+      
+      employeeCost =<div> 
+                       <div className="col-sm-2"></div>
+                       <div className="col-sm-6">
+                         <h3 className="filter_text">Specific employee</h3>
+                       </div>
+                       <div className="col-sm-4">
+                         <h3 className="select_menu">800€</h3>
+                       </div>
+                    </div>
+    }
+    
+    let employeePanel
+    let overviewPanel
+    let costPanel
+    if(this.state.employeeCaret == false)
+    {
+        employeePanel = <div>
+                          <div className="row">
+                          <div className="col-sm-2">
+                            <i className="fa fa-user-o icon" aria-hidden="true"></i>
+                          </div>
+
+                          <div className="col-sm-8">
+                            <h3 className="select_text">Selection on Empl./Trip</h3>
+                          </div>
+                          <div className="col-sm-2">
+                            <i className="fa fa-caret-right icon" aria-hidden="true" onClick={this.changeEmployeeCaret}></i>
+                          </div>
+                          </div>
+                        </div>
+    }
+    else
+    {
+        employeePanel = <div><div className="row">
+                          <div className="col-sm-2">
+                            <i className="fa fa-user-o icon" aria-hidden="true"></i>
+                          </div>
+
+                          <div className="col-sm-8">
+                            <h3 className="select_text">Selection on Empl./Trip</h3>
+                          </div>
+                          <div className="col-sm-2">
+                            <i className="fa fa-caret-down icon" aria-hidden="true" onClick={this.changeEmployeeCaret}></i>
+                          </div>
+                        </div>
+
+                        <div className="row">
+                          <div className="col-sm-1"></div>
+                          <div className="col-sm-11">
+                            <div className="col-sm-12">
+                              <h4 className="filter_text"><i className="fa fa-search-plus" aria-hidden="true"></i>
+                                <select className="select_menu" value={this.state.employee} onChange={this.handleChangeEmploee}>
+                                    {listEmployee}
+                                </select>
+                              </h4>
+                            </div>
+                            {menuTrip}
+                          </div>
+                        </div>
+                      </div>
+    }
+        
+    if(this.state.costCaret == false)
+    {
+        costPanel = <div>
+                      <div className="row">
+                          <div className="col-sm-2">
+                            <i className="fa fa-user-o icon" aria-hidden="true"></i>
+                          </div>
+
+                          <div className="col-sm-8">
+                            <h3 className="select_text">Cost Calculation/Effect</h3>
+                          </div>
+        
+                          <div className="col-sm-2">
+                            <i className="fa fa-caret-right icon" aria-hidden="true" onClick={this.changeCostCaret}></i>
+                          </div>
+        
+                        </div>
+                     </div>
+    }
+    else
+    {
+        costPanel = <div>
+                        <div className="row">
+                          <div className="col-sm-2">
+                            <i className="fa fa-user-o icon" aria-hidden="true"></i>
+                          </div>
+
+                          <div className="col-sm-8">
+                            <h3 className="select_text">Cost Calculation/Effect</h3>
+                          </div>
+        
+                          <div className="col-sm-2">
+                            <i className="fa fa-caret-down icon" aria-hidden="true" onClick={this.changeCostCaret}></i>
+                          </div>
+                        </div>
+        
+                        <div className="row">
+                          <div className="col-sm-2"></div>
+        
+                          <div className="col-sm-6">
+                            <h3 className="filter_text">Whole company</h3>
+                          </div>
+        
+                          <div className="col-sm-4">
+                            <h3 className="select_menu">39800€</h3>
+                          </div>
+        
+                          {employeeCost}
+                        </div>
+
+                      </div>
+                        
     }
 
     return (
@@ -85,32 +224,7 @@ export class Filter extends React.Component {
             <h2 className="filter_title-text">Navigation</h2>
         </div>
 
-        <div className="row">
-          <div className="col-sm-2">
-            <i className="fa fa-user-o icon" aria-hidden="true"></i>
-          </div>
-
-          <div className="col-sm-8">
-            <h3 className="select_text">Selection on Empl./Trip</h3>
-          </div>
-          <div className="col-sm-2">
-            <i className="fa fa-caret-down icon" aria-hidden="true"></i>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-sm-1"></div>
-          <div className="col-sm-11">
-            <div className="col-sm-12">
-              <h4 className="filter_text"><i className="fa fa-search-plus" aria-hidden="true"></i>
-                <select className="select_menu" value={this.state.employee} onChange={this.handleChangeEmploee}>
-                    {listEmployee}
-                </select>
-              </h4>
-            </div>
-            {menuTrip}
-          </div>
-        </div>
+        {employeePanel}
 
         <div className="row"></div>
         <hr/>
@@ -120,7 +234,7 @@ export class Filter extends React.Component {
           </div>
 
           <div className="col-sm-8">
-            <h3 className="select_text">Selection on Empl./Trip</h3>
+            <h3 className="select_text">Overview Company</h3>
           </div>
           <div className="col-sm-2">
             <i className="fa fa-caret-right icon" aria-hidden="true"></i>
@@ -128,18 +242,7 @@ export class Filter extends React.Component {
         </div>
 
         <hr/>
-        <div className="row">
-          <div className="col-sm-2">
-            <i className="fa fa-usd icon" aria-hidden="true"></i>
-          </div>
-
-          <div className="col-sm-8">
-            <h3 className="select_text">Selection on Empl./Trip</h3>
-          </div>
-          <div className="col-sm-2">
-            <i className="fa fa-caret-right icon" aria-hidden="true"></i>
-          </div>
-        </div>
+        {costPanel}
 
       </div>
     );
