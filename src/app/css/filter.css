@@ -32,3 +32,7 @@ div .select_text {
 h4{
   font-size: 12pt;
 }
+
+h4 .select_menu {
+    width: 310px;
+}
