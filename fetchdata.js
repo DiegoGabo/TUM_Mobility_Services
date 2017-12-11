@@ -5,8 +5,8 @@ const express = require('express'),  //Express will be used for routing
 
 
 //For json post requests
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+ app.use(bodyParser.urlencoded({ extended: true }));
+ app.use(bodyParser.json());
 
 var postConfig = {}
 var postSuccessHandler = function(err, httpResponse, body){
