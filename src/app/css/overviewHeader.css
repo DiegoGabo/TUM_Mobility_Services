@@ -1,20 +1,53 @@
-nav {
-    height: 70px; 
-    background-color:  #428bca;
+
+* {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
 }
 
-.nav_icon i {
-    font-size: 2em; 
-    margin-right: 15px; 
-    margin-left: 50px; 
-    color: whitesmoke
+.overviewHeader {
+    font-size: 10pt;
+    background-color: #EAEAEA;
 }
 
-.col-sm-3 .dropdowm {
-    margin-right: 10px;
+
+.fleetManager-user {
+  margin: 0.4em;
 }
 
-.dropdown .dropdown-toggle {
-    background-color: #B2DFDB;
-    margin: 5px;
+
+.col-sm-5 .date {
+    vertical-align: middle;
+    padding-top: 4px;
+    margin-left: 10px;
+}
+
+.col-sm-5 .user_name {
+    vertical-align: middle;
+    text-align: right;
+    margin-left: 10px;
+}
+
+.col-sm-2 .app_name {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    text-align: center;
+    color: white;
+    background-color: #3B3838;
+    font-weight: 600;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+div .extend_app {
+    background-color: #3B3838;
+}
+
+.extend_app .arrow {
+    text-align: center;
+    color: white;
+}
+
+.extend_app fa-chevron-down {
+    margin: 0;
+    font-size: 2em;
 }

@@ -1,0 +1,50 @@
+div .filter_title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+    border-width: 0px;
+    border-color: #3B3838;
+    background-color: #3B3838;
+    height: 40px;
+}
+
+.filter_all {
+    background-color: #FCFCFC !important;
+}
+
+.filter_title-text{
+   font-size: 12pt !important;
+   padding: 12px;
+   color: white;
+}
+
+div .icon {
+    font-size: 1.8em;
+    margin: 5px;
+}
+
+div .select_text {
+    vertical-align: middle;
+}
+
+.row .filter_text {
+    color: #00B0F0;
+}
+
+h4{
+  font-size: 12pt;
+}
+
+h4 .select_menu {
+    width: 200px;
+}
+
+.row .col-sm-11 {
+  margin-left: 40px;
+}
+
+.fa-search-plus {
+  margin-right: 10px;
+}

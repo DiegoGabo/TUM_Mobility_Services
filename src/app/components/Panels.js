@@ -12,21 +12,21 @@ export class Panels extends React.Component {
     return (
       <div>
         <div className="w3-container">
-          <ul className="w3-ul w3-card-4">
+          <ul className="w3-ul">
 
             <StarPanel 
-                image="fa fa-tachometer w3-bar-item w3-circle w3-hide-small"
                 title="Acceleration"
-                subtitle="Acceleration assessment"
+                subtitle="General Driving Behaviour"
                 value={this.props.acceleration}
             />
+        
+            <FuelPanel energy={this.props.energy} fuel={this.props.fuel}/>
+        
             <StarPanel 
-                image="fa fa-exclamation-triangle w3-bar-item w3-circle w3-hide-small"
-                title="General risk level"
-                subtitle="Pre-emptive driving"
+                title="Pre-emptive Driving Style"
                 value={this.props.generalRisk}
             />
-            <FuelPanel energy={this.props.energy} fuel={this.props.fuel}/>
+            
           </ul>
         </div>
       </div>

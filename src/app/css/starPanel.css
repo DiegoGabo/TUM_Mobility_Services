@@ -1,10 +1,20 @@
-.panel i {
-    font-size: 7em; 
-    color: #8BC34A;
+.col-sm-5 .icon {
+    font-size: 2em;
+    margin-top: 10px;
+    margin-left: 30px;
+    color: #00B0F0;
 }
 
-td h3 {
-    padding-top: 10px; 
-    display: inline; 
-    margin-right: 30px;
+
+div .panel {
+    background-color: #FCFCFC;
+}
+
+div .kpi_title {
+    margin-left: 45px;
+}
+
+.kpi_title {
+    font-size: 12pt;
+    font-weight: 800;
 }

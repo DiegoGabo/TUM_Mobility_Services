@@ -1,0 +1,17 @@
+.col-sm-4 .icon {
+    font-size: 3em;
+    margin: 5px;
+}
+
+div .panel_header {
+    height: 45px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 7pt;
+    vertical-align: middle;
+}
+
+h3 {
+    font-size: 12pt;
+    vertical-align: middle;
+}
