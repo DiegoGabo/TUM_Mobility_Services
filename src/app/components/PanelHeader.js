@@ -17,6 +17,7 @@ export class PanelHeader extends React.Component {
             </div>
             <div className="col-sm-10">
               <h3>Hans Peter</h3>
+              <hr/>
             </div>
           </div>
         
@@ -26,6 +27,7 @@ export class PanelHeader extends React.Component {
             </div>
             <div className="col-sm-10">
               <h3>Overall rating 2/10</h3>
+              <hr/>
             </div>
           </div>
         
@@ -35,6 +37,7 @@ export class PanelHeader extends React.Component {
             </div>
             <div className="col-sm-10">
               <h3>No dedicated company car</h3>
+              <hr/>
             </div>
           </div>
         

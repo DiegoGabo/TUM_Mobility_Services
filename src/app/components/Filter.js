@@ -6,7 +6,7 @@ import Select from 'react-select';
 import '../css/filter.css';
 
 export class Filter extends React.Component {
-    
+
   constructor(props)
   {
       super(props);
@@ -23,7 +23,7 @@ export class Filter extends React.Component {
 		});
        this.props.changeEmployee(e.target.value)
   }
-    
+
    //function executed when you change the value of select trip menu
     handleChangeTrip(e) {
 		this.setState({
@@ -33,7 +33,7 @@ export class Filter extends React.Component {
   }
 
   render() {
-    
+
     /*list of employee*/
     let options = [
       { value: '1', label: 'HansPeter' },
@@ -42,13 +42,13 @@ export class Filter extends React.Component {
       ]
     const defaultOption = { value: 'Overall', label: 'Overall' }
     options.unshift(defaultOption)
-    
+
     //jdx element with the options of employee select menu
-    const listEmployee = options.map((employee) => 
+    const listEmployee = options.map((employee) =>
                             <option value={employee.value}>{employee.label}</option>)
-    
+
     let menuTrip
-    //if employee is overall there isn't the trip list                               
+    //if employee is overall there isn't the trip list
     if (this.state.employee == "Overall")
     {
         menuTrip = <div></div>
@@ -63,33 +63,33 @@ export class Filter extends React.Component {
       ]
       let defaultTrip =  { value: 'Overall', label: 'Overall' }
       trips.unshift(defaultTrip)
-      
+
       //jdx element with the options of trip select menu
-      let listTrip =  trips.map((trip) => 
+      let listTrip =  trips.map((trip) =>
                             <option value={trip.value}>{trip.label}</option>)
-                                
+
       //jdx element with menu options
       menuTrip = <div className="col-sm-12">
-                    <h4 className="filter_text"><i className="fa fa-search-plus" aria-hidden="true"></i> 
+                    <h4 className="filter_text"><i className="fa fa-search-plus" aria-hidden="true"></i>
                         <select className="select_menu" value={this.state.trip} onChange={this.handleChangeTrip}>
                             {listTrip}
                         </select>
                     </h4>
                  </div>
     }
-    
+
     return (
-      <div>
-        
+      <div className="filter_all">
+
         <div className="filter_title">
-            <h2 className="filter_title-text">Selection options</h2>
+            <h2 className="filter_title-text">Navigation</h2>
         </div>
-        
+
         <div className="row">
           <div className="col-sm-2">
             <i className="fa fa-user-o icon" aria-hidden="true"></i>
           </div>
-        
+
           <div className="col-sm-8">
             <h3 className="select_text">Selection on Empl./Trip</h3>
           </div>
@@ -97,12 +97,12 @@ export class Filter extends React.Component {
             <i className="fa fa-caret-down icon" aria-hidden="true"></i>
           </div>
         </div>
-        
-        <div className="row"> 
-          <div className="col-sm-2"></div>
-          <div className="col-sm-10">
+
+        <div className="row">
+          <div className="col-sm-1"></div>
+          <div className="col-sm-11">
             <div className="col-sm-12">
-              <h4 className="filter_text"><i className="fa fa-search-plus" aria-hidden="true"></i> 
+              <h4 className="filter_text"><i className="fa fa-search-plus" aria-hidden="true"></i>
                 <select className="select_menu" value={this.state.employee} onChange={this.handleChangeEmploee}>
                     {listEmployee}
                 </select>
@@ -111,7 +111,7 @@ export class Filter extends React.Component {
             {menuTrip}
           </div>
         </div>
-        
+
         <div className="row"></div>
         <hr/>
         <div className="row">
@@ -126,7 +126,7 @@ export class Filter extends React.Component {
             <i className="fa fa-caret-right icon" aria-hidden="true"></i>
           </div>
         </div>
-        
+
         <hr/>
         <div className="row">
           <div className="col-sm-2">
@@ -140,7 +140,7 @@ export class Filter extends React.Component {
             <i className="fa fa-caret-right icon" aria-hidden="true"></i>
           </div>
         </div>
-        
+
       </div>
     );
   }

@@ -10,6 +10,10 @@ div .filter_title {
     height: 40px;
 }
 
+.filter_all {
+    background-color: #FCFCFC !important;
+}
+
 .filter_title-text{
    font-size: 12pt !important;
    padding: 12px;
@@ -34,5 +38,13 @@ h4{
 }
 
 h4 .select_menu {
-    width: 310px;
+    width: 200px;
+}
+
+.row .col-sm-11 {
+  margin-left: 40px;
+}
+
+.fa-search-plus {
+  margin-right: 10px;
 }
