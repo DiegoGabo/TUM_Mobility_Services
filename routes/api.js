@@ -1,16 +1,9 @@
 const express = require('express')
 const router = express.Router() //Kind of the same this as app = express() in app.js file. But this is like a specialized only users.
-const mongoose = require('mongoose') //Database mongodb connection
-const config = require('../config/database')
 const bodyParser = require('body-parser')  //Learn what this is for
 
-//Local Server for database Connect to Mongoose
-//mongoose.connect(config.database)
-//production database server
-mongoose.connect('mongodb://heroku_w5z3d9qq:977j9v5ee163bc59p3l1l96a3f@ds243335.mlab.com:43335/heroku_w5z3d9qq')
-const db = mongoose.connection
 
-//For json post requests
+//For json post requests to parse the body
 router.use(bodyParser.urlencoded({ extended: true }))
 router.use(bodyParser.json())
 

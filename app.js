@@ -70,10 +70,13 @@ app.get('/', (req, res) => {
 
 })
 
+//connect trips endpoint to routes/trip file
+let trip = require('./routes/trip')
+app.use('/trips',trip)
+
 //Route File for api
 let api = require('./routes/api') 
 app.use('/api',api)
-
 
 
 // Express Messages Middleware
@@ -88,16 +91,12 @@ let users = require('./routes/users')
 app.use('/users',users)
 
 //session thing work on that later
-app.get('*', (req,res,next)=>{
-	res.locals.user = req.user || null
-	next()
-})
-
-//data4react example usage
-// var react = require("./data4react.js")
-// react.data4react("WBY1Z21000V308999", function(react){
-// 	console.log(react)
+// app.get('*', (req,res,next)=>{
+// 	res.locals.user = req.user || null
+// 	next()
 // })
+
+
 
 
 

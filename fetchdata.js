@@ -5,8 +5,8 @@ const express = require('express'),  //Express will be used for routing
 
 
 //For json post requests
- app.use(bodyParser.urlencoded({ extended: true }));
- app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 var postConfig = {}
 var postSuccessHandler = function(err, httpResponse, body){
@@ -19,11 +19,19 @@ var postSuccessHandler = function(err, httpResponse, body){
 //setInterval to fetch the data every 10min = 60000ms 1s = 1000ms 1min = 60000 10min = 600000ms
 exports.fetchBMWdata = function (options){
 
-//setInterval(function(){
+setInterval(function(){
 request.get(options, (error, response, body) => {
-	json = JSON.parse(body)
+	try
+	{
+		json = JSON.parse(body)
+	}
+	catch(e)
+	{
+		console.log('malformed request', body);
+        return response.status(400).send('malformed request: ' + body);
+	}
 	vin = options.vin
-	//console.log(json.telematicKeyValues.length)
+	console.log(json.telematicKeyValues)
 	for (index = 0; index < json.telematicKeyValues.length; index++){
 		if(json.telematicKeyValues[index].name === "bmwcardata_gpsLat"){
 			gpsLat = json.telematicKeyValues[index].value
@@ -85,5 +93,5 @@ request.get(options, (error, response, body) => {
 	request.post(postConfig, postSuccessHandler);
 
 })
-//},  60000)
+},  1000)
 }

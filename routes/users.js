@@ -1,14 +1,27 @@
 const express = require('express')
 const router = express.Router() //Kind of the same this as app = express() in app.js file. But this is like a specialized only users.
-const expressValidator = require('express-validator');
+const expressValidator = require('express-validator')
 const path = require('path')
 const bcrypt = require('bcryptjs')
-const passport = require('passport');
+const passport = require('passport')
+//Trip model
+const trip = require('../models/trip')
 
 //User model
-let User = require('../models/user')
+const User = require('../models/user')
 
 router.use(expressValidator())
+
+//List of all users
+router.get('/',(req,res) =>{
+	User.getUsers((err, users) => {
+		if(err){
+			throw err
+		}
+		res.json(users)
+	})
+})
+
 
 //register from
 router.get('/register', (req, res) =>{
@@ -75,6 +88,7 @@ router.post('/login', function(req, res, next){
     successFlash: 'Welcome!'
   })(req, res, next);
 });
+
 
 
 

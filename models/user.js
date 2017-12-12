@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const Schema = mongoose.Schema
 //User Schema
 const UserSchema = mongoose.Schema({
 	name: {
@@ -17,6 +17,15 @@ const UserSchema = mongoose.Schema({
 		type: String,
 		required: true
 	}, 
+	trips: [{
+		type: Schema.Types.ObjectId, 
+		ref: 'Story'
+	}]
 })
 
 const User = module.exports = mongoose.model('User', UserSchema);
+
+// Get all users
+module.exports.getUsers = (callback, limit) => {
+	User.find(callback).limit(limit);
+}
