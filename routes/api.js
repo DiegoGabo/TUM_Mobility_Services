@@ -16,6 +16,16 @@ const Bmwdata = require('../models/bmwdata')
 
 
 
+//trip id gives trip
+router.get('/:_id', (req,res)=>{
+	console.log(req.params)
+	Bmwdata.findOne(req.params).exec((err,result)=>{
+			if(err) return console.log(err)
+			res.send(result)
+	})
+})
+
+
 //user of a trip
 router.get('/:_id/user', (req,res)=>{
 	console.log(req.params)
