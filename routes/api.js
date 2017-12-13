@@ -17,7 +17,7 @@ const Bmwdata = require('../models/bmwdata')
 
 
 //user of a trip
-router.get('/:vinBmw/user', (req,res)=>{
+router.get('/:_id/user', (req,res)=>{
 	console.log(req.params)
 	Bmwdata.findOne(req.params).populate('user').exec((err,result)=>{
 			if(err) return console.log(err)
