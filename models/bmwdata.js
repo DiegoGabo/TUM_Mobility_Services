@@ -66,7 +66,7 @@ const bmwDataSchema = mongoose.Schema({
 	},
 	user:{
 		type: Schema.Types.ObjectId, 
-		ref: 'user'
+		ref: 'User'
 	},
 	create_date:{
 		type: Date,
@@ -75,7 +75,7 @@ const bmwDataSchema = mongoose.Schema({
 });
 
 //Should change this for specific vinbmw mileage  should be unique.
-//bmwDataSchema.index({mileage: 1}, {unique: true});
+bmwDataSchema.index({mileage: 1}, {unique: true});
 
 const bmwData = module.exports = mongoose.model('bmwdatas', bmwDataSchema);
 

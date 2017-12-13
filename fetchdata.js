@@ -13,7 +13,7 @@ var db = mongoose.connection
  
 // db.once('open',function(){
 // 	query = {"name": "Max"}
-// 	var user = db.collection('users').findOne(query)
+// 	var user = User.findOne(query)
 // 	console.log('user', user)
 // })
 
@@ -25,10 +25,10 @@ app.use(bodyParser.json());
 var postConfig = {}
 var postSuccessHandler = function(err, httpResponse, body){
 	// console.log(err)
-	// console.log('JSON response from the server: ' + body)
+	console.log('JSON response from the server: ' + body)
 }
 
-var old_mileage
+
 //Request the data from bmw server and console log it
 //setInterval to fetch the data every 10min = 60000ms 1s = 1000ms 1min = 60000 10min = 600000ms
 //If interval is set to 1ms, 10ms, one would get the error of vin is not defined!!Set it at least 1000ms
@@ -87,8 +87,7 @@ request.get(options, (error, response, body) => {
 
 		}
 
-		// console.log("old",old_mileage)
-		// console.log("new",mileage)
+
 		// if(old_mileage != mileage){
 		data = {
 			'vinBmw': vin,
@@ -124,5 +123,5 @@ request.get(options, (error, response, body) => {
 	}
 
 })
-//},  1000)
+//},  10000)
 }

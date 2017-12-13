@@ -1,3 +1,3 @@
 module.exports={
-	database: 'mongodb://localhost/bmw6data'
+	database: 'mongodb://localhost/bmw7data'
 }

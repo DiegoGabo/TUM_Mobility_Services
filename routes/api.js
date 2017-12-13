@@ -14,6 +14,17 @@ router.use(bodyParser.json())
 //model import
 const Bmwdata = require('../models/bmwdata')
 
+
+
+//user of a trip
+router.get('/:vinBmw/user', (req,res)=>{
+	console.log(req.params)
+	Bmwdata.findOne(req.params).populate('user').exec((err,result)=>{
+			if(err) return console.log(err)
+			res.send(result.user)
+	})
+})
+
 //get bmwData from database
 router.get('/bmwdata', (req, res) => {
 	Bmwdata.getbmwData((err, bmwData) => {
@@ -28,7 +39,9 @@ router.get('/bmwdata', (req, res) => {
 router.post('/bmwdata', async (req, res) => {
 	var bmwdata = req.body
 	//console.log(bmwdata)
-	const user = await User.findOne({id: '1'})
+	//1 and 3 are user id numbers. starts from 1 to 3
+  	var i= Math.floor(Math.random() * (Math.floor(3) - Math.ceil(1) + 1)) + Math.ceil(1); 
+	const user = await User.findOne({id: i})
 	bmwdata.user = await user._id
 	//console.log(bmwdata)
 	Bmwdata.addbmwData(bmwdata, (err, bmwdata) => {
