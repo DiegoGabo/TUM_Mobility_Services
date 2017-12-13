@@ -1,16 +1,26 @@
 const express = require('express')
 const router = express.Router() //Kind of the same this as app = express() in app.js file. But this is like a specialized only users.
 const expressValidator = require('express-validator')
+const mongoose = require('mongoose') //Database mongodb connection
 const path = require('path')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
-//Trip model
-const trip = require('../models/trip')
+//Bmwdata model
+const bmwdata = require('../models/bmwdata')
 
 //User model
 const User = require('../models/user')
+const config = require('../config/database')
+
+//database connect
+mongoose.connect(config.database)
+var db = mongoose.connection
 
 router.use(expressValidator())
+
+
+
+
 
 //List of all users
 router.get('/',(req,res) =>{
