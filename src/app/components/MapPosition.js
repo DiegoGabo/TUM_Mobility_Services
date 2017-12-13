@@ -8,7 +8,7 @@ const params = {v: '3.exp', key: 'AIzaSyCvFKFLNyeslv9r5VdA86Vnu1-e-E_-HQ4'};
 
 export class MapPosition extends React.Component {
 
-  
+
   //function executed when google map is created
   onMapCreated(map) {
     map.setOptions({
@@ -17,18 +17,18 @@ export class MapPosition extends React.Component {
   }
 
   render() {
-    
+
     //takes latitude and longitude from the parent component
     const coords = {
       lat: this.props.latitude,
       lng: this.props.longitude
     };
 
-      
+
     return (
       <Gmaps
         width={'100%'}
-        height={'240px'}
+        height={'200px'}
         lat={coords.lat}
         lng={coords.lng}
         zoom={15}

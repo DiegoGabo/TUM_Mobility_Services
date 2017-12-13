@@ -43,7 +43,7 @@ export class Filter extends React.Component {
       if(this.state.employeeCaret == false)
         {this.setState({employeeCaret: true})}
       else
-        {this.setState({employeeCaret: false})}  
+        {this.setState({employeeCaret: false})}
   }
 
   //function used to expand the cost panel
@@ -51,7 +51,7 @@ export class Filter extends React.Component {
       if(this.state.costCaret == false)
         {this.setState({costCaret: true})}
       else
-        {this.setState({costCaret: false})}  
+        {this.setState({costCaret: false})}
   }
 
   render() {
@@ -100,8 +100,8 @@ export class Filter extends React.Component {
                         </select>
                     </h4>
                  </div>
-      
-      employeeCost =<div> 
+
+      employeeCost =<div>
                        <div className="col-sm-2"></div>
                        <div className="col-sm-6">
                          <h3 className="filter_text">Specific employee</h3>
@@ -111,7 +111,7 @@ export class Filter extends React.Component {
                        </div>
                     </div>
     }
-    
+
     let employeePanel
     let overviewPanel
     let costPanel
@@ -162,7 +162,7 @@ export class Filter extends React.Component {
                         </div>
                       </div>
     }
-        
+
     if(this.state.costCaret == false)
     {
         costPanel = <div>
@@ -174,11 +174,11 @@ export class Filter extends React.Component {
                           <div className="col-sm-8">
                             <h3 className="select_text">Cost Calculation/Effect</h3>
                           </div>
-        
+
                           <div className="col-sm-2">
                             <i className="fa fa-caret-right icon" aria-hidden="true" onClick={this.changeCostCaret}></i>
                           </div>
-        
+
                         </div>
                      </div>
     }
@@ -193,28 +193,28 @@ export class Filter extends React.Component {
                           <div className="col-sm-8">
                             <h3 className="select_text">Cost Calculation/Effect</h3>
                           </div>
-        
+
                           <div className="col-sm-2">
                             <i className="fa fa-caret-down icon" aria-hidden="true" onClick={this.changeCostCaret}></i>
                           </div>
                         </div>
-        
+
                         <div className="row">
                           <div className="col-sm-2"></div>
-        
+
                           <div className="col-sm-6">
                             <h3 className="filter_text">Whole company</h3>
                           </div>
-        
+
                           <div className="col-sm-4">
                             <h3 className="select_menu">39800€</h3>
                           </div>
-        
+
                           {employeeCost}
                         </div>
 
                       </div>
-                        
+
     }
 
     return (
@@ -227,7 +227,7 @@ export class Filter extends React.Component {
         {employeePanel}
 
         <div className="row"></div>
-        <hr/>
+        <hr className ="hr_Row"/>
         <div className="row">
           <div className="col-sm-2">
             <i className="fa fa-industry icon" aria-hidden="true"></i>
@@ -241,7 +241,7 @@ export class Filter extends React.Component {
           </div>
         </div>
 
-        <hr/>
+        <hr className ="hr_Row"/>
         {costPanel}
 
       </div>

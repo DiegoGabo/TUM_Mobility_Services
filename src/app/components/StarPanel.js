@@ -12,14 +12,14 @@ const empty_star = <span className="fa fa-star-o empty_star icon"></span>;
 export class StarPanel extends React.Component {
 
   render() {
-      
+
     //checks the value passed by the parent and sets the stars component
     let star0 = this.props.value > 0 ? full_star : empty_star;
     let star1 = this.props.value > 1 ? full_star : empty_star;
     let star2 = this.props.value > 2 ? full_star : empty_star;
     let star3 = this.props.value > 3 ? full_star : empty_star;
     let star4 = this.props.value > 4 ? full_star : empty_star;
-    
+
     let thumb = ""
     if (this.props.value > 3)
     {
@@ -29,31 +29,31 @@ export class StarPanel extends React.Component {
     {
         thumb = <i className="fa fa-thumbs-o-down icon" aria-hidden="true"></i>
     }
-      
+
     return (
-      <div>
+      <div className="filter_panel">
       <li className="w3-bar panel">
-        
+
         <div className="row">
           <h3 className="kpi_title">{this.props.title}</h3>
         </div>
-        
+
         <div className="row">
-        
+
           <div className="col-sm-5">
             {star0}{star1}{star2}{star3}{star4}
           </div>
-        
+
           <div className="col-sm-5">
             <h3>{this.props.value}/5 stars - Good driving behaviour</h3>
           </div>
-          
+
           <div className="col-sm-2">
             {thumb}
           </div>
-        
+
         </div>
-        
+
       </li>
       </div>
     );
