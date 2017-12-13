@@ -18,3 +18,7 @@ div .kpi_title {
     font-size: 12pt;
     font-weight: 800;
 }
+
+.filter_panel .col-sm-5 {
+  padding-left: 30px !important;
+}

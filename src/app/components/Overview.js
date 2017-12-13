@@ -16,7 +16,7 @@ import 'w3-css/w3.css';
 export class Overview extends React.Component {
 
   //Constructor of the function created because there must be the information of the current car analyzed
-    
+
   constructor(props)
   {
       super(props);
@@ -25,7 +25,7 @@ export class Overview extends React.Component {
       this.changeEmployee=this.changeEmployee.bind(this)
       this.changeTrip=this.changeTrip.bind(this)
   }
-    
+
   //modify employee state
   changeEmployee(newEmployee)
   {
@@ -34,7 +34,7 @@ export class Overview extends React.Component {
     });
        console.log(newEmployee)
   }
-   
+
   //modify trip state
   changeTrip(newTrip)
   {
@@ -45,36 +45,36 @@ export class Overview extends React.Component {
   }
 
   render() {
-  
+
     let latitude = 48.19284
     let longitude = 11.568518
     let acceleration = 4
     let generalRisk = 2
     let energy = 30
     let fuel = 70
-      
+
     return (
       <div>
         <OverviewHeader />
         <MapPosition latitude={latitude} longitude={longitude}/>
-        
-        <div className="col-sm-3">
-          <Filter 
+
+        <div className="col-sm-3 navigation_div">
+          <Filter
             changeEmployee={this.changeEmployee}
-            changeTrip={this.changeTrip}        
+            changeTrip={this.changeTrip}
           />
         </div>
-        
+
         <div className="col-sm-9">
           <PanelHeader />
-          <Panels 
+          <Panels
             acceleration={acceleration}
             generalRisk={generalRisk}
             energy={energy}
             fuel={fuel}
         />
         </div>
-        
+
       </div>
     );
   }

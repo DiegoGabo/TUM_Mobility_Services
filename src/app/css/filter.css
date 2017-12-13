@@ -1,13 +1,19 @@
 div .filter_title {
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     margin-left: 0px !important;
     padding-left: 0px !important;
     border-width: 0px;
-    border-color: #3B3838;
-    background-color: #3B3838;
+    border-color: #EAEAEA;
+    background-color: #EAEAEA;
     height: 40px;
+}
+
+.navigation_div {
+  margin-left: 0px;
+  border: 0px;
+  padding-left: 0px;
 }
 
 .filter_all {
@@ -17,8 +23,9 @@ div .filter_title {
 .filter_title-text{
    font-size: 12pt !important;
    padding: 12px;
-   color: white;
+   color: black;
 }
+
 
 div .icon {
     font-size: 1.8em;
@@ -31,6 +38,15 @@ div .select_text {
 
 .row .filter_text {
     color: #00B0F0;
+}
+
+.row .icon {
+  margin-left: 15px;
+}
+
+.hr_Row {
+  margin: 10px;
+  padding: 0px;
 }
 
 h4{
@@ -47,4 +63,9 @@ h4 .select_menu {
 
 .fa-search-plus {
   margin-right: 10px;
+}
+
+.row .col-sm-2 .fa-caret-down {
+  margin-left: 10px;
+  padding-left: 0px;
 }
