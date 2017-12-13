@@ -34,7 +34,7 @@ var postSuccessHandler = function(err, httpResponse, body){
 //If interval is set to 1ms, 10ms, one would get the error of vin is not defined!!Set it at least 1000ms
 exports.fetchBMWdata = function (options){
 
-//setInterval(function(){
+setInterval(function(){
 request.get(options, (error, response, body) => {
 	try
 	{
@@ -123,5 +123,5 @@ request.get(options, (error, response, body) => {
 	}
 
 })
-//},  10000)
+}, 300000)
 }
