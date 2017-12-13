@@ -11,10 +11,10 @@ const flash = require('connect-flash')
 app.use(bodyParser.json())
 
 //Local Server for database Connect to Mongoose
-//mongoose.connect(config.database)
+mongoose.connect(config.database)
 //production database server
-mongoose.connect('mongodb://heroku_w5z3d9qq:977j9v5ee163bc59p3l1l96a3f@ds243335.mlab.com:43335/heroku_w5z3d9qq')
-//var db = mongoose.connection
+//mongoose.connect('mongodb://heroku_w5z3d9qq:977j9v5ee163bc59p3l1l96a3f@ds243335.mlab.com:43335/heroku_w5z3d9qq')
+var db = mongoose.connection
 
 //model import
 var Bmwdata = require('./models/bmwdata')
@@ -70,9 +70,6 @@ app.get('/', (req, res) => {
 
 })
 
-//connect trips endpoint to routes/trip file
-let trip = require('./routes/trip')
-app.use('/trips',trip)
 
 //Route File for api
 let api = require('./routes/api') 
@@ -90,12 +87,17 @@ app.use(function (req, res, next) {
 let users = require('./routes/users') 
 app.use('/users',users)
 
+//Route File for users
+let user = require('./routes/user') 
+app.use('/user',user)
+
 //session thing work on that later
 // app.get('*', (req,res,next)=>{
 // 	res.locals.user = req.user || null
 // 	next()
 // })
-
+seed = require("./seed")
+seed.seedUsers()
 
 
 

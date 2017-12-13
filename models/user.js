@@ -2,24 +2,28 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 //User Schema
 const UserSchema = mongoose.Schema({
+	id:{
+		type: String,
+		required: true
+	},
 	name: {
 		type: String,
-		required: true,
+		required: false,
 		unique: true
 	},
 	email: {
 		type: String,
 		unique: true,
-		required: true,
+		required: false,
 
 	},
 	password: {
 		type: String,
-		required: true
+		required: false
 	}, 
 	trips: [{
 		type: Schema.Types.ObjectId, 
-		ref: 'Story'
+		ref: 'bmwdatas'
 	}]
 })
 

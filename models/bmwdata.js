@@ -1,14 +1,15 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema
 
 
 const bmwDataSchema = mongoose.Schema({
 	vinBmw:{
 		type: String,
-		requred: false
+		required: false
 	},
 	lastTripBrakingStars:{
 		type: String,
-		requred:false
+		required:false
 	},
 	lastTripElectricEnergyConsumptionOverall:{
 		type: String,
@@ -44,7 +45,8 @@ const bmwDataSchema = mongoose.Schema({
 	},
 	mileage:{
 		type: String,
-		required: false
+		required: false,
+		//unique: true
 	},
 	heading:{
 		type: String,
@@ -62,11 +64,18 @@ const bmwDataSchema = mongoose.Schema({
 		type: String,
 		required:false
 	},
+	user:{
+		type: Schema.Types.ObjectId, 
+		ref: 'user'
+	},
 	create_date:{
 		type: Date,
 		default: Date.now
 	}
 });
+
+//Should change this for specific vinbmw mileage  should be unique.
+//bmwDataSchema.index({mileage: 1}, {unique: true});
 
 const bmwData = module.exports = mongoose.model('bmwdatas', bmwDataSchema);
 
