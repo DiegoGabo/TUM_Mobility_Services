@@ -10,8 +10,8 @@ export class Filter extends React.Component {
   constructor(props)
   {
       super(props);
-      this.state = {employee: "overall",
-                    trip: "overall",
+      this.state = {employee: "0",
+                    trip: "0",
                     employeeCaret: false,
                     overviewCaret: false,
                     costCaret: false,
@@ -34,7 +34,6 @@ export class Filter extends React.Component {
        fetch(tripUrl)
               .then(res => res.json())
               .then(listTrip => this.setState({listTrip}))
-       console.log(this.state.listTrip)
        
   }
 
@@ -74,18 +73,6 @@ export class Filter extends React.Component {
       
   }
     
-  componentWillMount() {
-    fetch('http://localhost:3000/users')
-      .then(res => res.json())
-      .then(listEmployee => this.setState({listEmployee}))
-    console.log(this.state.listEmployee)
-    
-    let tripUrl = 'http://localhost:3000/user/' + '1' + '/trips'
-       fetch(tripUrl)
-              .then(res => res.json())
-              .then(listTrip => this.setState({listTrip}))
-  }
-
   render() {
     
     /*list of employee*/
@@ -97,7 +84,7 @@ export class Filter extends React.Component {
 
     let menuTrip
     //if employee is overall there isn't the trip list
-    if (this.state.employee == "overall")
+    if (this.state.employee == "0")
     {
         menuTrip = <div></div>
     }
@@ -113,6 +100,7 @@ export class Filter extends React.Component {
       menuTrip = <div className="col-sm-12">
                     <h4 className="filter_text"><i className="fa fa-search-plus" aria-hidden="true"></i>
                         <select className="select_menu" value={this.state.trip} onChange={this.handleChangeTrip}>
+                            <option value="0">Overall</option>
                             {listTrip}
                         </select>
                     </h4>
@@ -160,6 +148,7 @@ export class Filter extends React.Component {
                             <div className="col-sm-12">
                               <h4 className="filter_text"><i className="fa fa-search-plus" aria-hidden="true"></i>
                                 <select className="select_menu" value={this.state.employee} onChange={this.handleChangeEmploee}>
+                                    <option value="0">Overall</option>
                                     {listEmployee}
                                 </select>
                               </h4>

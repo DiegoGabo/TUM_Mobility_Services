@@ -16,13 +16,13 @@ import 'w3-css/w3.css';
 
 export class Overview extends React.Component {
 
-  //Constructor of the function created because there must be the information of the current car analyzed
+//Constructor of the function created because there must be the information of the current car analyzed 
 
-  constructor(props)
+constructor(props)
   {
-      super(props);
-      this.state = {employee: "overall",
-                    trip: "overall",
+      super(props)
+      this.state = {employee: "0",
+                    trip: "0",
                     panel: "kpi",
                     carData: [],
                     }
@@ -65,40 +65,43 @@ export class Overview extends React.Component {
     let energy = 30
     let fuel = 70
       
-    if(this.state.employee == "overall")
+    if(this.state.employee == "0")
     {
-        
+            
     }
-    
     else
     {
-        if(this.state.employee == "overall")
+        if(this.state.trip == "0" && this.state.employee != "0")
         {
-            
+            let tripUrl = 'http://localhost:3000/user/' + this.state.employee + '/trips'
+            fetch(tripUrl)
+                .then(res => res.json())
+                .then(carData => this.setState({carData}))
+            try {
+                const last = this.state.carData.length-1
+                acceleration = this.state.carData[last].segmentLastTripAccelerationStars;
+                generalRisk=this.state.carData[last].lastTripBrakingStars;
+                energy=this.state.carData[last].remainingRange;
+                fuel=this.state.carData[last].remainingFuel;
+                latitude=this.state.carData[last].gpsLat;                   
+                longitude=this.state.carData[last].gpsLng
+            } catch(e) {}
         }
         else
         {
-            if(this.state.trip == "overall")
-            {
-                let tripUrl = 'http://localhost:3000/user/' + this.state.employee + '/trips'
-                fetch(tripUrl)
-                  .then(res => res.json())
-                  .then(carData => this.setState({carData}))
-                try {
-                    const last = this.state.carData.length-1
-                    acceleration = this.state.carData[last].segmentLastTripAccelerationStars;
-                    generalRisk=this.state.carData[last].lastTripBrakingStars;
-                    energy=this.state.carData[last].remainingRange;
-                    fuel=this.state.carData[last].remainingFuel;
-                    latitude=this.state.carData[last].gpsLat;
-                    longitude=this.state.carData[last].gpsLng
-                } catch(e) {}
-            }
-            else
-            {
-                console.log(this.state.trip)
-                /**/
-            }
+            let tripUrl = 'http://localhost:3000/api/' + this.state.trip
+            fetch(tripUrl)
+                .then(res => res.json())
+                .then(carData => this.setState({carData}))
+            try {
+                const last = this.state.carData.length-1
+                acceleration = this.state.carData[last].segmentLastTripAccelerationStars;
+                generalRisk=this.state.carData[last].lastTripBrakingStars;
+                energy=this.state.carData[last].remainingRange;
+                fuel=this.state.carData[last].remainingFuel;
+                latitude=this.state.carData[last].gpsLat;                   
+                longitude=this.state.carData[last].gpsLng
+            } catch(e) {}
         }
     }
 
