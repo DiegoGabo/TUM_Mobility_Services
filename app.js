@@ -68,7 +68,7 @@ const options4 = {
 fetch = require("./fetchdata")
 fetch.fetchBMWdata(options1)
 fetch.fetchBMWdata(options2)
-fetch.fetchBMWdata(options3)
+//fetch.fetchBMWdata(options3)
 fetch.fetchBMWdata(options4)
 
 //Lets visualize the data
@@ -105,6 +105,10 @@ app.use('/user',user)
 // })
 seed = require("./seed")
 seed.seedUsers()
+setTimeout(function () {
+	seed.seedBmw()
+}, 100)
+
 
 
 

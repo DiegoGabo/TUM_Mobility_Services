@@ -110,7 +110,7 @@ request.get(options, (error, response, body) => {
 			url: 'http://localhost:3000/api/bmwdata',
 			form: data 
 		}
-		//console.log("PostConfig",postConfig)
+		console.log("PostConfig",postConfig)
 		request.post(postConfig, postSuccessHandler);
 		// }
 		// else{
