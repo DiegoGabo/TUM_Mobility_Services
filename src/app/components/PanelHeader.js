@@ -7,6 +7,15 @@ import '../css/panelHeader.css';
 export class PanelHeader extends React.Component {
 
   render() {
+      
+    let name
+    switch(this.props.employee){
+        case "1": name="Marcus Aurelius"; break;
+        case "2": name="Max"; break;
+        case "3": name="Christoph"; break;
+        default: name="Overall"
+    }
+      
     return (
       <div>
         <div className="panel_header">
@@ -16,7 +25,7 @@ export class PanelHeader extends React.Component {
               <i className="fa fa-user-circle icon" aria-hidden="true"></i>
             </div>
             <div className="col-sm-10">
-              <h3>Hans Peter</h3>
+              <h3>{name}</h3>
               <hr/>
             </div>
           </div>

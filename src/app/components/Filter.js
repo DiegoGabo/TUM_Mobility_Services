@@ -3,6 +3,8 @@
 import React from 'react';
 import Select from 'react-select';
 
+import  {FilterTitle} from './FilterTitle';
+
 import '../css/filter.css';
 
 export class Filter extends React.Component {
@@ -27,7 +29,8 @@ export class Filter extends React.Component {
    //function executed when you change the value of select employee menu
    handleChangeEmploee(e) {
 		this.setState({
-			employee: e.target.value
+			employee: e.target.value,
+            trip: "0"
 		});
        this.props.changeEmployee(e.target.value)
        let tripUrl = 'http://localhost:3000/user/' + e.target.value + '/trips'
@@ -50,6 +53,7 @@ export class Filter extends React.Component {
       if(this.state.employeeCaret == false)
         {
           this.setState({employeeCaret: true})
+          this.setState({costCaret: false})
           fetch('http://localhost:3000/users')
               .then(res => res.json())
               .then(listEmployee => this.setState({listEmployee}))
@@ -66,6 +70,7 @@ export class Filter extends React.Component {
       if(this.state.costCaret == false)
         {
           this.setState({costCaret: true})
+          this.setState({employeeCaret: false})
           this.props.changePanel("cost")
         }
       else
@@ -112,36 +117,12 @@ export class Filter extends React.Component {
     let costPanel
     if(this.state.employeeCaret == false)
     {
-        employeePanel = <div>
-                          <div className="row">
-                          <div className="col-sm-2">
-                            <i className="fa fa-user-o icon" aria-hidden="true"></i>
-                          </div>
-
-                          <div className="col-sm-8">
-                            <h3 className="select_text">Selection on Empl./Trip</h3>
-                          </div>
-                          <div className="col-sm-2">
-                            <i className="fa fa-caret-right icon" aria-hidden="true" onClick={this.changeEmployeeCaret}></i>
-                          </div>
-                          </div>
-                        </div>
+        employeePanel = <FilterTitle title="Selection on Empl./Trip" handleClick={this.changeEmployeeCaret} />
     }
     else
     {
-        employeePanel = <div><div className="row">
-                          <div className="col-sm-2">
-                            <i className="fa fa-user-o icon" aria-hidden="true"></i>
-                          </div>
-
-                          <div className="col-sm-8">
-                            <h3 className="select_text">Selection on Empl./Trip</h3>
-                          </div>
-                          <div className="col-sm-2">
-                            <i className="fa fa-caret-down icon" aria-hidden="true" onClick={this.changeEmployeeCaret}></i>
-                          </div>
-                        </div>
-
+        employeePanel = <div>
+                        <FilterTitle title="Selection on Empl./Trip" handleClick={this.changeEmployeeCaret} />
                         <div className="row">
                           <div className="col-sm-1"></div>
                           <div className="col-sm-11">
@@ -161,49 +142,18 @@ export class Filter extends React.Component {
 
     if(this.state.costCaret == false)
     {
-        costPanel = <div>
-                      <div className="row">
-                          <div className="col-sm-2">
-                            <i className="fa fa-user-o icon" aria-hidden="true"></i>
-                          </div>
-
-                          <div className="col-sm-8">
-                            <h3 className="select_text">Cost Calculation/Effect</h3>
-                          </div>
-
-                          <div className="col-sm-2">
-                            <i className="fa fa-caret-right icon" aria-hidden="true" onClick={this.changeCostCaret}></i>
-                          </div>
-
-                        </div>
-                     </div>
+        costPanel = <FilterTitle title="Cost Calculation/Effect" handleClick={this.changeCostCaret} />
     }
     else
     {
         costPanel = <div>
+                        <FilterTitle title="Cost Calculation/Effect" handleClick={this.changeCostCaret} />
                         <div className="row">
-                          <div className="col-sm-2">
-                            <i className="fa fa-user-o icon" aria-hidden="true"></i>
-                          </div>
-
-                          <div className="col-sm-8">
-                            <h3 className="select_text">Cost Calculation/Effect</h3>
-                          </div>
-
-                          <div className="col-sm-2">
-                            <i className="fa fa-caret-down icon" aria-hidden="true" onClick={this.changeCostCaret}></i>
-                          </div>
+                            <div className="col-sm-1"></div>
+                            <div className="col-sm-11">
+                              <h4 className="filter_text"><i className="fa fa-search-plus" aria-hidden="true"></i>Overview Company</h4>
+                            </div>
                         </div>
-
-                        <div className="row">
-                          <div className="col-sm-1"></div>
-
-                          <div className="col-sm-11">
-                            <h4 className="filter_text"><i className="fa fa-search-plus" aria-hidden="true"></i>Overview Company</h4>
-                          </div>
-
-                        </div>
-
                       </div>
 
     }
@@ -219,18 +169,7 @@ export class Filter extends React.Component {
 
         <div className="row"></div>
         <hr className ="hr_Row"/>
-        <div className="row">
-          <div className="col-sm-2">
-            <i className="fa fa-industry icon" aria-hidden="true"></i>
-          </div>
-
-          <div className="col-sm-8">
-            <h3 className="select_text">Overview Company</h3>
-          </div>
-          <div className="col-sm-2">
-            <i className="fa fa-caret-right icon" aria-hidden="true"></i>
-          </div>
-        </div>
+        <FilterTitle title="Overview Company"/>
 
         <hr className ="hr_Row"/>
         {costPanel}

@@ -34,19 +34,14 @@ constructor(props)
   //modify employee state
   changeEmployee(newEmployee)
   {
-      this.setState({
-      employee: newEmployee
-    });
-       console.log(newEmployee)
+      this.setState({ employee: newEmployee});
+      this.setState({trip: "0"})
   }
 
   //modify trip state
   changeTrip(newTrip)
   {
-      this.setState({
-      trip: newTrip
-    });
-       console.log(newTrip)
+      this.setState({trip: newTrip});
   }
 
   changePanel(newPanel)
@@ -64,13 +59,15 @@ constructor(props)
     let generalRisk = 2
     let energy = 30
     let fuel = 70
+    let employeeName
       
     if(this.state.employee == "0")
     {
-            
+        //obtain data from DB when employee is overall
     }
     else
-    {
+    {   
+        //obtain data from DB when employee is selected and trip is overall
         if(this.state.trip == "0" && this.state.employee != "0")
         {
             let tripUrl = 'http://localhost:3000/user/' + this.state.employee + '/trips'
@@ -89,6 +86,7 @@ constructor(props)
         }
         else
         {
+            //obtain data from DB when employee and trip are selected
             let tripUrl = 'http://localhost:3000/api/' + this.state.trip
             fetch(tripUrl)
                 .then(res => res.json())
@@ -105,23 +103,26 @@ constructor(props)
         }
     }
 
-    
-    
+    //Define the panel component which is different in function of what is selected in navigation panel (employee kpi or costPanels)
     let panel
     if(this.state.panel=="kpi")
     {
-        panel = <Panels
-            acceleration={acceleration}
-            generalRisk={generalRisk}
-            energy={energy}
-            fuel={fuel}
-        />
+        panel = <div>
+                    <PanelHeader employee={this.state.employee}/>
+                    <Panels
+                    acceleration={acceleration}
+                    generalRisk={generalRisk}
+                    energy={energy}
+                    fuel={fuel}
+                    />
+                </div>
     }
     
     if(this.state.panel=="cost")
     {
         panel = <CostPanels />
     }
+        
 
     return (
       <div>
@@ -137,7 +138,6 @@ constructor(props)
         </div>
 
         <div className="col-sm-9">
-          <PanelHeader />
           {panel}
         </div>
 
