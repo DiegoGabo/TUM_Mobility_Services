@@ -15,15 +15,19 @@ const config = require('../config/database')
 
 //get one user by id
 router.get('/:id', (req,res)=>{
-	console.log(req.params)
-	User.findOne((req.params),(err,result) =>{
-		if(err) return console.log(err)
-		res.send(result)
-	})
+	console.log(req.params.id)
+	if(req.params.id != 0)
+	{	
+		User.findOne((req.params),(err,result) =>{
+			if(err) return console.log(err)
+			res.send(result)
+		})
+	}
+	else console.log("no user with 0 id")
 })
 //get trips of a user by id
 router.get('/:id/trips', (req,res)=>{
-	console.log(req.params)
+	// console.log(req.params)
 	User.findOne(req.params).populate('trips').exec((err,result)=>{
 			if(err) return console.log(err)
 			res.send(result.trips)
