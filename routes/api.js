@@ -30,7 +30,9 @@ router.get('/bmwdata', (req, res) => {
 router.get('/:_id', (req,res)=>{
 	Bmwdata.findOne(req.params).exec((err,result)=>{
 			if(err) return console.log(err)
-			res.send(result)
+			var trip = []
+			trip.push(result)
+			res.send(trip)
 	})
 })
 
