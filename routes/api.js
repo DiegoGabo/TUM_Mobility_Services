@@ -15,6 +15,16 @@ router.use(bodyParser.json())
 const Bmwdata = require('../models/bmwdata')
 
 
+//get bmwData from database
+router.get('/bmwdata', (req, res) => {
+	Bmwdata.getbmwData((err, bmwData) => {
+		if(err){
+			throw err
+		}
+		res.json(bmwData)
+	});
+});
+
 
 //trip id gives trip
 router.get('/:_id', (req,res)=>{
@@ -33,15 +43,6 @@ router.get('/:_id/user', (req,res)=>{
 	})
 })
 
-//get bmwData from database
-router.get('/bmwdata', (req, res) => {
-	Bmwdata.getbmwData((err, bmwData) => {
-		if(err){
-			throw err
-		}
-		res.json(bmwData)
-	});
-});
 
 //post request to add the data to database
 router.post('/bmwdata', async (req, res) => {
