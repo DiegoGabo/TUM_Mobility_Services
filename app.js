@@ -45,7 +45,7 @@ const options1 = {
 	KeyId: 'c4157993-3fd8-4cbe-95bf-643a73fcb788'
 }}
 const options2 = {
-	vin: 'WBY1Z21000V308999',
+	vin: 'WBA1S51010V834224',
 	url: "https://api.bmwgroup.com/otpdatadelivery/api/thirdparty/v1/clearances/6e396d66-71de-4a53-9a08-2f577e7f2a6b/telematicdata",
 	method: 'GET',
 	headers: {
