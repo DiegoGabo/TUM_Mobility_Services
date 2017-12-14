@@ -31,7 +31,10 @@ router.get('/:id/trips', (req,res)=>{
 	try{
 	User.findOne(req.params).populate('trips').exec((err,result)=>{
 			if(err) return console.log(err)
+			try{
 			res.send(result.trips)
+			}
+			catch(e){console.log("No user found!!")}
 	})
 	}
 	catch(e){
