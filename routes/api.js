@@ -15,16 +15,6 @@ router.use(bodyParser.json())
 const Bmwdata = require('../models/bmwdata')
 
 
-
-//user of a trip
-router.get('/:_id/user', (req,res)=>{
-	console.log(req.params)
-	Bmwdata.findOne(req.params).populate('user').exec((err,result)=>{
-			if(err) return console.log(err)
-			res.send(result.user)
-	})
-})
-
 //get bmwData from database
 router.get('/bmwdata', (req, res) => {
 	Bmwdata.getbmwData((err, bmwData) => {
@@ -34,6 +24,25 @@ router.get('/bmwdata', (req, res) => {
 		res.json(bmwData)
 	});
 });
+
+
+//trip id gives trip
+router.get('/:_id', (req,res)=>{
+	Bmwdata.findOne(req.params).exec((err,result)=>{
+			if(err) return console.log(err)
+			res.send(result)
+	})
+})
+
+
+//user of a trip
+router.get('/:_id/user', (req,res)=>{
+	Bmwdata.findOne(req.params).populate('user').exec((err,result)=>{
+			if(err) return console.log(err)
+			res.send(result.user)
+	})
+})
+
 
 //post request to add the data to database
 router.post('/bmwdata', async (req, res) => {
@@ -52,7 +61,6 @@ router.post('/bmwdata', async (req, res) => {
 	        	return res.status(500).send({ succes: false, message: 'Bmwdata already exist' });
         	}
       	}
-      	console.log(bmwdata)
       	user.trips.push(bmwdata._id)
       	user.save((err)=>{
       		if(err) throw err
@@ -70,7 +78,7 @@ router.post('/bmwdata', async (req, res) => {
 //Access the last latitude data of the car in main.ejs by <%= query[query.length-1].gpsLat %>
 //You can access every data by using the same notation
 router.get('/', (req,res)=>{
-	console.log(req.query)
+	// console.log(req.query)
 	db.collection('bmwdatas').find(req.query).sort({"create_date": -1}).toArray((err,result) =>{
 		if(err) return console.log(err)
 		//res.render('main.ejs', { query : result })
