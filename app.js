@@ -65,11 +65,19 @@ const options4 = {
 	headers: {
 	KeyId: 'c4157993-3fd8-4cbe-95bf-643a73fcb788'
 }}
+const options5 = {
+	vin: 'WBA1J71080V593471',
+	url: "https://api.bmwgroup.com/otpdatadelivery/api/thirdparty/v1/clearances/9d1d4711-1b71-4bda-9696-d0726d57db6c/telematicdata",
+	method: 'GET',
+	headers: {
+	KeyId: 'c4157993-3fd8-4cbe-95bf-643a73fcb788'
+}}
 fetch = require("./fetchdata")
 fetch.fetchBMWdata(options1)
 fetch.fetchBMWdata(options2)
 //fetch.fetchBMWdata(options3)
 fetch.fetchBMWdata(options4)
+fetch.fetchBMWdata(options5)
 
 //Lets visualize the data
 app.get('/', (req, res) => {
