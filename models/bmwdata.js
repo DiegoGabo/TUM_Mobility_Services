@@ -75,7 +75,7 @@ const bmwDataSchema = mongoose.Schema({
 });
 
 //Should change this for specific vinbmw mileage  should be unique.
-bmwDataSchema.index({mileage: 1}, {unique: true});
+bmwDataSchema.index({vinBmw: 1,mileage: 1}, {unique: true});
 
 const bmwData = module.exports = mongoose.model('bmwdatas', bmwDataSchema);
 

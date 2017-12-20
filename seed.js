@@ -39,13 +39,13 @@ var postSuccessHandler = function(err, httpResponse, body){
 
 exports.seedBmw = function(){
 	const bmwdatas = [
-	 {vinBmw: 'WBAUD91090P381103',
+	{vinBmw: 'WBAUD91090P381103',
      gpsLat: '41.193607',
      gpsLng: '10.568653',
      remainingFuel: '20',
      airTemperature: '7.5',
      remainingRange: '20',
-     mileage: '200000',
+     mileage: '350000',
      segmentLastTripAccelerationStars: '2',
      lastTripBrakingStars: '3',
      lastTripElectricEnergyConsumptionOverall: '4',
