@@ -1,4 +1,4 @@
-div .filter_title {
+div .navigation_title {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 15px;
@@ -16,11 +16,11 @@ div .filter_title {
   padding-left: 0px;
 }
 
-.filter_all {
+.navigation_all {
     background-color: #FCFCFC !important;
 }
 
-.filter_title-text{
+.navigation_title-text{
    font-size: 12pt !important;
    padding: 12px;
    color: black;
@@ -36,7 +36,7 @@ div .select_text {
     vertical-align: middle;
 }
 
-.row .filter_text {
+.row .navigation_text {
     color: #00B0F0;
 }
 
