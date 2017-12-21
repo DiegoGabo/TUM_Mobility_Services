@@ -3,7 +3,7 @@ const router = express.Router() //Kind of the same this as app = express() in ap
 const bodyParser = require('body-parser')  //Learn what this is for
 const mongoose = require('mongoose') //Database mongodb connection
 const config = require('../config/database')
-const User = require('../models/user')
+
 //database connect
 mongoose.connect(config.database)
 var db = mongoose.connection
@@ -13,7 +13,8 @@ router.use(bodyParser.json())
 
 //model import
 const Bmwdata = require('../models/bmwdata')
-
+const User = require('../models/user')
+const Car = require('../models/car')
 
 //get bmwData from database
 router.get('/bmwdata', (req, res) => {
@@ -25,6 +26,14 @@ router.get('/bmwdata', (req, res) => {
 	});
 });
 
+router.get('/cars', (req,res)=> {
+	Car.getCarsData((err, carData) => {
+		if(err){
+			throw err
+		}
+		res.json(carData)
+	});
+})
 
 //trip id gives trip
 router.get('/:_id', (req,res)=>{
@@ -53,6 +62,9 @@ router.post('/bmwdata', async (req, res) => {
 	//1 and 3 are user id numbers. starts from 1 to 3
   	var i= Math.floor(Math.random() * (Math.floor(3) - Math.ceil(1) + 1)) + Math.ceil(1); 
 	const user = await User.findOne({id: i})
+	//Add trip to the car. From the vinBmw key of the json req
+	const car = await Car.findOne({vin:bmwdata.vinBmw})
+	//console.log(car);
 	bmwdata.user = await user._id
 	//console.log(bmwdata)
 	Bmwdata.addbmwData(bmwdata, (err, bmwdata) => {
@@ -68,9 +80,35 @@ router.post('/bmwdata', async (req, res) => {
       		if(err) throw err
       		console.log("user updated")	
       	})
+      	car.trips.push(bmwdata._id)
+      	car.save((err)=>{
+      		if(err) throw err
+      		console.log("car updated")	
+      	})
 		res.status(201).json(bmwdata)
 	})
 })
+
+router.post('/car', (req,res)=> {
+	var car_data = req.body
+	console.log(car_data)
+
+	Car.addCar(car_data,(err, cardata)=>{
+		if(err) console.log(err);
+		res.status(201).json(cardata);
+	})
+
+})
+
+router.get('/cars', (req,res)=> {
+	Car.getCarsData((err, carData) => {
+		if(err){
+			throw err
+		}
+		res.json(carData)
+	});
+})
+
 
 //Getting the data from the form in main.html
 //reach the query of the form by req.query function

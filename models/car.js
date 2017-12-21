@@ -22,3 +22,12 @@ const CarSchema = mongoose.Schema({
 CarSchema.index({vin: 1}, {unique: true});
 
 const Car = module.exports = mongoose.model('Car', CarSchema);
+
+// Finf6 Cars
+module.exports.getCarsData = (callback, limit) => {
+	Car.find(callback).limit(limit);
+}
+// // Add Cars
+// module.exports.addCar = (car, callback) => {
+// 	Car.create(car, callback);
+// }

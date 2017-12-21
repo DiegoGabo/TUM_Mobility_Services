@@ -11,8 +11,9 @@ const User = require('./models/user')
 // 	db.collection('users').find().remove()
 // })
 const Bmw = require('./models/bmwdata')
+const Car = require('./models/car')
 
-
+//Seed users ------------------------------------
 exports.seedUsers = function(){
 	const users = [
 	{id:'1',name: 'Marcus Aurelius'},
@@ -24,7 +25,20 @@ exports.seedUsers = function(){
 		newUser.save()
 	}
 }
-
+// Seed Cars -------------------------------------
+exports.seedCars = function(){
+     const cars = [
+     {vin:'WBA1J71080V593471',model: 'M235i'},
+     {vin:'WBA1S51010V834224',model: '120'},
+     {vin:'WBY1Z21000V308999',model: 'i3'},
+     {vin:'WBA1S510805J88762',model: 'unknown'},
+     {vin:'WBAUD91090P381103',model: '120d'}
+     ]
+     for(car of cars){
+          var newCar= new Car(car)
+          newCar.save()
+     }
+}
 
 
 //Seed BMW _----------------------
@@ -96,6 +110,7 @@ exports.seedBmw = function(){
      lastTripRecuperationOverall: '4'}
 	]
 	for(bmwdata of bmwdatas){
+          // another approach, in this approach user is not updated. Should do user match to trip in model of bmwdata.
 		// var newBmwdata = new Bmw(bmwdata)
 		// newBmwdata.save()
 		postConfig = {

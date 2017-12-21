@@ -45,7 +45,7 @@ const options1 = {
 	KeyId: 'c4157993-3fd8-4cbe-95bf-643a73fcb788'
 }}
 const options2 = {
-	vin: 'WBA1S51010V834224',
+	vin: 'WBY1Z21000V308999',
 	url: "https://api.bmwgroup.com/otpdatadelivery/api/thirdparty/v1/clearances/6e396d66-71de-4a53-9a08-2f577e7f2a6b/telematicdata",
 	method: 'GET',
 	headers: {
@@ -111,7 +111,10 @@ app.use('/user',user)
 // 	res.locals.user = req.user || null
 // 	next()
 // })
+
 seed = require("./seed")
+//seedCars is problematic sometimes gives error related to null trips
+seed.seedCars()
 seed.seedUsers()
 setTimeout(function () {
 	seed.seedBmw()
