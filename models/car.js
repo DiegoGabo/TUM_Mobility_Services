@@ -5,12 +5,12 @@ const Schema = mongoose.Schema
 const CarSchema = mongoose.Schema({
 	vin:{
 		type: String,
-		required: true
+		required: true,
+		unique: true
 	},
 	model: {
 		type: String,
-		required: false,
-		unique: true
+		required: false
 	},
 	trips: [{
 		type: Schema.Types.ObjectId, 
@@ -18,4 +18,7 @@ const CarSchema = mongoose.Schema({
 	}]
 })
 
-const Car = module.exports = mongoose.model('Car', UserSchema);
+
+CarSchema.index({vin: 1}, {unique: true});
+
+const Car = module.exports = mongoose.model('Car', CarSchema);
