@@ -6,7 +6,7 @@ import  {OverviewHeader} from './OverviewHeader';
 import  {MapPosition} from './MapPosition';
 import  {Panels} from './Panels';
 import  {CostPanels} from './CostPanels';
-import  {Filter} from './Filter';
+import  {Navigation} from './Navigation';
 import  {PanelHeader} from './PanelHeader';
 import  {Footer} from './Footer';
 
@@ -130,7 +130,7 @@ constructor(props)
         <MapPosition latitude={latitude} longitude={longitude}/>
 
         <div className="col-sm-3 navigation_div">
-          <Filter
+          <Navigation
             changeEmployee={this.changeEmployee}
             changeTrip={this.changeTrip}
             changePanel={this.changePanel}
