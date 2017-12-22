@@ -12,6 +12,8 @@ import  {PeopleManagementHeader} from './PeopleManagementHeader';
 import  {PeopleManagementPanels} from './PeopleManagementPanels';
 import  {TripManagementPanels} from './TripManagementPanels';
 import  {TripManagementHeader} from './TripManagementHeader';
+import  {NotificationHeader} from './NotificationHeader';
+import  {NotificationPanels} from './NotificationPanels';
 import  {Footer} from './Footer';
 
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -28,7 +30,7 @@ constructor(props)
       this.state = {employee: "0",
                     employeeName: "",
                     trip: "0",
-                    panel: "Overview Companyimport",
+                    panel: "Overview Company",
                     carData: [],
                     }
       this.changeEmployee=this.changeEmployee.bind(this)
@@ -147,6 +149,14 @@ constructor(props)
                       employee={this.state.employee}
                       changePanel={this.changePanel}
                       changeTrip={this.changeTrip}/>
+                </div>
+    }
+    
+   if(this.state.panel=="Overview Company")
+    {
+        panel = <div>
+                    <NotificationHeader />
+                    <NotificationPanels />
                 </div>
     }
     
