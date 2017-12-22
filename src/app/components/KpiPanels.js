@@ -6,7 +6,7 @@ import  {StarPanel} from './StarPanel';
 import  {FuelPanel} from './FuelPanel';
 
 
-export class Panels extends React.Component {
+export class KpiPanels extends React.Component {
 
   render() {
     return (
