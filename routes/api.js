@@ -46,14 +46,7 @@ router.get('/:_id', (req,res)=>{
 })
 
 
-//user of a trip
-router.get('/:_id/user', (req,res)=>{
-	Bmwdata.findOne(req.params).populate('user').exec((err,result)=>{
-			if(err) return console.log(err)
-			res.send(result.user)
-	})
-})
-
+ 
 
 //post request to add the data to database
 router.post('/bmwdata', async (req, res) => {
@@ -109,6 +102,13 @@ router.get('/cars', (req,res)=> {
 	});
 })
 
+//trips of a car
+router.get('/:_id/trips', (req,res)=>{
+	Car.findOne(req.params).populate('trips').exec((err,result)=>{
+			if(err) return console.log(err)
+			res.send(result.trips)
+	})
+})
 
 //Getting the data from the form in main.html
 //reach the query of the form by req.query function
