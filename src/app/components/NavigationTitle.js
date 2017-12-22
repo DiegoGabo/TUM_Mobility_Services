@@ -11,6 +11,7 @@ export class NavigationTitle extends React.Component {
     this.ChangeMenu = this.ChangeMenu.bind(this)
   }
     
+  //if you click on the menu it expands the corrisponding section
   ChangeMenu()
   {
     this.props.handleClick(this.props.title)

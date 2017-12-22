@@ -3,8 +3,6 @@
 import React from 'react';
 import Time from 'react-time'
 
-import  {AppList} from './AppList';
-
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'w3-css/w3.css';

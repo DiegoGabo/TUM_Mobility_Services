@@ -4,10 +4,14 @@ import React from 'react';
 
 import  {OverviewHeader} from './OverviewHeader';
 import  {MapPosition} from './MapPosition';
-import  {Panels} from './Panels';
+import  {KpiPanels} from './KpiPanels';
 import  {CostPanels} from './CostPanels';
 import  {Navigation} from './Navigation';
-import  {PanelHeader} from './PanelHeader';
+import  {KpiHeader} from './KpiHeader';
+import  {PeopleManagementHeader} from './PeopleManagementHeader';
+import  {PeopleManagementPanels} from './PeopleManagementPanels';
+import  {TripManagementPanels} from './TripManagementPanels';
+import  {TripManagementHeader} from './TripManagementHeader';
 import  {Footer} from './Footer';
 
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -22,8 +26,9 @@ constructor(props)
   {
       super(props)
       this.state = {employee: "0",
+                    employeeName: "",
                     trip: "0",
-                    panel: "kpi",
+                    panel: "Overview Companyimport",
                     carData: [],
                     }
       this.changeEmployee=this.changeEmployee.bind(this)
@@ -32,9 +37,10 @@ constructor(props)
   }
 
   //modify employee state
-  changeEmployee(newEmployee)
+  changeEmployee(newEmployee, newEmployeeName)
   {
       this.setState({ employee: newEmployee});
+      this.setState({ employeeName: newEmployeeName});
       this.setState({trip: "0"})
   }
 
@@ -44,6 +50,7 @@ constructor(props)
       this.setState({trip: newTrip});
   }
 
+  //modify the panel that is currently shown
   changePanel(newPanel)
   {
       this.setState({
@@ -63,11 +70,11 @@ constructor(props)
       
     if(this.state.employee == "0")
     {
-        //obtain data from DB when employee is overall
+        //obtains data from DB when employee is overall
     }
     else
     {   
-        //obtain data from DB when employee is selected and trip is overall
+        //obtains data from DB when employee is selected and trip is overall
         if(this.state.trip == "0" && this.state.employee != "0")
         {
             let tripUrl = 'http://localhost:3000/user/' + this.state.employee + '/trips'
@@ -86,7 +93,7 @@ constructor(props)
         }
         else
         {
-            //obtain data from DB when employee and trip are selected
+            //obtains data from DB when employee and trip are selected
             let tripUrl = 'http://localhost:3000/api/' + this.state.trip
             fetch(tripUrl)
                 .then(res => res.json())
@@ -103,13 +110,15 @@ constructor(props)
         }
     }
 
-    //Define the panel component which is different in function of what is selected in navigation panel (employee kpi or costPanels)
+    //Defines the panel component which is different in function of what is selected in navigation panel (employee kpi or costPanels)
     let panel
-    if(this.state.panel=="kpi")
+    
+    //renders the kpi management section in panel if it is active.
+    if(this.state.panel=="Kpi Management")
     {
         panel = <div>
-                    <PanelHeader employee={this.state.employee}/>
-                    <Panels
+                    <KpiHeader employee={this.state.employee}/>
+                    <KpiPanels
                     acceleration={acceleration}
                     generalRisk={generalRisk}
                     energy={energy}
@@ -118,12 +127,29 @@ constructor(props)
                 </div>
     }
     
-    if(this.state.panel=="cost")
+    //renders the people management section in panel if it is active. It contains the list of employees
+    if(this.state.panel=="People Management")
     {
-        panel = <CostPanels />
+        panel = <div>
+                    <PeopleManagementHeader />
+                    <PeopleManagementPanels 
+                      changePanel={this.changePanel}
+                      changeEmployee={this.changeEmployee}/>
+                </div>
     }
-        
-
+    
+    //renders the trip management section in panel if it is active. It contains the list of trips
+    if(this.state.panel=="Trip Management")
+    {
+        panel = <div>
+                    <TripManagementHeader />
+                    <TripManagementPanels 
+                      employee={this.state.employee}
+                      changePanel={this.changePanel}
+                      changeTrip={this.changeTrip}/>
+                </div>
+    }
+    
     return (
       <div>
         <OverviewHeader />
@@ -131,9 +157,13 @@ constructor(props)
 
         <div className="col-sm-3 navigation_div">
           <Navigation
+            changePanel={this.changePanel}
             changeEmployee={this.changeEmployee}
             changeTrip={this.changeTrip}
             changePanel={this.changePanel}
+            employee={this.state.employee}
+            employeeName={this.state.employeeName}
+            trip={this.state.trip}
           />
         </div>
 

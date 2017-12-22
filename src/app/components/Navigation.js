@@ -13,42 +13,26 @@ export class Navigation extends React.Component {
   constructor(props)
   {
       super(props);
-      this.state = {employee: "0",
-                    trip: "0",
+      this.state = {
                     activeMenu: "Overview Company",
-                    listTrip: [],
-                    listEmployee: [],
                    }
-      this.handleChangeEmploee = this.handleChangeEmploee.bind(this)
-      this.handleChangeTrip = this.handleChangeTrip.bind(this)
       this.changeActiveMenu = this.changeActiveMenu.bind(this)
+      this.handleClickEmployee = this.handleClickEmployee.bind(this)
   }
 
-   //function executed when you change the value of select employee menu
-   handleChangeEmploee(e) {
-		this.setState({
-			employee: e.target.value,
-            trip: "0"
-		});
-       this.props.changeEmployee(e.target.value)
-       let tripUrl = 'http://localhost:3000/user/' + e.target.value + '/trips'
-       fetch(tripUrl)
-              .then(res => res.json())
-              .then(listTrip => this.setState({listTrip}))
-       
-  }
-
-   //function executed when you change the value of select trip menu
-   handleChangeTrip(e) {
-		this.setState({
-			trip: e.target.value
-		});
-       this.props.changeTrip(e.target.value)
-  }
-
+  //modify the active menu that is in navigation panel and can be Overview Company, People Management or Vehicle Management
   changeActiveMenu(newMenu)
   {
       this.setState({activeMenu: newMenu})
+      this.props.changeEmployee("0","")
+      this.props.changePanel(newMenu)
+  }
+
+  //mofify the active menu in navigation and the panel when you click on a specific employee
+  handleClickEmployee(){
+      
+      this.props.changeEmployee(this.props.employee, this.props.employeeName)
+      this.changeActiveMenu("People Management")
   }
     
   render() {
@@ -57,19 +41,21 @@ export class Navigation extends React.Component {
     let EmployeeMenu = <div></div>
     let VehicleMenu = <div></div>
     
+    //Render the Overview Company section if it is active 
     if(this.state.activeMenu=="Overview Company")
     {   
         OverviewMenu=
             <div>
-              <NavigationSubTitle title="Last Notifications" />
-              <NavigationSubTitle title="Average KPI-index" />
-              <NavigationSubTitle title="Cost Overview" />
+              <NavigationSubTitle title="Last Notifications" active="true"/>
+              <NavigationSubTitle title="Average KPI-index" active="false"/>
+              <NavigationSubTitle title="Cost Overview" active="false"/>
             </div>
     }
-      
+    
+    //Render the People Management section if it is active 
     if(this.state.activeMenu=="People Management")
     {
-        if(this.state.employee == "0")
+        if(this.props.employee == "0")
         {
             EmployeeMenu=
                 <div>
@@ -78,21 +64,21 @@ export class Navigation extends React.Component {
         }
         else
         {
-            if(this.state.trip == "0")
+            if(this.props.trip == "0")
             {
                 EmployeeMenu=
                 <div>
-                  <NavigationSubTitle title={this.state.employee} />
-                  <NavigationSubTitle title="All Trips" />
+                  <NavigationSubTitle title={this.props.employeeName} active="false"/>
+                  <NavigationSubTitle title="All Trips" active="false"/>
                 </div>   
             }
             else
             {
                 EmployeeMenu=
                 <div>
-                  <NavigationSubTitle title={this.state.employee} />
-                  <NavigationSubTitle title={this.state.trip} />
-                  <NavigationSubTitle title="All KPIs" />
+                  <div onClick={this.handleClickEmployee}><NavigationSubTitle title={this.props.employeeName} active="true"/></div>
+                  <NavigationSubTitle title={this.props.trip.substring(0, 10)} active="false" />
+                  <NavigationSubTitle title="All KPIs" active="false"/>
                 </div>   
             }
         }

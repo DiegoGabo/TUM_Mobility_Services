@@ -2,9 +2,9 @@
 
 import React from 'react';
 
-import '../css/panelHeader.css';
+import '../css/kpiHeader.css';
 
-export class PanelHeader extends React.Component {
+export class KpiHeader extends React.Component {
 
   render() {
       
