@@ -16,9 +16,9 @@ const Car = require('./models/car')
 //Seed users ------------------------------------
 exports.seedUsers = function(){
 	const users = [
-	{id:'1',name: 'Marcus Aurelius'},
-	{id:'2',name: 'Max'},
-	{id:'3',name: 'Christoph'}
+	{id:'1',name: 'Marcus Aurelius', position: "HR Specialist"},
+	{id:'2',name: 'Max Mustermann', position: "Software Engineer"},
+	{id:'3',name: 'Christoph NG', position: "Customer Solutions Manager"}
 	]
 	for(user of users){
 		var newUser = new User(user)
