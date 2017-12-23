@@ -27,7 +27,7 @@ export class PeopleManagementPanels extends React.Component {
       employeePanels = this.state.listEmployee.map((employee) =>
                             <EmployeePanel 
                                     name={employee.name}
-                                    key={employee.id}
+                                    key={employee._id}
                                     value={employee.id}
                                     position="Senior Consultant"
                                     ranking={employee.id}

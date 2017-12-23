@@ -72,7 +72,12 @@ constructor(props)
       
     if(this.state.employee == "0")
     {
-        //obtains data from DB when employee is overall
+        latitude = 48.19284
+        longitude = 11.568518
+        acceleration = 4
+        generalRisk = 2
+        energy = 30
+        fuel = 70
     }
     else
     {   
@@ -157,6 +162,19 @@ constructor(props)
         panel = <div>
                     <NotificationHeader />
                     <NotificationPanels />
+                </div>
+    }
+    
+    if(this.state.panel=="Average KPI-index")
+    {
+        panel = <div>
+                    <KpiHeader employee={this.state.employee}/>
+                    <KpiPanels
+                    acceleration={acceleration}
+                    generalRisk={generalRisk}
+                    energy={energy}
+                    fuel={fuel}
+                    />
                 </div>
     }
     

@@ -15,9 +15,13 @@ export class Navigation extends React.Component {
       super(props);
       this.state = {
                     activeMenu: "Overview Company",
+                    activeSubMenu: "Last Notifications"
                    }
       this.changeActiveMenu = this.changeActiveMenu.bind(this)
       this.handleClickEmployee = this.handleClickEmployee.bind(this)
+      this.handleClickLastNotifications = this.handleClickLastNotifications.bind(this)
+      this.handleClickAverageKpiIndex = this.handleClickAverageKpiIndex.bind(this)
+      this.handleClickCostOverview = this.handleClickCostOverview.bind(this)
   }
 
   //modify the active menu that is in navigation panel and can be Overview Company, People Management or Vehicle Management
@@ -30,9 +34,23 @@ export class Navigation extends React.Component {
 
   //mofify the active menu in navigation and the panel when you click on a specific employee
   handleClickEmployee(){
-      
       this.props.changeEmployee(this.props.employee, this.props.employeeName)
-      this.changeActiveMenu("People Management")
+      this.props.changePanel("Trip Management")
+  }
+ 
+  handleClickLastNotifications(){
+      this.setState({activeSubMenu: "Last Notifications"})
+      this.props.changePanel("Overview Company")
+  }
+    
+  handleClickAverageKpiIndex(){
+      this.setState({activeSubMenu: "Average KPI-index"})
+      this.props.changePanel("Average KPI-index")
+  }
+    
+  handleClickCostOverview(){
+      this.setState({activeSubMenu: "Cost Overview"})
+      this.props.changePanel("Cost Overview")
   }
     
   render() {
@@ -41,14 +59,18 @@ export class Navigation extends React.Component {
     let EmployeeMenu = <div></div>
     let VehicleMenu = <div></div>
     
+    let lastNotificationsActive = this.state.activeSubMenu == "Last Notifications" ? "true" : "false";
+    let averageKpiActive = this.state.activeSubMenu == "Average KPI-index" ? "true" : "false";
+    let costOverviewActive = this.state.activeSubMenu == "Cost Overview" ? "true" : "false";
+    
     //Render the Overview Company section if it is active 
     if(this.state.activeMenu=="Overview Company")
     {   
         OverviewMenu=
             <div>
-              <NavigationSubTitle title="Last Notifications" active="true"/>
-              <NavigationSubTitle title="Average KPI-index" active="false"/>
-              <NavigationSubTitle title="Cost Overview" active="false"/>
+              <div onClick={this.handleClickLastNotifications}><NavigationSubTitle title="Last Notifications" active={lastNotificationsActive}/></div>
+              <div onClick={this.handleClickAverageKpiIndex}><NavigationSubTitle title="Average KPI-index" active={averageKpiActive}/></div>
+              <div onClick={this.handleClickCostOverview}><NavigationSubTitle title="Cost Overview" active={costOverviewActive}/></div>
             </div>
     }
     

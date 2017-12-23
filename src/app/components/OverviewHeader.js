@@ -54,7 +54,6 @@ export class OverviewHeader extends React.Component {
         </div>
 
         <div className="col-sm-2">
-          <div className="app_name">KPI Management</div>
         </div>
 
        
@@ -68,7 +67,6 @@ export class OverviewHeader extends React.Component {
       </div>
         
       <div className="extend_app" style={{height: '25px'}}>
-        <p className="arrow"><i className="fa fa-chevron-down"></i></p>
       </div>
         
     </div>
