@@ -5,8 +5,7 @@ const config = require('./config/database')
 //database connect
 mongoose.connect(config.database)
 var db = mongoose.connection
-var dev_url = config.dev_url
-var prod_url = config.prod_url
+var url = config.url
 
 const User = require('./models/user')
 // db.once('open', function(){
@@ -116,10 +115,7 @@ exports.seedBmw = function(){
 		// var newBmwdata = new Bmw(bmwdata)
 		// newBmwdata.save()
 		postConfig = {
-			//production settings
-			url: prod_url + 'api/bmwdata',
-			//development setting
-			//url: dev_url +'api/bmwdata',
+			url: url + 'api/bmwdata',
 			form: bmwdata 
 		}
 		//console.log("PostConfig",postConfig)
