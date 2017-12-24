@@ -80,10 +80,10 @@ fetch.fetchBMWdata(options4)
 fetch.fetchBMWdata(options5)
 
 //Lets visualize the data
-app.get('/', (req, res) => {
-	res.sendFile(__dirname + '/views/main.html')
+// app.get('/', (req, res) => {
+// 	res.sendFile(__dirname + '/views/main.html')
 
-})
+// })
 
 
 //Route File for api
