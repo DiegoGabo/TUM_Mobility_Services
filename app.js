@@ -121,7 +121,10 @@ setTimeout(function () {
 }, 100)
 
 
-
+// Express only serves static assets in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('./build'));
+}
 
 
 var server = app.listen(process.env.PORT || 3000, function(){

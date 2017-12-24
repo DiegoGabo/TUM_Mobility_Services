@@ -8,7 +8,8 @@ const config = require('./config/database')
 //database connect
 mongoose.connect(config.database)
 var db = mongoose.connection
-
+var dev_url = config.dev_url
+var prod_url = config.prod_url
 // Tihs returns promise
  
 // db.once('open',function(){
@@ -105,9 +106,9 @@ request.get(options, (error, response, body) => {
 		//Making a post request with the given data above to production server or the developmemnt server
 		postConfig = {
 			//production settings
-			//url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
+			url: prod_url + 'api/bmwdata',
 			//development setting
-			url: 'http://localhost:3000/api/bmwdata',
+			//url: dev_url +'api/bmwdata',
 			form: data 
 		}
 		console.log("PostConfig",postConfig)

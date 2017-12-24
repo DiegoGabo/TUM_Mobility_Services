@@ -5,6 +5,8 @@ const config = require('./config/database')
 //database connect
 mongoose.connect(config.database)
 var db = mongoose.connection
+var dev_url = config.dev_url
+var prod_url = config.prod_url
 
 const User = require('./models/user')
 // db.once('open', function(){
@@ -115,9 +117,9 @@ exports.seedBmw = function(){
 		// newBmwdata.save()
 		postConfig = {
 			//production settings
-			//url: 'https://bemostwanted.herokuapp.com/api/bmwdata',
+			url: prod_url + 'api/bmwdata',
 			//development setting
-			url: 'http://localhost:3000/api/bmwdata',
+			//url: dev_url +'api/bmwdata',
 			form: bmwdata 
 		}
 		//console.log("PostConfig",postConfig)
