@@ -12,7 +12,7 @@ export class RegistrationPage extends React.Component {
       <div className="login_div">
         <header className="v-header container">
         <div className="fullscreen-video-wrap">
-          <video muted src="/src/app/videos/login_page_video.mp4" autoPlay loop>
+          <video muted src="https://s3.eu-central-1.amazonaws.com/fleetme/login_page_video.mp4" autoPlay loop>
           </video>
         </div>
         <div className="header-overlay"></div>
