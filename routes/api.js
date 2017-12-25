@@ -84,7 +84,7 @@ router.post('/bmwdata', async (req, res) => {
 
 router.post('/car', (req,res)=> {
 	var car_data = req.body
-	console.log(car_data)
+	//console.log(car_data)
 
 	Car.addCar(car_data,(err, cardata)=>{
 		if(err) console.log(err);
