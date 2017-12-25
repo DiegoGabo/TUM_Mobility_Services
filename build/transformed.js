@@ -53597,7 +53597,7 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         } else {
             //obtains data from DB when employee is selected and trip is overall
             if (this.state.trip == "0" && this.state.employee != "0") {
-                let tripUrl = 'http://localhost:3000/user/' + this.state.employee + '/trips';
+                let tripUrl = 'https://bemostwanted.herokuapp.com/user/' + this.state.employee + '/trips';
                 fetch(tripUrl).then(res => res.json()).then(carData => this.setState({ carData }));
                 try {
                     const last = this.state.carData.length - 1;
@@ -53610,7 +53610,7 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                 } catch (e) {}
             } else {
                 //obtains data from DB when employee and trip are selected
-                let tripUrl = 'http://localhost:3000/api/' + this.state.trip;
+                let tripUrl = 'https://bemostwanted.herokuapp.com/api/' + this.state.trip;
                 fetch(tripUrl).then(res => res.json()).then(carData => this.setState({ carData }));
                 try {
                     const last = this.state.carData.length - 1;
@@ -77384,7 +77384,7 @@ class PeopleManagementPanels extends __WEBPACK_IMPORTED_MODULE_1_react___default
 
   //obtain the list of employees
   componentDidMount() {
-    fetch('http://localhost:3000/users').then(res => res.json()).then(listEmployee => this.setState({ listEmployee }));
+    fetch('https://bemostwanted.herokuapp.com/users').then(res => res.json()).then(listEmployee => this.setState({ listEmployee }));
   }
 
   render() {
@@ -77508,7 +77508,7 @@ class TripManagementPanels extends __WEBPACK_IMPORTED_MODULE_1_react___default.a
 
   //obtains the list of trips given the current employee
   componentDidMount() {
-    let url = 'http://localhost:3000/user/' + this.props.employee + '/trips';
+    let url = 'https://bemostwanted.herokuapp.com/user/' + this.props.employee + '/trips';
     fetch(url).then(res => res.json()).then(listTrips => this.setState({ listTrips }));
   }
 
