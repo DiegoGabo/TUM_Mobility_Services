@@ -14,7 +14,7 @@ export class PeopleManagementPanels extends React.Component {
   //obtain the list of employees
   componentDidMount()
   {
-      fetch('http://localhost:3000/users')
+      fetch('https://bemostwanted.herokuapp.com/users')
               .then(res => res.json())
               .then(listEmployee => this.setState({listEmployee}))
   }
