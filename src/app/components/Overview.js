@@ -84,7 +84,7 @@ constructor(props)
         //obtains data from DB when employee is selected and trip is overall
         if(this.state.trip == "0" && this.state.employee != "0")
         {
-            let tripUrl = 'https://bemostwanted.herokuapp.com/' + this.state.employee + '/trips'
+            let tripUrl = 'http://localhost:3000/user/' + this.state.employee + '/trips'
             fetch(tripUrl)
                 .then(res => res.json())
                 .then(carData => this.setState({carData}))
@@ -101,7 +101,7 @@ constructor(props)
         else
         {
             //obtains data from DB when employee and trip are selected
-            let tripUrl = 'https://bemostwanted.herokuapp.com/' + this.state.trip
+            let tripUrl = 'http://localhost:3000/api/' + this.state.trip
             fetch(tripUrl)
                 .then(res => res.json())
                 .then(carData => this.setState({carData}))

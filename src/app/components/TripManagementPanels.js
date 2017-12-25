@@ -14,7 +14,7 @@ export class TripManagementPanels extends React.Component {
   //obtains the list of trips given the current employee
   componentDidMount()
   {
-      let url = 'https://bemostwanted.herokuapp.com/user/' + this.props.employee + '/trips'
+      let url = 'http://localhost:3000/user/' + this.props.employee + '/trips'
       fetch(url)
           .then(res => res.json())
           .then(listTrips => this.setState({listTrips}))
