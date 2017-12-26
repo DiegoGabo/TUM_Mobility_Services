@@ -29,6 +29,7 @@ export class Navigation extends React.Component {
   {
       this.setState({activeMenu: newMenu})
       this.props.changeEmployee("0","")
+      this.props.changeTrip("0")
       this.props.changePanel(newMenu)
   }
 
