@@ -38,35 +38,35 @@ export class Navigation extends React.Component {
       this.props.changeEmployee(this.props.employee, this.props.employeeName)
       this.props.changePanel("Trip Management")
   }
- 
+
   handleClickLastNotifications(){
       this.setState({activeSubMenu: "Last Notifications"})
       this.props.changePanel("Overview Company")
   }
-    
+
   handleClickAverageKpiIndex(){
       this.setState({activeSubMenu: "Average KPI-index"})
       this.props.changePanel("Average KPI-index")
   }
-    
+
   handleClickCostOverview(){
       this.setState({activeSubMenu: "Cost Overview"})
       this.props.changePanel("Cost Overview")
   }
-    
+
   render() {
-      
+
     let OverviewMenu = <div></div>
     let EmployeeMenu = <div></div>
     let VehicleMenu = <div></div>
-    
+
     let lastNotificationsActive = this.state.activeSubMenu == "Last Notifications" ? "true" : "false";
     let averageKpiActive = this.state.activeSubMenu == "Average KPI-index" ? "true" : "false";
     let costOverviewActive = this.state.activeSubMenu == "Cost Overview" ? "true" : "false";
-    
-    //Render the Overview Company section if it is active 
+
+    //Render the Overview Company section if it is active
     if(this.state.activeMenu=="Overview Company")
-    {   
+    {
         OverviewMenu=
             <div>
               <div onClick={this.handleClickLastNotifications}><NavigationSubTitle title="Last Notifications" active={lastNotificationsActive}/></div>
@@ -74,8 +74,8 @@ export class Navigation extends React.Component {
               <div onClick={this.handleClickCostOverview}><NavigationSubTitle title="Cost Overview" active={costOverviewActive}/></div>
             </div>
     }
-    
-    //Render the People Management section if it is active 
+
+    //Render the People Management section if it is active
     if(this.state.activeMenu=="People Management")
     {
         if(this.props.employee == "0")
@@ -93,7 +93,7 @@ export class Navigation extends React.Component {
                 <div>
                   <NavigationSubTitle title={this.props.employeeName} active="false"/>
                   <NavigationSubTitle title="All Trips" active="false"/>
-                </div>   
+                </div>
             }
             else
             {
@@ -102,11 +102,11 @@ export class Navigation extends React.Component {
                   <div onClick={this.handleClickEmployee}><NavigationSubTitle title={this.props.employeeName} active="true"/></div>
                   <NavigationSubTitle title={this.props.trip.substring(0, 10)} active="false" />
                   <NavigationSubTitle title="All KPIs" active="false"/>
-                </div>   
+                </div>
             }
         }
     }
-    
+
     return (
       <div className="navigation_all">
 
@@ -117,11 +117,11 @@ export class Navigation extends React.Component {
         <NavigationTitle title="Overview Company" icon="fa fa-building-o" handleClick={this.changeActiveMenu}/>
         {OverviewMenu}
         <hr className ="hr_Row"/>
-        
+
         <NavigationTitle title="People Management" icon="fa fa-user-o" handleClick={this.changeActiveMenu}/>
         {EmployeeMenu}
         <hr className ="hr_Row"/>
-        
+
         <NavigationTitle title="Vehicle Management" icon="fa fa-car" handleClick={this.changeActiveMenu}/>
 
       </div>

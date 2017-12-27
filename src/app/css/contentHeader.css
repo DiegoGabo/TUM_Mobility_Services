@@ -1,0 +1,18 @@
+.content_header_column .icon {
+    font-size: 3em;
+    margin: 5px;
+    color: black;
+}
+
+div .content_header {
+    height: 45px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 7pt;
+    vertical-align: middle;
+}
+
+.content_header_column h3 {
+    font-size: 12pt;
+    vertical-align: middle;
+}

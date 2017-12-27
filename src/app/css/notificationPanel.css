@@ -1,0 +1,18 @@
+.notificationPanel .content_panel_column h4, .content_icon, .progress_row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notificationPanel  .first_content_panel_column {
+    padding-top: 25px;
+}
+
+.notificationPanel .content_panel_column .content_icon {
+    font-size: 2em;
+    padding-top: 8px;
+}
+
+.notificationPanel .panel {
+    height: 90px;
+}

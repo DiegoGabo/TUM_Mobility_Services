@@ -6,48 +6,49 @@
 
 .overviewHeader {
     font-size: 10pt;
-    background-color: #EAEAEA;
-}
-
-
-.fleetManager-user {
-  margin: 0.4em;
-}
-
-
-.col-sm-5 .date {
-    vertical-align: middle;
-    padding-top: 4px;
-    margin-left: 10px;
-}
-
-.col-sm-5 .user_name {
-    vertical-align: middle;
-    text-align: right;
-    margin-left: 10px;
-}
-
-.col-sm-2 .app_name {
-    margin-top: 10px;
+    background-color: #F7F7F7;
+    height: 40px;
     margin-bottom: 0px;
-    text-align: center;
-    color: white;
-    background-color: #3B3838;
+    padding-bottom: 0px;
+    border-radius: 0px;
+}
+
+.overviewHeader div p {
+    vertical-align: middle;
+}
+
+.overviewHeader .col-sm-5 .date {
+    margin-left: 10px;
+    padding-top: 12px;
+}
+
+.overviewHeader .col-sm-5 .user_name {
+    text-align: right;
+    margin-right: 10px;
+    padding-top: 8px;
+}
+
+.overviewHeader .col-sm-2 {
+    padding-top: 8px;
+}
+
+.overviewHeader .col-sm-2 p {
     font-weight: 600;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
 }
 
-div .extend_app {
-    background-color: #3B3838;
+.overviewHeader .col-sm-2 .badge {
+  background-color: #428bca;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  padding: 7px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
-.extend_app .arrow {
-    text-align: center;
-    color: white;
+.overviewHeader .caret {
+    margin-left: 0.4em;
 }
 
-.extend_app fa-chevron-down {
-    margin: 0;
-    font-size: 2em;
+.overviewHeader .fleetManager-user {
+  margin: 0.4em;
 }

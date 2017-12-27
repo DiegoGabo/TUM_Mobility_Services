@@ -46,17 +46,18 @@ export class OverviewHeader extends React.Component {
     return (
 
     <div>
-        
-      <div className="overviewHeader" style={{height: '25px'}}>
-        
+
+      <div className="overviewHeader">
+
         <div className="col-sm-5">
           <p className="date"> <Time value={this.state.now} format="DD/MM/YYYY" /> - <Time value={this.state.now} format="HH:mm" /> </p>
         </div>
 
         <div className="col-sm-2">
+          <p>FleetMe <span className="badge badge-default">Management</span></p>
         </div>
 
-       
+
         <div className="col-sm-5">
           <p className="user_name">
           <span className="glyphicon glyphicon-user fleetManager-user"></span>
@@ -65,10 +66,7 @@ export class OverviewHeader extends React.Component {
           </p>
         </div>
       </div>
-        
-      <div className="extend_app" style={{height: '25px'}}>
-      </div>
-        
+
     </div>
     );
   }
