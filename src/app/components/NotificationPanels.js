@@ -5,11 +5,14 @@ import React from 'react';
 
 export class NotificationPanels extends React.Component {
 
-  
-  render() 
-  {     
+
+  render()
+  {
     return (
       <div>
+        <NotificationPanel />
+        <NotificationPanel />
+        <NotificationPanel />
         <NotificationPanel />
         <NotificationPanel />
         <NotificationPanel />

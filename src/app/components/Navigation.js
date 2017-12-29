@@ -114,15 +114,15 @@ export class Navigation extends React.Component {
             <h2 className="navigation_title-text">Navigation</h2>
         </div>
 
-        <NavigationTitle title="Overview Company" icon="fa fa-building-o" handleClick={this.changeActiveMenu}/>
+        <NavigationTitle title="Overview Company" icon="fa fa-building-o icon" handleClick={this.changeActiveMenu}/>
         {OverviewMenu}
         <hr className ="hr_Row"/>
 
-        <NavigationTitle title="People Management" icon="fa fa-user-o" handleClick={this.changeActiveMenu}/>
+        <NavigationTitle title="People Management" icon="fa fa-user-o icon" handleClick={this.changeActiveMenu}/>
         {EmployeeMenu}
         <hr className ="hr_Row"/>
 
-        <NavigationTitle title="Vehicle Management" icon="fa fa-car" handleClick={this.changeActiveMenu}/>
+        <NavigationTitle title="Vehicle Management" icon="fa fa-car icon" handleClick={this.changeActiveMenu}/>
 
       </div>
     );

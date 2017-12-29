@@ -14,7 +14,6 @@ export class PeopleManagementHeader extends React.Component {
       <div>
         <div className="content_header">
          <div className="col-sm-2 content_header_column">
-
          </div>
 
          <div className="col-sm-4 content_header_column">

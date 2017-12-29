@@ -1,0 +1,23 @@
+.tripPanel .content_panel_column h4, .content_icon, .vehiclePicture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tripPanel .content_panel_column .trashIcon {
+    padding-top: 10px;
+}
+
+
+.tripPanel .content_panel_column .content_icon {
+    font-size: 1.5em;
+    padding-top: 8px;
+}
+
+.tripPanel .panel {
+    height: 40px;
+}
+
+.tripPanel img {
+    height: 40px;
+}

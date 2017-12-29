@@ -14,19 +14,19 @@ export class KpiPanels extends React.Component {
         <div className="w3-container">
           <ul className="w3-ul">
 
-            <StarPanel 
+            <StarPanel
                 title="Acceleration"
                 subtitle="General Driving Behaviour"
                 value={this.props.acceleration}
             />
-        
-            <FuelPanel energy={this.props.energy} fuel={this.props.fuel}/>
-        
-            <StarPanel 
+
+            <StarPanel
                 title="Pre-emptive Driving Style"
                 value={this.props.generalRisk}
             />
-            
+
+            <FuelPanel energy={this.props.energy} fuel={this.props.fuel}/>
+
           </ul>
         </div>
       </div>
