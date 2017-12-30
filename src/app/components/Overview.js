@@ -4,6 +4,7 @@ import React from 'react';
 
 import  {OverviewHeader} from './OverviewHeader';
 import  {MapPosition} from './MapPosition';
+import  {UpperPanel} from './UpperPanel';
 import  {KpiPanels} from './KpiPanels';
 import  {CostPanels} from './CostPanels';
 import  {Navigation} from './Navigation';
@@ -69,6 +70,7 @@ constructor(props)
     let energy = 30
     let fuel = 70
     let employeeName
+    let map
       
     if(this.state.employee == "0")
     {
@@ -78,6 +80,7 @@ constructor(props)
         generalRisk = 2
         energy = 30
         fuel = 70
+        map = <UpperPanel/>
     }
     else
     {   
@@ -97,6 +100,7 @@ constructor(props)
                 latitude=this.state.carData[last].gpsLat;                   
                 longitude=this.state.carData[last].gpsLng
             } catch(e) {}
+            map = <div>sjkald</div>
         }
         else
         {
@@ -114,6 +118,7 @@ constructor(props)
                 latitude=this.state.carData[last].gpsLat;                   
                 longitude=this.state.carData[last].gpsLng
             } catch(e) {}
+            map = <MapPosition latitude={latitude} longitude={longitude}/>
         }
     }
 
@@ -181,9 +186,9 @@ constructor(props)
     return (
       <div>
         <OverviewHeader />
-        <MapPosition latitude={latitude} longitude={longitude}/>
-
-        <div className="col-sm-3 navigation_div">
+        {map}
+        <div className="row">
+        <div className="col-sm-3 navigation_div ">
           <Navigation
             changePanel={this.changePanel}
             changeEmployee={this.changeEmployee}
@@ -198,6 +203,11 @@ constructor(props)
         <div className="col-sm-9">
           {panel}
         </div>
+        </div>
+        <div className="row">
+          <Footer />
+        </div>
+    
 
       </div>
     );

@@ -29,7 +29,7 @@ export class PeopleManagementPanels extends React.Component {
                                     name={employee.name}
                                     key={employee._id}
                                     value={employee.id}
-                                    position="Senior Consultant"
+                                    position={employee.position}
                                     ranking={employee.id}
                                     changePanel={this.props.changePanel}
                                     changeEmployee={this.props.changeEmployee}/>)
