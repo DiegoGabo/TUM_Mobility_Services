@@ -16,3 +16,7 @@
 .notificationPanel .panel {
     height: 90px;
 }
+
+.notificationPanel .panel_bar {
+    background-color: #F8BA71;
+}

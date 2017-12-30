@@ -32,7 +32,7 @@ export class KpiHeader extends React.Component {
 
            <div className="col-sm-4">
             <div className="col-sm-2">
-              <i className="fa fa-bar-chart icon" aria-hidden="true"></i>
+              <i className="fa fa-list icon" aria-hidden="true"></i>
             </div>
             <div className="col-sm-10">
               <h3>Description</h3>
@@ -42,7 +42,7 @@ export class KpiHeader extends React.Component {
 
            <div className="col-sm-4">
             <div className="col-sm-2">
-              <i className="fa fa-car icon" aria-hidden="true"></i>
+              <i className="fa fa-bar-chart icon" aria-hidden="true"></i>
             </div>
             <div className="col-sm-10">
               <h3>Evaluation</h3>

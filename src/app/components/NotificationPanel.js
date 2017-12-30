@@ -21,7 +21,7 @@ export class NotificationPanel extends React.Component {
             <div className="row"><h4>High Fuel Consumption</h4></div>
             <div className="row progress_row">
               <div className="progress">
-                <div className="progress-bar panel_bar" role="progressbar" aria-valuenow="70"aria-valuemin="0" aria-valuemax="100" style={{width: '100px'}}></div>
+                <div className="progress-bar panel_bar" role="progressbar" aria-valuenow="70"aria-valuemin="0" aria-valuemax="60" style={{width: '100px'}}></div>
               </div>
             </div>
           </div>

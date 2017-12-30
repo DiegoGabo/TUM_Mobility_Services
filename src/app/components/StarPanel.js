@@ -45,7 +45,7 @@ export class StarPanel extends React.Component {
           </div>
 
           <div className="col-sm-5">
-            <h3>{this.props.value}/5 stars - Good driving behaviour</h3>
+            <h3>{this.props.value} out of five stars (highest)</h3>
           </div>
 
           <div className="col-sm-2">
