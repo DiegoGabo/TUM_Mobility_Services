@@ -20,10 +20,11 @@ import  {Footer} from './Footer';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../../node_modules/font-awesome/css/font-awesome.min.css';
 import 'w3-css/w3.css';
+import '../css/overview.css';
 
 export class Overview extends React.Component {
 
-//Constructor of the function created because there must be the information of the current car analyzed 
+//Constructor of the function created because there must be the information of the current car analyzed
 
 constructor(props)
   {
@@ -62,7 +63,7 @@ constructor(props)
   }
 
   render() {
-      
+
     let latitude = 48.19284
     let longitude = 11.568518
     let acceleration = 4
@@ -71,7 +72,7 @@ constructor(props)
     let fuel = 70
     let employeeName
     let map
-      
+
     if(this.state.employee == "0")
     {
         latitude = 48.19284
@@ -83,7 +84,7 @@ constructor(props)
         map = <UpperPanel/>
     }
     else
-    {   
+    {
         //obtains data from DB when employee is selected and trip is overall
         if(this.state.trip == "0" && this.state.employee != "0")
         {
@@ -97,7 +98,7 @@ constructor(props)
                 generalRisk=this.state.carData[last].lastTripBrakingStars;
                 energy=this.state.carData[last].remainingRange;
                 fuel=this.state.carData[last].remainingFuel;
-                latitude=this.state.carData[last].gpsLat;                   
+                latitude=this.state.carData[last].gpsLat;
                 longitude=this.state.carData[last].gpsLng
             } catch(e) {}
             map = <div>sjkald</div>
@@ -115,7 +116,7 @@ constructor(props)
                 generalRisk=this.state.carData[last].lastTripBrakingStars;
                 energy=this.state.carData[last].remainingRange;
                 fuel=this.state.carData[last].remainingFuel;
-                latitude=this.state.carData[last].gpsLat;                   
+                latitude=this.state.carData[last].gpsLat;
                 longitude=this.state.carData[last].gpsLng
             } catch(e) {}
             map = <MapPosition latitude={latitude} longitude={longitude}/>
@@ -124,7 +125,7 @@ constructor(props)
 
     //Defines the panel component which is different in function of what is selected in navigation panel (employee kpi or costPanels)
     let panel
-    
+
     //renders the kpi management section in panel if it is active.
     if(this.state.panel=="Kpi Management")
     {
@@ -138,30 +139,30 @@ constructor(props)
                     />
                 </div>
     }
-    
+
     //renders the people management section in panel if it is active. It contains the list of employees
     if(this.state.panel=="People Management")
     {
         panel = <div>
                     <PeopleManagementHeader />
-                    <PeopleManagementPanels 
+                    <PeopleManagementPanels
                       changePanel={this.changePanel}
                       changeEmployee={this.changeEmployee}/>
                 </div>
     }
-    
+
     //renders the trip management section in panel if it is active. It contains the list of trips
     if(this.state.panel=="Trip Management")
     {
         panel = <div>
                     <TripManagementHeader />
-                    <TripManagementPanels 
+                    <TripManagementPanels
                       employee={this.state.employee}
                       changePanel={this.changePanel}
                       changeTrip={this.changeTrip}/>
                 </div>
     }
-    
+
    if(this.state.panel=="Overview Company")
     {
         panel = <div>
@@ -169,7 +170,7 @@ constructor(props)
                     <NotificationPanels />
                 </div>
     }
-    
+
     if(this.state.panel=="Average KPI-index")
     {
         panel = <div>
@@ -182,7 +183,7 @@ constructor(props)
                     />
                 </div>
     }
-    
+
     return (
       <div>
         <OverviewHeader />
@@ -207,7 +208,7 @@ constructor(props)
         <div className="row">
           <Footer />
         </div>
-    
+
 
       </div>
     );

@@ -1,0 +1,29 @@
+.notificationChart Pie {
+  height: 20px !important;
+}
+
+
+.upperPanel h3 {
+  font-size: 10pt;
+}
+
+.panelHeaderName, .panelHeaderSubName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:  white;
+}
+
+.panelHeaderSubName h3 {
+  color: white;
+  font-size: 20pt !important;
+  padding-bottom: 30px !important;
+}
+
+.employeeNumber .icon {
+  font-size: 4em !important;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
