@@ -10,12 +10,15 @@ export class NotificationPanels extends React.Component {
   {
     return (
       <div>
-        <NotificationPanel />
-        <NotificationPanel />
-        <NotificationPanel />
-        <NotificationPanel />
-        <NotificationPanel />
-        <NotificationPanel />
+        <NotificationPanel date="27/12/2017" name="Max Mustermann" problem="High Fuel Consumption" value="100" type="0"/>
+        <NotificationPanel date="31/12/2017" name="BMW i8" problem="High Fuel Consumption" value="100" type="1"/>
+        <NotificationPanel date="27/12/2017" name="Max Mustermann" problem="High Fuel Consumption" value="100" type="0"/>
+        <NotificationPanel date="31/12/2017" name="BMW i8" problem="High Fuel Consumption" value="100" type="1"/>
+        <NotificationPanel date="27/12/2017" name="Max Mustermann" problem="High Fuel Consumption" value="100" type="0"/>
+        <NotificationPanel date="31/12/2017" name="BMW i8" problem="High Fuel Consumption" value="100" type="1"/>
+        <NotificationPanel date="27/12/2017" name="Max Mustermann" problem="High Fuel Consumption" value="100" type="0"/>
+        <NotificationPanel date="31/12/2017" name="BMW i8" problem="High Fuel Consumption" value="100" type="1"/>
+        
       </div>
     );
   }

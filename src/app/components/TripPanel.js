@@ -29,7 +29,7 @@ export class TripPanel extends React.Component {
           </div>
 
           <div className="col-sm-3 content_panel_column">
-            <h4>{this.props.date.substring(12,16)}</h4>
+            <h4>{this.props.date.substring(11,16)}</h4>
           </div>
 
           <div className="col-sm-3 content_panel_column vehiclePicture">
@@ -37,7 +37,7 @@ export class TripPanel extends React.Component {
           </div>
 
           <div className="col-sm-3 content_panel_column">
-            <h4>BMWi3</h4>
+            <h4>{this.props.vehicle}</h4>
           </div>
 
         </div>

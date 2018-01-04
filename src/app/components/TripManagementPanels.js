@@ -29,6 +29,7 @@ export class TripManagementPanels extends React.Component {
                             <TripPanel 
                                     key={trip.id}
                                     date={trip.create_date}
+                                    vehicle={trip.vinBmw}
                                     changePanel={this.props.changePanel}
                                     changeTrip={this.props.changeTrip}/>)
     }
