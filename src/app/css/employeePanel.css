@@ -17,3 +17,7 @@
 .employeePanel .panel {
     height: 40px;
 }
+
+.employeePanel {
+  cursor: pointer;
+}

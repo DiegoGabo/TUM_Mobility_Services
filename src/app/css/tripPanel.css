@@ -21,3 +21,7 @@
 .tripPanel img {
     height: 40px;
 }
+
+.tripPanel {
+  cursor: pointer;
+}

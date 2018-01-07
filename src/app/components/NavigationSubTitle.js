@@ -25,8 +25,8 @@ export class NavigationSubTitle extends React.Component {
               <i className="fa fa-angle-right angleIcons" aria-hidden="true"></i>
             </div>
 
-            <div className="col-sm-10">
-              {title}
+            <div className="col-sm-10 navigationSubTitleText">
+              <p>{title}</p>
             </div>
 
           </div>

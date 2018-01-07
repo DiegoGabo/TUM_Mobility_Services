@@ -28,9 +28,9 @@ export class CalcolationPanel extends React.Component {
   render() {
     return (
       <div className="filter_panel_calcolation">
-      <li className="w3-bar panel">
+      <div className="w3-bar panel">
         <div className="row">
-          <h3 className="kpi_title">Cost Calculation</h3>
+          <h3 className="kpi_title">Company Yearly Costs</h3>
         </div>
         <div className="row calcolationRow">
           <Bar
@@ -44,7 +44,7 @@ export class CalcolationPanel extends React.Component {
             }}
           />
         </div>
-      </li>
+      </div>
       </div>
     );
   }

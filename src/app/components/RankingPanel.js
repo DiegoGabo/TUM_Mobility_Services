@@ -6,9 +6,9 @@ export class RankingPanel extends React.Component {
   render() {
     return (
       <div className="filter_panel_ranking">
-      <li className="w3-bar panel">
+      <div className="w3-bar panel">
         <div className="row">
-          <h3 className="kpi_title">Employee Ranking</h3>
+          <h3 className="kpi_title">Employee Benefits (2017)</h3>
         </div>
         <div className="row rankingRow">
           <table class="table table-hover rankingTable">
@@ -16,48 +16,42 @@ export class RankingPanel extends React.Component {
               <th>Rank</th>
               <th>Firstname</th>
               <th>Lastname</th>
-              <th>Age</th>
-              <th>Score</th>
+              <th>Voucher</th>
+              <th>KDI-Score</th>
+              <th>delivered?</th>
+              <th></th>
             </tr>
-            <tr><td>____</td><td>________</td><td>________</td><td>___</td><td>_____</td></tr>
+            <tr><td>____</td><td>________</td><td>________</td><td>_________</td><td>__________</td><td>_____</td></tr>
             <tr class="success">
               <td>1</td>
-              <td>Jill</td>
-              <td>Smith</td>
-              <td>50</td>
-              <td>10/10</td>
+              <td>Marcus</td>
+              <td>Aurelius</td>
+              <td>50$ Amazon</td>
+              <td>7.5/10</td>
+              <td><input className="checkBox" type="checkbox" checked/></td>
+              <td></td>
             </tr>
             <tr>
               <td>2</td>
-              <td>Eve</td>
-              <td>Jackson</td>
-              <td>24</td>
-              <td>8/10</td>
+              <td>Max</td>
+              <td>Mustermann</td>
+              <td>25$ Amazon</td>
+              <td>5/10</td>
+              <td><input className="checkBox" type="checkbox" checked/></td>
+              <td></td>
             </tr>
             <tr>
               <td>3</td>
-              <td>John</td>
-              <td>Doe</td>
-              <td>34</td>
-              <td>7/10</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Stephanie</td>
-              <td>Landon</td>
-              <td>47</td>
-              <td>6/10</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Mike</td>
-              <td>Johnson</td>
-              <td>19</td>
+              <td>Christoph</td>
+              <td>NG</td>
+              <td>no vouchers</td>
               <td>2/10</td>
+              <td><input className="checkBox" type="checkbox"/></td>
+              <td></td>
             </tr>
         </table>
         </div>
-      </li>
+      </div>
       </div>
     );
   }

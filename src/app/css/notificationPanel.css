@@ -13,10 +13,37 @@
     padding-top: 8px;
 }
 
+.notificationPanel img {
+    height: 30px;
+    margin-left: 110px;
+}
+
 .notificationPanel .panel {
     height: 90px;
 }
 
 .notificationPanel .panel_bar {
     background-color: #F8BA71;
+}
+
+.notificationPanel .icon {
+    color: #F8BA71;
+}
+
+
+.select_text {
+  cursor: pointer;
+}
+
+.moreNotifications {
+  cursor: pointer;
+  font-size: 10pt;
+  margin-left: 0px;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  color: blue;
+}
+
+.notificationPanel {
+  margin-right: 30px;
 }

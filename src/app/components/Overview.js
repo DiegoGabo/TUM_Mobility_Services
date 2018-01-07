@@ -170,13 +170,13 @@ constructor(props)
                     <NotificationPanels />
                 </div>
     }
-        
-    if(this.state.panel=="Cost Overview")
+
+    if(this.state.panel=="Cost/Benefit Evaluation")
     {
         panel = <CostPanels/>
     }
 
-    if(this.state.panel=="Average KPI-index")
+    if(this.state.panel=="Key Driving Indicators")
     {
         panel = <div>
                     <KpiHeader employee={this.state.employee}/>

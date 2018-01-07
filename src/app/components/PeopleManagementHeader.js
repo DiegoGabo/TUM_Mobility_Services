@@ -27,7 +27,7 @@ export class PeopleManagementHeader extends React.Component {
          </div>
 
          <div className="col-sm-2 content_header_column">
-            <div className="col-sm-12"><i className="fa fa-sort-numeric-asc icon" aria-hidden="true"></i></div>
+            <div className="col-sm-12"><i className="fa fa-sort-numeric-desc icon" aria-hidden="true"></i></div>
          </div>
 
         </div>

@@ -18,14 +18,14 @@ export class PeopleManagementPanels extends React.Component {
               .then(res => res.json())
               .then(listEmployee => this.setState({listEmployee}))
   }
-    
-  render() 
-  { 
+
+  render()
+  {
     //create the list of employees
     let employeePanels
     try{
       employeePanels = this.state.listEmployee.map((employee) =>
-                            <EmployeePanel 
+                            <EmployeePanel
                                     name={employee.name}
                                     key={employee._id}
                                     value={employee.id}
@@ -35,7 +35,7 @@ export class PeopleManagementPanels extends React.Component {
                                     changeEmployee={this.props.changeEmployee}/>)
     }
     catch(e){}
-        
+
     return (
       <div>
         {employeePanels}

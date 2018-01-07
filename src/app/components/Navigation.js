@@ -45,13 +45,13 @@ export class Navigation extends React.Component {
   }
 
   handleClickAverageKpiIndex(){
-      this.setState({activeSubMenu: "Average KPI-index"})
-      this.props.changePanel("Average KPI-index")
+      this.setState({activeSubMenu: "Key Driving Indicators"})
+      this.props.changePanel("Key Driving Indicators")
   }
 
   handleClickCostOverview(){
-      this.setState({activeSubMenu: "Cost Overview"})
-      this.props.changePanel("Cost Overview")
+      this.setState({activeSubMenu: "Cost/Benefit Evaluation"})
+      this.props.changePanel("Cost/Benefit Evaluation")
   }
 
   render() {
@@ -61,8 +61,8 @@ export class Navigation extends React.Component {
     let VehicleMenu = <div></div>
 
     let lastNotificationsActive = this.state.activeSubMenu == "Last Notifications" ? "true" : "false";
-    let averageKpiActive = this.state.activeSubMenu == "Average KPI-index" ? "true" : "false";
-    let costOverviewActive = this.state.activeSubMenu == "Cost Overview" ? "true" : "false";
+    let averageKpiActive = this.state.activeSubMenu == "Key Driving Indicators" ? "true" : "false";
+    let costOverviewActive = this.state.activeSubMenu == "Cost/Benefit Evaluation" ? "true" : "false";
 
     //Render the Overview Company section if it is active
     if(this.state.activeMenu=="Overview Company")
@@ -70,8 +70,8 @@ export class Navigation extends React.Component {
         OverviewMenu=
             <div>
               <div onClick={this.handleClickLastNotifications}><NavigationSubTitle title="Last Notifications" active={lastNotificationsActive}/></div>
-              <div onClick={this.handleClickAverageKpiIndex}><NavigationSubTitle title="Average KPI-index" active={averageKpiActive}/></div>
-              <div onClick={this.handleClickCostOverview}><NavigationSubTitle title="Cost Overview" active={costOverviewActive}/></div>
+              <div onClick={this.handleClickAverageKpiIndex}><NavigationSubTitle title="Key Driving Indicators" active={averageKpiActive}/></div>
+              <div onClick={this.handleClickCostOverview}><NavigationSubTitle title="Cost/Benefit Evaluation" active={costOverviewActive}/></div>
             </div>
     }
 
@@ -101,7 +101,7 @@ export class Navigation extends React.Component {
                 <div>
                   <div onClick={this.handleClickEmployee}><NavigationSubTitle title={this.props.employeeName} active="true"/></div>
                   <NavigationSubTitle title={this.props.trip.substring(0, 10)} active="false" />
-                  <NavigationSubTitle title="All KPIs" active="false"/>
+                  <NavigationSubTitle title="Trip Driving Indicators" active="false"/>
                 </div>
             }
         }

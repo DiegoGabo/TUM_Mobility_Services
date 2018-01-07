@@ -84,7 +84,7 @@ export class UpperPanel extends React.Component {
 
         <div className="col-sm-4">
           <div className="panelHeaderName">
-            <h3>Total Number of Emplyoees</h3>
+            <h3>Total Number of Employees</h3>
           </div>
           <div className="employeeNumber">
             <div><i className="fa fa-user-circle icon" aria-hidden="true"></i></div>
