@@ -101,7 +101,7 @@ constructor(props)
                 latitude=this.state.carData[last].gpsLat;
                 longitude=this.state.carData[last].gpsLng
             } catch(e) {}
-            map = <div>sjkald</div>
+            map = <div>Trip Management</div>
         }
         else
         {
