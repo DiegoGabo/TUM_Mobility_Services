@@ -101,7 +101,7 @@ constructor(props)
                 latitude=this.state.carData[last].gpsLat;
                 longitude=this.state.carData[last].gpsLng
             } catch(e) {}
-            map = <div>Trip Management</div>
+            map = <div className="col-sm-12"></div>
         }
         else
         {
@@ -166,8 +166,10 @@ constructor(props)
    if(this.state.panel=="Overview Company")
     {
         panel = <div>
-                    <NotificationHeader />
-                    <NotificationPanels />
+                    <NotificationPanels 
+                      changePanel={this.changePanel}
+                      changeEmployee={this.changeEmployee}
+                      changeTrip={this.changeTrip}/>
                 </div>
     }
 
