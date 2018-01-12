@@ -20,7 +20,7 @@ const UserSchema = mongoose.Schema({
 	image:{
 		type: String,
 		required: false
-	}
+	},
 	position:{
 		type: String,
 		required: true
