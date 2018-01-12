@@ -13,13 +13,17 @@ const User = require('./models/user')
 // })
 const Bmw = require('./models/bmwdata')
 const Car = require('./models/car')
-
+const Notification = require('./models/notification')
 //Seed users ------------------------------------
 exports.seedUsers = function(){
 	const users = [
-	{id:'1',name: 'Marcus Aurelius', position: "HR Specialist"},
-	{id:'2',name: 'Max Mustermann', position: "Software Engineer"},
-	{id:'3',name: 'Christoph NG', position: "Customer Solutions Manager"}
+	{id:'1',name: 'Manuel Wiesche', position: "HR Specialist"},
+	{id:'2',name: 'Maximilian Schreieck', position: "Software Engineer"},
+	{id:'3',name: 'Christoph Pflügler', position: "Customer Solutions Manager"},
+     {id:'4',name: 'Baris Yazici', position: "Backend Developer"},
+     {id:'5',name: 'Lukas Kick', position: "Business Developer"},
+     {id:'6',name: 'Diego Gaboardi', position: "Frontend Developer"},
+     {id:'7',name: 'Asad Khaliq', position: "Business Analyst"}
 	]
 	for(user of users){
 		var newUser = new User(user)
@@ -40,6 +44,18 @@ exports.seedCars = function(){
           newCar.save()
      }
 }
+// Seed Notifications -------------------------------------
+exports.seedNotifications = function(){
+     const notifications = [
+     {id:'1',date: 'M235i',},
+
+     ]
+     for(notification of notifications){
+          var newNotification= new notification(notification)
+          newNotification.save()
+     }
+}
+
 
 
 //Seed BMW _----------------------

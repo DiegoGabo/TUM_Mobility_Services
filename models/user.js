@@ -17,6 +17,10 @@ const UserSchema = mongoose.Schema({
 		required: false,
 
 	},
+	image:{
+		type: String,
+		required: false
+	}
 	position:{
 		type: String,
 		required: true

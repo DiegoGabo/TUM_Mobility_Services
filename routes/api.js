@@ -34,6 +34,14 @@ router.get('/cars', (req,res)=> {
 		res.json(carData)
 	});
 })
+router.get('/notifications', (req,res)=> {
+	Car.getNotificationsData((err, notData) => {
+		if(err){
+			throw err
+		}
+		res.json(notData)
+	});
+})
 
 //trip id gives trip
 router.get('/:_id', (req,res)=>{
