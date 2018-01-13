@@ -14,25 +14,11 @@ export class Navigation extends React.Component {
   constructor(props)
   {
       super(props);
-      this.state = {
-                    activeMenu: "Overview Company",
-                    activeSubMenu: "Last Notifications"
-                   }
-      this.changeActiveMenu = this.changeActiveMenu.bind(this)
       this.handleClickEmployee = this.handleClickEmployee.bind(this)
       this.handleClickLastNotifications = this.handleClickLastNotifications.bind(this)
       this.handleClickAverageKpiIndex = this.handleClickAverageKpiIndex.bind(this)
       this.handleClickCostOverview = this.handleClickCostOverview.bind(this)
       this.handleClickPeopleManagement = this.handleClickPeopleManagement.bind(this)
-  }
-
-  //modify the active menu that is in navigation panel and can be Overview Company, People Management or Vehicle Management
-  changeActiveMenu(newMenu)
-  {
-      this.setState({activeMenu: newMenu})
-      this.props.changeEmployee("0","")
-      this.props.changeTrip("0")
-      this.props.changePanel(newMenu)
   }
 
   //mofify the active menu in navigation and the panel when you click on a specific employee
@@ -42,22 +28,22 @@ export class Navigation extends React.Component {
   }
 
   handleClickLastNotifications(){
-      this.setState({activeSubMenu: "Last Notifications"})
+      this.props.changeActiveSubMenu("Last Notifications")
       this.props.changePanel("Overview Company")
   }
 
   handleClickAverageKpiIndex(){
-      this.setState({activeSubMenu: "Key Driving Indicators"})
+      this.props.changeActiveSubMenu("Key Driving Indicators")
       this.props.changePanel("Key Driving Indicators")
   }
 
   handleClickCostOverview(){
-      this.setState({activeSubMenu: "Cost/Benefit Evaluation"})
+      this.props.changeActiveSubMenu("Cost/Benefit Evaluation")
       this.props.changePanel("Cost/Benefit Evaluation")
   }
 
   handleClickPeopleManagement(){
-      this.changeActiveMenu("People Management")
+      this.props.changeActiveMenu("People Management")
   }
 
   render() {
@@ -66,12 +52,12 @@ export class Navigation extends React.Component {
     let EmployeeMenu = <div></div>
     let VehicleMenu = <div></div>
 
-    let lastNotificationsActive = this.state.activeSubMenu == "Last Notifications" ? "true" : "false";
-    let averageKpiActive = this.state.activeSubMenu == "Key Driving Indicators" ? "true" : "false";
-    let costOverviewActive = this.state.activeSubMenu == "Cost/Benefit Evaluation" ? "true" : "false";
+    let lastNotificationsActive = this.props.activeSubMenu == "Last Notifications" ? "true" : "false";
+    let averageKpiActive = this.props.activeSubMenu == "Key Driving Indicators" ? "true" : "false";
+    let costOverviewActive = this.props.activeSubMenu == "Cost/Benefit Evaluation" ? "true" : "false";
 
     //Render the Overview Company section if it is active
-    if(this.state.activeMenu=="Overview Company")
+    if(this.props.activeMenu=="Overview Company")
     {
         OverviewMenu=
             <div>
@@ -82,7 +68,7 @@ export class Navigation extends React.Component {
     }
 
     //Render the People Management section if it is active
-    if(this.state.activeMenu=="People Management")
+    if(this.props.activeMenu=="People Management")
     {
         if(this.props.employee == "0")
         {
@@ -120,15 +106,15 @@ export class Navigation extends React.Component {
             <h2 className="navigation_title-text">Navigation</h2>
         </div>
 
-        <NavigationTitle title="Overview Company" icon="fa fa-building-o icon" description="text" handleClick={this.changeActiveMenu}/>
+        <NavigationTitle title="Overview Company" icon="fa fa-building-o icon" description="text" handleClick={this.props.changeActiveMenu}/>
         {OverviewMenu}
         <hr className ="hr_Row"/>
 
-        <NavigationTitle title="People Management" icon="fa fa-user-o icon" description="text" handleClick={this.changeActiveMenu}/>
+        <NavigationTitle title="People Management" icon="fa fa-user-o icon" description="text" handleClick={this.props.changeActiveMenu}/>
         {EmployeeMenu}
         <hr className ="hr_Row"/>
 
-        <NavigationTitle title="Vehicle Management" icon="fa fa-car icon" description="text" handleClick={this.changeActiveMenu}/>
+        <NavigationTitle title="Vehicle Management" icon="fa fa-car icon" description="text" handleClick={this.props.changeActiveMenu}/>
 
       </div>
     );

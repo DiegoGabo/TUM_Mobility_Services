@@ -33,11 +33,15 @@ constructor(props)
                     employeeName: "",
                     trip: "0",
                     panel: "Overview Company",
+                    activeMenu: "Overview Company",
+                    activeSubMenu: "Last Notifications",
                     carData: [],
                     }
       this.changeEmployee=this.changeEmployee.bind(this)
       this.changeTrip=this.changeTrip.bind(this)
       this.changePanel=this.changePanel.bind(this)
+      this.changeActiveMenu=this.changeActiveMenu.bind(this)
+      this.changeActiveSubMenu=this.changeActiveSubMenu.bind(this)
   }
 
   //modify employee state
@@ -60,6 +64,19 @@ constructor(props)
       this.setState({
           panel: newPanel
       })
+  }
+    
+  //modify the active menu that is in navigation panel and can be Overview Company, People Management or Vehicle Management
+  changeActiveMenu(newMenu)
+  {
+      this.setState({activeMenu: newMenu})
+      this.changeEmployee("0","")
+      this.changeTrip("0")
+      this.changePanel(newMenu)
+  }
+    
+  changeActiveSubMenu(newSubMenu){
+      this.setState({activeSubMenu: newSubMenu})
   }
 
   render() {
@@ -169,7 +186,9 @@ constructor(props)
                     <NotificationPanels 
                       changePanel={this.changePanel}
                       changeEmployee={this.changeEmployee}
-                      changeTrip={this.changeTrip}/>
+                      changeTrip={this.changeTrip}
+                      changeActiveMenu={this.changeActiveMenu}
+                      changeActiveSubMenu={this.changeActiveSubMenu}/>
                 </div>
     }
 
@@ -202,6 +221,10 @@ constructor(props)
             changeEmployee={this.changeEmployee}
             changeTrip={this.changeTrip}
             changePanel={this.changePanel}
+            changeActiveMenu={this.changeActiveMenu}
+            changeActiveSubMenu={this.changeActiveSubMenu}
+            activeMenu={this.state.activeMenu}
+            activeSubMenu={this.state.activeSubMenu}
             employee={this.state.employee}
             employeeName={this.state.employeeName}
             trip={this.state.trip}

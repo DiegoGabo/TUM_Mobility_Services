@@ -3,6 +3,7 @@
 import React from 'react';
 
 import '../css/fuelPanel.css';
+import  {InfoButton} from './InfoButton';
 
 export class FuelPanel extends React.Component {
 
@@ -17,7 +18,8 @@ export class FuelPanel extends React.Component {
       <li className="w3-bar panel">
 
         <div className="row">
-          <h3 className="kpi_title">Fuel/Electric Consumption</h3>
+          <div className="col-sm-10"><h3 className="kpi_title">Fuel/Electric Consumption</h3></div>
+          <div className="col-sm-2"><InfoButton description="text"/></div>
         </div>
 
         <div className="row">

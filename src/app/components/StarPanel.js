@@ -3,6 +3,7 @@
 import React from 'react';
 
 import '../css/starPanel.css';
+import  {InfoButton} from './InfoButton';
 
 //full_star, half_star and empty_star jsx
 const full_star = <span className="fa fa-star full_star icon"></span>;
@@ -35,7 +36,8 @@ export class StarPanel extends React.Component {
       <li className="w3-bar panel">
 
         <div className="row">
-          <h3 className="kpi_title">{this.props.title}</h3>
+          <div className="col-sm-10"><h3 className="kpi_title">{this.props.title}</h3></div>
+          <div className="col-sm-2"><InfoButton description="text"/></div>
         </div>
 
         <div className="row">

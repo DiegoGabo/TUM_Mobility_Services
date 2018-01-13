@@ -13,13 +13,22 @@ export class NotificationPanels extends React.Component {
                     filterActive: "false",
                     date: "All",
                     type: "Employee and Vehicle",
-                    description: "All"
+                    description: "All",
+                    listNotifications: [],
                    }
       this.handleClickFilter = this.handleClickFilter.bind(this)
       this.handleChangeDate = this.handleChangeDate.bind(this)
       this.handleChangeType = this.handleChangeType.bind(this)
       this.handleChangeDescription = this.handleChangeDescription.bind(this)
       this.handleNotificationClick = this.handleNotificationClick.bind(this)
+  }
+
+  componentDidMount()
+  {
+      let url = 'https://bemostwanted.herokuapp.com/api/notifications'
+      fetch(url)
+          .then(res => res.json())
+          .then(listTrips => this.setState({listNotifications}))
   }
 
   handleClickFilter(){
@@ -80,6 +89,23 @@ export class NotificationPanels extends React.Component {
           </div>
         </div>
     }
+    let notificationPanels
+    try{
+      notificationPanels = this.state.listNotification.map((notification) =>
+                            <NotificationPanel 
+                                changePanel={this.props.changePanel} 
+                                changeEmployee={this.props.changeEmployee} 
+                                changeTrip={this.props.changeTrip} 
+                                changeActiveMenu={this.props.changeActiveMenu}
+                                changeActiveSubMenu={this.props.changeActiveSubMenu} 
+                                date="05/01/2018" 
+                                name="Christoph NG" 
+                                problem="High Fuel Consumption" 
+                                value="280" 
+                                type="0" 
+                                graphics="0"/>)
+    }
+    catch(e){}
       
     return (
       <div>
@@ -103,7 +129,8 @@ export class NotificationPanels extends React.Component {
         
         {filter}
         
-        <NotificationPanel onClick={this.handleNotificationClick} date="05/01/2018" name="Christoph NG" problem="High Fuel Consumption" value="280" type="0" graphics="0"/>
+        <NotificationPanel changePanel={this.props.changePanel} changeEmployee={this.props.changeEmployee} changeTrip={this.props.changeTrip} changeActiveMenu={this.props.changeActiveMenu}
+                      changeActiveSubMenu={this.props.changeActiveSubMenu} date="05/01/2018" name="Christoph NG" problem="High Fuel Consumption" value="280" type="0" graphics="0"/>
         <NotificationPanel changePanel={this.changePanel} changeEmployee={this.changeEmployee} changeTrip={this.changeTrip} date="28/12/2017" name="BMW M2" problem="Inspection of Braking System" value="100" type="1" graphics="2"/>
         <NotificationPanel changePanel={this.changePanel} changeEmployee={this.changeEmployee} changeTrip={this.changeTrip} date="27/12/2017" name="Christoph NG" problem="High Fuel Consumption" value="230" type="0" graphics="0"/>
         <NotificationPanel changePanel={this.changePanel} changeEmployee={this.changeEmployee} changeTrip={this.changeTrip} date="10/10/2017" name="Max Mustermann" problem="Bad Driving Behavior" value="100" type="0" graphics="1"/>

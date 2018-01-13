@@ -13,6 +13,20 @@ const energy = <span className="fa fa-battery-quarter icon"></span>;
 
 
 export class NotificationPanel extends React.Component {
+    
+  constructor(props){
+      super(props)
+      this.handleClick = this.handleClick.bind(this)
+  }
+    
+  handleClick(){
+      if(this.props.type == 0){
+          this.props.changeActiveMenu("People Management")
+          this.props.changePanel("Kpi Management")
+          this.props.changeEmployee(2, "Cristoph NG")
+          this.props.changeTrip("2017-12-25T09:39:19.135Z")
+      }
+  }
 
   render() {
     let value = this.props.value + 'px'
@@ -46,7 +60,7 @@ export class NotificationPanel extends React.Component {
     }
 
     return (
-      <div onClick={this.props.onClick} className="contentPanel notificationPanel">
+      <div onClick={this.handleClick} className="contentPanel notificationPanel">
         <div className="w3-bar panel">
           <div className="col-sm-3 content_panel_column first_content_panel_column">
             <h4>{this.props.date}</h4>
