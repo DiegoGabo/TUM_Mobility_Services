@@ -8,22 +8,22 @@ export class UpperPanel extends React.Component {
       super(props);
       this.state = {
         notificationData:{
-          labels: ['Total (last 7 days)', 'New'],
+          labels: ['All Notifications', 'New'],
           datasets:[
             {
               backgroundColor: ['white', '#595959'],
               borderColor: ['white', '#595959'],
-              data: [50,4],
+              data: [10,4],
             }
           ]
         },
         tripData:{
-          labels: ['Last six days', 'Today'],
+          labels: ['All Trips (last seven days)', 'Today'],
           datasets:[
             {
               backgroundColor: ['white', '#595959'],
               borderColor: ['white', '#595959'],
-              data: [50,10],
+              data: [50,8],
             }
           ]
         }
@@ -33,11 +33,18 @@ export class UpperPanel extends React.Component {
   render() {
     return (
       <div style={{height: "160px", backgroundColor: "#428bca"}} className="upperPanel">
+      <div className = "lineAnnimation lineAnnimation1"></div>
+      <div className = "lineAnnimation lineAnnimation2"></div>
+      <div className = "lineAnnimation lineAnnimation3"></div>
+      <div className = "lineAnnimationTyp2 lineAnnimation4"></div>
+      <div className = "lineAnnimationTyp2 lineAnnimation5"></div>
+      <div className = "lineAnnimationTyp2 lineAnnimation6"></div>
       <div className="col-sm-12">
         <div className="col-sm-4">
           <div className="panelHeaderName">
             <h3>New Notifications</h3>
           </div>
+          <div className = "newNotifications">4</div>
           <div className="notificationChart">
             <Doughnut
               data= {this.state.notificationData}
@@ -60,10 +67,11 @@ export class UpperPanel extends React.Component {
 
         <div className="col-sm-4">
           <div className="panelHeaderName">
-            <h3>Number of Trips (last 7 days)</h3>
+            <h3>New Employee Trips</h3>
           </div>
+          <div className = "newNotifications">8</div>
           <div className="tripChart">
-            <Pie
+            <Doughnut
               data= {this.state.tripData}
               options={{
               maintainAspectRatio: false,

@@ -27,3 +27,47 @@
   align-items: center;
   justify-content: center;
 }
+
+.newNotifications {
+  position:absolute;
+  align-content: center;
+  padding-left: 184px;
+  padding-top: 52px;
+  color: #595959;
+  font-size: 22pt;
+  font-weight: 550;
+}
+
+.lineAnnimation1 {
+  padding-top: 10px;
+  opacity: 0.2;
+}
+.lineAnnimation2 {
+  padding-top: 20px;
+  opacity: 0.2;
+}
+.lineAnnimation3 {
+  padding-top: 30px;
+  opacity: 0.2;
+}
+
+
+.lineAnnimation{
+      height:0px;
+      width:1px;
+      border-bottom:1px solid white;
+      position:absolute;
+
+      -webkit-animation: increase 40s;
+      -moz-animation:    increase 40s;
+      -o-animation:      increase 40s;
+      animation:         increase 40s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes increase {
+      100%   {width: 0px;}
+      50%  {width: 1200px;}
+      100% {width: 0px;}
+    }

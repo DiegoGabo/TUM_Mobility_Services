@@ -69,3 +69,9 @@ h4 .select_menu {
   margin-left: 10px;
   padding-left: 0px;
 }
+
+.infoButtonTitle .infobuttonsymbol {
+  padding-top: 13px;
+  padding-left: 0px;
+  margin-left: 0px;
+}

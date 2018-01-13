@@ -26,11 +26,11 @@ export class NavigationSubTitle extends React.Component {
               <i className="fa fa-angle-right angleIcons" aria-hidden="true"></i>
             </div>
 
-            <div className="col-sm-9 navigationSubTitleText">
+            <div className="col-sm-7 navigationSubTitleText">
               <p>{title}</p>
             </div>
-        
-            <div className="col-sm-1">
+
+            <div className="col-sm-3 infoButtonSubTitle">
                 <InfoButton description={this.props.description}/>
             </div>
 
