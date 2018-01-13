@@ -22,6 +22,7 @@ export class Navigation extends React.Component {
       this.handleClickLastNotifications = this.handleClickLastNotifications.bind(this)
       this.handleClickAverageKpiIndex = this.handleClickAverageKpiIndex.bind(this)
       this.handleClickCostOverview = this.handleClickCostOverview.bind(this)
+      this.handleClickPeopleManagement = this.handleClickPeopleManagement.bind(this)
   }
 
   //modify the active menu that is in navigation panel and can be Overview Company, People Management or Vehicle Management
@@ -52,6 +53,10 @@ export class Navigation extends React.Component {
   handleClickCostOverview(){
       this.setState({activeSubMenu: "Cost/Benefit Evaluation"})
       this.props.changePanel("Cost/Benefit Evaluation")
+  }
+
+  handleClickPeopleManagement(){
+      this.changeActiveMenu("People Management")
   }
 
   render() {
@@ -91,17 +96,17 @@ export class Navigation extends React.Component {
             {
                 EmployeeMenu=
                 <div>
+                  <div onClick={this.handleClickPeopleManagement}><NavigationSubTitle title="All Employees" active="true"/></div>
                   <NavigationSubTitle title={this.props.employeeName} active="false"/>
-                  <NavigationSubTitle title="All Trips" active="false"/>
                 </div>
             }
             else
             {
                 EmployeeMenu=
                 <div>
+                  <div onClick={this.handleClickPeopleManagement}><NavigationSubTitle title="All Employees" active="true"/></div>
                   <div onClick={this.handleClickEmployee}><NavigationSubTitle title={this.props.employeeName} active="true"/></div>
                   <NavigationSubTitle title={this.props.trip.substring(0, 10)} active="false" />
-                  <NavigationSubTitle title="Trip Driving Indicators" active="false"/>
                 </div>
             }
         }

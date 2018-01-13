@@ -17,7 +17,7 @@ export class NotificationPanel extends React.Component {
   render() {
     let value = this.props.value + 'px'
     let icon = this.props.type == 0 ? employee_icon : car_icon;
-
+    let onClick = ""
 
     let fuel = <div className="progress"><div className="progress-bar panel_bar" role="progressbar" aria-valuenow="70"aria-valuemin="0" aria-valuemax="60" style={{width: value}}></div></div>
     let star = <div>{empty_star} {empty_star} {empty_star} {empty_star} {empty_star}</div>
