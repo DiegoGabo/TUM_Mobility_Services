@@ -15,6 +15,8 @@ router.use(bodyParser.json())
 const Bmwdata = require('../models/bmwdata')
 const User = require('../models/user')
 const Car = require('../models/car')
+const Notification = require('../models/notification')
+
 
 //get bmwData from database
 router.get('/bmwdata', (req, res) => {
@@ -50,7 +52,7 @@ router.get('/car/:_id', (req,res)=>{
 
 //get all notifications
 router.get('/notifications', (req,res)=> {
-	Car.getNotificationsData((err, notData) => {
+	Notification.getNotificationsData((err, notData) => {
 		if(err){
 			throw err
 		}
