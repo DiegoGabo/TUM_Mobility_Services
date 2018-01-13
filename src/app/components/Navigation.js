@@ -6,6 +6,7 @@ import Select from 'react-select';
 import  {NavigationTitle} from './NavigationTitle';
 import  {NavigationSubTitle} from './NavigationSubTitle';
 
+
 import '../css/navigation.css';
 
 export class Navigation extends React.Component {
@@ -74,9 +75,9 @@ export class Navigation extends React.Component {
     {
         OverviewMenu=
             <div>
-              <div onClick={this.handleClickLastNotifications}><NavigationSubTitle title="Last Notifications" active={lastNotificationsActive}/></div>
-              <div onClick={this.handleClickAverageKpiIndex}><NavigationSubTitle title="Key Driving Indicators" active={averageKpiActive}/></div>
-              <div onClick={this.handleClickCostOverview}><NavigationSubTitle title="Cost/Benefit Evaluation" active={costOverviewActive}/></div>
+              <div onClick={this.handleClickLastNotifications}><NavigationSubTitle title="Last Notifications" description="text" active={lastNotificationsActive}/></div>
+              <div onClick={this.handleClickAverageKpiIndex}><NavigationSubTitle title="Key Driving Indicators" description="text" active={averageKpiActive}/></div>
+              <div onClick={this.handleClickCostOverview}><NavigationSubTitle title="Cost/Benefit Evaluation" description="text" active={costOverviewActive}/></div>
             </div>
     }
 
@@ -97,7 +98,7 @@ export class Navigation extends React.Component {
                 EmployeeMenu=
                 <div>
                   <div onClick={this.handleClickPeopleManagement}><NavigationSubTitle title="All Employees" active="true"/></div>
-                  <NavigationSubTitle title={this.props.employeeName} active="false"/>
+                  <NavigationSubTitle title={this.props.employeeName} active="false" />
                 </div>
             }
             else
@@ -119,15 +120,15 @@ export class Navigation extends React.Component {
             <h2 className="navigation_title-text">Navigation</h2>
         </div>
 
-        <NavigationTitle title="Overview Company" icon="fa fa-building-o icon" handleClick={this.changeActiveMenu}/>
+        <NavigationTitle title="Overview Company" icon="fa fa-building-o icon" description="text" handleClick={this.changeActiveMenu}/>
         {OverviewMenu}
         <hr className ="hr_Row"/>
 
-        <NavigationTitle title="People Management" icon="fa fa-user-o icon" handleClick={this.changeActiveMenu}/>
+        <NavigationTitle title="People Management" icon="fa fa-user-o icon" description="text" handleClick={this.changeActiveMenu}/>
         {EmployeeMenu}
         <hr className ="hr_Row"/>
 
-        <NavigationTitle title="Vehicle Management" icon="fa fa-car icon" handleClick={this.changeActiveMenu}/>
+        <NavigationTitle title="Vehicle Management" icon="fa fa-car icon" description="text" handleClick={this.changeActiveMenu}/>
 
       </div>
     );
