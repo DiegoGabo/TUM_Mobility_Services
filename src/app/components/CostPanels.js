@@ -9,8 +9,8 @@ export class CostPanels extends React.Component {
   render() {
     return (
       <div>
-        <CalcolationPanel />
         <RankingPanel />
+        <CalcolationPanel />
       </div>
     );
   }

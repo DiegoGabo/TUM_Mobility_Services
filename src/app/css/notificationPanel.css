@@ -5,17 +5,52 @@
 }
 
 .notificationPanel  .first_content_panel_column {
-    padding-top: 25px;
+    padding-top: 15px;
+}
+
+.hourNotification{
+  color: #595959;
+}
+
+.dateNotification {
+  font-weight: 550;
 }
 
 .notificationPanel .content_panel_column .content_icon {
-    font-size: 2em;
+    font-size: 1em;
     padding-top: 8px;
 }
 
+.notificationPanel .progress {
+  width: 230px !important;
+}
+
+.buttonEmail {
+  height: 40px;
+  width: 40px;
+  border-radius: 20%;
+  font-size: 8pt;
+}
+
+.buttonEmailDiv{
+  padding-top: 25px;
+}
+
+
+
+.notificationImage {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  /* margin-left: 120px; */
+  margin-left: 80px;
+}
+
 .notificationPanel img {
-    height: 30px;
-    margin-left: 110px;
+  width: 100%;
+  height: auto;
 }
 
 .notificationPanel .panel {
@@ -28,6 +63,7 @@
 
 .notificationPanel .icon {
     color: #F8BA71;
+    font-size: 1.6em;
 }
 
 
@@ -45,5 +81,6 @@
 }
 
 .notificationPanel {
+  cursor: pointer;
   margin-right: 30px;
 }

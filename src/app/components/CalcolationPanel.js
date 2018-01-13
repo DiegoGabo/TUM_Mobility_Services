@@ -9,16 +9,20 @@ export class CalcolationPanel extends React.Component {
       super(props);
       this.state = {
         chartData:{
-          labels: ['Mentainance Costs', 'Fuel Costs'],
+          labels: ['2017/Sep', '2017/Oct', '2017/Nov', '2017/Dec', '2018/Jan'],
           datasets:[
             {
-              label:'2016',
-              backgroundColor: "#3B3838",
-              data: [400,100],
+              label: ['Maintenance Costs'],
+              borderColor: "#3B3838",
+              data: [2000,1800, 1700, 0, 1300],
             }, {
-              label:'2017',
-              backgroundColor: "#00B0F0",
-              data: [370,95],
+              label: ['Fuel Costs'],
+              borderColor: "#F8BA71",
+              data: [4000,3900, 2400, 500, 1800],
+            }, {
+              label: ['Employee Benefits Costs'],
+              borderColor: "#00B0F0",
+              data: [1,1,1,0,1],
             }
           ]
         }
@@ -30,10 +34,10 @@ export class CalcolationPanel extends React.Component {
       <div className="filter_panel_calcolation">
       <div className="w3-bar panel">
         <div className="row">
-          <h3 className="kpi_title">Company Yearly Costs</h3>
+          <h3 className="kpi_title">Company Cost Categories</h3>
         </div>
         <div className="row calcolationRow">
-          <Bar
+          <Line
             data= {this.state.chartData}
             options={{
             title:{

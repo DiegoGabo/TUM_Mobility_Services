@@ -15,6 +15,7 @@ import  {TripManagementPanels} from './TripManagementPanels';
 import  {TripManagementHeader} from './TripManagementHeader';
 import  {NotificationHeader} from './NotificationHeader';
 import  {NotificationPanels} from './NotificationPanels';
+import  {VehicleManagementHeader} from './VehicleManagementHeader';
 import  {Footer} from './Footer';
 
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -65,7 +66,7 @@ constructor(props)
           panel: newPanel
       })
   }
-    
+
   //modify the active menu that is in navigation panel and can be Overview Company, People Management or Vehicle Management
   changeActiveMenu(newMenu)
   {
@@ -74,7 +75,7 @@ constructor(props)
       this.changeTrip("0")
       this.changePanel(newMenu)
   }
-    
+
   changeActiveSubMenu(newSubMenu){
       this.setState({activeSubMenu: newSubMenu})
   }
@@ -168,6 +169,14 @@ constructor(props)
                 </div>
     }
 
+    //renders the people management section in panel if it is active. It contains the list of employees
+    if(this.state.panel=="Vehicle Management")
+    {
+        panel = <div>
+                    <VehicleManagementHeader />
+                </div>
+    }
+
     //renders the trip management section in panel if it is active. It contains the list of trips
     if(this.state.panel=="Trip Management")
     {
@@ -183,7 +192,7 @@ constructor(props)
    if(this.state.panel=="Overview Company")
     {
         panel = <div>
-                    <NotificationPanels 
+                    <NotificationPanels
                       changePanel={this.changePanel}
                       changeEmployee={this.changeEmployee}
                       changeTrip={this.changeTrip}

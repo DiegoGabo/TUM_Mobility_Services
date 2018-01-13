@@ -24,7 +24,9 @@ export class EmployeePanel extends React.Component {
       <div className = "contentPanel employeePanel">
         <div className="w3-bar panel" value={this.props.value} onClick={this.handleClick}>
          <div className="col-sm-2 content_panel_column first_content_panel_column">
-            <i className="fa fa-user-circle content_icon" aria-hidden="true"></i>
+         <div class="employeeImage">
+           <img src={this.props.image}/>
+         </div>
          </div>
 
          <div className="col-sm-4 content_panel_column">
