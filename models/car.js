@@ -12,6 +12,10 @@ const CarSchema = mongoose.Schema({
 		type: String,
 		required: false
 	},
+	image: {
+		type: String,
+		required: false
+	},
 	trips: [{
 		type: Schema.Types.ObjectId, 
 		ref: 'bmwdatas'

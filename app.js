@@ -116,6 +116,7 @@ seed.seedUsers()
 setTimeout(function () {
 	seed.seedBmw()
 }, 100)
+seed.seedNotifications()
 
 
 // Express only serves static assets in production

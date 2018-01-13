@@ -38,6 +38,10 @@ const NotificationSchema = mongoose.Schema({
 	triporvehicleNumber:{
 		type: String,
 		required:false
+	},
+	employeeNum:{
+		type: String,
+		required: false
 	}
 	// trips: [{
 	// 	type: Schema.Types.ObjectId, 

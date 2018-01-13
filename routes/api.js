@@ -26,6 +26,7 @@ router.get('/bmwdata', (req, res) => {
 	});
 });
 
+//all cars
 router.get('/cars', (req,res)=> {
 	Car.getCarsData((err, carData) => {
 		if(err){
@@ -34,6 +35,20 @@ router.get('/cars', (req,res)=> {
 		res.json(carData)
 	});
 })
+
+//get one car by id
+router.get('/car/:_id', (req,res)=>{
+	console.log(req.params.id)
+	Car.findOne((req.params),(err,result) =>{
+		if(err) return console.log(err)
+		res.send(result)
+	})
+})
+
+
+
+
+//get all notifications
 router.get('/notifications', (req,res)=> {
 	Car.getNotificationsData((err, notData) => {
 		if(err){
@@ -90,6 +105,7 @@ router.post('/bmwdata', async (req, res) => {
 	})
 })
 
+//add car
 router.post('/car', (req,res)=> {
 	var car_data = req.body
 	//console.log(car_data)
@@ -99,15 +115,6 @@ router.post('/car', (req,res)=> {
 		res.status(201).json(cardata);
 	})
 
-})
-
-router.get('/cars', (req,res)=> {
-	Car.getCarsData((err, carData) => {
-		if(err){
-			throw err
-		}
-		res.json(carData)
-	});
 })
 
 //trips of a car
