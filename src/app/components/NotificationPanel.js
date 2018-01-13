@@ -46,7 +46,7 @@ export class NotificationPanel extends React.Component {
     }
 
     return (
-      <div className="contentPanel notificationPanel">
+      <div onClick={this.props.onClick} className="contentPanel notificationPanel">
         <div className="w3-bar panel">
           <div className="col-sm-3 content_panel_column first_content_panel_column">
             <h4>{this.props.date}</h4>

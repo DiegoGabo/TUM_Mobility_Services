@@ -2,6 +2,7 @@ import React from 'react';
 
 import '../css/navigation.css';
 import '../css/navigationSubTitle.css';
+import  {InfoButton} from './InfoButton';
 
 
 export class NavigationSubTitle extends React.Component {
@@ -25,8 +26,12 @@ export class NavigationSubTitle extends React.Component {
               <i className="fa fa-angle-right angleIcons" aria-hidden="true"></i>
             </div>
 
-            <div className="col-sm-10 navigationSubTitleText">
+            <div className="col-sm-9 navigationSubTitleText">
               <p>{title}</p>
+            </div>
+        
+            <div className="col-sm-1">
+                <InfoButton description={this.props.description}/>
             </div>
 
           </div>

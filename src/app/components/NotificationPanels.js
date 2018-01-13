@@ -19,6 +19,7 @@ export class NotificationPanels extends React.Component {
       this.handleChangeDate = this.handleChangeDate.bind(this)
       this.handleChangeType = this.handleChangeType.bind(this)
       this.handleChangeDescription = this.handleChangeDescription.bind(this)
+      this.handleNotificationClick = this.handleNotificationClick.bind(this)
   }
 
   handleClickFilter(){
@@ -40,6 +41,12 @@ export class NotificationPanels extends React.Component {
     
  handleChangeDescription(e){
      this.setState({description: e.target.value})
+ }
+    
+ handleNotificationClick(){
+     this.props.changePanel("People Management")
+     this.props.changeEmployee("2", "Christoph NG")
+     this.props.changeTrip("0")
  }
 
   render()
@@ -96,7 +103,7 @@ export class NotificationPanels extends React.Component {
         
         {filter}
         
-        <NotificationPanel changePanel={this.changePanel} changeEmployee={this.changeEmployee} changeTrip={this.changeTrip} date="05/01/2018" name="Christoph NG" problem="High Fuel Consumption" value="280" type="0" graphics="0"/>
+        <NotificationPanel onClick={this.handleNotificationClick} date="05/01/2018" name="Christoph NG" problem="High Fuel Consumption" value="280" type="0" graphics="0"/>
         <NotificationPanel changePanel={this.changePanel} changeEmployee={this.changeEmployee} changeTrip={this.changeTrip} date="28/12/2017" name="BMW M2" problem="Inspection of Braking System" value="100" type="1" graphics="2"/>
         <NotificationPanel changePanel={this.changePanel} changeEmployee={this.changeEmployee} changeTrip={this.changeTrip} date="27/12/2017" name="Christoph NG" problem="High Fuel Consumption" value="230" type="0" graphics="0"/>
         <NotificationPanel changePanel={this.changePanel} changeEmployee={this.changeEmployee} changeTrip={this.changeTrip} date="10/10/2017" name="Max Mustermann" problem="Bad Driving Behavior" value="100" type="0" graphics="1"/>
