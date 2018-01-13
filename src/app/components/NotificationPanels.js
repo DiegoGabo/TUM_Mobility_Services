@@ -28,7 +28,7 @@ export class NotificationPanels extends React.Component {
       let url = 'https://bemostwanted.herokuapp.com/api/notifications'
       fetch(url)
           .then(res => res.json())
-          .then(listTrips => this.setState({listNotifications}))
+          .then(listNotifications => this.setState({listNotifications}))
   }
 
   handleClickFilter(){
@@ -60,6 +60,7 @@ export class NotificationPanels extends React.Component {
 
   render()
   {
+    
     let filter = <div></div>
     if(this.state.filterActive == "true"){
         filter = 
@@ -91,21 +92,24 @@ export class NotificationPanels extends React.Component {
     }
     let notificationPanels
     try{
-      notificationPanels = this.state.listNotification.map((notification) =>
+      notificationPanels = this.state.listNotifications.map((notification) =>
                             <NotificationPanel 
                                 changePanel={this.props.changePanel} 
                                 changeEmployee={this.props.changeEmployee} 
                                 changeTrip={this.props.changeTrip} 
                                 changeActiveMenu={this.props.changeActiveMenu}
-                                changeActiveSubMenu={this.props.changeActiveSubMenu} 
-                                date="05/01/2018" 
-                                name="Christoph NG" 
-                                problem="High Fuel Consumption" 
-                                value="280" 
-                                type="0" 
-                                graphics="0"/>)
+                                date={notification.date} 
+                                name={notification.name}
+                                id={notification.id}
+                                type={notification.type}
+                                problem={notification.problem}
+                                value={notification.value}
+                                filterDate={this.state.date}
+                                filterType={this.state.type}
+                                filterDescription={this.state.description}
+                                />)
     }
-    catch(e){}
+    catch(e){console.log(e)}
       
     return (
       <div>
@@ -128,17 +132,7 @@ export class NotificationPanels extends React.Component {
         </div>
         
         {filter}
-        
-        <NotificationPanel changePanel={this.props.changePanel} changeEmployee={this.props.changeEmployee} changeTrip={this.props.changeTrip} changeActiveMenu={this.props.changeActiveMenu}
-                      changeActiveSubMenu={this.props.changeActiveSubMenu} date="05/01/2018" name="Christoph NG" problem="High Fuel Consumption" value="280" type="0" graphics="0"/>
-        <NotificationPanel changePanel={this.changePanel} changeEmployee={this.changeEmployee} changeTrip={this.changeTrip} date="28/12/2017" name="BMW M2" problem="Inspection of Braking System" value="100" type="1" graphics="2"/>
-        <NotificationPanel changePanel={this.changePanel} changeEmployee={this.changeEmployee} changeTrip={this.changeTrip} date="27/12/2017" name="Christoph NG" problem="High Fuel Consumption" value="230" type="0" graphics="0"/>
-        <NotificationPanel changePanel={this.changePanel} changeEmployee={this.changeEmployee} changeTrip={this.changeTrip} date="10/10/2017" name="Max Mustermann" problem="Bad Driving Behavior" value="100" type="0" graphics="1"/>
-        <NotificationPanel changePanel={this.changePanel} changeEmployee={this.changeEmployee} changeTrip={this.changeTrip} date="09/09/2017" name="Christoph NG" problem="High Fuel Consumption" value="200" type="0" graphics="0"/>
-        <NotificationPanel changePanel={this.changePanel} changeEmployee={this.changeEmployee} changeTrip={this.changeTrip} date="01/10/2017" name="BMW i8" problem="Low Fuel State" value="10" type="1" graphics="4"/>
-        <NotificationPanel changePanel={this.changePanel} changeEmployee={this.changeEmployee} changeTrip={this.changeTrip} date="08/09/2017" name="BMW i3" problem="Low Charging State" value="100" type="1" graphics="3"/>
-        <div className = "col-sm-10"></div>
-        <div className = "col-sm-2 moreNotifications" >More</div>
+        {notificationPanels}
       </div>
     );
   }

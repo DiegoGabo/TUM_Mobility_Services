@@ -20,40 +20,43 @@ export class NotificationPanel extends React.Component {
   }
     
   handleClick(){
-      if(this.props.type == 0){
+      if(this.props.type == "Employee"){
           this.props.changeActiveMenu("People Management")
           this.props.changePanel("Kpi Management")
-          this.props.changeEmployee(2, "Cristoph NG")
-          this.props.changeTrip("2017-12-25T09:39:19.135Z")
+          this.props.changeEmployee(this.props.id, this.props.name)
+          this.props.changeTrip(this.props.date)
+      }
+      else{
+          this.props.changeActiveMenu("Vehicle Management")
+          this.props.changePanel("Vehicle Management")
       }
   }
 
   render() {
     let value = this.props.value + 'px'
-    let icon = this.props.type == 0 ? employee_icon : car_icon;
-    let onClick = ""
+    let icon = this.props.type == "Employee" ? employee_icon : car_icon;
 
     let fuel = <div className="progress"><div className="progress-bar panel_bar" role="progressbar" aria-valuenow="70"aria-valuemin="0" aria-valuemax="60" style={{width: value}}></div></div>
     let star = <div>{empty_star} {empty_star} {empty_star} {empty_star} {empty_star}</div>
 
 
     let graphics = fuel;
-    switch (this.props.graphics) {
-      case '0':
+    switch (this.props.problem) {
+      case '':
         graphics = fuel;
         break;
-      case '1':
+      case 'Bad Driving Behaviour':
         graphics = star;
         break;
-      case '2':
+      case 'Inspection of Braking System':
         graphics = brake;
         icon = <img src="https://carsales.pxcrush.net/carsales/car/cil/cc5510749349972002116.jpg?width=600&height=300&overlay&aspect=FitWithIn&watermark=1775422672"/>
         break;
-      case '3':
+      case 'Low Charging State':
         graphics = energy;
         icon = <img src="https://immagini.alvolante.it/sites/default/files/styles/anteprima_lunghezza_640_jpg/public/serie_auto_galleria/2013/11/bmw_i3_top_post.png?itok=bnK2Upuo"/>
         break;
-      case '4':
+      case 'Low Utilization':
         graphics = fuel;
         icon = <img src="http://sajam.rs/wp-content/uploads/msa2017_bmw_i8.jpg"/>
         break;
