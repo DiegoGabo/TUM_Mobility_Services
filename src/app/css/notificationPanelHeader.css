@@ -1,0 +1,28 @@
+.filterNotificationHeader {
+  /* color: #428bca; */
+  font-size: 10pt;
+}
+
+.filterNotificationHeader .content_header_column .filterElement {
+  /*background-color: #FCFCFC;*/
+  border-radius: 10%;
+  background-color: #EAEAEA;
+}
+
+.filterButton {
+  border-radius: 30%;
+  font-size: 10pt;
+  font-weight: 550;
+  background-color: #EAEAEA;
+  border: 0;
+  outline: none;
+}
+
+.filterButton .fa-filter {
+  font-size: 1em !important;
+}
+
+.filterButton:hover {
+  color: white;
+  background-color: #428bca;
+}

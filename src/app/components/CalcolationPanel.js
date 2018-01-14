@@ -42,7 +42,7 @@ export class CalcolationPanel extends React.Component {
             options={{
             title:{
               display:true,
-              text:'Overall variable costs (in thousand euro)',
+              text:'Overall variable costs (in euro)',
               fontSize:10
             }
             }}
