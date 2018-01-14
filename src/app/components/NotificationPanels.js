@@ -22,6 +22,56 @@ export class NotificationPanels extends React.Component {
       this.handleChangeType = this.handleChangeType.bind(this)
       this.handleChangeDescription = this.handleChangeDescription.bind(this)
       this.handleNotificationClick = this.handleNotificationClick.bind(this)
+      this.checkFilter = this.checkFilter.bind(this)
+      this.checkType = this.checkType.bind(this)
+  }
+    
+  checkDate(date){
+      var d = new Date()
+      let month = d.getMonth()+1
+      let previousMonth = d.getMonth()
+      let date7before
+      if(d.getDate()>=7){
+          date7before = d.getDate() - 7
+      }
+      else{
+          date7before = 30 - 7 + d.getDate()
+      }
+      if(this.state.date=="All"){
+          return "true"
+      }
+      if(this.state.date=="Last Month" && date.substring(5,7) == month){
+          return "true"
+      }
+      if(this.state.date=="Today" && date == d.getDate()){
+          return "true"
+      }
+      if(this.state.date=="Last 7 Days" && date.substring(8,10) >= date7before && date.substring(5,7) == month){
+          return "true"
+      }
+      return "false"
+  }
+    
+  checkType(type){
+      if(this.state.type=="Employee and Vehicle" || this.state.type==type){
+          return "true"
+      }
+      return "false"
+  }
+    
+  checkProblem(problem){
+      if(this.state.description==problem || this.state.description=="All"){
+          return "true"
+      }
+      return "false"
+  }
+
+  checkFilter(date, type, problem){
+      let isDateSelected=this.checkDate(date), isTypeSelected=this.checkType(type), isProblemSelected=this.checkProblem(problem)
+      if(isDateSelected=="false" || isTypeSelected=="false" || isProblemSelected=="false"){
+          return "false"
+      }
+      return "true"
   }
 
   componentDidMount()
@@ -123,6 +173,7 @@ export class NotificationPanels extends React.Component {
                                 filterDate={this.state.date}
                                 filterType={this.state.type}
                                 filterDescription={this.state.description}
+                                active={this.checkFilter(notification.date, notification.type, notification.problem)}
                                 />)
     }
     catch(e){console.log(e)}

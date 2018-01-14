@@ -56,9 +56,10 @@ export class NotificationPanel extends React.Component {
         graphics = fuel;
         break;
     }
-
-    return (
-      <div onClick={this.handleClick} className="contentPanel notificationPanel">
+    let notification=<div></div>
+    if(this.props.active=="true"){
+        notification=
+            <div onClick={this.handleClick} className="contentPanel notificationPanel">
 
         <div className="w3-bar panel">
 
@@ -94,6 +95,10 @@ export class NotificationPanel extends React.Component {
           </div>
         </div>
       </div>
+    }
+
+    return (
+      <div>{notification}</div>
     );
   }
 }
