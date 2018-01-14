@@ -11,9 +11,6 @@ export class KpiPanels extends React.Component {
   render() {
     return (
       <div>
-        <div className="w3-container">
-          <ul className="w3-ul">
-
             <StarPanel
                 title="Acceleration"
                 subtitle="General Driving Behaviour"
@@ -25,10 +22,27 @@ export class KpiPanels extends React.Component {
                 value={this.props.generalRisk}
             />
 
-            <FuelPanel energy={this.props.energy} fuel={this.props.fuel}/>
+            <StarPanel
+                title="Accident Ratio"
+                value={5}
+            />
 
-          </ul>
-        </div>
+            <FuelPanel
+                title="Fuel Consumption"
+                value={this.props.fuel}
+            />
+
+            <FuelPanel
+                title="Energy Consumption"
+                value={this.props.energy}
+            />
+
+            <FuelPanel
+                title="CO2-Emission Volume"
+                value={80}
+            />
+
+
       </div>
     );
   }

@@ -1,17 +1,24 @@
-.col-sm-5 .icon {
-    font-size: 2em;
+.starPanel .content_panel_column h4, h3, .content_icon, .star_panel_icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.starPanel .panel {
+    height: 100px;;
+}
+
+
+.starPanel .first_content_panel_column .content_icon {
+    font-size: 1.8em;
+    margin-left: 10px;
     margin-top: 10px;
-    margin-left: 30px;
     color: #00B0F0;
 }
 
-
-div .panel {
-    background-color: #FCFCFC;
-}
-
-div .kpi_title {
-    margin-left: 45px;
+.starPanel .kpi_title {
+    margin-left: 10px;
+    padding-top: 10px;
 }
 
 .kpi_title {
@@ -19,6 +26,27 @@ div .kpi_title {
     font-weight: 800;
 }
 
-.filter_panel .col-sm-5 {
-  padding-left: 30px !important;
+.starPanel .content_panel_column .thumb_icon {
+    font-size: 1.5em;
+    padding-left: 100px;
+    padding-top: 40px;
+}
+
+.starPanel .content_panel_column h3 {
+    padding-left: 80px;
+    padding-top: 30px;
+}
+
+.starPanel .infoButton {
+    position:absolute;
+    margin-left: 270px;
+    margin-top: 5px;
+    z-index: 999;
+}
+
+
+
+.starPanel {
+  margin-right: 30px;
+  /* padding-left: 10px; */
 }
