@@ -5,7 +5,8 @@ const Schema = mongoose.Schema
 const NotificationSchema = mongoose.Schema({
 	id:{
 		type: String,
-		required: true
+		required: true,
+		unique:true
 	},
 	date: {
 		type: String,
