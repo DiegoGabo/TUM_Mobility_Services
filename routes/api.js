@@ -77,8 +77,8 @@ router.get('/:_id', (req,res)=>{
 router.post('/bmwdata', async (req, res) => {
 	var bmwdata = req.body
 	//console.log(bmwdata)
-	//1 and 3 are user id numbers. starts from 1 to 3
-  	var i= Math.floor(Math.random() * (Math.floor(3) - Math.ceil(1) + 1)) + Math.ceil(1); 
+	//1 and 7 are user id numbers. starts from 1 to 7
+  	var i= Math.floor(Math.random() * (Math.floor(7) - Math.ceil(1) + 1)) + Math.ceil(1); 
 	const user = await User.findOne({id: i})
 	//Add trip to the car. From the vinBmw key of the json req
 	const car = await Car.findOne({vin:bmwdata.vinBmw})
