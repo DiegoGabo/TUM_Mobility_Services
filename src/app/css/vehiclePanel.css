@@ -1,0 +1,49 @@
+.vehiclePanel .content_panel_column h4, .content_icon, .progress_row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vehiclePanel .content_panel_column .trashIcon {
+    padding-top: 10px;
+}
+
+
+.vehiclePanel .content_panel_column .content_icon {
+    font-size: 1.5em;
+    padding-top: 8px;
+}
+
+.vehiclePanel .panel {
+    height:80px;
+}
+
+.vehiclePanel {
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.vehiclePanel h4 {
+  padding-top: 20px;
+}
+
+.vehiclePanel .trashIcon {
+  margin-top: 20px;
+}
+
+
+.vehicleImage {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 50%;
+  /* margin-left: 120px; */
+  margin-left: 30px;
+  margin-top: 15px;
+}
+
+.vehiclePanel img {
+  width: 100%;
+  height: auto;
+}
