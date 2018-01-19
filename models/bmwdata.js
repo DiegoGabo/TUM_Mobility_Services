@@ -64,6 +64,11 @@ const bmwDataSchema = mongoose.Schema({
 		type: String,
 		required:false
 	},
+	fuelConsumption:{
+		type:String,
+		required:false
+	},
+
 	user:{
 		type: Schema.Types.ObjectId, 
 		ref: 'User'

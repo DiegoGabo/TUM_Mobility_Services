@@ -85,6 +85,9 @@ request.get(options, (error, response, body) => {
 			if(json.telematicKeyValues[index].name === "bmwcardata_SegmentLastTripRecuperationOverall"){
 				lastTripRecuperationOverall = json.telematicKeyValues[index].value
 			}
+			if(json.telematicKeyValues[index].name === "bmwcardata_SegmentLastTripFuelConsumption"){
+				fuelConsumption = json.telematicKeyValues[index].value
+			}
 
 		}
 
@@ -101,7 +104,8 @@ request.get(options, (error, response, body) => {
 			"segmentLastTripAccelerationStars": SegmentLastTripAccelerationStars,
 			"lastTripBrakingStars": lastTripBrakingStars,
 			"lastTripElectricEnergyConsumptionOverall": lastTripElectricEnergyConsumptionOverall,
-			"lastTripRecuperationOverall": lastTripRecuperationOverall
+			"lastTripRecuperationOverall": lastTripRecuperationOverall,
+			"fuelConsumption": fuelConsumption
 		}
 		//Making a post request with the given data above to production server or the developmemnt server
 		postConfig = {
