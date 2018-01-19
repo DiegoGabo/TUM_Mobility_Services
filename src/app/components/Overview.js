@@ -4,12 +4,12 @@ import React from 'react';
 
 import  {OverviewHeader} from './OverviewHeader';
 import  {MapPosition} from './MapPosition';
+import  {MapCars} from './MapCars';
 import  {UpperPanel} from './UpperPanel';
 import  {KpiPanels} from './KpiPanels';
 import  {CostPanels} from './CostPanels';
 import  {Navigation} from './Navigation';
 import  {KpiHeader} from './KpiHeader';
-import  {PeopleManagementHeader} from './PeopleManagementHeader';
 import  {PeopleManagementPanels} from './PeopleManagementPanels';
 import  {TripManagementPanels} from './TripManagementPanels';
 import  {TripManagementHeader} from './TripManagementHeader';
@@ -163,7 +163,6 @@ constructor(props)
     if(this.state.panel=="People Management")
     {
         panel = <div>
-                    <PeopleManagementHeader />
                     <PeopleManagementPanels
                       changePanel={this.changePanel}
                       changeEmployee={this.changeEmployee}/>
@@ -178,6 +177,7 @@ constructor(props)
                     <VehicleManagementPanels
                       changePanel={this.changePanel}/>
                 </div>
+        map = <MapCars />
     }
 
     //renders the trip management section in panel if it is active. It contains the list of trips

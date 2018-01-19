@@ -36,7 +36,7 @@ export class RankingPanel extends React.Component {
               <td>Max</td>
               <td>Mustermann</td>
               <td>25$ Amazon</td>
-              <td>5/10</td>
+              <td>6/10</td>
               <td><input className="checkBox" type="checkbox" checked/></td>
               <td></td>
             </tr>
@@ -44,11 +44,48 @@ export class RankingPanel extends React.Component {
               <td>3</td>
               <td>Christoph</td>
               <td>NG</td>
+              <td>10$ Amazon</td>
+              <td>5.5/10</td>
+              <td><input className="checkBox" type="checkbox" checked/></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Diego</td>
+              <td>Gaboardi</td>
+              <td>no vouchers</td>
+              <td>4.5/10</td>
+              <td><input className="checkBox" type="checkbox"/></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Baris</td>
+              <td>Yazici</td>
+              <td>no vouchers</td>
+              <td>4/10</td>
+              <td><input className="checkBox" type="checkbox"/></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Asad</td>
+              <td>Khaliq</td>
+              <td>25$ Amazon</td>
+              <td>3.5/10</td>
+              <td><input className="checkBox" type="checkbox"/></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Lukas</td>
+              <td>Kick</td>
               <td>no vouchers</td>
               <td>2/10</td>
               <td><input className="checkBox" type="checkbox"/></td>
               <td></td>
             </tr>
+            
         </table>
         </div>
       </div>
