@@ -38,7 +38,7 @@ export class FuelPanel extends React.Component {
         </div>
 
         <div className="col-sm-4 content_panel_column">
-          <h3>{this.props.value} of 100km</h3>
+          <h3>{this.props.value} on 100km</h3>
         </div>
 
         <div className="col-sm-4 content_panel_column">

@@ -15,6 +15,7 @@ import  {TripManagementPanels} from './TripManagementPanels';
 import  {TripManagementHeader} from './TripManagementHeader';
 import  {NotificationHeader} from './NotificationHeader';
 import  {NotificationPanels} from './NotificationPanels';
+import  {VehicleManagementPanels} from './VehicleManagementPanels';
 import  {VehicleManagementHeader} from './VehicleManagementHeader';
 import  {Footer} from './Footer';
 
@@ -174,6 +175,8 @@ constructor(props)
     {
         panel = <div>
                     <VehicleManagementHeader />
+                    <VehicleManagementPanels
+                      changePanel={this.changePanel}/>
                 </div>
     }
 
