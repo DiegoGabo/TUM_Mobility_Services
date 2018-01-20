@@ -31,7 +31,7 @@ export class InfoButton extends React.Component {
           onMouseOut={this.handleClose.bind(this)}
           ></i></div>
         <Popover className = "infoPopover"
-          placement='top'
+          placement='left'
           container={this}
           target={this.refs.target}
           show={this.state.open}>

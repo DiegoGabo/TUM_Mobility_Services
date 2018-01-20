@@ -78,7 +78,7 @@ export class NotificationPanel extends React.Component {
           <div className="col-sm-4 content_panel_column">
             <div className="col-sm-1 content_panel_column">
             </div>
-            <div className="col-sm-11 content_panel_column">
+            <div className="col-sm-11 content_panel_column descriptionColumn">
               <div className="row"><h4>{this.props.problem} ({this.props.value})</h4></div>
               <div className="row progress_row">
                   {graphics}

@@ -24,8 +24,8 @@ export class RankingPanel extends React.Component {
             <tr><td>____</td><td>________</td><td>________</td><td>_________</td><td>__________</td><td>_____</td></tr>
             <tr class="success">
               <td>1</td>
-              <td>Marcus</td>
-              <td>Aurelius</td>
+              <td>Baris</td>
+              <td>Yazici</td>
               <td>50$ Amazon</td>
               <td>7.5/10</td>
               <td><input className="checkBox" type="checkbox" checked/></td>
@@ -33,8 +33,8 @@ export class RankingPanel extends React.Component {
             </tr>
             <tr>
               <td>2</td>
-              <td>Max</td>
-              <td>Mustermann</td>
+              <td>Christoph</td>
+              <td>Pflügler</td>
               <td>25$ Amazon</td>
               <td>6/10</td>
               <td><input className="checkBox" type="checkbox" checked/></td>
@@ -42,8 +42,8 @@ export class RankingPanel extends React.Component {
             </tr>
             <tr>
               <td>3</td>
-              <td>Christoph</td>
-              <td>NG</td>
+              <td>Maximilian</td>
+              <td>Schreieck</td>
               <td>10$ Amazon</td>
               <td>5.5/10</td>
               <td><input className="checkBox" type="checkbox" checked/></td>
@@ -51,8 +51,8 @@ export class RankingPanel extends React.Component {
             </tr>
             <tr>
               <td>4</td>
-              <td>Diego</td>
-              <td>Gaboardi</td>
+              <td>Manuel</td>
+              <td>Wiesche</td>
               <td>no vouchers</td>
               <td>4.5/10</td>
               <td><input className="checkBox" type="checkbox"/></td>
@@ -60,8 +60,8 @@ export class RankingPanel extends React.Component {
             </tr>
             <tr>
               <td>5</td>
-              <td>Baris</td>
-              <td>Yazici</td>
+              <td>Lukas</td>
+              <td>Kick</td>
               <td>no vouchers</td>
               <td>4/10</td>
               <td><input className="checkBox" type="checkbox"/></td>
@@ -69,23 +69,23 @@ export class RankingPanel extends React.Component {
             </tr>
             <tr>
               <td>6</td>
-              <td>Asad</td>
-              <td>Khaliq</td>
-              <td>25$ Amazon</td>
+              <td>Diego</td>
+              <td>Gaboardi</td>
+              <td>no vouchers</td>
               <td>3.5/10</td>
               <td><input className="checkBox" type="checkbox"/></td>
               <td></td>
             </tr>
             <tr>
               <td>7</td>
-              <td>Lukas</td>
-              <td>Kick</td>
+              <td>Asad</td>
+              <td>Khaliq</td>
               <td>no vouchers</td>
               <td>2/10</td>
               <td><input className="checkBox" type="checkbox"/></td>
               <td></td>
             </tr>
-            
+
         </table>
         </div>
       </div>

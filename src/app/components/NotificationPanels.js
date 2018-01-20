@@ -3,6 +3,7 @@ import {NotificationPanel} from './NotificationPanel'
 import {FilterElement} from './FilterElement'
 
 import React from 'react';
+import '../css/contentHeader.css';
 import '../css/notificationPanelHeader.css';
 
 export class NotificationPanels extends React.Component {
@@ -25,7 +26,7 @@ export class NotificationPanels extends React.Component {
       this.checkFilter = this.checkFilter.bind(this)
       this.checkType = this.checkType.bind(this)
   }
-    
+
   checkDate(date){
       var d = new Date()
       let month = d.getMonth()+1
@@ -51,14 +52,14 @@ export class NotificationPanels extends React.Component {
       }
       return "false"
   }
-    
+
   checkType(type){
       if(this.state.type=="Employee and Vehicle" || this.state.type==type){
           return "true"
       }
       return "false"
   }
-    
+
   checkProblem(problem){
       if(this.state.description==problem || this.state.description=="All"){
           return "true"
@@ -184,17 +185,22 @@ export class NotificationPanels extends React.Component {
 
           <div className="col-sm-3 content_header_column">
             <div className="col-sm-4"><i className="fa fa-calendar icon" aria-hidden="true"></i></div>
-            <div className="col-sm-8"><h3>Date</h3><hr/></div>
+            <div className="col-sm-5"><h3>Date/Time</h3></div>
+            <div className="col-sm-3"></div>
+            <div className = "content_header_line"><hr/></div>
           </div>
 
           <div className="col-sm-3 content_header_column">
             <div className="col-sm-3"><i className="fa fa-tag icon" aria-hidden="true"></i></div>
-            <div className="col-sm-9"><h3>Employee/Vehicle</h3><hr/></div>
+            <div className="col-sm-9"><h3>Employee/Vehicle</h3></div>
+            <div className = "content_header_line"><hr/></div>
           </div>
 
           <div className="col-sm-4 content_header_column">
             <div className="col-sm-2" ><i className="fa fa-list icon" aria-hidden="true"></i></div>
-            <div className="col-sm-10"><h3>Description</h3><hr/></div>
+            <div className="col-sm-8"><h3>Problem Description</h3></div>
+            <div className="col-sm-2"></div>
+            <div className = "content_header_line"><hr/></div>
           </div>
 
           <div className="col-sm-2 content_header_column">

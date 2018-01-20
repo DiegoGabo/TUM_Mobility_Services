@@ -48,7 +48,7 @@ export class PeopleManagementPanels extends React.Component {
                                     ranking={employee.id}
                                     changePanel={this.props.changePanel}
                                     changeEmployee={this.props.changeEmployee}/>)
-        }                                                                                                                           
+        }
         if (this.state.order == "false"){
              employeePanels = this.state.listEmployee.sort(function(a,b) {return (a.id < b.id) ? 1 : ((b.id < a.id) ? -1 : 0);} ).map((employee) =>
                             <EmployeePanel
@@ -59,9 +59,9 @@ export class PeopleManagementPanels extends React.Component {
                                     image={employee.image}
                                     ranking={employee.id}
                                     changePanel={this.props.changePanel}
-                                    changeEmployee={this.props.changeEmployee}/>)                                                                                                                   
-        }                                                                                                                
-      
+                                    changeEmployee={this.props.changeEmployee}/>)
+        }
+
     }
     catch(e){}
 
@@ -74,12 +74,16 @@ export class PeopleManagementPanels extends React.Component {
 
          <div className="col-sm-4 content_header_column">
             <div className="col-sm-2"><i className="fa fa-user-circle icon" aria-hidden="true"></i></div>
-            <div className="col-sm-10"><h3>Name - Last Name</h3><hr/></div>
+            <div className="col-sm-8"><h3>Name - Last Name</h3></div>
+            <div className="col-sm-2"></div>
+            <div className = "content_header_line"><hr/></div>
          </div>
 
          <div className="col-sm-4 content_header_column">
             <div className="col-sm-2"><i className="fa fa-id-card-o icon" aria-hidden="true"></i></div>
-            <div className="col-sm-10"><h3>Position</h3><hr/></div>
+            <div className="col-sm-6"><h3>Position</h3></div>
+            <div className="col-sm-4"></div>
+            <div className = "content_header_line"><hr/></div>
          </div>
 
          <div className="col-sm-2 content_header_column">

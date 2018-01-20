@@ -15,7 +15,7 @@ export class NotificationHeader extends React.Component {
 
           <div className="col-sm-2 content_header_column">
             <div className="col-sm-2"><i className="fa fa-calendar icon" aria-hidden="true"></i></div>
-            <div className="col-sm-10"><h3>Date</h3><hr/></div>
+            <div className="col-sm-10"><h3>Date/Time</h3><hr/></div>
           </div>
 
           <div className="col-sm-3 content_header_column">

@@ -98,7 +98,7 @@ export class UpperPanel extends React.Component {
             <div><i className="fa fa-user-circle icon" aria-hidden="true"></i></div>
           </div>
           <div className="panelHeaderSubName">
-            <h3>3</h3>
+            <h3>7</h3>
           </div>
          </div>
 

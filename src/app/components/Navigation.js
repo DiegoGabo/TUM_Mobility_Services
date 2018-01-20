@@ -106,11 +106,15 @@ export class Navigation extends React.Component {
             <h2 className="navigation_title-text">Navigation</h2>
         </div>
 
-        <NavigationTitle title="Overview Company" icon="fa fa-building-o icon" description="text" handleClick={this.props.changeActiveMenu}/>
+        <NavigationTitle title="Company Overview" icon="fa fa-building-o icon"
+                          description="Comapany Overview: Overall information regarding the whole company are given. These include notifications, average driving statistcs and company impacts."
+                           handleClick={this.props.changeActiveMenu}/>
         {OverviewMenu}
         <hr className ="hr_Row"/>
 
-        <NavigationTitle title="People Management" icon="fa fa-user-o icon" description="text" handleClick={this.props.changeActiveMenu}/>
+        <NavigationTitle title="People Management" icon="fa fa-user-o icon"
+                          description="People Management: Specific employees can be selected as well as statistics to trips of each emyployee are given."
+                          handleClick={this.props.changeActiveMenu}/>
         {EmployeeMenu}
         <hr className ="hr_Row"/>
 

@@ -31,8 +31,10 @@
 .newNotifications {
   position:absolute;
   align-content: center;
-  padding-left: 184px;
-  padding-top: 52px;
+  top: 47%;
+  left: 48%;
+  /* padding-left: 184px;
+  padding-top: 52px; */
   color: #595959;
   font-size: 22pt;
   font-weight: 550;

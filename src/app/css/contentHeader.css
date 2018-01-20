@@ -15,4 +15,9 @@ div .content_header {
 .content_header_column h3 {
     font-size: 12pt;
     vertical-align: middle;
+    margin-left: 5px !important;
+}
+
+.content_header_column .content_header_line {
+    padding-top: 27px;
 }
