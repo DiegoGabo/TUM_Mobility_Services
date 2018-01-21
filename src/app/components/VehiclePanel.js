@@ -9,28 +9,29 @@ export class VehiclePanel extends React.Component {
   constructor(props)
   {
     super(props)
-    //this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   //modify the current employee selected and the current panel
   handleClick(e)
   {
-      //this.props.changeEmployee(this.props.value, this.props.name)
-      //this.props.changePanel("Trip Management")
+      this.props.changeVehicle(this.props.id)
+      this.props.changePanel("Vehicle Panel")
   }
+    
 
   render() {
     return (
-      <div className = "contentPanel vehiclePanel">
+      <div onClick={this.handleClick} className = "contentPanel vehiclePanel">
         <div className="w3-bar panel" >
          <div className="col-sm-2 content_panel_column first_content_panel_column">
          <div class="vehicleImage">
-           <img src="http://www.bmw.de/dam/brandBM/common/newvehicles/i-series/i3/2017/design/BMW-i-series-i3-design-colors-04.jpg.resource.1502371240835.jpg"/>
+           <img src={this.props.image}/>
          </div>
          </div>
 
          <div className="col-sm-3 content_panel_column">
-            <h4>BMW i3</h4>
+            <h4>{this.props.model}</h4>
          </div>
 
          <div className="col-sm-3 content_panel_column">
@@ -38,7 +39,7 @@ export class VehiclePanel extends React.Component {
          </div>
 
          <div className="col-sm-3 content_panel_column">
-            <h4>217872755781</h4>
+            <h4>{this.props.vehicle}</h4>
          </div>
 
 

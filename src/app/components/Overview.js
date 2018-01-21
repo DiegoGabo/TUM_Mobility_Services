@@ -17,6 +17,7 @@ import  {NotificationHeader} from './NotificationHeader';
 import  {NotificationPanels} from './NotificationPanels';
 import  {VehicleManagementPanels} from './VehicleManagementPanels';
 import  {VehicleManagementHeader} from './VehicleManagementHeader';
+import  {VehicleDetails} from './VehicleDetails';
 import  {Footer} from './Footer';
 
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -34,12 +35,14 @@ constructor(props)
       this.state = {employee: "0",
                     employeeName: "",
                     trip: "0",
-                    panel: "Overview Company",
-                    activeMenu: "Overview Company",
+                    vehicle: "0",
+                    panel: "Company Overview",
+                    activeMenu: "Company Overview",
                     activeSubMenu: "Last Notifications",
                     carData: [],
                     }
       this.changeEmployee=this.changeEmployee.bind(this)
+      this.changeVehicle=this.changeVehicle.bind(this)
       this.changeTrip=this.changeTrip.bind(this)
       this.changePanel=this.changePanel.bind(this)
       this.changeActiveMenu=this.changeActiveMenu.bind(this)
@@ -58,6 +61,10 @@ constructor(props)
   changeTrip(newTrip)
   {
       this.setState({trip: newTrip});
+  }
+    
+  changeVehicle(newVehicle){
+      this.setState({vehicle: newVehicle})
   }
 
   //modify the panel that is currently shown
@@ -175,9 +182,15 @@ constructor(props)
         panel = <div>
                     <VehicleManagementHeader />
                     <VehicleManagementPanels
-                      changePanel={this.changePanel}/>
+                      changePanel={this.changePanel}
+                      changeVehicle={this.changeVehicle}/>
                 </div>
         map = <MapCars />
+    }
+        
+    if(this.state.panel=="Vehicle Panel"){
+        map = <MapPosition latitude="48.493607" longitude="11.868653"/>
+        panel = <div><VehicleDetails/></div>
     }
 
     //renders the trip management section in panel if it is active. It contains the list of trips
@@ -192,7 +205,7 @@ constructor(props)
                 </div>
     }
 
-   if(this.state.panel=="Overview Company")
+   if(this.state.panel=="Company Overview")
     {
         panel = <div>
                     <NotificationPanels

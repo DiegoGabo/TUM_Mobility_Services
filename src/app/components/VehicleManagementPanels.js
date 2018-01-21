@@ -11,40 +11,34 @@ export class VehicleManagementPanels extends React.Component {
      this.setState({listVehicles: []})
   }
 
-  //obtain the list of employees
+  //obtains the list of trips given the current employee
   componentDidMount()
   {
-      // fetch('https://bemostwanted.herokuapp.com/users')
-      //         .then(res => res.json())
-      //         .then(listEmployee => this.setState({listEmployee}))
+      let url = 'https://bemostwanted.herokuapp.com/api/cars'
+      fetch(url)
+          .then(res => res.json())
+          .then(listVehicles => this.setState({listVehicles}))
   }
-
-  render()
-  {
-    //create the list of employees
-    // let employeePanels
-    // try{
-    //   employeePanels = this.state.listEmployee.map((employee) =>
-    //                         <EmployeePanel
-    //                                 name={employee.name}
-    //                                 key={employee._id}
-    //                                 value={employee.id}
-    //                                 position={employee.position}
-    //                                 image={employee.image}
-    //                                 ranking={employee.id}
-    //                                 changePanel={this.props.changePanel}
-    //                                 changeEmployee={this.props.changeEmployee}/>)
-    // }
-    // catch(e){}
-
+    
+  render() 
+  { 
+    //creates the list of trips
+    let vehiclesPanels
+    try{
+      vehiclesPanels = this.state.listVehicles.map((vehicle) =>
+                            <VehiclePanel 
+                                key={vehicle.id}
+                                image={vehicle.image}
+                                vehicle={vehicle.vin}
+                                model={vehicle.model}
+                                changePanel={this.props.changePanel}
+                                changeVehicle={this.props.changeVehicle}
+                                />)
+    }
+    catch(e){}
     return (
       <div>
-        <VehiclePanel/>
-        <VehiclePanel/>
-        <VehiclePanel/>
-        <VehiclePanel/>
-        <VehiclePanel/>
-        <VehiclePanel/>
+        {vehiclesPanels}
       </div>
     );
   }

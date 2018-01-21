@@ -29,7 +29,7 @@ export class Navigation extends React.Component {
 
   handleClickLastNotifications(){
       this.props.changeActiveSubMenu("Last Notifications")
-      this.props.changePanel("Overview Company")
+      this.props.changePanel("Company Overview")
   }
 
   handleClickAverageKpiIndex(){
@@ -57,7 +57,7 @@ export class Navigation extends React.Component {
     let costOverviewActive = this.props.activeSubMenu == "Cost/Benefit Evaluation" ? "true" : "false";
 
     //Render the Overview Company section if it is active
-    if(this.props.activeMenu=="Overview Company")
+    if(this.props.activeMenu=="Company Overview")
     {
         OverviewMenu=
             <div>
