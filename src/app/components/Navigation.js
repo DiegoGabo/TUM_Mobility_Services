@@ -62,7 +62,7 @@ export class Navigation extends React.Component {
         OverviewMenu=
             <div>
               <div onClick={this.handleClickLastNotifications}><NavigationSubTitle title="Last Notifications"
-                                description="Emplyoees that show a bad driving behaviour and warnings of vehicles are listed."
+                                description="Emplyoees that show a bad driving behaviour <br/> and warnings of vehicles are listed."
                                 active={lastNotificationsActive}/></div>
               <div onClick={this.handleClickAverageKpiIndex}><NavigationSubTitle title="Key Driving Indicators"
                                 description="The average driving indicators of all trips are evaluated."

@@ -30,15 +30,18 @@ export class KpiPanels extends React.Component {
             <FuelPanel
                 title="Fuel Consumption"
                 value={this.props.fuel}
+                type="fuel"
             />
 
             <FuelPanel
                 title="Energy Consumption"
                 value={this.props.energy}
+                type="energy"
             />
 
             <FuelPanel
                 title="CO2-Emission Volume"
+                type="co2"
                 value={80}
             />
 

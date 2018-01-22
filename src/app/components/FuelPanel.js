@@ -9,10 +9,24 @@ export class FuelPanel extends React.Component {
 
   render() {
 
-    let fuelPercentage = this.props.value + '%'
-
+    let fuelPercentage
+    let threshold
     let thumb = ""
-    if (this.props.value < 7)
+    
+    if(this.props.type == "fuel"){
+        fuelPercentage = this.props.value / 20 * 100 + '%'
+        threshold = 12
+    }
+    if(this.props.type == "energy"){
+        fuelPercentage = this.props.value / 10 * 100 + '%'
+        threshold = 6
+    }
+    if(this.props.type == "co2"){
+        fuelPercentage = this.props.value / 150 * 100 + '%'
+        threshold = 90
+    }
+      
+    if (this.props.value < threshold)
     {
         thumb = <i className="fa fa-thumbs-o-up content_icon thumb_icon" aria-hidden="true"></i>
     }
@@ -20,6 +34,7 @@ export class FuelPanel extends React.Component {
     {
         thumb = <i className="fa fa-thumbs-o-down content_icon thumb_icon" aria-hidden="true"></i>
     }
+      
 
     return (
 

@@ -13,7 +13,7 @@ export class InfoButton extends React.Component {
           className="button infobutton"
           ref="target">
         <i data-tip data-for={this.props.id} className="fa fa-info-circle infobuttonsymbol" aria-hidden="true"></i>
-        <ReactTooltip id={this.props.id} type='info'>
+        <ReactTooltip id={this.props.id} html={true} type='info'>
             {this.props.description}
         </ReactTooltip>
         </div>
