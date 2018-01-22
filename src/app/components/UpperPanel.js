@@ -13,7 +13,7 @@ export class UpperPanel extends React.Component {
             {
               backgroundColor: ['white', '#595959'],
               borderColor: ['white', '#595959'],
-              data: [10,4],
+              data: [6,1],
             }
           ]
         },
@@ -23,7 +23,7 @@ export class UpperPanel extends React.Component {
             {
               backgroundColor: ['white', '#595959'],
               borderColor: ['white', '#595959'],
-              data: [50,8],
+              data: [10,3],
             }
           ]
         }
@@ -44,7 +44,7 @@ export class UpperPanel extends React.Component {
           <div className="panelHeaderName">
             <h3>New Notifications</h3>
           </div>
-          <div className = "newNotifications">4</div>
+          <div className = "newNotifications">1</div>
           <div className="notificationChart">
             <Doughnut
               data= {this.state.notificationData}
@@ -69,7 +69,7 @@ export class UpperPanel extends React.Component {
           <div className="panelHeaderName">
             <h3>New Employee Trips</h3>
           </div>
-          <div className = "newNotifications">8</div>
+          <div className = "newNotifications">3</div>
           <div className="tripChart">
             <Doughnut
               data= {this.state.tripData}

@@ -62,13 +62,13 @@ export class Navigation extends React.Component {
         OverviewMenu=
             <div>
               <div onClick={this.handleClickLastNotifications}><NavigationSubTitle title="Last Notifications"
-                                description="Emplyoees that show a bad driving behaviour <br/> and warnings of vehicles are listed."
+                                description="Employees that show a bad driving behaviour <br/> and warnings of vehicles are listed."
                                 active={lastNotificationsActive}/></div>
               <div onClick={this.handleClickAverageKpiIndex}><NavigationSubTitle title="Key Driving Indicators"
-                                description="The average driving indicators of all trips are evaluated."
+                                description="The average driving indicators of <br/> all trips are evaluated."
                                 active={averageKpiActive}/></div>
               <div onClick={this.handleClickCostOverview}><NavigationSubTitle title="Cost/Benefit Evaluation"
-                                description="Budget dashboard of the company fleet department."
+                                description="Budget dashboard of <br/> the company fleet department."
                                 active={costOverviewActive}/></div>
             </div>
     }
@@ -81,7 +81,7 @@ export class Navigation extends React.Component {
             EmployeeMenu=
                 <div>
                   <NavigationSubTitle title="All Employees"
-                                      description="Overview of all employees within the Fleet system"/>
+                                      description="Overview of all employees <br/> within the Fleet system"/>
                 </div>
         }
         else
@@ -91,10 +91,10 @@ export class Navigation extends React.Component {
                 EmployeeMenu=
                 <div>
                   <div onClick={this.handleClickPeopleManagement}><NavigationSubTitle title="All Employees"
-                                    description="Overview of all employees within the Fleet system"
+                                    description="Overview of all employees <br/> within the Fleet system"
                                     active="true"/></div>
                   <NavigationSubTitle title={this.props.employeeName}
-                                    description="All trips of the selected employee"
+                                    description="All trips of <br/> the selected employee"
                                     active="false" />
                 </div>
             }
@@ -103,13 +103,13 @@ export class Navigation extends React.Component {
                 EmployeeMenu=
                 <div>
                   <div onClick={this.handleClickPeopleManagement}><NavigationSubTitle title="All Employees"
-                                    description="Overview of all employees within the Fleet system"
+                                    description="Overview of all employees <br/> within the Fleet system"
                                     active="true"/></div>
                   <div onClick={this.handleClickEmployee}><NavigationSubTitle title={this.props.employeeName}
-                                    description="All trips of the selected employee"
+                                    description="All trips of <br/> the selected employee"
                                     active="true"/></div>
                   <NavigationSubTitle title={this.props.trip.substring(0, 10)}
-                                    description="Key Driving Indicators of the selected trip"
+                                    description="Key Driving Indicators <br/> of the selected trip"
                                     active="false" />
                 </div>
             }
@@ -124,19 +124,19 @@ export class Navigation extends React.Component {
         </div>
 
         <NavigationTitle title="Company Overview" icon="fa fa-building-o icon"
-                          description="Specific information regarding the whole company fleet are given. These include notifications, average driving statistcs and company impacts."
+                          description="Specific information regarding the whole company fleet are given. <br/> These include notifications, average driving statistcs  <br/> and company impacts."
                            handleClick={this.props.changeActiveMenu}/>
         {OverviewMenu}
         <hr className ="hr_Row"/>
 
         <NavigationTitle title="People Management" icon="fa fa-user-o icon"
-                          description="Specific employees can be selected as well as statistics to trips of each emyployee are given."
+                          description="Specific employees can be selected <br/> as well as statistics to trips of  <br/> each emyployee are given."
                           handleClick={this.props.changeActiveMenu}/>
         {EmployeeMenu}
         <hr className ="hr_Row"/>
 
         <NavigationTitle title="Vehicle Management" icon="fa fa-car icon"
-                          description="In this section, the status of vehicles within the car pool can be inpected."
+                          description="In this section, <br/> the status of vehicles within the car pool  <br/> can be inpected."
                           handleClick={this.props.changeActiveMenu}/>
 
       </div>
