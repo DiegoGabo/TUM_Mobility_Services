@@ -62,7 +62,7 @@ constructor(props)
   {
       this.setState({trip: newTrip});
   }
-    
+
   changeVehicle(newVehicle){
       this.setState({vehicle: newVehicle})
   }
@@ -94,8 +94,8 @@ constructor(props)
     let longitude = 11.568518
     let acceleration = 4
     let generalRisk = 2
-    let energy = 30
-    let fuel = 70
+    let energy = 3.71
+    let fuel = 10
     let employeeName
     let map
 
@@ -105,8 +105,8 @@ constructor(props)
         longitude = 11.568518
         acceleration = 4
         generalRisk = 2
-        energy = 30
-        fuel = 70
+        energy = 3.71
+        fuel = 10
         map = <UpperPanel/>
     }
     else
@@ -187,7 +187,7 @@ constructor(props)
                 </div>
         map = <MapCars />
     }
-        
+
     if(this.state.panel=="Vehicle Panel"){
         map = <MapPosition latitude="48.493607" longitude="11.868653"/>
         panel = <div><VehicleDetails/></div>

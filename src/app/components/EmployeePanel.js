@@ -37,11 +37,11 @@ export class EmployeePanel extends React.Component {
             <h4>{this.props.position}</h4>
          </div>
 
-         <div className="col-sm-1 content_panel_column">
+         <div className="col-sm-1 content_panel_column rank_column">
             <h4>{this.props.ranking}</h4>
          </div>
 
-         <div className="col-sm-1 content_panel_column">
+         <div className="col-sm-1 content_panel_column rank_column">
             <i className="fa fa-trash-o trashIcon" aria-hidden="true"></i>
          </div>
         </div>

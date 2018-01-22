@@ -33,7 +33,7 @@ export class FuelPanel extends React.Component {
             <h4 className="kpi_title">{this.props.title}</h4>
           </div>
           <div className = "star_panel_icons">
-            <div className="progress"><div className="progress-bar panel_bar" role="progressbar" aria-valuenow="70"aria-valuemin="0" aria-valuemax="60" style={{width: fuelPercentage}}></div></div>
+            <div className="progress"><div className="progress-bar panel_bar" role="progressbar" aria-valuenow="30"aria-valuemin="0" aria-valuemax="30" style={{width: fuelPercentage}}></div></div>
           </div>
         </div>
 

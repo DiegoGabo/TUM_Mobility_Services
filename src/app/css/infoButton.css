@@ -18,3 +18,8 @@
 a:link {
   text-decoration: none !important;
 }
+
+
+.infobutton ReactTooltip {
+  background-color: #428bca;
+}

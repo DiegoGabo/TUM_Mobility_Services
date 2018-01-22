@@ -38,3 +38,7 @@
   width: 100%;
   height: auto;
 }
+
+.rank_column {
+  padding-left: 40px !important;
+}
