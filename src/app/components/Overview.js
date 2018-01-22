@@ -82,6 +82,7 @@ constructor(props)
       this.changeEmployee("0","")
       this.changeTrip("0")
       this.changePanel(newMenu)
+      this.changeActiveSubMenu("Last Notifications")
   }
 
   changeActiveSubMenu(newSubMenu){

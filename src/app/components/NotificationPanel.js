@@ -34,7 +34,7 @@ export class NotificationPanel extends React.Component {
   render() {
     let value = this.props.value + 'px'
 
-    let fuel = <div className="progress"><div className="progress-bar panel_bar" role="progressbar" aria-valuenow="70"aria-valuemin="0" aria-valuemax="60" style={{width: value}}></div></div>
+    let fuel = <div className="progress"><div className="progress-bar panel_bar" role="progressbar" aria-valuenow="70"aria-valuemin="0" aria-valuemax="60" style={{width: this.props.value}}></div></div>
     let star = <div>{empty_star} {empty_star} {empty_star} {empty_star} {empty_star}</div>
 
     let bmwDescription = this.props.type == "Vehicle" ? "BMW" : ""
@@ -49,6 +49,7 @@ export class NotificationPanel extends React.Component {
         break;
       case 'Inspection of Braking System':
         graphics = brake;
+        break;
       case 'Low Charging State':
         graphics = energy;
         break;
