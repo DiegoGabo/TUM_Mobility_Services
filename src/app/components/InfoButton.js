@@ -1,42 +1,22 @@
 /*Component in which there are the information about acceleration and pre-emptive driving*/
 
 import React from 'react';
-import Popover from 'react-simple-popover';
+import ReactTooltip from 'react-tooltip'
 import '../css/infoButton.css';
 
 export class InfoButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      open: false
-    };
-  }
-
-  handleClick(e) {
-    this.setState({open: !this.state.open});
-  }
-
-  handleClose(e) {
-    this.setState({open: false});
-  }
 
   render() {
     return (
-      <div>
+      <div style={{zIndex:10}}>
         <div
           className="button infobutton"
           ref="target">
-          <i className="fa fa-info-circle infobuttonsymbol" aria-hidden="true"
-          onMouseOver={this.handleClick.bind(this)}
-          onMouseOut={this.handleClose.bind(this)}
-          ></i></div>
-        <Popover className = "infoPopover"
-          placement='left'
-          container={this}
-          target={this.refs.target}
-          show={this.state.open}>
-          <p>{this.props.description}</p>
-        </Popover>
+        <i data-tip data-for={this.props.id} className="fa fa-info-circle infobuttonsymbol" aria-hidden="true"></i>
+        <ReactTooltip id={this.props.id} type='info'>
+            {this.props.description}
+        </ReactTooltip>
+        </div>
       </div>
     );
   }

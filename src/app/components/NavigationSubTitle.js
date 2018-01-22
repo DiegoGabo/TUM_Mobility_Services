@@ -31,7 +31,7 @@ export class NavigationSubTitle extends React.Component {
             </div>
 
             <div className="col-sm-3 infoButtonSubTitle">
-                <InfoButton description={this.props.description}/>
+                <InfoButton description={this.props.description} id={this.props.title}/>
             </div>
 
           </div>
