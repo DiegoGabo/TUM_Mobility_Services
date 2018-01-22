@@ -39,7 +39,10 @@ export class StarPanel extends React.Component {
 
         <div className="col-sm-4 content_panel_column first_content_panel_column">
           <div>
-            <div className ="infoButton"><InfoButton description="text"/></div>
+            <div className ="infoButton">
+              <InfoButton description="0 stars implicate a bad, <br/> 2 stars a normal and <br/> 3 stars a good driving style"
+                      id="StarID"/>
+            </div>
             <h4 className="kpi_title">{this.props.title}</h4>
           </div>
           <div className = "star_panel_icons">

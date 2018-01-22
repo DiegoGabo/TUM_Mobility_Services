@@ -32,16 +32,30 @@ export class NotificationPanel extends React.Component {
   }
 
   render() {
-    let value = this.props.value + 'px'
+    let value
+    if(this.props.problem=="High Fuel Consumption"){
+        value = this.props.value.substring(0,2) / 25 * 100 + "%"
+    }
+      
+    else{
+        if(this.props.problem=="Low Fuel State"){
+            value = this.props.value.substring(0,1) + "%"
+        }
+        else{
+            value = this.props.value
+        }
+    }
 
     let fuel = <div className="progress"><div className="progress-bar panel_bar" role="progressbar" aria-valuenow="70"aria-valuemin="0" aria-valuemax="60" style={{width: value}}></div></div>
     let star = <div>{empty_star} {empty_star} {empty_star} {empty_star} {empty_star}</div>
-
     let bmwDescription = this.props.type == "Vehicle" ? "BMW" : ""
 
     let graphics = fuel;
     switch (this.props.problem) {
-      case '':
+      case 'High Fuel Consumption':
+        graphics = fuel;
+        break;
+      case 'Low Fuel State':
         graphics = fuel;
         break;
       case 'Bad Driving Behaviour':
@@ -49,6 +63,7 @@ export class NotificationPanel extends React.Component {
         break;
       case 'Inspection of Braking System':
         graphics = brake;
+        break;
       case 'Low Charging State':
         graphics = energy;
         break;

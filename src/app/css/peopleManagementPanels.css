@@ -1,0 +1,12 @@
+.sortIconPeopleHeader i:hover {
+  cursor: pointer;;
+}
+
+.sortIconPeopleHeader i {
+  color: #428bca !important;
+}
+
+.sortIconPeopleHeader {
+  margin-left: 0px !important;
+  padding-left: 0px !important;
+}

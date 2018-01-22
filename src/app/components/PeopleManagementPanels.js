@@ -1,7 +1,9 @@
 /*Component in which there are the information about acceleration and pre-emptive driving*/
 import {EmployeePanel} from './EmployeePanel'
 
+
 import React from 'react';
+ import '../css/peopleManagementPanels.css';
 
 export class PeopleManagementPanels extends React.Component {
 
@@ -12,6 +14,7 @@ export class PeopleManagementPanels extends React.Component {
                    order: "true",
                   })
     this.handleClick = this.handleClick.bind(this)
+
   }
 
   handleClick(){
@@ -34,6 +37,8 @@ export class PeopleManagementPanels extends React.Component {
 
   render()
   {
+    let sortIcon = <i className="fa fa-sort-numeric-asc icon" aria-hidden="true"></i>
+
     //create the list of employees
     let employeePanels
     try{
@@ -48,6 +53,8 @@ export class PeopleManagementPanels extends React.Component {
                                     ranking={employee.id}
                                     changePanel={this.props.changePanel}
                                     changeEmployee={this.props.changeEmployee}/>)
+
+            sortIcon = <i className="fa fa-sort-numeric-asc icon" aria-hidden="true"></i>
         }
         if (this.state.order == "false"){
              employeePanels = this.state.listEmployee.sort(function(a,b) {return (a.id < b.id) ? 1 : ((b.id < a.id) ? -1 : 0);} ).map((employee) =>
@@ -60,6 +67,9 @@ export class PeopleManagementPanels extends React.Component {
                                     ranking={employee.id}
                                     changePanel={this.props.changePanel}
                                     changeEmployee={this.props.changeEmployee}/>)
+
+
+            sortIcon = <i className="fa fa-sort-numeric-desc icon" aria-hidden="true"></i>
         }
 
     }
@@ -86,8 +96,11 @@ export class PeopleManagementPanels extends React.Component {
             <div className = "content_header_line"><hr/></div>
          </div>
 
-         <div className="col-sm-2 content_header_column">
-            <div className="col-sm-12" onClick={this.handleClick}><i className="fa fa-sort-numeric-asc icon" aria-hidden="true"></i></div>
+         <div className="col-sm-1 content_header_column">
+            <div className="sortIconPeopleHeader" onClick={this.handleClick}>{sortIcon}</div>
+         </div>
+
+         <div className="col-sm-1 content_header_column">
          </div>
 
         </div>

@@ -157,7 +157,10 @@ export class NotificationPanels extends React.Component {
     }
     let notificationPanels
     try{
-      notificationPanels = this.state.listNotifications.map((notification) =>
+      notificationPanels = this.state.listNotifications.sort(function(a,b) {return (a.date.substring(8,10) < b.date.substring(8,10) ) ? 1 : ((b.date.substring(8,10) < a.date.substring(8,10)) ? -1 : 0);} )
+          .sort(function(a,b) {return (a.date.substring(5,7) < b.date.substring(5,7) ) ? 1 : ((b.date.substring(5,7) < a.date.substring(5,7)) ? -1 : 0);} )
+          .sort(function(a,b) {return (a.date.substring(0,4) < b.date.substring(0,4) ) ? 1 : ((b.date.substring(0,4) < a.date.substring(0,4)) ? -1 : 0);} )
+          .map((notification) =>
                             <NotificationPanel
                                 changePanel={this.props.changePanel}
                                 changeEmployee={this.props.changeEmployee}

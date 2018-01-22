@@ -1,0 +1,35 @@
+.vehicleDetails {
+  padding-top: 20px;
+  height: 500px;
+  margin-left: 40px !important;
+  left: 20%;
+}
+
+
+.vehicleDetails .vehicle_name {
+  top: 20%;
+  left: 7%;
+}
+
+.vehicleDetails .vehicle_picture img {
+  width: 400px;
+}
+
+.vehicleDetails .vehicle_picture {
+  top: 10%;
+  left: 7%;
+}
+
+.vehicle_information1 {
+  top: 20%;
+  left: 5%;
+}
+
+.vehicle_information1 .icon {
+  font-size: 3em;
+}
+
+.vehicle_details {
+  /* padding-right: 300px !important; */
+  margin-right: 70px !important;
+}
