@@ -125,5 +125,5 @@ request.get(options, (error, response, body) => {
 	}
 
 })
-}, 30000)
+}, 600000)
 }
