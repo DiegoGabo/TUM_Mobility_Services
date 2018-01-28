@@ -166,6 +166,7 @@ export class NotificationPanels extends React.Component {
                                 changeEmployee={this.props.changeEmployee}
                                 changeTrip={this.props.changeTrip}
                                 changeActiveMenu={this.props.changeActiveMenu}
+                                changeVehicle={this.props.changeVehicle}
                                 date={notification.date}
                                 hour={notification.hour}
                                 name={notification.name}

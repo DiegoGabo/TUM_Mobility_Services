@@ -15,7 +15,8 @@ export class VehiclePanel extends React.Component {
   //modify the current employee selected and the current panel
   handleClick(e)
   {
-      this.props.changeVehicle(this.props.id)
+      console.log(this.props.trips)
+      this.props.changeVehicle(this.props.model, this.props.image, this.props.trips.length)
       this.props.changePanel("Vehicle Panel")
   }
     
@@ -31,7 +32,7 @@ export class VehiclePanel extends React.Component {
          </div>
 
          <div className="col-sm-3 content_panel_column">
-            <h4>{this.props.model}</h4>
+            <h4>BMW {this.props.model}</h4>
          </div>
 
          <div className="col-sm-3 content_panel_column">

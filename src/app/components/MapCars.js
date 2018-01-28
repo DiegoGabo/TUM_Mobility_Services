@@ -54,11 +54,6 @@ export class MapCars extends React.Component {
           lng={10.830042}
           draggable={true}
           />
-        <InfoWindow
-          lat={coords.lat}
-          lng={coords.lng}
-          content={'Last Position of the car'}
-          />
         <Circle
           lat={coords.lat}
           lng={coords.lng}

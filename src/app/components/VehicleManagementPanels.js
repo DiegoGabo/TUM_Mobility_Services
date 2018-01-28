@@ -31,6 +31,7 @@ export class VehicleManagementPanels extends React.Component {
                                 image={vehicle.image}
                                 vehicle={vehicle.vin}
                                 model={vehicle.model}
+                                trips={vehicle.trips}
                                 changePanel={this.props.changePanel}
                                 changeVehicle={this.props.changeVehicle}
                                 />)

@@ -36,6 +36,8 @@ constructor(props)
                     employeeName: "",
                     trip: "0",
                     vehicle: "0",
+                    vehicleImage: "0",
+                    vehicleState: "0",
                     panel: "Company Overview",
                     activeMenu: "Company Overview",
                     activeSubMenu: "Last Notifications",
@@ -63,8 +65,8 @@ constructor(props)
       this.setState({trip: newTrip});
   }
 
-  changeVehicle(newVehicle){
-      this.setState({vehicle: newVehicle})
+  changeVehicle(newVehicle, newImage, newState){
+      this.setState({vehicle: newVehicle, vehicleImage: newImage, vehicleState: newState})
   }
 
   //modify the panel that is currently shown
@@ -191,7 +193,10 @@ constructor(props)
 
     if(this.state.panel=="Vehicle Panel"){
         map = <MapPosition latitude="48.493607" longitude="11.868653"/>
-        panel = <div><VehicleDetails/></div>
+        panel = <div><VehicleDetails 
+            vehicle={this.state.vehicle}
+            image={this.state.vehicleImage}
+            state={this.state.vehicleState}/></div>
     }
 
     //renders the trip management section in panel if it is active. It contains the list of trips
@@ -214,7 +219,8 @@ constructor(props)
                       changeEmployee={this.changeEmployee}
                       changeTrip={this.changeTrip}
                       changeActiveMenu={this.changeActiveMenu}
-                      changeActiveSubMenu={this.changeActiveSubMenu}/>
+                      changeActiveSubMenu={this.changeActiveSubMenu}
+                      changeVehicle={this.changeVehicle}/>
                 </div>
     }
 

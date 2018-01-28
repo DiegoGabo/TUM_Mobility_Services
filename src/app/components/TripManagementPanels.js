@@ -25,13 +25,15 @@ export class TripManagementPanels extends React.Component {
     //creates the list of trips
     let tripPanels
     try{
-      tripPanels = this.state.listTrips.map((trip) =>
+      tripPanels = this.state.listTrips
+          .map((trip) =>
                             <TripPanel 
                                     key={trip.id}
                                     date={trip.create_date}
                                     vehicle={trip.vinBmw}
                                     changePanel={this.props.changePanel}
                                     changeTrip={this.props.changeTrip}/>)
+        tripPanels.reverse()
     }
     catch(e){}
     return (
