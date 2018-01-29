@@ -127,6 +127,15 @@ router.get('/:_id/trips', (req,res)=>{
 	})
 })
 
+//trips of a car
+router.get('/:_id/trips/last', (req,res)=>{
+	Car.findOne(req.params).populate('trips').exec((err,result)=>{
+			if(err) return console.log(err)
+			count = result.trips.length
+			res.send(result.trips[count-1])
+	})
+})
+
 //Getting the data from the form in main.html
 //reach the query of the form by req.query function
 //fetching the results from db
