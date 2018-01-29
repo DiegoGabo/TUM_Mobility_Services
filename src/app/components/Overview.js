@@ -18,6 +18,7 @@ import  {NotificationPanels} from './NotificationPanels';
 import  {VehicleManagementPanels} from './VehicleManagementPanels';
 import  {VehicleManagementHeader} from './VehicleManagementHeader';
 import  {VehicleDetails} from './VehicleDetails';
+import  {ConfigurationPanel} from './ConfigurationPanel';
 import  {Footer} from './Footer';
 
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -101,6 +102,7 @@ constructor(props)
     let fuel = 10
     let employeeName
     let map
+    let configurationPanel = <div></div>
 
     if(this.state.employee == "0")
     {
@@ -213,6 +215,7 @@ constructor(props)
 
    if(this.state.panel=="Company Overview")
     {
+        configurationPanel = <ConfigurationPanel />
         panel = <div>
                     <NotificationPanels
                       changePanel={this.changePanel}
@@ -261,6 +264,7 @@ constructor(props)
             employeeName={this.state.employeeName}
             trip={this.state.trip}
           />
+          {configurationPanel}
         </div>
 
         <div className="col-sm-9">
