@@ -15,8 +15,7 @@ export class VehiclePanel extends React.Component {
   //modify the current employee selected and the current panel
   handleClick(e)
   {
-      console.log(this.props.trips)
-      this.props.changeVehicle(this.props.model, this.props.image, this.props.trips.length)
+      this.props.changeVehicle(this.props.id, this.props.image, this.props.model)
       this.props.changePanel("Vehicle Panel")
   }
     

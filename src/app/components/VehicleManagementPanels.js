@@ -27,7 +27,7 @@ export class VehicleManagementPanels extends React.Component {
     try{
       vehiclesPanels = this.state.listVehicles.map((vehicle) =>
                             <VehiclePanel 
-                                key={vehicle.id}
+                                id={vehicle._id}
                                 image={vehicle.image}
                                 vehicle={vehicle.vin}
                                 model={vehicle.model}
