@@ -18,7 +18,7 @@ export class FuelPanel extends React.Component {
         threshold = 12
     }
     if(this.props.type == "energy"){
-        fuelPercentage = this.props.value / 10 * 100 + '%'
+        fuelPercentage = this.props.value  + '%'
         threshold = 6
     }
     if(this.props.type == "co2"){
