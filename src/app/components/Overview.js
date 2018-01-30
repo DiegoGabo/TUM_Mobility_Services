@@ -38,11 +38,14 @@ constructor(props)
                     trip: "0",
                     vehicle: "0",
                     vehicleImage: "0",
-                    vehicleState: "0",
+                    vehicleModel: "",
+                    gpsLat: "0",
+                    gpsLng: "0",
                     panel: "Company Overview",
                     activeMenu: "Company Overview",
                     activeSubMenu: "Last Notifications",
                     carData: [],
+                    lastTrip: [],
                     }
       this.changeEmployee=this.changeEmployee.bind(this)
       this.changeVehicle=this.changeVehicle.bind(this)
@@ -50,6 +53,7 @@ constructor(props)
       this.changePanel=this.changePanel.bind(this)
       this.changeActiveMenu=this.changeActiveMenu.bind(this)
       this.changeActiveSubMenu=this.changeActiveSubMenu.bind(this)
+      this.changeGPS=this.changeGPS.bind(this)
   }
 
   //modify employee state
@@ -59,6 +63,10 @@ constructor(props)
       this.setState({ employeeName: newEmployeeName});
       this.setState({trip: "0"})
   }
+    
+  changeGPS(lat, lng){
+      this.setState({gpsLat: lat, gpsLng: lng})
+  }
 
   //modify trip state
   changeTrip(newTrip)
@@ -66,8 +74,9 @@ constructor(props)
       this.setState({trip: newTrip});
   }
 
-  changeVehicle(newVehicle, newImage, newState){
-      this.setState({vehicle: newVehicle, vehicleImage: newImage, vehicleState: newState})
+  changeVehicle(newVehicle, newImage, newModel){
+      console.log(newVehicle)
+      this.setState({vehicle: newVehicle, vehicleImage: newImage, vehicleModel: newModel})
   }
 
   //modify the panel that is currently shown
@@ -194,11 +203,33 @@ constructor(props)
     }
 
     if(this.state.panel=="Vehicle Panel"){
-        map = <MapPosition latitude="48.493607" longitude="11.868653"/>
+        
+        let url = 'https://bemostwanted.herokuapp.com/api/' + this.state.vehicle + '/trips/last'
+        fetch(url).then(res => res.json()).then(lastTrip => this.setState({lastTrip}))
+        let lat=48.19284
+        let lng=11.568518
+        let vin="BM12345"
+        let fuel=20
+        let charge=30
+        try{
+            lat = this.state.lastTrip.gpsLat
+            lng = this.state.lastTrip.gpsLng
+            fuel = this.state.lastTrip.remainingFuel
+            charge = this.state.lastTrip.lastTripElectricEnergyConsumptionOverall
+            vin = this.state.lastTrip.vinBmw
+        }
+        catch(e){}
+        
         panel = <div><VehicleDetails 
             vehicle={this.state.vehicle}
+            model={this.state.vehicleModel}
             image={this.state.vehicleImage}
-            state={this.state.vehicleState}/></div>
+            vin={vin}
+            fuel={fuel}
+            charge={charge}
+            changeGPS={this.changeGPS}
+            /></div>
+        map = <MapPosition latitude={lat} longitude={lng}/>
     }
 
     //renders the trip management section in panel if it is active. It contains the list of trips

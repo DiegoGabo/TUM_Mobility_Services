@@ -23,11 +23,9 @@ export class ConfigurationPanel extends React.Component {
         <ConfigurationSlider min={1} max={20} value={14} title="Fuel Consumption" />
         <ConfigurationSlider min={1} max={5} value={3} title="Driving Behaviour"/>
         
-        <NavigationTitle title="Braking System" icon="fa fa-car icon" description="Set the thresholds for vehicle notifications"/>
+        <NavigationTitle title="Vehicle Notifications" icon="fa fa-car icon" description="Set the thresholds for vehicle notifications"/>
         <ConfigurationSlider min={1} max={100} value={20} title="Fuel State" />
         <ConfigurationSlider min={1} max={100} value={30} title="Charging State" />
-        <ConfigurationSlider min={1} max={5} value={3} title="Driving Behaviour"/>
-
       </div>
     );
   }

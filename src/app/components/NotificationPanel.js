@@ -28,7 +28,7 @@ export class NotificationPanel extends React.Component {
       else{
           this.props.changeActiveMenu("Vehicle Management")
           this.props.changePanel("Vehicle Panel")
-          this.props.changeVehicle(this.props.name, this.props.photo, 9)
+          this.props.changeVehicle(this.props.vin, this.props.photo, this.props.name)
       }
   }
 

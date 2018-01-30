@@ -170,6 +170,7 @@ export class NotificationPanels extends React.Component {
                                 date={notification.date}
                                 hour={notification.hour}
                                 name={notification.name}
+                                vin={notification.triporvehicleNumber}
                                 id={notification.id}
                                 type={notification.type}
                                 problem={notification.problem}
