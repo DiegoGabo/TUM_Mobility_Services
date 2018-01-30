@@ -169,8 +169,14 @@ constructor(props)
     //renders the kpi management section in panel if it is active.
     if(this.state.panel=="Kpi Management")
     {
+        if(fuel==null || fuel==0){
+            fuel=10
+        }
+        if(energy==null||energy==0){
+            energy=45
+        }
         panel = <div>
-                    <KpiHeader employee={this.state.employee}/>
+                    <KpiHeader employee={this.state.employeeName}/>
                     <KpiPanels
                     acceleration={acceleration}
                     generalRisk={generalRisk}
@@ -214,7 +220,7 @@ constructor(props)
         try{
             lat = this.state.lastTrip.gpsLat
             lng = this.state.lastTrip.gpsLng
-            fuel = this.state.lastTrip.remainingFuel
+            fuel = this.state.lastTrip.fuelConsumption
             charge = this.state.lastTrip.lastTripElectricEnergyConsumptionOverall
             vin = this.state.lastTrip.vinBmw
         }
@@ -266,7 +272,7 @@ constructor(props)
     if(this.state.panel=="Key Driving Indicators")
     {
         panel = <div>
-                    <KpiHeader employee={this.state.employee}/>
+                    <KpiHeader employee="Overview Rating"/>
                     <KpiPanels
                     acceleration={acceleration}
                     generalRisk={generalRisk}
