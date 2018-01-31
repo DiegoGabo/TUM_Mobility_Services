@@ -108,7 +108,7 @@ export class Navigation extends React.Component {
                   <div onClick={this.handleClickEmployee}><NavigationSubTitle title={this.props.employeeName}
                                     description="All trips of <br/> the selected employee"
                                     active="true"/></div>
-                  <NavigationSubTitle title={this.props.trip.substring(0, 10)}
+                  <NavigationSubTitle title={this.props.tripDate.substring(0, 10)}
                                     description="Key Driving Indicators <br/> of the selected trip"
                                     active="false" />
                 </div>

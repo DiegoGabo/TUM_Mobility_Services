@@ -28,7 +28,7 @@ export class TripManagementPanels extends React.Component {
       tripPanels = this.state.listTrips
           .map((trip) =>
                             <TripPanel 
-                                    key={trip.id}
+                                    id={trip._id}
                                     date={trip.create_date}
                                     vehicle={trip.vinBmw}
                                     changePanel={this.props.changePanel}

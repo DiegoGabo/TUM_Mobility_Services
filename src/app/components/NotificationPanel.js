@@ -23,7 +23,7 @@ export class NotificationPanel extends React.Component {
           this.props.changeActiveMenu("People Management")
           this.props.changePanel("Kpi Management")
           this.props.changeEmployee(this.props.id, this.props.name)
-          this.props.changeTrip(this.props.date)
+          this.props.changeTrip(this.props.vin, this.props.date)
       }
       else{
           this.props.changeActiveMenu("Vehicle Management")

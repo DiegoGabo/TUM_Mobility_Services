@@ -36,6 +36,7 @@ constructor(props)
       this.state = {employee: "0",
                     employeeName: "",
                     trip: "0",
+                    tripDate: "0",
                     vehicle: "0",
                     vehicleImage: "0",
                     vehicleModel: "",
@@ -67,11 +68,11 @@ constructor(props)
   changeGPS(lat, lng){
       this.setState({gpsLat: lat, gpsLng: lng})
   }
-
+    
   //modify trip state
-  changeTrip(newTrip)
+  changeTrip(newTrip, newDate)
   {
-      this.setState({trip: newTrip});
+      this.setState({trip: newTrip, tripDate: newDate});
   }
 
   changeVehicle(newVehicle, newImage, newModel){
@@ -147,7 +148,6 @@ constructor(props)
         {
             //obtains data from DB when employee and trip are selected
             let tripUrl = 'https://bemostwanted.herokuapp.com/api/' + this.state.trip
-            console.log(tripUrl)
             fetch(tripUrl)
                 .then(res => res.json())
                 .then(carData => this.setState({carData}))
@@ -301,6 +301,7 @@ constructor(props)
             employee={this.state.employee}
             employeeName={this.state.employeeName}
             trip={this.state.trip}
+            tripDate={this.state.tripDate}
           />
           {configurationPanel}
         </div>

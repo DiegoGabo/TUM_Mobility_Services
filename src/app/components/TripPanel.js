@@ -22,7 +22,7 @@ export class TripPanel extends React.Component {
   handleClick(e)
   {
       this.props.changePanel("Kpi Management")
-      this.props.changeTrip(this.props.date)
+      this.props.changeTrip(this.props.id, this.props.date)
   }
 
   render() {
