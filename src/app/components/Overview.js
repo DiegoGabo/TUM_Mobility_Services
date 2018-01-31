@@ -36,6 +36,7 @@ constructor(props)
       this.state = {employee: "0",
                     employeeName: "",
                     trip: "0",
+                    tripDate: "0",
                     vehicle: "0",
                     vehicleImage: "0",
                     vehicleModel: "",
@@ -67,11 +68,11 @@ constructor(props)
   changeGPS(lat, lng){
       this.setState({gpsLat: lat, gpsLng: lng})
   }
-
+    
   //modify trip state
-  changeTrip(newTrip)
+  changeTrip(newTrip, newDate)
   {
-      this.setState({trip: newTrip});
+      this.setState({trip: newTrip, tripDate: newDate});
   }
 
   changeVehicle(newVehicle, newImage, newModel){
@@ -106,9 +107,9 @@ constructor(props)
     let latitude = 48.19284
     let longitude = 11.568518
     let acceleration = 4
-    let generalRisk = 2
+    let generalRisk = 0
     let energy = 3.71
-    let fuel = 10
+    let fuel = 20
     let employeeName
     let map
     let configurationPanel = <div></div>
@@ -300,6 +301,7 @@ constructor(props)
             employee={this.state.employee}
             employeeName={this.state.employeeName}
             trip={this.state.trip}
+            tripDate={this.state.tripDate}
           />
           {configurationPanel}
         </div>
