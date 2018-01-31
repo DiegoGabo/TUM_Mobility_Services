@@ -106,9 +106,9 @@ constructor(props)
     let latitude = 48.19284
     let longitude = 11.568518
     let acceleration = 4
-    let generalRisk = 2
+    let generalRisk = 0
     let energy = 3.71
-    let fuel = 10
+    let fuel = 20
     let employeeName
     let map
     let configurationPanel = <div></div>
@@ -147,6 +147,7 @@ constructor(props)
         {
             //obtains data from DB when employee and trip are selected
             let tripUrl = 'https://bemostwanted.herokuapp.com/api/' + this.state.trip
+            console.log(tripUrl)
             fetch(tripUrl)
                 .then(res => res.json())
                 .then(carData => this.setState({carData}))
