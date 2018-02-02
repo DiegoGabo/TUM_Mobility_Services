@@ -138,7 +138,7 @@ constructor(props)
                 acceleration = this.state.carData[last].segmentLastTripAccelerationStars;
                 generalRisk=this.state.carData[last].lastTripBrakingStars;
                 energy=this.state.carData[last].remainingRange;
-                fuel=this.state.carData[last].remainingFuel;
+                fuel=this.state.carData[last].fuelConsumption
                 latitude=this.state.carData[last].gpsLat;
                 longitude=this.state.carData[last].gpsLng
             } catch(e) {}
@@ -156,7 +156,7 @@ constructor(props)
                 acceleration = this.state.carData[last].segmentLastTripAccelerationStars;
                 generalRisk=this.state.carData[last].lastTripBrakingStars;
                 energy=this.state.carData[last].remainingRange;
-                fuel=this.state.carData[last].remainingFuel;
+                fuel=this.state.carData[last].fuelConsumption;
                 latitude=this.state.carData[last].gpsLat;
                 longitude=this.state.carData[last].gpsLng
             } catch(e) {}

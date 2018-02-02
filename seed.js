@@ -54,6 +54,7 @@ exports.seedNotifications = function(){
      {id:'5',date: '2017-12-21',hour: '18:30', name: '120d', problem:'Low Fuel State', value:'7l', type:'Vehicle', photo:'http://oumma-city.com/wp-content/uploads/2017/07/2012-bmw-1-series-coupe-11-bmw-1-series-e82-2010-2013.jpg', triporvehicleNumber:'5a40c7444216fa001599ccda', employeeNum:'' },
      {id:'6',date: '2018-01-12',hour: '09:30', name: 'Christoph Pflügler', problem:'Bad Driving Behaviour', value:'0', type:'Employee', photo:'https://s3.eu-central-1.amazonaws.com/fleetme/ChristophPhoto.jpeg',triporvehicleNumber:'5a53bf247601940015bdd4e2', employeeNum:'2' },
      {id:'7',date: '2017-12-20',hour: '13:30', name: 'Asad Khaliq', problem:'High Fuel Consumption', value:'20l/100km', type:'Employee', photo:'https://s3.eu-central-1.amazonaws.com/fleetme/asadphoto.png',triporvehicleNumber:'5a61e485e4092503d89b05e7', employeeNum:'7' },
+     //{id:'8',date: '2018-01-19T',hour: '12:28:53.549Z', name: 'Asad Khaliq', problem:'High Fuel Consumption', value:'20l/100km', type:'Employee', photo:'https://s3.eu-central-1.amazonaws.com/fleetme/asadphoto.png',triporvehicleNumber:'5a61e485e4092503d89b05e7', employeeNum:'7' },
      ]
      for(notification of notifications){
           var newNotification= new Notification(notification)
