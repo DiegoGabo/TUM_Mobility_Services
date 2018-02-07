@@ -15,7 +15,7 @@ export class ConfigurationPanel extends React.Component {
     return (
       <div className="navigation_all">
 
-        <div className="navigation_title">
+        <div className="navigation_title" style={{backgroundColor: "#f5f5f5"}}>
             <h2 className="navigation_title-text">Configuration</h2>
         </div>
 

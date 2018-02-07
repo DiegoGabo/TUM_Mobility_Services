@@ -10,20 +10,24 @@ export class FuelPanel extends React.Component {
   render() {
 
     let fuelPercentage
+    let measure
     let threshold
     let thumb = ""
 
     if(this.props.type == "fuel"){
         fuelPercentage = this.props.value / 20 * 100 + '%'
         threshold = 12
+        measure=" l"
     }
     if(this.props.type == "energy"){
         fuelPercentage = this.props.value  + '%'
         threshold = 6
+        measure=" kWh"
     }
     if(this.props.type == "co2"){
         fuelPercentage = this.props.value / 150 * 100 + '%'
         threshold = 90
+        measure=""
     }
 
     if (this.props.value < threshold)
@@ -54,7 +58,7 @@ export class FuelPanel extends React.Component {
         </div>
 
         <div className="col-sm-4 content_panel_column">
-          <h3>{this.props.value} on 100km</h3>
+          <h3>{this.props.value}{measure} on 100km</h3>
         </div>
 
         <div className="col-sm-4 content_panel_column">
