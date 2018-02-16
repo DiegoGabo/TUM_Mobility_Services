@@ -213,19 +213,22 @@ constructor(props)
         
         let url = 'https://bemostwanted.herokuapp.com/api/' + this.state.vehicle + '/trips/last'
         fetch(url).then(res => res.json()).then(lastTrip => this.setState({lastTrip}))
-        let lat=48.19284
+        let latitude=48.19284
         let lng=11.568518
         let vin="BM12345"
         let fuel=20
         let charge=30
         try{
-            lat = this.state.lastTrip.gpsLat
+            latitude = this.state.lastTrip.gpsLat
             lng = this.state.lastTrip.gpsLng
+            console.log(lng)
             fuel = this.state.lastTrip.fuelConsumption
             charge = this.state.lastTrip.lastTripElectricEnergyConsumptionOverall
             vin = this.state.lastTrip.vinBmw
         }
         catch(e){}
+        
+        map = <MapPosition latitude={48.19284} longitude={11.568518}/>
         
         panel = <div><VehicleDetails 
             vehicle={this.state.vehicle}
@@ -236,7 +239,7 @@ constructor(props)
             charge={charge}
             changeGPS={this.changeGPS}
             /></div>
-        map = <MapPosition latitude={lat} longitude={lng}/>
+        
     }
 
     //renders the trip management section in panel if it is active. It contains the list of trips
