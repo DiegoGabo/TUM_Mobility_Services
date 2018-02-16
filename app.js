@@ -70,11 +70,11 @@ const options5 = {
 	KeyId: 'c4157993-3fd8-4cbe-95bf-643a73fcb788'
 }}
 fetch = require("./fetchdata")
-fetch.fetchBMWdata(options1)
-fetch.fetchBMWdata(options2)
+//fetch.fetchBMWdata(options1)
+//fetch.fetchBMWdata(options2)
 //fetch.fetchBMWdata(options3)
-fetch.fetchBMWdata(options4)
-fetch.fetchBMWdata(options5)
+//fetch.fetchBMWdata(options4)
+//fetch.fetchBMWdata(options5)
 
 //Lets visualize the data
 // app.get('/', (req, res) => {

@@ -57064,13 +57064,17 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         this.state = { employee: "0",
             employeeName: "",
             trip: "0",
+            tripDate: "0",
             vehicle: "0",
             vehicleImage: "0",
-            vehicleState: "0",
+            vehicleModel: "",
+            gpsLat: "0",
+            gpsLng: "0",
             panel: "Company Overview",
             activeMenu: "Company Overview",
             activeSubMenu: "Last Notifications",
-            carData: []
+            carData: [],
+            lastTrip: []
         };
         this.changeEmployee = this.changeEmployee.bind(this);
         this.changeVehicle = this.changeVehicle.bind(this);
@@ -57078,6 +57082,7 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         this.changePanel = this.changePanel.bind(this);
         this.changeActiveMenu = this.changeActiveMenu.bind(this);
         this.changeActiveSubMenu = this.changeActiveSubMenu.bind(this);
+        this.changeGPS = this.changeGPS.bind(this);
     }
 
     //modify employee state
@@ -57087,13 +57092,18 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         this.setState({ trip: "0" });
     }
 
-    //modify trip state
-    changeTrip(newTrip) {
-        this.setState({ trip: newTrip });
+    changeGPS(lat, lng) {
+        this.setState({ gpsLat: lat, gpsLng: lng });
     }
 
-    changeVehicle(newVehicle, newImage, newState) {
-        this.setState({ vehicle: newVehicle, vehicleImage: newImage, vehicleState: newState });
+    //modify trip state
+    changeTrip(newTrip, newDate) {
+        this.setState({ trip: newTrip, tripDate: newDate });
+    }
+
+    changeVehicle(newVehicle, newImage, newModel) {
+        console.log(newVehicle);
+        this.setState({ vehicle: newVehicle, vehicleImage: newImage, vehicleModel: newModel });
     }
 
     //modify the panel that is currently shown
@@ -57121,9 +57131,9 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         let latitude = 48.19284;
         let longitude = 11.568518;
         let acceleration = 4;
-        let generalRisk = 2;
+        let generalRisk = 0;
         let energy = 3.71;
-        let fuel = 10;
+        let fuel = 20;
         let employeeName;
         let map;
         let configurationPanel = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null);
@@ -57146,7 +57156,7 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                     acceleration = this.state.carData[last].segmentLastTripAccelerationStars;
                     generalRisk = this.state.carData[last].lastTripBrakingStars;
                     energy = this.state.carData[last].remainingRange;
-                    fuel = this.state.carData[last].remainingFuel;
+                    fuel = this.state.carData[last].fuelConsumption;
                     latitude = this.state.carData[last].gpsLat;
                     longitude = this.state.carData[last].gpsLng;
                 } catch (e) {}
@@ -57160,7 +57170,7 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                     acceleration = this.state.carData[last].segmentLastTripAccelerationStars;
                     generalRisk = this.state.carData[last].lastTripBrakingStars;
                     energy = this.state.carData[last].remainingRange;
-                    fuel = this.state.carData[last].remainingFuel;
+                    fuel = this.state.carData[last].fuelConsumption;
                     latitude = this.state.carData[last].gpsLat;
                     longitude = this.state.carData[last].gpsLng;
                 } catch (e) {}
@@ -57173,10 +57183,16 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
         //renders the kpi management section in panel if it is active.
         if (this.state.panel == "Kpi Management") {
+            if (fuel == null || fuel == 0) {
+                fuel = 10;
+            }
+            if (energy == null || energy == 0) {
+                energy = 45;
+            }
             panel = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__KpiHeader__["a" /* KpiHeader */], { employee: this.state.employee }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__KpiHeader__["a" /* KpiHeader */], { employee: this.state.employeeName }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__KpiPanels__["a" /* KpiPanels */], {
                     acceleration: acceleration,
                     generalRisk: generalRisk,
@@ -57211,15 +57227,36 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         }
 
         if (this.state.panel == "Vehicle Panel") {
-            map = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__MapPosition__["a" /* MapPosition */], { latitude: '48.493607', longitude: '11.868653' });
+
+            let url = 'https://bemostwanted.herokuapp.com/api/' + this.state.vehicle + '/trips/last';
+            fetch(url).then(res => res.json()).then(lastTrip => this.setState({ lastTrip }));
+            let lat = 48.19284;
+            let lng = 11.568518;
+            let vin = "BM12345";
+            let fuel = 20;
+            let charge = 30;
+            try {
+                lat = this.state.lastTrip.gpsLat;
+                lng = this.state.lastTrip.gpsLng;
+                fuel = this.state.lastTrip.fuelConsumption;
+                charge = this.state.lastTrip.lastTripElectricEnergyConsumptionOverall;
+                vin = this.state.lastTrip.vinBmw;
+            } catch (e) {}
+
             panel = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_16__VehicleDetails__["a" /* VehicleDetails */], {
                     vehicle: this.state.vehicle,
+                    model: this.state.vehicleModel,
                     image: this.state.vehicleImage,
-                    state: this.state.vehicleState })
+                    vin: vin,
+                    fuel: fuel,
+                    charge: charge,
+                    changeGPS: this.changeGPS
+                })
             );
+            map = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__MapPosition__["a" /* MapPosition */], { latitude: lat, longitude: lng });
         }
 
         //renders the trip management section in panel if it is active. It contains the list of trips
@@ -57258,7 +57295,7 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
             panel = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__KpiHeader__["a" /* KpiHeader */], { employee: this.state.employee }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__KpiHeader__["a" /* KpiHeader */], { employee: 'Overview Rating' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__KpiPanels__["a" /* KpiPanels */], {
                     acceleration: acceleration,
                     generalRisk: generalRisk,
@@ -57290,7 +57327,8 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                         activeSubMenu: this.state.activeSubMenu,
                         employee: this.state.employee,
                         employeeName: this.state.employeeName,
-                        trip: this.state.trip
+                        trip: this.state.trip,
+                        tripDate: this.state.tripDate
                     }),
                     configurationPanel
                 ),
@@ -78458,20 +78496,24 @@ class FuelPanel extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
   render() {
 
     let fuelPercentage;
+    let measure;
     let threshold;
     let thumb = "";
 
     if (this.props.type == "fuel") {
       fuelPercentage = this.props.value / 20 * 100 + '%';
       threshold = 12;
+      measure = " l";
     }
     if (this.props.type == "energy") {
-      fuelPercentage = this.props.value / 10 * 100 + '%';
+      fuelPercentage = this.props.value + '%';
       threshold = 6;
+      measure = " kWh";
     }
     if (this.props.type == "co2") {
       fuelPercentage = this.props.value / 150 * 100 + '%';
       threshold = 90;
+      measure = "";
     }
 
     if (this.props.value < threshold) {
@@ -78521,6 +78563,7 @@ class FuelPanel extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
             'h3',
             null,
             this.props.value,
+            measure,
             ' on 100km'
           )
         ),
@@ -79278,7 +79321,7 @@ class Navigation extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
                                 description: 'All trips of <br/> the selected employee',
                                 active: 'true' })
                         ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__NavigationSubTitle__["a" /* NavigationSubTitle */], { title: this.props.trip.substring(0, 10),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__NavigationSubTitle__["a" /* NavigationSubTitle */], { title: this.props.tripDate.substring(0, 10),
                             description: 'Key Driving Indicators <br/> of the selected trip',
                             active: 'false' })
                     );
@@ -79639,18 +79682,6 @@ class KpiHeader extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
 
   render() {
 
-    let name;
-    switch (this.props.employee) {
-      case "1":
-        name = "Marcus Aurelius";break;
-      case "2":
-        name = "Max";break;
-      case "3":
-        name = "Christoph";break;
-      default:
-        name = "Overall Rating";
-    }
-
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       null,
@@ -79671,7 +79702,7 @@ class KpiHeader extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'h3',
               null,
-              name
+              this.props.employee
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null)
           )
@@ -80127,7 +80158,7 @@ class TripManagementPanels extends __WEBPACK_IMPORTED_MODULE_1_react___default.a
     let tripPanels;
     try {
       tripPanels = this.state.listTrips.map(trip => __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0__TripPanel__["a" /* TripPanel */], {
-        key: trip.id,
+        id: trip._id,
         date: trip.create_date,
         vehicle: trip.vinBmw,
         changePanel: this.props.changePanel,
@@ -80173,7 +80204,7 @@ class TripPanel extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
   //if you click on the trip panel it changes the current trip and the panel in "Kpi management"
   handleClick(e) {
     this.props.changePanel("Kpi Management");
-    this.props.changeTrip(this.props.date);
+    this.props.changeTrip(this.props.id, this.props.date);
   }
 
   render() {
@@ -80698,6 +80729,7 @@ class NotificationPanels extends __WEBPACK_IMPORTED_MODULE_2_react___default.a.C
                 date: notification.date,
                 hour: notification.hour,
                 name: notification.name,
+                vin: notification.triporvehicleNumber,
                 id: notification.id,
                 type: notification.type,
                 problem: notification.problem,
@@ -80842,11 +80874,11 @@ class NotificationPanel extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Co
       this.props.changeActiveMenu("People Management");
       this.props.changePanel("Kpi Management");
       this.props.changeEmployee(this.props.id, this.props.name);
-      this.props.changeTrip(this.props.date);
+      this.props.changeTrip(this.props.vin, this.props.date);
     } else {
       this.props.changeActiveMenu("Vehicle Management");
       this.props.changePanel("Vehicle Panel");
-      this.props.changeVehicle(this.props.name, this.props.photo, 9);
+      this.props.changeVehicle(this.props.vin, this.props.photo, this.props.name);
     }
   }
 
@@ -81147,7 +81179,7 @@ class VehicleManagementPanels extends __WEBPACK_IMPORTED_MODULE_1_react___defaul
     let vehiclesPanels;
     try {
       vehiclesPanels = this.state.listVehicles.map(vehicle => __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0__VehiclePanel__["a" /* VehiclePanel */], {
-        key: vehicle.id,
+        id: vehicle._id,
         image: vehicle.image,
         vehicle: vehicle.vin,
         model: vehicle.model,
@@ -81192,8 +81224,7 @@ class VehiclePanel extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compone
 
   //modify the current employee selected and the current panel
   handleClick(e) {
-    console.log(this.props.trips);
-    this.props.changeVehicle(this.props.model, this.props.image, this.props.trips.length);
+    this.props.changeVehicle(this.props.id, this.props.image, this.props.model);
     this.props.changePanel("Vehicle Panel");
   }
 
@@ -81416,7 +81447,33 @@ class VehicleManagementHeader extends __WEBPACK_IMPORTED_MODULE_0_react___defaul
 
 class VehicleDetails extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
+  constructor(props) {
+    super(props);
+    this.setState({ lastTrip: [] });
+  }
+
+  //obtains the list of trips given the current employee
+  componentDidMount() {
+    let url = 'https://bemostwanted.herokuapp.com/api/' + this.props.vehicle + '/trips';
+    fetch(url).then(res => res.json()).then(lastTrip => this.setState({ lastTrip }));
+  }
+
   render() {
+    {
+      this.props.vehicle;
+    }
+    let fuel = 30,
+        chargingState = 3;
+    let state = "Not Available",
+        plugged = "NO",
+        numberTrips = 0;
+    if (this.props.charge > 0) {
+      state = "Low";
+      plugged = "YES";
+    }
+    try {
+      numberTrips = this.state.lastTrip.length;
+    } catch (e) {}
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       { className: 'vehicle_details' },
@@ -81430,12 +81487,12 @@ class VehicleDetails extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compo
             'h2',
             null,
             'BMW ',
-            this.props.vehicle
+            this.props.model
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'h4',
             null,
-            'WBY1Z21000V308999'
+            this.props.vin
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -81451,7 +81508,7 @@ class VehicleDetails extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compo
             'h4',
             null,
             'Number of Trips: ',
-            this.props.state
+            numberTrips
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'h4',
@@ -81471,7 +81528,9 @@ class VehicleDetails extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compo
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'h4',
             null,
-            'Remaining Fuel: 0l'
+            'Remaining Fuel: ',
+            this.props.fuel,
+            'l'
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'h4',
@@ -81491,20 +81550,22 @@ class VehicleDetails extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compo
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'h4',
             null,
-            'Charging State: Low'
+            'Charging State: ',
+            state
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'h4',
             null,
-            'Pluged-In: ',
+            'Pluged-In:',
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'h2',
               null,
-              'YES'
+              plugged
             )
           )
         )
-      )
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { style: { height: 160 } })
     );
   }
 }
@@ -81587,7 +81648,7 @@ class ConfigurationPanel extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.C
       { className: 'navigation_all' },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { className: 'navigation_title' },
+        { className: 'navigation_title', style: { backgroundColor: "#f5f5f5" } },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'h2',
           { className: 'navigation_title-text' },
@@ -81597,10 +81658,9 @@ class ConfigurationPanel extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.C
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__NavigationTitle__["a" /* NavigationTitle */], { title: 'Employee Notifications', icon: 'fa fa-user-o icon', description: 'Set the thresholds for employees notifications' }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__ConfigurationSlider_js__["a" /* ConfigurationSlider */], { min: 1, max: 20, value: 14, title: 'Fuel Consumption' }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__ConfigurationSlider_js__["a" /* ConfigurationSlider */], { min: 1, max: 5, value: 3, title: 'Driving Behaviour' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__NavigationTitle__["a" /* NavigationTitle */], { title: 'Braking System', icon: 'fa fa-car icon', description: 'Set the thresholds for vehicle notifications' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__NavigationTitle__["a" /* NavigationTitle */], { title: 'Vehicle Notifications', icon: 'fa fa-car icon', description: 'Set the thresholds for vehicle notifications' }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__ConfigurationSlider_js__["a" /* ConfigurationSlider */], { min: 1, max: 100, value: 20, title: 'Fuel State' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__ConfigurationSlider_js__["a" /* ConfigurationSlider */], { min: 1, max: 100, value: 30, title: 'Charging State' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__ConfigurationSlider_js__["a" /* ConfigurationSlider */], { min: 1, max: 5, value: 3, title: 'Driving Behaviour' })
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__ConfigurationSlider_js__["a" /* ConfigurationSlider */], { min: 1, max: 100, value: 30, title: 'Charging State' })
     );
   }
 }
@@ -83289,7 +83349,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "/**\n* Rangeslider\n*/\n.rangeslider {\n  margin: 20px 0;\n  position: relative;\n  background: #e6e6e6;\n  -ms-touch-action: none;\n  touch-action: none;\n}\n.rangeslider,\n.rangeslider .rangeslider__fill {\n  display: block;\n  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);\n}\n.rangeslider .rangeslider__handle {\n  background: #fff;\n  border: 1px solid #ccc;\n  cursor: pointer;\n  display: inline-block;\n  position: absolute;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 -1px 3px rgba(0, 0, 0, 0.4);\n}\n.rangeslider .rangeslider__handle .rangeslider__active {\n  opacity: 1;\n}\n.rangeslider .rangeslider__handle-tooltip {\n  width: 40px;\n  height: 40px;\n  text-align: center;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  font-weight: normal;\n  font-size: 14px;\n  transition: all 100ms ease-in;\n  border-radius: 4px;\n  display: inline-block;\n  color: white;\n  left: 50%;\n  transform: translate3d(-50%, 0, 0);\n}\n.rangeslider .rangeslider__handle-tooltip span {\n  margin-top: 12px;\n  display: inline-block;\n  line-height: 100%;\n}\n.rangeslider .rangeslider__handle-tooltip:after {\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n}\n/**\n* Rangeslider - Horizontal slider\n*/\n.rangeslider-horizontal {\n  height: 12px;\n  border-radius: 10px;\n}\n.rangeslider-horizontal .rangeslider__fill {\n  height: 100%;\n  background-color: #F8BA71;\n  border-radius: 10px;\n  top: 0;\n}\n.rangeslider-horizontal .rangeslider__handle {\n  width: 30px;\n  height: 30px;\n  border-radius: 30px;\n  top: 50%;\n  transform: translate3d(-50%, -50%, 0);\n}\n.rangeslider-horizontal .rangeslider__handle:after {\n  content: ' ';\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  top: 6px;\n  left: 6px;\n  border-radius: 50%;\n  background-color: #dadada;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) inset, 0 -1px 3px rgba(0, 0, 0, 0.4) inset;\n}\n.rangeslider-horizontal .rangeslider__handle-tooltip {\n  top: -55px;\n}\n.rangeslider-horizontal .rangeslider__handle-tooltip:after {\n  border-left: 8px solid transparent;\n  border-right: 8px solid transparent;\n  border-top: 8px solid rgba(0, 0, 0, 0.8);\n  left: 50%;\n  bottom: -8px;\n  transform: translate3d(-50%, 0, 0);\n}\n/**\n* Rangeslider - Vertical slider\n*/\n.rangeslider-vertical {\n  margin: 20px auto;\n  height: 150px;\n  max-width: 10px;\n  background-color: transparent;\n}\n.rangeslider-vertical .rangeslider__fill,\n.rangeslider-vertical .rangeslider__handle {\n  position: absolute;\n}\n.rangeslider-vertical .rangeslider__fill {\n  width: 100%;\n  background-color: #F8BA71;\n  box-shadow: none;\n  bottom: 0;\n}\n.rangeslider-vertical .rangeslider__handle {\n  width: 30px;\n  height: 10px;\n  left: -10px;\n  box-shadow: none;\n}\n.rangeslider-vertical .rangeslider__handle-tooltip {\n  left: -100%;\n  top: 50%;\n  transform: translate3d(-50%, -50%, 0);\n}\n.rangeslider-vertical .rangeslider__handle-tooltip:after {\n  border-top: 8px solid transparent;\n  border-bottom: 8px solid transparent;\n  border-left: 8px solid rgba(0, 0, 0, 0.8);\n  left: 100%;\n  top: 12px;\n}\n/**\n* Rangeslider - Reverse\n*/\n.rangeslider-reverse.rangeslider-horizontal .rangeslider__fill {\n  right: 0;\n}\n.rangeslider-reverse.rangeslider-vertical .rangeslider__fill {\n  top: 0;\n  bottom: inherit;\n}\n/**\n* Rangeslider - Labels\n*/\n.rangeslider__labels {\n  position: relative;\n}\n.rangeslider-vertical .rangeslider__labels {\n  position: relative;\n  list-style-type: none;\n  margin: 0 0 0 24px;\n  padding: 0;\n  text-align: left;\n  width: 250px;\n  height: 100%;\n  left: 10px;\n}\n.rangeslider-vertical .rangeslider__labels .rangeslider__label-item {\n  position: absolute;\n  transform: translate3d(0, -50%, 0);\n}\n.rangeslider-vertical .rangeslider__labels .rangeslider__label-item::before {\n  content: '';\n  width: 10px;\n  height: 2px;\n  background: black;\n  position: absolute;\n  left: -14px;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: -1;\n}\n.rangeslider__labels .rangeslider__label-item {\n  position: absolute;\n  font-size: 14px;\n  cursor: pointer;\n  display: inline-block;\n  top: 10px;\n  transform: translate3d(-50%, 0, 0);\n}\n", ""]);
+exports.push([module.i, "/**\n* Rangeslider\n*/\n.rangeslider {\n  margin: 20px 0;\n  position: relative;\n  background: #e6e6e6;\n  -ms-touch-action: none;\n  touch-action: none;\n}\n.rangeslider,\n.rangeslider .rangeslider__fill {\n  display: block;\n  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);\n}\n.rangeslider .rangeslider__handle {\n  background: #fff;\n  border: 1px solid #ccc;\n  cursor: pointer;\n  display: inline-block;\n  position: absolute;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 -1px 3px rgba(0, 0, 0, 0.4);\n}\n.rangeslider .rangeslider__handle .rangeslider__active {\n  opacity: 1;\n}\n.rangeslider .rangeslider__handle-tooltip {\n  width: 40px;\n  height: 40px;\n  text-align: center;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  font-weight: normal;\n  font-size: 14px;\n  transition: all 100ms ease-in;\n  border-radius: 4px;\n  display: inline-block;\n  color: white;\n  left: 50%;\n  transform: translate3d(-50%, 0, 0);\n}\n.rangeslider .rangeslider__handle-tooltip span {\n  margin-top: 12px;\n  display: inline-block;\n  line-height: 100%;\n}\n.rangeslider .rangeslider__handle-tooltip:after {\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n}\n/**\n* Rangeslider - Horizontal slider\n*/\n.rangeslider-horizontal {\n  height: 12px;\n  border-radius: 10px;\n}\n.rangeslider-horizontal .rangeslider__fill {\n  height: 100%;\n  background-color: #F8BA71;\n  border-radius: 10px;\n  top: 0;\n}\n.rangeslider-horizontal .rangeslider__handle {\n  width: 20px;\n  height: 20px;\n  border-radius: 30px;\n  top: 50%;\n  transform: translate3d(-50%, -50%, 0);\n}\n.rangeslider-horizontal .rangeslider__handle:after {\n  content: ' ';\n  position: absolute;\n  width: 10px;\n  height: 10px;\n  top: 4px;\n  left: 4px;\n  border-radius: 50%;\n  background-color: #dadada;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) inset, 0 -1px 3px rgba(0, 0, 0, 0.4) inset;\n}\n.rangeslider-horizontal .rangeslider__handle-tooltip {\n  top: -55px;\n}\n.rangeslider-horizontal .rangeslider__handle-tooltip:after {\n  border-left: 8px solid transparent;\n  border-right: 8px solid transparent;\n  border-top: 8px solid rgba(0, 0, 0, 0.8);\n  left: 50%;\n  bottom: -8px;\n  transform: translate3d(-50%, 0, 0);\n}\n/**\n* Rangeslider - Vertical slider\n*/\n.rangeslider-vertical {\n  margin: 20px auto;\n  height: 150px;\n  max-width: 10px;\n  background-color: transparent;\n}\n.rangeslider-vertical .rangeslider__fill,\n.rangeslider-vertical .rangeslider__handle {\n  position: absolute;\n}\n.rangeslider-vertical .rangeslider__fill {\n  width: 100%;\n  background-color: #F8BA71;\n  box-shadow: none;\n  bottom: 0;\n}\n.rangeslider-vertical .rangeslider__handle {\n  width: 30px;\n  height: 10px;\n  left: -10px;\n  box-shadow: none;\n}\n.rangeslider-vertical .rangeslider__handle-tooltip {\n  left: -100%;\n  top: 50%;\n  transform: translate3d(-50%, -50%, 0);\n}\n.rangeslider-vertical .rangeslider__handle-tooltip:after {\n  border-top: 8px solid transparent;\n  border-bottom: 8px solid transparent;\n  border-left: 8px solid rgba(0, 0, 0, 0.8);\n  left: 100%;\n  top: 12px;\n}\n/**\n* Rangeslider - Reverse\n*/\n.rangeslider-reverse.rangeslider-horizontal .rangeslider__fill {\n  right: 0;\n}\n.rangeslider-reverse.rangeslider-vertical .rangeslider__fill {\n  top: 0;\n  bottom: inherit;\n}\n/**\n* Rangeslider - Labels\n*/\n.rangeslider__labels {\n  position: relative;\n}\n.rangeslider-vertical .rangeslider__labels {\n  position: relative;\n  list-style-type: none;\n  margin: 0 0 0 24px;\n  padding: 0;\n  text-align: left;\n  width: 250px;\n  height: 100%;\n  left: 10px;\n}\n.rangeslider-vertical .rangeslider__labels .rangeslider__label-item {\n  position: absolute;\n  transform: translate3d(0, -50%, 0);\n}\n.rangeslider-vertical .rangeslider__labels .rangeslider__label-item::before {\n  content: '';\n  width: 10px;\n  height: 2px;\n  background: black;\n  position: absolute;\n  left: -14px;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: -1;\n}\n.rangeslider__labels .rangeslider__label-item {\n  position: absolute;\n  font-size: 14px;\n  cursor: pointer;\n  display: inline-block;\n  top: 10px;\n  transform: translate3d(-50%, 0, 0);\n}\n", ""]);
 
 // exports
 
