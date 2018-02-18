@@ -27,6 +27,7 @@ export class VehicleDetails extends React.Component {
     }
     try{
         numberTrips = this.state.lastTrip.length
+        
     }
     catch(e){}
     return (
