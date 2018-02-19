@@ -4,11 +4,11 @@ import React from 'react';
 import '../css/contentPanel.css';
 import '../css/tripPanel.css';
 
-var images = ["http://www.bmw.de/dam/brandBM/common/newvehicles/i-series/i3/2017/design/BMW-i-series-i3-design-colors-04.jpg.resource.1502371240835.jpg", 
-              "https://car-pictures.cars.com/images/?IMG=USC60BMC201A021001_2.jpg&HEIGHT=600",
-              "https://www.bmwgroup.com/content/dam/bmw-group-websites/bmwgroup_com/innovation/effizienz_und_elektromobilit%C3%A4t/Innovationen_Effizienz_Elektromobilitaet_BMW_i8.png.grp-transform/large/Innovationen_Effizienz_Elektromobilitaet_BMW_i8.png",
-              "https://immagini.alvolante.it/sites/default/files/styles/anteprima_lunghezza_640_jpg/public/serie_auto_galleria/2013/11/bmw_i3_top_post.png?itok=bnK2Upuo",
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiNv8QXBhB91IpiQQGpXcccb4CuIhihyEC4jtoVndRrg_7lUUM"];
+var images = ["https://s3.eu-central-1.amazonaws.com/fleetme/cars/320i.jpeg", 
+              "https://s3.eu-central-1.amazonaws.com/fleetme/cars/i3.png",
+              "https://s3.eu-central-1.amazonaws.com/fleetme/cars/120.jpg",
+              "https://s3.eu-central-1.amazonaws.com/fleetme/cars/120.jpg",
+              "https://s3.eu-central-1.amazonaws.com/fleetme/cars/bmw-m235i.jpg"];
 
 export class TripPanel extends React.Component {
 
