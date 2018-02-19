@@ -33,11 +33,11 @@ exports.seedUsers = function(){
 // Seed Cars -------------------------------------
 exports.seedCars = function(){
      const cars = [
-     {vin:'WBA1J71080V593471',model: 'M235i', image: 'https://gts-models.com/1027-thickbox_default/bmw-m235i.jpg'},
-     {vin:'WBA1S51010V834224',model: '120', image: 'http://oumma-city.com/wp-content/uploads/2017/07/2012-bmw-1-series-coupe-11-bmw-1-series-e82-2010-2013.jpg'},
-     {vin:'WBY1Z21000V308999',model: 'i3', image: 'https://immagini.alvolante.it/sites/default/files/styles/anteprima_lunghezza_640_jpg/public/serie_auto_galleria/2013/11/bmw_i3_top_post.png?itok=bnK2Upuo'},
-     {vin:'WBA1S510805J88762',model: '320i', image: 'https://car-pictures.cars.com/images/?IMG=USC60BMC201A021001_2.jpg&HEIGHT=600'},
-     {vin:'WBAUD91090P381103',model: '120d', image: 'http://oumma-city.com/wp-content/uploads/2017/07/2012-bmw-1-series-coupe-11-bmw-1-series-e82-2010-2013.jpg'}
+          {vin:'WBA1J71080V593471',model: 'M235i', image: 'https://s3.eu-central-1.amazonaws.com/fleetme/cars/bmw-m235i.jpg'},
+          {vin:'WBA1S51010V834224',model: '120', image: 'https://s3.eu-central-1.amazonaws.com/fleetme/cars/120.jpg'},
+          {vin:'WBY1Z21000V308999',model: 'i3', image: 'https://s3.eu-central-1.amazonaws.com/fleetme/cars/i3.png'},
+          {vin:'WBA1S510805J88762',model: '320i', image: 'https://s3.eu-central-1.amazonaws.com/fleetme/cars/320i.jpeg'},
+          {vin:'WBAUD91090P381103',model: '120d', image: 'https://s3.eu-central-1.amazonaws.com/fleetme/cars/120.jpg'}
      ]
      for(car of cars){
           var newCar= new Car(car)

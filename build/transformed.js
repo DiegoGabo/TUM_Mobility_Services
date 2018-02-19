@@ -57230,18 +57230,21 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
             let url = 'https://bemostwanted.herokuapp.com/api/' + this.state.vehicle + '/trips/last';
             fetch(url).then(res => res.json()).then(lastTrip => this.setState({ lastTrip }));
-            let lat = 48.19284;
+            let latitude = 48.19284;
             let lng = 11.568518;
             let vin = "BM12345";
             let fuel = 20;
             let charge = 30;
             try {
-                lat = this.state.lastTrip.gpsLat;
+                latitude = this.state.lastTrip.gpsLat;
                 lng = this.state.lastTrip.gpsLng;
+                console.log(lng);
                 fuel = this.state.lastTrip.fuelConsumption;
                 charge = this.state.lastTrip.lastTripElectricEnergyConsumptionOverall;
                 vin = this.state.lastTrip.vinBmw;
             } catch (e) {}
+
+            map = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__MapPosition__["a" /* MapPosition */], { latitude: 48.19284, longitude: 11.568518 });
 
             panel = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
@@ -57256,7 +57259,6 @@ class Overview extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                     changeGPS: this.changeGPS
                 })
             );
-            map = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__MapPosition__["a" /* MapPosition */], { latitude: lat, longitude: lng });
         }
 
         //renders the trip management section in panel if it is active. It contains the list of trips
@@ -80192,7 +80194,7 @@ class TripManagementPanels extends __WEBPACK_IMPORTED_MODULE_1_react___default.a
 
 
 
-var images = ["http://www.bmw.de/dam/brandBM/common/newvehicles/i-series/i3/2017/design/BMW-i-series-i3-design-colors-04.jpg.resource.1502371240835.jpg", "http://pngimg.com/uploads/bmw/bmw_PNG1711.png", "https://www.bmwgroup.com/content/dam/bmw-group-websites/bmwgroup_com/innovation/effizienz_und_elektromobilit%C3%A4t/Innovationen_Effizienz_Elektromobilitaet_BMW_i8.png.grp-transform/large/Innovationen_Effizienz_Elektromobilitaet_BMW_i8.png", "https://immagini.alvolante.it/sites/default/files/styles/anteprima_lunghezza_640_jpg/public/serie_auto_galleria/2013/11/bmw_i3_top_post.png?itok=bnK2Upuo", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiNv8QXBhB91IpiQQGpXcccb4CuIhihyEC4jtoVndRrg_7lUUM"];
+var images = ["https://s3.eu-central-1.amazonaws.com/fleetme/cars/320i.jpeg", "https://s3.eu-central-1.amazonaws.com/fleetme/cars/i3.png", "https://s3.eu-central-1.amazonaws.com/fleetme/cars/120.jpg", "https://s3.eu-central-1.amazonaws.com/fleetme/cars/120.jpg", "https://s3.eu-central-1.amazonaws.com/fleetme/cars/bmw-m235i.jpg"];
 
 class TripPanel extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
