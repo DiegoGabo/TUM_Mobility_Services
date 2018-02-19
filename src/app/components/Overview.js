@@ -222,7 +222,7 @@ constructor(props)
             latitude = this.state.lastTrip.gpsLat
             lng = this.state.lastTrip.gpsLng
             console.log(lng)
-            fuel = this.state.lastTrip.fuelConsumption
+            fuel = this.state.lastTrip.remainingFuel
             charge = this.state.lastTrip.lastTripElectricEnergyConsumptionOverall
             vin = this.state.lastTrip.vinBmw
         }
