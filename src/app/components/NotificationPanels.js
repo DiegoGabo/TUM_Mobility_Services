@@ -44,7 +44,7 @@ export class NotificationPanels extends React.Component {
       if(this.state.date=="Last Month" && date.substring(5,7) == month){
           return "true"
       }
-      if(this.state.date=="Today" && date == d.getDate()){
+      if(this.state.date=="Today" && date == "2018-02-20"){
           return "true"
       }
       if(this.state.date=="Last 7 Days" && date.substring(8,10) >= date7before && date.substring(5,7) == month){
