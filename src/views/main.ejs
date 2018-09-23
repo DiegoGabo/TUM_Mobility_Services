@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Prototype I</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+	body {
+	  font: 20px Montserrat, sans-serif;
+	  line-height: 1.8;
+	}
+	p {font-size: 16px;}
+	.margin {margin-bottom: 45px;}
+	.bg-1 { 
+	  background-color: #1abc9c; /* Green */
+	  color: #ffffff;
+	}
+	.bg-2 { 
+	  background-color: #474e5d; /* Dark Blue */
+	  color: #ffffff;
+	}
+	.bg-3 { 
+	  background-color: #ffffff; /* White */
+	  color: #555555;
+	}
+	.bg-4 { 
+	  background-color: #2f2f2f; /* Black Gray */
+	  color: #fff;
+	}
+	.container-fluid {
+	  padding-top: 70px;
+	  padding-bottom: 70px;
+	}
+	.navbar {
+	  padding-top: 15px;
+	  padding-bottom: 15px;
+	  border: 0;
+	  border-radius: 0;
+	  margin-bottom: 0;
+	  font-size: 12px;
+	  letter-spacing: 5px;
+	}
+	.navbar-nav  li a:hover {
+	  color: #1abc9c !important;
+	}
+  </style>
+</head>
+<body>
+	<!-- Navbar -->
+	<nav class="navbar navbar-default" style="height: 80px">
+        <div class="col-sm-4" >
+            <a href="#" class="btn btn-info btn-lg" style="margin: 5px">
+            <span class="glyphicon glyphicon-user"></span> Logged in as Steven Blind
+            </a>  
+        </div>
+	</nav>
+
+	<!-- First Container -->
+	<div class="container bg-1" style="width: 100%; height: 100px">
+        <div class="col-sm-10">
+             <h2>Prototype I</h2>
+             <p>Find the last position of your car</p>
+        </div>
+	</div>
+
+	<div class="row" style="margin: 5px">
+		<div class="col-sm-8">
+			<h1>Map</h1>
+            
+			<div id="map" style="width: 100%;height: 630px;round:yellow; margin: 5px;"></div>
+			
+			
+		</div>
+
+		<div class="col-sm-4">
+            <div class="col-xs-12" style="height:70px;"></div>
+			<h1>Insert</h1>
+      <h3>Registered Car VINs in the system</h3>
+      <p>
+          WBA1S510805J88762 WBY1Z21000V308999 WBAUD91090P381103
+      </p>
+			<form class="form-horizontal" action="/api">
+    			<div class="form-group">
+      				<label class="control-label col-sm-2" for="vin">VIN: </label>
+      					<div class="col-sm-10">
+        					<input class="form-control" id="latitude" placeholder="Enter VIN" name="vinBmw">
+      					</div>
+    			</div>
+          <button type="submit" class="btn btn-default btn-block">Submit</button>
+		  </form>        
+          <div class="col-xs-12" style="height:50px;"></div>
+          <h1>Result</h1>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>Mileage</td>
+                <td>
+                    <div class="alert alert-danger">
+                        <strong id="mileage"><%= query[query.length-1].mileage %> </strong> Too many km!!
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Air temperature</td>
+                <td>
+                    <div class="alert alert-success">
+                        <strong id="kpi"><%= query[query.length-1].airTemperature %></strong> Good weather condition
+                    </div>
+
+                </td>
+              </tr>
+              <tr>
+                <td>Fuel</td>
+                <td>
+                    <div class="progress" style="height: 50px" >
+                        <div  class="progress-bar progress-bar-striped active" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width:<%= query[query.length-1].remainingFuel %>%">
+                        <h3 style="margin: 10px" id="battery"></h3>
+                        </div>
+                    </div> 
+                </td>
+              </tr>
+            </tbody>
+          </table>   
+          </div>
+	</div> 
+    <footer>
+        <div class="container" style="background-color: #004D40; width: 100%">
+            <div class="col-sm-10" style="margin-bottom: 5px; margin-top: 5px"> 
+                <p style="color: white">© Copyright 2017 Team 2 Mobility Services - All Rights Reserved</p>
+            </div>
+            <div class="col-sm-2" style="margin-bottom: 5px; margin-top: 10px">
+             <i class="fa fa-facebook-square" style="font-size:30px; color: white; margin-left: 5px" ></i>
+             <i class="fa fa-google-plus-official" style="font-size:30px; color: white; margin-left: 5px"></i>
+             <i class="fa fa-linkedin-square" style="font-size:30px; color: white; margin-left: 5px"></i>
+             <i class="fa fa-pinterest" style="font-size:30px; color: white; margin-left: 5px"></i>
+             <i class="fa fa-twitter-square" style="font-size:30px; color: white; margin-left: 5px"></i>
+            </div>
+        </div>
+    </footer>
+<script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: {lat: <%= query[query.length-1].gpsLat %>, lng: <%= query[query.length-1].gpsLng %>},
+    mapTypeId: 'terrain'
+  });
+
+  var flightPlanCoordinates = [
+    {lat: <%= query[query.length-1].gpsLat %>, lng: <%= query[query.length-1].gpsLng %>},
+    {lat: 48.113793, lng: 11.421509},
+    {lat: 48.123653, lng: 11.451309},
+    {lat: 48.143993, lng: 11.430609},
+  ];
+  var flightPath = new google.maps.Polyline({
+    path: flightPlanCoordinates,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+
+  flightPath.setMap(map);
+}
+</script>
+    <script async defer		
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvFKFLNyeslv9r5VdA86Vnu1-e-E_-HQ4&callback=initMap">;
+</script>
+</body>
+</html>
